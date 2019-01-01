@@ -5,7 +5,7 @@
 #'
 #' @return A modified version of the input function with the following
 #'   arguments:
-#'   * `path_dir: Optional string giving the path to the directory to read from.
+#'   * `path_dir`: Optional string giving the path to the directory to read from.
 #'     Defaults to reading from the working directory.
 #'   * `...` Arguments passed to the reader function.
 #'
@@ -14,27 +14,27 @@
 #'
 #' @examples
 #' readwith_example()
-#' 
+#'
 #' (csv_files <- readwith_example("csv"))
 #' dir(csv_files)
-#' 
+#'
 #' csv_list <- read_with(read.csv)
 #' csv_list(csv_files)
-#' 
+#'
 #' # Same
 #' read_with(read.csv)(csv_files)
-#' 
+#'
 #' # More robust
 #' csv_list <- read_with(read.csv, regexp = "[.]csv")
 #' csv_list(csv_files, stringsAsFactors = TRUE)
-#' 
+#'
 #' # Compare
 #' class(csv_list(csv_files)[[2]]$y)
 #' class(csv_list(csv_files, stringsAsFactors = FALSE)[[2]]$y)
-#' 
+#'
 #' (rdata_files <- readwith_example("rdata"))
 #' dir(rdata_files)
-#' 
+#'
 #' # You may create your own reader function
 #' read_rdata <- function(x) get(load(x))
 #' rdata_list <- read_with(read_rdata)

@@ -15,7 +15,7 @@ read_with(.f, regexp = NULL)
 A modified version of the input function with the following
 arguments:
 \itemize{
-\item `path_dir: Optional string giving the path to the directory to read from.
+\item \code{path_dir}: Optional string giving the path to the directory to read from.
 Defaults to reading from the working directory.
 \item \code{...} Arguments passed to the reader function.
 }
