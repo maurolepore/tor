@@ -1,41 +1,41 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# readw
+# readwith
 
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![Travis build
-status](https://travis-ci.org/maurolepore/readw.svg?branch=master)](https://travis-ci.org/maurolepore/readw)
+status](https://travis-ci.org/maurolepore/readwith.svg?branch=master)](https://travis-ci.org/maurolepore/readwith)
 [![Coverage
-status](https://coveralls.io/repos/github/maurolepore/readw/badge.svg)](https://coveralls.io/r/maurolepore/readw?branch=master)
+status](https://coveralls.io/repos/github/maurolepore/readwith/badge.svg)](https://coveralls.io/r/maurolepore/readwith?branch=master)
 [![CRAN
-status](https://www.r-pkg.org/badges/version/readw)](https://cran.r-project.org/package=readw)
+status](https://www.r-pkg.org/badges/version/readwith)](https://cran.r-project.org/package=readwith)
 
-**readw** allows you to read multiple files at once with any reading
-function. Its main function, `readw::read_with()`, inputs a reader
+**readwith** allows you to read multiple files at once with any reading
+function. Its main function, `readwith::read_with()`, inputs a reader
 function and returns a modified version that reads any number of files
 and stores them into a list (provided the first argument of the reader
 function is a path to a file). Compared to other packages aimed to
-reading files, **readw** is more simpler, more flexible, and has less
+reading files, **readwith** is more simpler, more flexible, and has less
 dependencies.
 
 ## Installation
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("maurolepore/readw")
+devtools::install_github("maurolepore/readwith")
 ```
 
 ## Example
 
 ``` r
-library(readw)
+library(readwith)
 
-readw_example()
+readwith_example()
 #> [1] "csv"   "mixed" "rdata" "rds"
 
-(csv_files <- readw_example("csv"))
-#> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/readw/extdata/csv"
+(csv_files <- readwith_example("csv"))
+#> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/readwith/extdata/csv"
 dir(csv_files)
 #> [1] "file1.csv" "file2.csv"
 
@@ -70,8 +70,8 @@ arguments to the reader function via `...` (not an argument of
 `read_with()` but of the modified function it creates).
 
 ``` r
-(mixed_files <- readw_example("mixed"))
-#> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/readw/extdata/mixed"
+(mixed_files <- readwith_example("mixed"))
+#> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/readwith/extdata/mixed"
 dir(mixed_files)
 #> [1] "file1.csv"   "file2.rdata"
 
@@ -103,8 +103,8 @@ create your own.
 ``` r
 read_rdata <- function(x) get(load(x))
 
-(rdata_files <- readw_example("rdata"))
-#> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/readw/extdata/rdata"
+(rdata_files <- readwith_example("rdata"))
+#> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/readwith/extdata/rdata"
 dir(rdata_files)
 #> [1] "file1.rdata" "file2.rdata"
 
@@ -125,13 +125,13 @@ read_with(read_rdata)(rdata_files)
 There are great packages to read and write data, for example
 [**rio**](https://CRAN.R-project.org/package=rio) and
 [**io**](https://CRAN.R-project.org/package=io). Compared to them, this
-is how **readw** compares:
+is how **readwith** compares:
 
-  - **readw** may be confusing if you are unfamiliar with [function
+  - **readwith** may be confusing if you are unfamiliar with [function
     factories](https://adv-r.hadley.nz/function-factories.html).
-  - **readw** is simpler:
+  - **readwith** is simpler:
       - It does not write data (only reads it).
-      - It is not **readw** but the user who provides the reader
-        function – thus **readw** has almost no dependency.
-  - **readw** is more flexible because it works at a higher level of
+      - It is not **readwith** but the user who provides the reader
+        function – thus **readwith** has almost no dependency.
+  - **readwith** is more flexible because it works at a higher level of
     abstraction.

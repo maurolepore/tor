@@ -1,4 +1,4 @@
-Package: readw
+Package: readwith
 Title: Read Multiple Files With Any Reading Function
 Version: 0.0.0.900
 Authors@R: 
@@ -6,15 +6,15 @@ Authors@R:
            family = "Lepore",
            role = c("aut", "cre"),
            email = "maurolepore@gmail.com")
-Description: Use readw to read, with your favorite reading function, 
+Description: Use readwith to read, with your favorite reading function, 
     multiple files -- all at once. Its main function inputs a reader function 
     and returns a modified version that maps each files to one element of 
     a list (provided the first argument of the reader function is a path to a
-    file). Compared to other packages aimed to reading files, readw is more
+    file). Compared to other packages aimed to reading files, readwith is more
     simpler, more flexible, and has less dependencies.
 License: GPL-3
-URL: https://github.com/maurolepore/readw
-BugReports: https://github.com/maurolepore/readw/issues
+URL: https://github.com/maurolepore/readwith
+BugReports: https://github.com/maurolepore/readwith/issues
 Imports: 
     fs
 Suggests: 

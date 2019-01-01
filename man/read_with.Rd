@@ -24,9 +24,9 @@ Defaults to reading from the working directory.
 Import multiple files into a list using any given reading function.
 }
 \examples{
-readw_example()
+readwith_example()
 
-(csv_files <- readw_example("csv"))
+(csv_files <- readwith_example("csv"))
 dir(csv_files)
 
 csv_list <- read_with(read.csv)
@@ -43,7 +43,7 @@ csv_list(csv_files, stringsAsFactors = TRUE)
 class(csv_list(csv_files)[[2]]$y)
 class(csv_list(csv_files, stringsAsFactors = FALSE)[[2]]$y)
 
-(rdata_files <- readw_example("rdata"))
+(rdata_files <- readwith_example("rdata"))
 dir(rdata_files)
 
 # You may create your own reader function

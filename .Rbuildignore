@@ -2,5 +2,5 @@
 ^\.travis\.yml$
 ^LICENSE\.md$
 ^README\.Rmd$
-^readw\.Rproj$
+^readwith\.Rproj$
 ^\.Rproj\.user$

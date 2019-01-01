@@ -8,14 +8,14 @@
 #' @export
 #'
 #' @examples
-#' readw_example()
-#' readw_example("csv")
-#' dir(readw_example("csv"))
-readw_example <- function(path = NULL) {
+#' readwith_example()
+#' readwith_example("csv")
+#' dir(readwith_example("csv"))
+readwith_example <- function(path = NULL) {
   if (is.null(path)) {
-    dir(system.file("extdata", package = "readw"))
+    dir(system.file("extdata", package = "readwith"))
   }
   else {
-    system.file("extdata", path, package = "readw", mustWork = TRUE)
+    system.file("extdata", path, package = "readwith", mustWork = TRUE)
   }
 }

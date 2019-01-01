@@ -1,3 +1,3 @@
-# readw 1.0.0
+# readwith 1.0.0
 
 * Initial release.

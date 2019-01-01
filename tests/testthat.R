@@ -1,4 +1,4 @@
 library(testthat)
-library(readw)
+library(readwith)
 
-test_check("readw")
+test_check("readwith")
