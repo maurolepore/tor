@@ -1,15 +1,26 @@
 Package: readw
-Title: What the Package Does (One Line, Title Case)
+Title: Read Multiple Files With Any Reading Function
 Version: 0.0.0.9000
 Authors@R: 
-    c(person(given = "Mauro",
-             family = "Lepore",
-             role = c("aut", "ctr", "cre"),
-             email = "leporem@si.edu"),
-      person(given = "CTFS-ForestGEO",
-             role = "cph",
-             email = "ForestGEO@si.edu"))
-Description: What the package does (one paragraph).
+    person(given = "Mauro",
+           family = "Lepore",
+           role = c("aut", "ctr", "cre"),
+           email = "maurolepore@gmail.com")
+Description: Read multiple files with any reading function and
+    store the output into a list. The main function, `read_with()`, is a
+    function factory. It inputs any reader function and returns a
+    modified, vectorized, version that reads multiple files at once.
 License: GPL-3
+URL: https://github.com/maurolepore/readw
+BugReports: https://github.com/maurolepore/readw/issues
+Imports: 
+    fs
+Suggests: 
+    covr,
+    spelling,
+    testthat
 Encoding: UTF-8
+Language: en-US
 LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1

@@ -1,2 +1,5 @@
+^\.travis\.yml$
+^LICENSE\.md$
+^README\.Rmd$
 ^readw\.Rproj$
 ^\.Rproj\.user$
