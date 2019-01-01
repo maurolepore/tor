@@ -1,0 +1,15 @@
+Package: readw
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+    c(person(given = "Mauro",
+             family = "Lepore",
+             role = c("aut", "ctr", "cre"),
+             email = "leporem@si.edu"),
+      person(given = "CTFS-ForestGEO",
+             role = "cph",
+             email = "ForestGEO@si.edu"))
+Description: What the package does (one paragraph).
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
