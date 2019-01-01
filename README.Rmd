@@ -42,6 +42,7 @@ readw_example()
 dir(csv_files)
 
 csv_list <- read_with(read.csv)
+
 csv_list(csv_files)
 
 # Same
@@ -55,13 +56,17 @@ The argument `regexp` allows you to match specific files. You can pass arguments
 dir(mixed_files)
 
 # Using `regexp` to match .csv only
-csv_list <- read_with(read.csv, regexp = "[.]csv")
+csv_list <- read_with(read.csv, regexp = "[.]csv$")
+
 # Passing `stringsAsFactors` via the argument `...` of read.csv
-csv_list(mixed_files, stringsAsFactors = TRUE)
+result1 <- csv_list(mixed_files, stringsAsFactors = TRUE)
+result2 <- csv_list(mixed_files, stringsAsFactors = FALSE)
 
 # Compare
-class(csv_list(mixed_files)[[1]]$y)
-class(csv_list(mixed_files, stringsAsFactors = FALSE)[[1]]$y)
+class(result1[["file1"]]$y)
+class(result2[["file1"]]$y)
+
+result2
 ```
 
 You may use any available reader function, such as [`readr::read_csv()`](https://CRAN.R-project.org/package=readr), and  [`readxl::read_excel()`]( https://CRAN.R-project.org/package=readxl )), or create your own.
@@ -72,8 +77,7 @@ read_rdata <- function(x) get(load(x))
 (rdata_files <- readw_example("rdata"))
 dir(rdata_files)
 
-rdata_list <- read_with(read_rdata)
-rdata_list(rdata_files)
+read_with(read_rdata)(rdata_files)
 ```
 
 # Related projects

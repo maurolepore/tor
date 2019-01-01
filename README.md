@@ -40,6 +40,7 @@ dir(csv_files)
 #> [1] "file1.csv" "file2.csv"
 
 csv_list <- read_with(read.csv)
+
 csv_list(csv_files)
 #> $file1
 #>   x
@@ -75,19 +76,23 @@ dir(mixed_files)
 #> [1] "file1.csv"   "file2.rdata"
 
 # Using `regexp` to match .csv only
-csv_list <- read_with(read.csv, regexp = "[.]csv")
+csv_list <- read_with(read.csv, regexp = "[.]csv$")
+
 # Passing `stringsAsFactors` via the argument `...` of read.csv
-csv_list(mixed_files, stringsAsFactors = TRUE)
+result1 <- csv_list(mixed_files, stringsAsFactors = TRUE)
+result2 <- csv_list(mixed_files, stringsAsFactors = FALSE)
+
+# Compare
+class(result1[["file1"]]$y)
+#> [1] "factor"
+class(result2[["file1"]]$y)
+#> [1] "character"
+
+result2
 #> $file1
 #>   y
 #> 1 a
 #> 2 b
-
-# Compare
-class(csv_list(mixed_files)[[1]]$y)
-#> [1] "factor"
-class(csv_list(mixed_files, stringsAsFactors = FALSE)[[1]]$y)
-#> [1] "character"
 ```
 
 You may use any available reader function, such as
@@ -103,8 +108,7 @@ read_rdata <- function(x) get(load(x))
 dir(rdata_files)
 #> [1] "file1.rdata" "file2.rdata"
 
-rdata_list <- read_with(read_rdata)
-rdata_list(rdata_files)
+read_with(read_rdata)(rdata_files)
 #> $file1
 #>   x
 #> 1 1
