@@ -60,3 +60,10 @@ test_that("passes arguments to the reader function via `...`", {
   expect_is(csv_list(csv_files)[[2]]$y, "factor")
   expect_is(csv_list(csv_files, stringsAsFactors = FALSE)[[2]]$y, "character")
 })
+
+test_that("with `path = NULL` reads from the current directory", {
+  expect_is(
+    read_with(read.csv, "[.]csv")()[[1]],
+    "data.frame"
+  )
+})

@@ -6,12 +6,12 @@
 \alias{readw-package}
 \title{readw: Read Multiple Files With Any Reading Function}
 \description{
-__readw__ allows you to read multiple files at once with any 
-    reading function. Its main function, `readw::read_with()`, inputs a reader
-    function and returns a modified version that reads any number of files and
-    stores them into a list (provided the first argument of the reader function
-    is a path to a file). Compared to other packages aimed to reading files, 
-    __readw__ is more simpler, more flexible, and has less dependencies.
+Use readw to read, with your favorite reading function, 
+    multiple files -- all at once. Its main function inputs a reader function 
+    and returns a modified version that maps each files to one element of 
+    a list (provided the first argument of the reader function is a path to a
+    file). Compared to other packages aimed to reading files, readw is more
+    simpler, more flexible, and has less dependencies.
 }
 \seealso{
 Useful links:
