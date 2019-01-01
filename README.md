@@ -15,7 +15,9 @@ status](https://www.r-pkg.org/badges/version/readw)](https://cran.r-project.org/
 function. Its main function, `readw::read_with()`, inputs a reader
 function and returns a modified version that reads any number of files
 and stores them into a list (provided the first argument of the reader
-function is a path to a file).
+function is a path to a file). Compared to other packages aimed to
+reading files, **readw** is more simpler, more flexible, and has less
+dependencies.
 
 ## Installation
 
@@ -33,7 +35,7 @@ readw_example()
 #> [1] "csv"   "mixed" "rdata" "rds"
 
 (csv_files <- readw_example("csv"))
-#> [1] "C:/Users/LeporeM/Documents/R/R-3.5.1/library/readw/extdata/csv"
+#> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/readw/extdata/csv"
 dir(csv_files)
 #> [1] "file1.csv" "file2.csv"
 
@@ -68,7 +70,7 @@ arguments to the reader function via `...` (not an argument of
 
 ``` r
 (mixed_files <- readw_example("mixed"))
-#> [1] "C:/Users/LeporeM/Documents/R/R-3.5.1/library/readw/extdata/mixed"
+#> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/readw/extdata/mixed"
 dir(mixed_files)
 #> [1] "file1.csv"   "file2.rdata"
 
@@ -97,7 +99,7 @@ create your own.
 read_rdata <- function(x) get(load(x))
 
 (rdata_files <- readw_example("rdata"))
-#> [1] "C:/Users/LeporeM/Documents/R/R-3.5.1/library/readw/extdata/rdata"
+#> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/readw/extdata/rdata"
 dir(rdata_files)
 #> [1] "file1.rdata" "file2.rdata"
 
