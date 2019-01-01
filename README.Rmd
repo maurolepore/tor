@@ -82,10 +82,8 @@ read_with(read_rdata)(rdata_files)
 
 # Related projects
 
-There are great packages to read and write data, for example [__rio__](https://CRAN.R-project.org/package=rio) and [__io__](https://CRAN.R-project.org/package=io). Compared to them, this is how __readwith__ compares:
+There are great packages to read and write data, for example [__rio__](https://CRAN.R-project.org/package=rio) and [__io__](https://CRAN.R-project.org/package=io). Compared to them __readwith__:
 
-* __readwith__ may be confusing if you are unfamiliar with [function factories](https://adv-r.hadley.nz/function-factories.html). 
-* __readwith__ is simpler:
-    * It does not write data (only reads it).
-    * It is not __readwith__ but the user who provides the reader function -- thus __readwith__ has almost no dependency.
-* __readwith__ is more flexible because it works at a higher level of abstraction.
+* may be confusing if you are unfamiliar with [function factories](https://adv-r.hadley.nz/function-factories.html). 
+* is simpler because it does not write but only only read data and because it has fewer dependencies.
+* __readwith__ is more flexible because it is you who decides what reader function to use.

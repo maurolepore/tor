@@ -124,14 +124,12 @@ read_with(read_rdata)(rdata_files)
 
 There are great packages to read and write data, for example
 [**rio**](https://CRAN.R-project.org/package=rio) and
-[**io**](https://CRAN.R-project.org/package=io). Compared to them, this
-is how **readwith** compares:
+[**io**](https://CRAN.R-project.org/package=io). Compared to them
+**readwith**:
 
-  - **readwith** may be confusing if you are unfamiliar with [function
+  - may be confusing if you are unfamiliar with [function
     factories](https://adv-r.hadley.nz/function-factories.html).
-  - **readwith** is simpler:
-      - It does not write data (only reads it).
-      - It is not **readwith** but the user who provides the reader
-        function – thus **readwith** has almost no dependency.
-  - **readwith** is more flexible because it works at a higher level of
-    abstraction.
+  - is simpler because it does not write but only only read data and
+    because it has fewer dependencies.
+  - **readwith** is more flexible because it is you who decides what
+    reader function to use.
