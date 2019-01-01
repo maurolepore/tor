@@ -2,7 +2,7 @@
 % Please edit documentation in R/read_with.R
 \name{read_with}
 \alias{read_with}
-\title{Import multiple files into a list using any given reading function.}
+\title{Read multiple files into a list using any given reading function.}
 \usage{
 read_with(.f, regexp = NULL)
 }
@@ -21,7 +21,7 @@ Defaults to reading from the working directory.
 }
 }
 \description{
-Import multiple files into a list using any given reading function.
+Read multiple files into a list using any given reading function.
 }
 \examples{
 readwith_example()

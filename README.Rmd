@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 [![Coverage status](https://coveralls.io/repos/github/maurolepore/readwith/badge.svg)](https://coveralls.io/r/maurolepore/readwith?branch=master)
 [![CRAN status](https://www.r-pkg.org/badges/version/readwith)](https://cran.r-project.org/package=readwith)
 
-__readwith__ allows you to read multiple files at once with any reading function. Its main function, `readwith::read_with()`, inputs a reader function and returns a modified version that reads any number of files and stores them into a list (provided the first argument of the reader function is a path to a file). Compared to other packages aimed to reading files, __readwith__ is more simpler, more flexible, and has less dependencies.
+__readwith__ allows you to read multiple files at once with any reading function. Its main function, `readwith::read_with()`, inputs a reader function and returns a modified version that reads any number of files and stores them into a list (provided the first argument of the reader function is a path to a file). Compared to other packages aimed to reading files, __readwith__ is simpler, more flexible, and has less dependencies.
 
 ## Installation
 

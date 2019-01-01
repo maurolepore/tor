@@ -16,7 +16,7 @@ function. Its main function, `readwith::read_with()`, inputs a reader
 function and returns a modified version that reads any number of files
 and stores them into a list (provided the first argument of the reader
 function is a path to a file). Compared to other packages aimed to
-reading files, **readwith** is more simpler, more flexible, and has less
+reading files, **readwith** is simpler, more flexible, and has less
 dependencies.
 
 ## Installation

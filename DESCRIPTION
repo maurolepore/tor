@@ -1,6 +1,6 @@
 Package: readwith
 Title: Read Multiple Files With Any Reading Function
-Version: 0.0.0.900
+Version: 0.0.0.9000
 Authors@R: 
     person(given = "Mauro",
            family = "Lepore",
