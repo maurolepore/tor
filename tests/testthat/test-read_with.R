@@ -54,3 +54,44 @@ test_that("read_with with no path reads from working directory", {
     "data.frame"
   )
 })
+
+test_that("read_with is sensitive to `ignore.case`", {
+  path <- readwith_example("mixed")
+
+  expect_named(
+    read_with(
+      function(x) get(load(x)),
+      regexp = "[.]rdata$",
+      ignore.case = FALSE
+    )(path),
+    c("lower_rdata")
+  )
+
+  expect_named(
+    read_with(
+      function(x) get(load(x)),
+      regexp = "[.]rdata$",
+      ignore.case = TRUE
+    )(path),
+    c("lower_rdata", "upper_rdata")
+  )
+
+  expect_named(
+    read_with(
+      function(x) get(load(x)),
+      regexp = "[.]csv$",
+      ignore.case = TRUE,
+      invert = TRUE
+    )(path),
+    c("lower_rdata", "rda", "upper_rdata")
+  )
+})
+
+context("test-rdata_list")
+
+test_that("rdata_list lists .rdata, .Rdata, and .rda", {
+  expect_named(
+    rdata_list(readwith_example("mixed")),
+    c("lower_rdata", "rda", "upper_rdata")
+  )
+})

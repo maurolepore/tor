@@ -2,6 +2,7 @@
 #'
 #' @param .f A function able to read the desired file format.
 #' @inheritParams fs::dir_ls
+#' @inheritParams base::grep
 #'
 #' @return A modified version of the input function with the following
 #'   arguments:
@@ -39,11 +40,25 @@
 #' read_rdata <- function(x) get(load(x))
 #' rdata_list <- read_with(read_rdata)
 #' rdata_list(rdata_files)
-read_with <- function(.f, regexp = NULL) {
+#'
+#' (mixed_files <- readwith_example("mixed"))
+#' dir(mixed_files)
+#'
+#' # You may `invert`
+#' read_with(read_rdata, "[.]csv$", invert = TRUE)(mixed_files)
+#'
+#' # You may `ignore.case`
+#' read_with(read_rdata, "[.]Rdata$", ignore.case = TRUE)(mixed_files)
+read_with <- function(.f, regexp = NULL, ignore.case = FALSE, invert = FALSE) {
   function(path_dir = NULL, ...) {
     if (is.null(path_dir)) path_dir <- "."
 
-    files <- fs::dir_ls(path_dir, regexp = regexp, ignore.case = TRUE)
+    files <- fs::dir_ls(
+      path_dir,
+      regexp = regexp,
+      ignore.case = ignore.case,
+      invert = invert
+    )
 
     if (length(files) == 0) {
       msg <- paste0(
@@ -59,3 +74,45 @@ read_with <- function(.f, regexp = NULL) {
     stats::setNames(out, file_names)
   }
 }
+
+#' Read multiple (common) files from a directory into a list.
+#'
+#' These functions wrap [read_with()]. Notice the name-format `<input>_list()`.
+#'
+#' @param path_dir String; the path to a directory containing the files to read
+#'   (all must be of appropriate format; see examples).
+#' @param ... Arguments passed to the reader function:
+#'   * `rdata_list()` and `rda_list()` read with `get(load(x))` (`...` not unused).
+#'
+#' @seealso [read_with()].
+#'
+#' @return A list of dataframes.
+#'
+#' @examples
+#' (mixed_files <- readwith_example("mixed"))
+#' dir(mixed_files)
+#'
+#' rdata_list(mixed_files)
+#' @family general functions to import data
+#' @name dir_list
+NULL
+
+#' @rdname dir_list
+#' @export
+rdata_list <- read_with(
+  function(.x) get(load(.x)),
+  regexp = "[.]rdata$|[.]rda$",
+  ignore.case = TRUE
+)
+
+# #' @rdname dir_list
+# #' @export
+# rds_list <- read_with(readr::read_rds, regexp = "[.]rds$")
+#
+# #' @rdname dir_list
+# #' @export
+# csv_list <- read_with(readr::read_csv, regexp = "[.]csv$")
+
+# #' @rdname dir_list
+# #' @export
+# tsv_list <- read_with(readr::read_tsv, regexp = "[.]tsv$")

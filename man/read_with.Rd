@@ -4,12 +4,17 @@
 \alias{read_with}
 \title{Read multiple files into a list using any given reading function.}
 \usage{
-read_with(.f, regexp = NULL)
+read_with(.f, regexp = NULL, ignore.case = FALSE, invert = FALSE)
 }
 \arguments{
 \item{.f}{A function able to read the desired file format.}
 
 \item{regexp}{A regular expression (e.g. \code{[.]csv$}) passed on to \code{\link[=grep]{grep()}} to filter paths.}
+
+\item{ignore.case}{if \code{FALSE}, the pattern matching is \emph{case
+      sensitive} and if \code{TRUE}, case is ignored during matching.}
+
+\item{invert}{If \code{TRUE} return files which do \emph{not} match}
 }
 \value{
 A modified version of the input function with the following
@@ -50,5 +55,17 @@ dir(rdata_files)
 read_rdata <- function(x) get(load(x))
 rdata_list <- read_with(read_rdata)
 rdata_list(rdata_files)
+
+(mixed_files <- readwith_example("mixed"))
+dir(mixed_files)
+
+# You may `invert`
+read_with(read_rdata, "[.]csv$", invert = TRUE)(mixed_files)
+
+# You may `ignore.case`
+read_with(read_rdata, "[.]Rdata$", ignore.case = TRUE)(mixed_files)
+}
+\seealso{
+Other general functions to import data: \code{\link{dir_list}}
 }
 \concept{general functions to import data}
