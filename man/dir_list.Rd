@@ -25,6 +25,12 @@ A list of dataframes.
 \description{
 These functions wrap \code{\link[=read_with]{read_with()}}. Notice the name-format \code{<input>_list()}.
 }
+\examples{
+(mixed_files <- readwith_example("mixed"))
+dir(mixed_files)
+
+rdata_list(mixed_files)
+}
 \seealso{
 \code{\link[=read_with]{read_with()}}.
 

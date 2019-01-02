@@ -39,6 +39,15 @@
 #' read_rdata <- function(x) get(load(x))
 #' rdata_list <- read_with(read_rdata)
 #' rdata_list(rdata_files)
+#'
+#' (mixed_files <- readwith_example("mixed"))
+#' dir(mixed_files)
+#'
+#' # You may `invert`
+#' read_with(read_rdata, "[.]csv$", invert = TRUE)(mixed_files)
+#'
+#' # You may `ignore.case`
+#' read_with(read_rdata, "[.]Rdata$", ignore.case = TRUE)(mixed_files)
 read_with <- function(.f, regexp = NULL, ignore.case = FALSE, invert = FALSE) {
   function(path_dir = NULL, ...) {
     if (is.null(path_dir)) path_dir <- "."
@@ -82,6 +91,10 @@ read_with <- function(.f, regexp = NULL, ignore.case = FALSE, invert = FALSE) {
 #' @return A list of dataframes.
 #'
 #' @examples
+#' (mixed_files <- readwith_example("mixed"))
+#' dir(mixed_files)
+#'
+#' rdata_list(mixed_files)
 #' @family general functions to import data
 #' @name dir_list
 NULL

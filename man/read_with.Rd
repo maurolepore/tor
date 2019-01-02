@@ -52,6 +52,15 @@ dir(rdata_files)
 read_rdata <- function(x) get(load(x))
 rdata_list <- read_with(read_rdata)
 rdata_list(rdata_files)
+
+(mixed_files <- readwith_example("mixed"))
+dir(mixed_files)
+
+# You may `invert`
+read_with(read_rdata, "[.]csv$", invert = TRUE)(mixed_files)
+
+# You may `ignore.case`
+read_with(read_rdata, "[.]Rdata$", ignore.case = TRUE)(mixed_files)
 }
 \seealso{
 Other general functions to import data: \code{\link{dir_list}}
