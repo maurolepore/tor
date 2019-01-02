@@ -4,7 +4,7 @@
 \alias{read_with}
 \title{Read multiple files into a list using any given reading function.}
 \usage{
-read_with(.f, regexp = NULL)
+read_with(.f, regexp = NULL, ignore.case = FALSE)
 }
 \arguments{
 \item{.f}{A function able to read the desired file format.}
@@ -50,5 +50,8 @@ dir(rdata_files)
 read_rdata <- function(x) get(load(x))
 rdata_list <- read_with(read_rdata)
 rdata_list(rdata_files)
+}
+\seealso{
+Other general functions to import data: \code{\link{dir_list}}
 }
 \concept{general functions to import data}
