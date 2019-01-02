@@ -54,3 +54,21 @@ test_that("read_with with no path reads from working directory", {
     "data.frame"
   )
 })
+
+context("input_list")
+
+test_that("<input>_list reads <input> and outputs a named list of dataframes", {
+  dir <- fgeo.x::example_path("csv")
+  expect_is(csv_list(dir), "list")
+
+  dir <- fgeo.x::example_path("rds")
+  expect_is(rds_list(dir), "list")
+
+  dir <- fgeo.x::example_path("rdata")
+  expect_is(rdata_list(dir), "list")
+})
+
+test_that("can read specific files in a mixed directory", {
+  dir <- fgeo.x::example_path("mixed_files")
+  expect_is(csv_list(dir), "list")
+})

@@ -59,3 +59,75 @@ read_with <- function(.f, regexp = NULL) {
     stats::setNames(out, file_names)
   }
 }
+
+#' Read multiple (.csv, .tsv, .rdata, .rds) files from a directory into a list.
+#'
+#' These functions read from a specific directory where every file has its own extension
+#' as indicated by each function's name. Notice that function names have the format
+#' input_output, i.e. file-extension_list. If none of these functions do what
+#' you want, create your own with [read_with()].
+#'
+#' @param path_dir String; the path to a directory containing the files to read
+#'   (all must be of appropriate format; see examples).
+#' @param ... Arguments passed to the reader function:
+#'   * `rdata_list()` and `rda_list()` read with `get(load(x))` (`...` not unused).
+#'   * `rds_list()` reads with [readr::read_rds()].
+#'   * `csv_list()` reads with [readr::read_csv()].
+#'   * `delim_list()` reads with [readr::read_delim()].
+#'   * `tsv_list()` reads with [readr::read_tsv()].
+#'
+#' @return A list of dataframes.
+#'
+#' @examples
+#' library(fgeo.x)
+#'
+#' example_path()
+#'
+#' dir(example_path("rdata"))
+#' rdata_list(example_path("rdata"))
+#'
+#' dir(example_path("rds"))
+#' rds_list(example_path("rds"))
+#'
+#' dir(example_path("csv"))
+#' csv_list(example_path("csv"))
+#'
+#' dir(example_path("tsv"))
+#' tsv_list(example_path("tsv"))
+#'
+#' # Weird: Tab separated columns in a file with .csv extension
+#' dir(example_path("weird"))
+#'
+#' # Extension is .csv, but this is not what you want
+#' csv_list(example_path("weird"))
+#'
+#' # Use this instead
+#' delim_list(example_path("weird"), delim = "\t")
+#'
+#' @family general functions to import data
+#' @name dir_list
+NULL
+
+#' @rdname dir_list
+#' @export
+rdata_list <- read_with(function(.x) get(load(.x)), regexp = "[.]rdata$")
+
+#' @rdname dir_list
+#' @export
+rda_list <- read_with(function(.x) get(load(.x)), regexp = "[.]rda$")
+
+#' @rdname dir_list
+#' @export
+rds_list <- read_with(readr::read_rds, regexp = "[.]rds$")
+
+#' @rdname dir_list
+#' @export
+csv_list <- read_with(readr::read_csv, regexp = "[.]csv$")
+
+#' @rdname dir_list
+#' @export
+delim_list <- read_with(readr::read_delim, regexp = NULL)
+
+#' @rdname dir_list
+#' @export
+tsv_list <- read_with(readr::read_tsv, regexp = "[.]tsv$")
