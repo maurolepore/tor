@@ -87,3 +87,11 @@ test_that("read_with is sensitive to `ignore.case`", {
   )
 })
 
+context("test-rdata_list")
+
+test_that("rdata_list lists .rdata, .Rdata, and .rda", {
+  expect_named(
+    rdata_list(readwith_example("mixed")),
+    c("lower_rdata", "rda", "upper_rdata")
+  )
+})

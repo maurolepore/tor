@@ -3,7 +3,7 @@
 \name{dir_list}
 \alias{dir_list}
 \alias{rdata_list}
-\title{Read multiple (.csv, .tsv, .rdata, .rds) files from a directory into a list.}
+\title{Read multiple (common) files from a directory into a list.}
 \usage{
 rdata_list(path_dir = NULL, ...)
 }
@@ -16,7 +16,6 @@ rdata_list(path_dir = NULL, ...)
 \item \code{rdata_list()} and \code{rda_list()} read with \code{get(load(x))} (\code{...} not unused).
 \item \code{rds_list()} reads with \link{FIXME}.
 \item \code{csv_list()} reads with \link{FIXME}.
-\item \code{delim_list()} reads with \link{FIXME}.
 \item \code{tsv_list()} reads with \link{FIXME}.
 }}
 }

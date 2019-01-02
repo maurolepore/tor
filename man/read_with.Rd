@@ -4,12 +4,14 @@
 \alias{read_with}
 \title{Read multiple files into a list using any given reading function.}
 \usage{
-read_with(.f, regexp = NULL, ignore.case = FALSE)
+read_with(.f, regexp = NULL, ignore.case = FALSE, invert = FALSE)
 }
 \arguments{
 \item{.f}{A function able to read the desired file format.}
 
 \item{regexp}{A regular expression (e.g. \code{[.]csv$}) passed on to \code{\link[=grep]{grep()}} to filter paths.}
+
+\item{invert}{If \code{TRUE} return files which do \emph{not} match}
 }
 \value{
 A modified version of the input function with the following

@@ -65,7 +65,7 @@ read_with <- function(.f, regexp = NULL, ignore.case = FALSE, invert = FALSE) {
   }
 }
 
-#' Read multiple (.csv, .tsv, .rdata, .rds) files from a directory into a list.
+#' Read multiple (common) files from a directory into a list.
 #'
 #' These functions wrap [read_with()]. Notice the name-format `<input>_list()`.
 #'
@@ -73,13 +73,8 @@ read_with <- function(.f, regexp = NULL, ignore.case = FALSE, invert = FALSE) {
 #'   (all must be of appropriate format; see examples).
 #' @param ... Arguments passed to the reader function:
 #'   * `rdata_list()` and `rda_list()` read with `get(load(x))` (`...` not unused).
-#'
-#'
-#'
-#'
 #'   * `rds_list()` reads with [FIXME].
 #'   * `csv_list()` reads with [FIXME].
-#'   * `delim_list()` reads with [FIXME].
 #'   * `tsv_list()` reads with [FIXME].
 #'
 #' @seealso [read_with()].
@@ -95,7 +90,7 @@ NULL
 #' @export
 rdata_list <- read_with(
   function(.x) get(load(.x)),
-  regexp = "[.]rata$|[.]rda$",
+  regexp = "[.]rdata$|[.]rda$",
   ignore.case = TRUE
 )
 
@@ -106,11 +101,7 @@ rdata_list <- read_with(
 # #' @rdname dir_list
 # #' @export
 # csv_list <- read_with(readr::read_csv, regexp = "[.]csv$")
-#
-# #' @rdname dir_list
-# #' @export
-# delim_list <- read_with(readr::read_delim, regexp = NULL)
-#
+
 # #' @rdname dir_list
 # #' @export
 # tsv_list <- read_with(readr::read_tsv, regexp = "[.]tsv$")
