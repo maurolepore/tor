@@ -11,6 +11,9 @@ read_with(.f, regexp = NULL, ignore.case = FALSE, invert = FALSE)
 
 \item{regexp}{A regular expression (e.g. \code{[.]csv$}) passed on to \code{\link[=grep]{grep()}} to filter paths.}
 
+\item{ignore.case}{if \code{FALSE}, the pattern matching is \emph{case
+      sensitive} and if \code{TRUE}, case is ignored during matching.}
+
 \item{invert}{If \code{TRUE} return files which do \emph{not} match}
 }
 \value{

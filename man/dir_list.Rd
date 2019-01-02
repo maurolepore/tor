@@ -14,9 +14,6 @@ rdata_list(path_dir = NULL, ...)
 \item{...}{Arguments passed to the reader function:
 \itemize{
 \item \code{rdata_list()} and \code{rda_list()} read with \code{get(load(x))} (\code{...} not unused).
-\item \code{rds_list()} reads with \link{FIXME}.
-\item \code{csv_list()} reads with \link{FIXME}.
-\item \code{tsv_list()} reads with \link{FIXME}.
 }}
 }
 \value{

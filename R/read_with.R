@@ -2,6 +2,7 @@
 #'
 #' @param .f A function able to read the desired file format.
 #' @inheritParams fs::dir_ls
+#' @inheritParams base::grep
 #'
 #' @return A modified version of the input function with the following
 #'   arguments:
@@ -82,9 +83,6 @@ read_with <- function(.f, regexp = NULL, ignore.case = FALSE, invert = FALSE) {
 #'   (all must be of appropriate format; see examples).
 #' @param ... Arguments passed to the reader function:
 #'   * `rdata_list()` and `rda_list()` read with `get(load(x))` (`...` not unused).
-#'   * `rds_list()` reads with [FIXME].
-#'   * `csv_list()` reads with [FIXME].
-#'   * `tsv_list()` reads with [FIXME].
 #'
 #' @seealso [read_with()].
 #'
