@@ -33,7 +33,7 @@ library(readwith)
 
 All functions input a path and output a list.
 
-#### \`<input>\_list
+#### `<input>_list`
 
 The simplest, less flexible functions are prefixed after the file format
 they read. The argument `path` always defaults to the working directory.
@@ -58,10 +58,10 @@ csv_list()
 #> 2 2
 ```
 
-But often you will specify a `path`.
+Commonly you would specify a `path`.
 
 ``` r
-# Helpes create paths to examples
+# Helps create paths to examples
 readwith_example()
 #> [1] "csv"   "mixed" "rdata" "rds"   "tsv"
 
@@ -129,8 +129,8 @@ rdata_list(path_mixed)
 
 ### `read_with()`
 
-`read_with()` is the most flexible. You supply the function to read
-with.
+`read_with()` is flexible. The reading function is not determined – you
+provide it.
 
 ``` r
 (path_csv <- readwith_example("csv"))
@@ -150,8 +150,8 @@ read_with(path_csv, read.csv)
 #> 2 b
 ```
 
-It understands lambda functions and formulas (powered by
-[**rlang**](https://rlang.r-lib.org/)).
+`read_with()` understands both regular functions and formulas (powered
+by [**rlang**](https://rlang.r-lib.org/)).
 
 ``` r
 (path_rdata <- readwith_example("rdata"))
@@ -185,8 +185,8 @@ path_rdata %>%
 #> 2 b
 ```
 
-Pass additional arguments via `...` or inside the lambda function (as
-`lapply()`).
+You can pass additional arguments via `...` or inside the lambda
+function (e.g. as `lapply()` and `purrr::map()`).
 
 ``` r
 read_with(path_csv, read.csv, stringsAsFactors = FALSE)
@@ -212,8 +212,9 @@ read_with(path_csv, ~read.csv(., stringsAsFactors = FALSE))
 #> 2 b
 ```
 
-Use `regexp`, `ignore.case`, and `invert` to pick specific files in a
-directory (powered by [**fs**](https://fs.r-lib.org/)).
+For additional flexibility you can use `regexp`, `ignore.case`, and
+`invert` to pick specific files in a directory (powered by
+[**fs**](https://fs.r-lib.org/)).
 
 ``` r
 path_mixed <- readwith_example("mixed")
@@ -253,7 +254,7 @@ path_mixed %>%
 
 # Related projects
 
-There are great packages to read and write data, for example
+There are great packages to read and write data, such as
 [**rio**](https://CRAN.R-project.org/package=rio) and
 [**io**](https://CRAN.R-project.org/package=io). **readwith** does less
-than the alternatives, yet it is more flexible and small.
+than most alternatives, yet it is generally more flexible and smaller.
