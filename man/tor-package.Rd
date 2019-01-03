@@ -7,11 +7,11 @@
 \title{tor: Read Multiple Files With Of Any Format From a Directory
     Into a List}
 \description{
-Read multiple files of any format from a directory
-    into a list, using a reader function of your choice. tor is designed
-    to be simple, flexible, and to fit well in data-science workflows with
-    the tidyverse.  It is focused, flexible, small, and has few
-    dependencies.
+The goal of tor (to-R) is to help you to read
+    multiple files from a single directory into R, and to do so as
+    quickly, flexibly, and simply as possible. It makes a frequent task
+    less painful. It has few dependencies and works well with the
+    tidyverse (\url{https://www.tidyverse.org/}).
 }
 \seealso{
 Useful links:
