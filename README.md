@@ -46,7 +46,7 @@ dir()
 #> [10] "R"                "README.md"        "README.Rmd"      
 #> [13] "tests"            "tmp.R"            "tor.Rproj"
 
-csv_list()
+list_csv()
 #> $csv1
 #>   x
 #> 1 1
@@ -104,7 +104,7 @@ dir(path_mixed)
 #> [1] "csv.csv"           "lower_rdata.rdata" "rda.rda"          
 #> [4] "upper_rdata.RData"
 
-csv_list(path_mixed)
+list_csv(path_mixed)
 #> $csv
 #>   y
 #> 1 a

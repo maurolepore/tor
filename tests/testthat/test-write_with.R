@@ -7,7 +7,7 @@ test_that("write_with wries .csv files with utils::read.csv", {
   on.exit(setwd(wd))
   on.exit(rm(td))
 
-  dfms <- csv_list(tor_example("csv"))
+  dfms <- list_csv(tor_example("csv"))
   write_with(dfms, .f = write.csv, ext = "csv")
   expect_equal(dir(td, pattern = "[.]csv$"), paste0(names(dfms), ".csv"))
 })
@@ -21,7 +21,7 @@ test_that("write_with wries .csv files with readr::read_csv", {
   on.exit(setwd(wd))
   on.exit(rm(td))
 
-  dfms <- csv_list(tor_example("csv"))
+  dfms <- list_csv(tor_example("csv"))
   names(dfms) <- paste0("readr-", names(dfms))
   write_with(dfms, .f = readr::write_csv, ext = "csv")
 
@@ -34,7 +34,7 @@ test_that("write_with wries .csv files with readr::read_csv", {
 
 
 
-# dfm <- csv_list(tor_example("csv"))
+# dfm <- list_csv(tor_example("csv"))
 # dfm
 #
 # write_with(

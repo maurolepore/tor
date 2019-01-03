@@ -48,7 +48,7 @@ The simplest functions are prefixed after the file format they read. The argumen
 ```{r}
 dir()
 
-csv_list()
+list_csv()
 ```
 
 But often you will specify a `path`.
@@ -70,7 +70,7 @@ tsv_list(path_tsv)
 path_mixed <- tor_example("mixed")
 dir(path_mixed)
 
-csv_list(path_mixed)
+list_csv(path_mixed)
 
 list_rdata(path_mixed)
 ```

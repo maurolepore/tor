@@ -22,7 +22,7 @@
 #'
 #' list_rdata(mixed)
 #'
-#' csv_list(mixed)
+#' list_csv(mixed)
 #'
 #' (tsv <- tor_example("tsv"))
 #' dir(tsv)
@@ -45,7 +45,7 @@ list_rdata <- function(path = ".") {
 
 #' @rdname list_rds
 #' @export
-csv_list <- function(path = ".",
+list_csv <- function(path = ".",
                       header = TRUE,
                       sep = ",",
                       quote = "\"",

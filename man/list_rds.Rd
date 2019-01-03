@@ -3,7 +3,7 @@
 \name{list_rds}
 \alias{list_rds}
 \alias{list_rdata}
-\alias{csv_list}
+\alias{list_csv}
 \alias{tsv_list}
 \title{Read multiple (common) files from a directory into a list.}
 \usage{
@@ -11,7 +11,7 @@ list_rds(path = ".")
 
 list_rdata(path = ".")
 
-csv_list(path = ".", header = TRUE, sep = ",", quote = "\\"",
+list_csv(path = ".", header = TRUE, sep = ",", quote = "\\"",
   dec = ".", fill = TRUE, comment.char = "",
   stringsAsFactors = FALSE, na.strings = c("", "NA"), ...)
 
@@ -78,7 +78,7 @@ dir(mixed)
 
 list_rdata(mixed)
 
-csv_list(mixed)
+list_csv(mixed)
 
 (tsv <- tor_example("tsv"))
 dir(tsv)

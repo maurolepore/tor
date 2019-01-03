@@ -24,21 +24,21 @@ test_that("list_rdata defaults to read from working directory", {
   expect_named(list_rdata(), "rdata")
 })
 
-context("csv_list")
+context("list_csv")
 
-test_that("csv_list can read .csv specifically in a mixed directory", {
+test_that("list_csv can read .csv specifically in a mixed directory", {
   expect_named(
-    csv_list(tor_example("mixed")),
+    list_csv(tor_example("mixed")),
     "csv"
   )
 })
 
-test_that("csv_list defaults to `stringsAsFactors = FALSE`", {
-  expect_is(csv_list(tor_example("mixed"))[[1]]$y, "character")
+test_that("list_csv defaults to `stringsAsFactors = FALSE`", {
+  expect_is(list_csv(tor_example("mixed"))[[1]]$y, "character")
 })
 
-test_that("csv_list defaults to read from working directory", {
-  expect_true(any("csv" %in% names(csv_list())))
+test_that("list_csv defaults to read from working directory", {
+  expect_true(any("csv" %in% names(list_csv())))
 })
 
 context("tsv_list")
