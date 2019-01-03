@@ -14,8 +14,9 @@
 #' format_path(c("file1", "file2"), "csv")
 #' format_path(c("file1", "file2"), "csv", base = "home")
 #' format_path(c("file1", "file2"), "csv", base = "home", "this")
+#' @importFrom rlang expr_label expr enquo
 format_path <- function(files, ext, base = ".", prefix = NULL) {
-  if (missing(files)) abort("`fiels` can't be missing")
+  if (missing(files)) abort("`files` can't be missing")
   if (missing(ext)) abort("`ext` can't be missing")
 
   paste0(
@@ -32,4 +33,11 @@ fmt_prefix <- function(prefix) {
 
 fmt_ext <- function(ext) {
   sprintf(".%s", ext)
+}
+
+abort_missing <- function(x) {
+
+  if (missing(x)) abort(
+    paste0(rlang::expr_label(rlang::expr(x)), " can't be missing")
+  )
 }

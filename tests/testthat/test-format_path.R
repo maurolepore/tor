@@ -26,6 +26,10 @@ test_that("format_path is sensitive to `prefix`", {
 test_that("format_path errs with informative message", {
   expect_error(
     format_path(),
-
+    "`files` can't be missing"
+  )
+  expect_error(
+    format_path("file1"),
+    "`ext` can't be missing"
   )
 })
