@@ -40,15 +40,8 @@ write_with <- function(.x,
                        ext,
                        prefix = NULL,
                        ...) {
-  # purrr::walk2(.x, fmt_paths(prefix, names(.x), ext), .f, ...)
-  # Map(.f, .x, fmt_paths(prefix, paths = names(.x), ext = ext), ...)
-
-  Map(
-    rlang::as_function(.f),
-    .x,
-    fmt_paths(base = path, prefix, files = names(.x), ext = ext),
-    ...
-  )
+  .y <- fmt_paths(base = path, prefix, files = names(.x), ext = ext)
+  Map(rlang::as_function(.f), .x, .y)
 }
 
 
