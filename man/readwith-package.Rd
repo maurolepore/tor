@@ -4,7 +4,8 @@
 \name{readwith-package}
 \alias{readwith}
 \alias{readwith-package}
-\title{readwith: Read Multiple Files With Of Any Format From a Directory Into a List}
+\title{readwith: Read Multiple Files With Of Any Format From a Directory
+    Into a List}
 \description{
 Read multiple files of any format from a directory
     into a list, using a reader function of your choice. readwith is

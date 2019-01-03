@@ -14,8 +14,7 @@
 readwith_example <- function(path = NULL) {
   if (is.null(path)) {
     dir(system.file("extdata", package = "readwith"))
-  }
-  else {
+  } else {
     system.file("extdata", path, package = "readwith", mustWork = TRUE)
   }
 }

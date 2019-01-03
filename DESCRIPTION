@@ -1,5 +1,6 @@
 Package: readwith
-Title: Read Multiple Files With Of Any Format From a Directory Into a List
+Title: Read Multiple Files With Of Any Format From a Directory
+    Into a List
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Mauro",
@@ -19,6 +20,7 @@ Imports:
     rlang
 Suggests: 
     covr,
+    readr,
     spelling,
     testthat
 Encoding: UTF-8
