@@ -34,10 +34,3 @@ fmt_prefix <- function(prefix) {
 fmt_ext <- function(ext) {
   sprintf(".%s", ext)
 }
-
-abort_missing <- function(x) {
-
-  if (missing(x)) abort(
-    paste0(rlang::expr_label(rlang::expr(x)), " can't be missing")
-  )
-}

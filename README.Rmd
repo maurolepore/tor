@@ -162,5 +162,5 @@ fs::file_delete(fs::dir_ls(".", regexp = "this-"))
 
 # Related projects
 
-There are great packages to read and write data, for example [__rio__](https://CRAN.R-project.org/package=rio) and [__io__](https://CRAN.R-project.org/package=io). __tor__ does less than the alternatives, yet it is more flexible and small.
+There are great packages to read and write data, for example [__rio__](https://CRAN.R-project.org/package=rio) and [__io__](https://CRAN.R-project.org/package=io). __tor__ does less than the alternatives, but it is much smaller and more flexible.
 

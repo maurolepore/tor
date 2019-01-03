@@ -313,4 +313,4 @@ dir_ls(".", regexp = "this-")
 There are great packages to read and write data, for example
 [**rio**](https://CRAN.R-project.org/package=rio) and
 [**io**](https://CRAN.R-project.org/package=io). **tor** does less than
-the alternatives, yet it is more flexible and small.
+the alternatives, but it is much smaller and more flexible.
