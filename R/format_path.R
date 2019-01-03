@@ -15,6 +15,9 @@
 #' format_path(c("file1", "file2"), "csv", base = "home")
 #' format_path(c("file1", "file2"), "csv", base = "home", "this")
 format_path <- function(files, ext, base = ".", prefix = NULL) {
+  if (missing(files)) abort("`fiels` can't be missing")
+  if (missing(ext)) abort("`ext` can't be missing")
+
   paste0(
     base, "/",
     if (!is.null(prefix)) fmt_prefix(prefix),
@@ -24,7 +27,7 @@ format_path <- function(files, ext, base = ".", prefix = NULL) {
 }
 
 fmt_prefix <- function(prefix) {
-  sprintf("%s-", prefix)
+  sprintf("%s", prefix)
 }
 
 fmt_ext <- function(ext) {
