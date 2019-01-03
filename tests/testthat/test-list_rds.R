@@ -11,7 +11,7 @@ test_that("list_rds defaults to read from working directory", {
   expect_named(list_rds(), "rds")
 })
 
-test_that("list_rds allows specifying one of many .rds files", {
+test_that("list_rds reads specific .rds files", {
   expect_named(
     list_rds(tor_example("rds"), regexp = "file1"),
     c("file1")
@@ -31,6 +31,33 @@ test_that("list_rdata lists .rdata, .Rdata, and .rda", {
   expect_named(
     list_rdata(tor_example("mixed")),
     c("lower_rdata", "rda", "upper_rdata")
+  )
+})
+
+test_that("list_rdata reads specific .rdata files (sensitive to `regexp`)", {
+  expect_named(
+    list_rdata(tor_example("mixed"), regexp = "lower_rdata"),
+    "lower_rdata"
+  )
+})
+
+test_that("list_rdata is sensitive to `ignore.case`", {
+  expect_named(
+    list_rdata(
+      tor_example("mixed"),
+      regexp = "LOWER_rdata|[.]csv$",
+      ignore.case = TRUE,
+      invert = TRUE
+    ),
+    c("rda", "upper_rdata")
+  )
+  expect_named(
+    list_rdata(
+      tor_example("mixed"),
+      regexp = "[.]RData$",
+      ignore.case = FALSE,
+    ),
+    "upper_rdata"
   )
 })
 
