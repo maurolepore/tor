@@ -28,12 +28,12 @@ devtools::install_github("maurolepore/tor")
 
 ``` r
 library(tidyverse)
-#> -- Attaching packages --------------------------------------------- tidyverse 1.2.1 --
+#> -- Attaching packages ------------------------------------------------------------ tidyverse 1.2.1 --
 #> v ggplot2 3.1.0     v purrr   0.2.5
 #> v tibble  1.4.2     v dplyr   0.7.8
 #> v tidyr   0.8.2     v stringr 1.3.1
 #> v readr   1.3.1     v forcats 0.3.0
-#> -- Conflicts ------------------------------------------------ tidyverse_conflicts() --
+#> -- Conflicts --------------------------------------------------------------- tidyverse_conflicts() --
 #> x dplyr::filter() masks stats::filter()
 #> x dplyr::lag()    masks stats::lag()
 library(fs)
@@ -321,16 +321,22 @@ imap_chr(dfms, ~ format_path(.y, "csv"))
 map_chr(dfms, ~ format_path(names(.), "csv", ".", "this-"))
 #>           csv1           csv2 
 #> "./this-x.csv" "./this-y.csv"
-```
 
-This is how to use it in a pipeline:
+(dfs <- list_csv())
+#> $csv1
+#>   x
+#> 1 1
+#> 2 2
+#> 
+#> $csv2
+#>   y
+#> 1 a
+#> 2 b
 
-``` r
-list_csv() %>% 
-  walk2(
-    imap_chr(dfms, ~ format_path(.y, "csv", base = ".", prefix = "this-")), 
-    write.csv
-  )
+paths <- dfs %>% 
+  imap_chr(~ format_path(.y, "csv", base = ".", prefix = "this-"))
+
+walk2(dfs, paths, readr::write_csv)
 
 dir_ls(".", regexp = "this-")
 #> this-csv1.csv this-csv2.csv

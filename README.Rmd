@@ -142,16 +142,13 @@ imap_chr(dfms, ~ format_path(.y, "csv"))
 
 # Same
 map_chr(dfms, ~ format_path(names(.), "csv", ".", "this-"))
-```
 
-This is how to use it in a pipeline:
+(dfs <- list_csv())
 
-```{r}
-list_csv() %>% 
-  walk2(
-    imap_chr(dfms, ~ format_path(.y, "csv", base = ".", prefix = "this-")), 
-    write.csv
-  )
+paths <- dfs %>% 
+  imap_chr(~ format_path(.y, "csv", base = ".", prefix = "this-"))
+
+walk2(dfs, paths, readr::write_csv)
 
 dir_ls(".", regexp = "this-")
 ```

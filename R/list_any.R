@@ -33,7 +33,6 @@
 #'   "[.]Rdata$",
 #'   ignore.case = TRUE
 #' )
-#' @importFrom rlang %||% abort set_names
 list_any <- function(path = ".",
                      .f,
                      regexp = NULL,

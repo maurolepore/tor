@@ -11,8 +11,7 @@ format_path(files, ext, base = ".", prefix = NULL)
 \code{files}, which can be of any length.}
 }
 \value{
-A string of the same length as \code{files}. For example:
-\code{base/prefix-file1.csv} and \code{base/prefix-file2.csv}.
+A string of the same length as \code{files}.
 }
 \description{
 This function is most useful to map the name of each element in a list to

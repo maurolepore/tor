@@ -6,8 +6,8 @@
 #' @param base,prefix,files,ext Character vectors (all of length-1 except
 #'   `files`, which can be of any length.
 #'
-#' @return A string of the same length as `files`. For example:
-#'   `base/prefix-file1.csv` and `base/prefix-file2.csv`.
+#' @return A string of the same length as `files`.
+#'
 #' @export
 #'
 #' @examples
