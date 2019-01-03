@@ -117,7 +117,7 @@ path_mixed %>%
 
 ### Writing data
 
-__tor__ does not write data because there are great and relatively simple tools for that. Yet it includes a helpter to create the paths to output files.
+__tor__ does not write data but includes a helper to create the paths to output files.
 
 ```{r}
 dir(pattern = "[.]csv$")
@@ -126,7 +126,7 @@ dfms <- list_csv()
 
 format_path(names(dfms), "csv")
 
-format_path(names(dfms), "csv", "base", "prefix-")
+format_path(names(dfms), "csv", base = "home", prefix = "this-")
 ```
 
 Combine it with [__purrr__](https://purrr.tidyverse.org/).

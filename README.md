@@ -250,8 +250,7 @@ path_mixed %>%
 
 ### Writing data
 
-**tor** does not write data because there are great and relatively
-simple tools for that. Yet it includes a helpter to create the paths to
+**tor** does not write data but includes a helper to create the paths to
 output files.
 
 ``` r
@@ -263,8 +262,8 @@ dfms <- list_csv()
 format_path(names(dfms), "csv")
 #> [1] "./csv1.csv" "./csv2.csv"
 
-format_path(names(dfms), "csv", "base", "prefix-")
-#> [1] "base/prefix-csv1.csv" "base/prefix-csv2.csv"
+format_path(names(dfms), "csv", base = "home", prefix = "this-")
+#> [1] "home/this-csv1.csv" "home/this-csv2.csv"
 ```
 
 Combine it with [**purrr**](https://purrr.tidyverse.org/).
