@@ -4,5 +4,6 @@
 ^\.travis\.yml$
 ^LICENSE\.md$
 ^README\.Rmd$
-^readwith\.Rproj$
+^tor\.Rpoj$
 ^\.Rproj\.user$
+^.*\.Rproj$

@@ -8,10 +8,21 @@
 #' @export
 #'
 #' @examples
-#' readwith_example()
-#' readwith_example("csv")
-#' dir(readwith_example("csv"))
-readwith_example <- function(path = NULL) {
+#' tor_example()
+#' tor_example("csv")
+#' dir(tor_example("csv"))
+tor_example <- function(path = NULL) {
+  if (is.null(path)) {
+    dir(system.file("extdata", package = "readwith"))
+  }
+  else {
+    system.file("extdata", path, package = "readwith", mustWork = TRUE)
+  }
+}
+
+# FIXME Remove
+#' @export
+tor_example <- function(path = NULL) {
   if (is.null(path)) {
     dir(system.file("extdata", package = "readwith"))
   }

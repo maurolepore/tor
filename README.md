@@ -1,18 +1,18 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# readwith
+# tor
 
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![Travis build
-status](https://travis-ci.org/maurolepore/readwith.svg?branch=master)](https://travis-ci.org/maurolepore/readwith)
+status](https://travis-ci.org/maurolepore/tor.svg?branch=master)](https://travis-ci.org/maurolepore/tor)
 [![Coverage
-status](https://coveralls.io/repos/github/maurolepore/readwith/badge.svg)](https://coveralls.io/r/maurolepore/readwith?branch=master)
+status](https://coveralls.io/repos/github/maurolepore/tor/badge.svg)](https://coveralls.io/r/maurolepore/tor?branch=master)
 [![CRAN
-status](https://www.r-pkg.org/badges/version/readwith)](https://cran.r-project.org/package=readwith)
+status](https://www.r-pkg.org/badges/version/tor)](https://cran.r-project.org/package=tor)
 
-The goal of **readwith** is to read multiple files at once with any
-reading function. It is simple, flexible, and fits well in data-science
+The goal of **tor** is to read multiple files at once with any reading
+function. It is simple, flexible, and fits well in data-science
 workflows with the tidyverse. It is easy to extend because it is focused
 and small (it depends only on [**fs**](https://fs.r-lib.org/) and
 [**rlang**](https://rlang.r-lib.org/)).
@@ -21,14 +21,14 @@ and small (it depends only on [**fs**](https://fs.r-lib.org/) and
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("maurolepore/readwith")
+devtools::install_github("maurolepore/tor")
 ```
 
 ## Example
 
 ``` r
 library(magrittr)
-library(readwith)
+library(tor)
 ```
 
 All functions input a path and output a list.
@@ -44,7 +44,7 @@ dir()
 #>  [4] "DESCRIPTION"      "inst"             "LICENSE.md"      
 #>  [7] "man"              "NAMESPACE"        "NEWS.md"         
 #> [10] "R"                "README.md"        "README.Rmd"      
-#> [13] "readwith.Rproj"   "tests"
+#> [13] "tests"            "tmp.R"            "tor.Rproj"
 
 csv_list()
 #> $csv1
@@ -62,10 +62,10 @@ But often you will specify a `path`.
 
 ``` r
 # Helpes create paths to examples
-readwith_example()
+tor_example()
 #> [1] "csv"   "mixed" "rdata" "rds"   "tsv"
 
-(path_rds <- readwith_example("rds"))
+(path_rds <- tor_example("rds"))
 #> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/readwith/extdata/rds"
 dir(path_rds)
 #> [1] "file1.rds" "file2.rds"
@@ -81,7 +81,7 @@ rds_list(path_rds)
 #> 1 a
 #> 2 b
 
-(path_tsv <- readwith_example("tsv"))
+(path_tsv <- tor_example("tsv"))
 #> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/readwith/extdata/tsv"
 dir(path_tsv)
 #> [1] "tsv1.tsv" "tsv2.tsv"
@@ -99,7 +99,7 @@ tsv_list(path_tsv)
 #> 2 2 <NA>
 #> 3 3    b
 
-path_mixed <- readwith_example("mixed")
+path_mixed <- tor_example("mixed")
 dir(path_mixed)
 #> [1] "csv.csv"           "lower_rdata.rdata" "rda.rda"          
 #> [4] "upper_rdata.RData"
@@ -133,7 +133,7 @@ rdata_list(path_mixed)
 with.
 
 ``` r
-(path_csv <- readwith_example("csv"))
+(path_csv <- tor_example("csv"))
 #> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/readwith/extdata/csv"
 dir(path_csv)
 #> [1] "file1.csv" "file2.csv"
@@ -154,7 +154,7 @@ It understands lambda functions and formulas (powered by
 [**rlang**](https://rlang.r-lib.org/)).
 
 ``` r
-(path_rdata <- readwith_example("rdata"))
+(path_rdata <- tor_example("rdata"))
 #> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/readwith/extdata/rdata"
 dir(path_rdata)
 #> [1] "file1.rdata" "file2.rdata"
@@ -216,7 +216,7 @@ Use `regexp`, `ignore.case`, and `invert` to pick specific files in a
 directory (powered by [**fs**](https://fs.r-lib.org/)).
 
 ``` r
-path_mixed <- readwith_example("mixed")
+path_mixed <- tor_example("mixed")
 dir(path_mixed)
 #> [1] "csv.csv"           "lower_rdata.rdata" "rda.rda"          
 #> [4] "upper_rdata.RData"
@@ -255,5 +255,5 @@ path_mixed %>%
 
 There are great packages to read and write data, for example
 [**rio**](https://CRAN.R-project.org/package=rio) and
-[**io**](https://CRAN.R-project.org/package=io). **readwith** does less
-than the alternatives, yet it is more flexible and small.
+[**io**](https://CRAN.R-project.org/package=io). **tor** does less than
+the alternatives, yet it is more flexible and small.

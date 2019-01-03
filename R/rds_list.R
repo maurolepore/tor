@@ -12,19 +12,19 @@
 #' @export
 #'
 #' @examples
-#' (rds <- readwith_example("rds"))
+#' (rds <- tor_example("rds"))
 #' dir(rds)
 #'
 #' rds_list(rds)
 #'
-#' (mixed <- readwith_example("mixed"))
+#' (mixed <- tor_example("mixed"))
 #' dir(mixed)
 #'
 #' rdata_list(mixed)
 #'
 #' csv_list(mixed)
 #'
-#' (tsv <- readwith_example("tsv"))
+#' (tsv <- tor_example("tsv"))
 #' dir(tsv)
 #'
 #' tsv_list(tsv)

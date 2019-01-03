@@ -15,27 +15,27 @@ knitr::opts_chunk$set(
 )
 ```
 
-# readwith
+# tor
 
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![Travis build status](https://travis-ci.org/maurolepore/readwith.svg?branch=master)](https://travis-ci.org/maurolepore/readwith)
-[![Coverage status](https://coveralls.io/repos/github/maurolepore/readwith/badge.svg)](https://coveralls.io/r/maurolepore/readwith?branch=master)
-[![CRAN status](https://www.r-pkg.org/badges/version/readwith)](https://cran.r-project.org/package=readwith)
+[![Travis build status](https://travis-ci.org/maurolepore/tor.svg?branch=master)](https://travis-ci.org/maurolepore/tor)
+[![Coverage status](https://coveralls.io/repos/github/maurolepore/tor/badge.svg)](https://coveralls.io/r/maurolepore/tor?branch=master)
+[![CRAN status](https://www.r-pkg.org/badges/version/tor)](https://cran.r-project.org/package=tor)
 
-The goal of __readwith__ is to read multiple files at once with any reading function. It is simple, flexible, and fits well in data-science workflows with the tidyverse. It is easy to extend because it is focused and small (it depends only on [__fs__](https://fs.r-lib.org/) and [__rlang__](https://rlang.r-lib.org/)).
+The goal of __tor__ is to read multiple files at once with any reading function. It is simple, flexible, and fits well in data-science workflows with the tidyverse. It is easy to extend because it is focused and small (it depends only on [__fs__](https://fs.r-lib.org/) and [__rlang__](https://rlang.r-lib.org/)).
 
 ## Installation
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("maurolepore/readwith")
+devtools::install_github("maurolepore/tor")
 ```
 
 ## Example
 
 ```{r}
 library(magrittr)
-library(readwith)
+library(tor)
 
 ```
 
@@ -55,19 +55,19 @@ But often you will specify a `path`.
 
 ```{r}
 # Helpes create paths to examples
-readwith_example()
+tor_example()
 
-(path_rds <- readwith_example("rds"))
+(path_rds <- tor_example("rds"))
 dir(path_rds)
 
 rds_list(path_rds)
 
-(path_tsv <- readwith_example("tsv"))
+(path_tsv <- tor_example("tsv"))
 dir(path_tsv)
 
 tsv_list(path_tsv)
 
-path_mixed <- readwith_example("mixed")
+path_mixed <- tor_example("mixed")
 dir(path_mixed)
 
 csv_list(path_mixed)
@@ -80,7 +80,7 @@ rdata_list(path_mixed)
 `read_with()` is the most flexible. You supply the function to read with.
 
 ```{r}
-(path_csv <- readwith_example("csv"))
+(path_csv <- tor_example("csv"))
 dir(path_csv)
 
 read_with(path_csv, read.csv)
@@ -89,7 +89,7 @@ read_with(path_csv, read.csv)
 It understands lambda functions and formulas (powered by [__rlang__](https://rlang.r-lib.org/)).
 
 ```{r}
-(path_rdata <- readwith_example("rdata"))
+(path_rdata <- tor_example("rdata"))
 dir(path_rdata)
 
 path_rdata %>% 
@@ -111,7 +111,7 @@ read_with(path_csv, ~read.csv(., stringsAsFactors = FALSE))
 Use `regexp`, `ignore.case`, and `invert` to pick specific files in a directory (powered by [__fs__](https://fs.r-lib.org/)).
 
 ```{r}
-path_mixed <- readwith_example("mixed")
+path_mixed <- tor_example("mixed")
 dir(path_mixed)
 
 path_mixed %>% 
@@ -123,5 +123,5 @@ path_mixed %>%
 
 # Related projects
 
-There are great packages to read and write data, for example [__rio__](https://CRAN.R-project.org/package=rio) and [__io__](https://CRAN.R-project.org/package=io). __readwith__ does less than the alternatives, yet it is more flexible and small.
+There are great packages to read and write data, for example [__rio__](https://CRAN.R-project.org/package=rio) and [__io__](https://CRAN.R-project.org/package=io). __tor__ does less than the alternatives, yet it is more flexible and small.
 

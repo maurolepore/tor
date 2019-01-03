@@ -2,7 +2,7 @@ context("read_with")
 
 test_that("read_with with read.csv lists (file)named dataframes", {
   res <- read_with(
-    readwith_example("csv"),
+    tor_example("csv"),
     utils::read.csv, regexp = "[.]csv$"
   )
 
@@ -13,7 +13,7 @@ test_that("read_with with read.csv lists (file)named dataframes", {
 
 test_that("read_with accepts lambda functions and formulas", {
   res <- read_with(
-    readwith_example("rdata"),
+    tor_example("rdata"),
     ~get(load(.x))
   )
 
@@ -22,7 +22,7 @@ test_that("read_with accepts lambda functions and formulas", {
   expect_is(res[[1]], "data.frame")
   expect_identical(
     read_with(
-      readwith_example("rdata"),
+      tor_example("rdata"),
       function(x) get(load(x))
     ),
     res
@@ -32,7 +32,7 @@ test_that("read_with accepts lambda functions and formulas", {
 test_that("read_with reads specific files extention in a mixed directory", {
   expect_is(
     read_with(
-      readwith_example("mixed"),
+      tor_example("mixed"),
       utils::read.csv, regexp = "[.]csv$"
     ),
     "list"
@@ -42,7 +42,7 @@ test_that("read_with reads specific files extention in a mixed directory", {
 test_that("read_with errs with informative message if `regexp` matches no file", {
   expect_error(
     read_with(
-      readwith_example("csv"),
+      tor_example("csv"),
       get(load(.)),
       regexp = "[.]rdata$"
     ),
@@ -53,14 +53,14 @@ test_that("read_with errs with informative message if `regexp` matches no file",
 test_that("read_with passes arguments to the reader function via `...`", {
   expect_is(
     read_with(
-      readwith_example("csv"),
+      tor_example("csv"),
       read.csv
     )[[2]]$y,
     "factor"
   )
   expect_is(
     read_with(
-      readwith_example("csv"),
+      tor_example("csv"),
       ~read.csv(., stringsAsFactors = FALSE)
     )[[2]]$y,
     "character"
@@ -77,7 +77,7 @@ test_that("read_with with emtpy path reads from working directory", {
 test_that("read_with is sensitive to `ignore.case`", {
   expect_named(
     read_with(
-      readwith_example("mixed"),
+      tor_example("mixed"),
       function(x) get(load(x)),
       regexp = "[.]rdata$",
       ignore.case = FALSE
@@ -87,7 +87,7 @@ test_that("read_with is sensitive to `ignore.case`", {
 
   expect_named(
     read_with(
-      readwith_example("mixed"),
+      tor_example("mixed"),
       function(x) get(load(x)),
       regexp = "[.]rdata$",
       ignore.case = TRUE
@@ -97,7 +97,7 @@ test_that("read_with is sensitive to `ignore.case`", {
 
   expect_named(
     read_with(
-      readwith_example("mixed"),
+      tor_example("mixed"),
       function(x) get(load(x)),
       regexp = "[.]csv$",
       ignore.case = TRUE,
