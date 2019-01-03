@@ -11,17 +11,13 @@ status](https://coveralls.io/repos/github/maurolepore/tor/badge.svg)](https://co
 [![CRAN
 status](https://www.r-pkg.org/badges/version/tor)](https://cran.r-project.org/package=tor)
 
-The goal of **tor** is to import multiple files of any kind into R, and
-to do so as flexibly, quickly, and fluently when combined with tools
-from the tidyverse. Essentially, it vectorizes reading functions so you
-provide not the path to each file you want to read but the path to the
-directory they live in.
-
-**tor** does nothing you can’t do with functions from base R (or
+The goal of **tor** is to import multiple files of any kind into R. It
+does nothing you can’t do with functions from base R (or
 [**fs**](https://fs.r-lib.org/) plus
-[**purrr**](https://purrr.tidyverse.org/%20plus%20some%20reader%20package)
-but it provides a shortcut so you don’t have to waste brain power in
-such a common task.
+[**purrr**](https://purrr.tidyverse.org/%20plus%20some%20reader%20package))
+but it provides a shortcut to save your time and brain power for more
+important tasks. **tor** is flexible and small, and works with tools
+from the [tidyverse](https://www.tidyverse.org/).
 
 ## Installation
 
