@@ -59,6 +59,9 @@ list_rdata <- function(path = ".",
 #' @rdname list_rds
 #' @export
 list_csv <- function(path = ".",
+                      regexp = "[.]csv$",
+                      ignore.case = TRUE,
+                      invert = FALSE,
                       header = TRUE,
                       sep = ",",
                       quote = "\"",
@@ -81,8 +84,9 @@ list_csv <- function(path = ".",
         stringsAsFactors = stringsAsFactors,
         na.strings = na.strings
       ),
-      regexp = "[.]csv$",
-      ignore.case = TRUE,
+      regexp = regexp,
+      ignore.case = ignore.case,
+      invert = invert,
       ...
     )
 }
@@ -90,15 +94,18 @@ list_csv <- function(path = ".",
 #' @rdname list_rds
 #' @export
 list_tsv <- function(path = ".",
-                      header = TRUE,
-                      sep = "\t",
-                      quote = "\"",
-                      dec = ".",
-                      fill = TRUE,
-                      comment.char = "",
-                      stringsAsFactors = FALSE,
-                      na.strings = c("", "NA"),
-                      ...) {
+                     regexp = "[.]tsv$",
+                     ignore.case = TRUE,
+                     invert = FALSE,
+                     header = TRUE,
+                     sep = "\t",
+                     quote = "\"",
+                     dec = ".",
+                     fill = TRUE,
+                     comment.char = "",
+                     stringsAsFactors = FALSE,
+                     na.strings = c("", "NA"),
+                     ...) {
     list_any(
       path,
       ~utils::read.csv(
@@ -112,8 +119,9 @@ list_tsv <- function(path = ".",
         stringsAsFactors = stringsAsFactors,
         na.strings = na.strings
       ),
-      regexp = "[.]tsv$",
-      ignore.case = TRUE,
+      regexp = regexp,
+      ignore.case = ignore.case,
+      invert = invert,
       ...
     )
 }

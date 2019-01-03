@@ -45,15 +45,6 @@ test_that("list_rdata is sensitive to `ignore.case`", {
   expect_named(
     list_rdata(
       tor_example("mixed"),
-      regexp = "LOWER_rdata|[.]csv$",
-      ignore.case = TRUE,
-      invert = TRUE
-    ),
-    c("rda", "upper_rdata")
-  )
-  expect_named(
-    list_rdata(
-      tor_example("mixed"),
       regexp = "[.]RData$",
       ignore.case = FALSE,
     ),
@@ -82,6 +73,35 @@ test_that("list_csv defaults to read from working directory", {
   expect_true(any("csv" %in% names(list_csv())))
 })
 
+test_that("list_csv is sensitive to `regexp`, `invert, and `ignore.case`", {
+  expect_named(
+    list_csv(
+      tor_example("csv"),
+      regexp = "[.]CSV$",
+      ignore.case = TRUE,
+    ),
+    c("file1", "file2")
+  )
+
+  expect_named(
+    list_csv(
+      tor_example("csv"),
+      regexp = "[.]CSV$",
+      ignore.case = FALSE,
+      invert = TRUE
+    ),
+    c("file1", "file2")
+  )
+
+  expect_error(
+    list_csv(
+      tor_example("csv"),
+      regexp = "[.]CSV$",
+      ignore.case = FALSE,
+    )
+  )
+})
+
 context("list_tsv")
 
 test_that("list_tsv lists .tsv files", {
@@ -94,4 +114,33 @@ test_that("list_tsv lists .tsv files", {
 
 test_that("list_tsv defaults to read from working directory", {
   expect_named(list_tsv(), "tsv")
+})
+
+test_that("list_tsv is sensitive to `regexp`, `invert, and `ignore.case`", {
+  expect_named(
+    list_csv(
+      tor_example("tsv"),
+      regexp = "[.]TSV$",
+      ignore.case = TRUE,
+    ),
+    c("tsv1", "tsv2")
+  )
+
+  expect_named(
+    list_csv(
+      tor_example("tsv"),
+      regexp = "[.]TSV$",
+      ignore.case = FALSE,
+      invert = TRUE
+    ),
+    c("tsv1", "tsv2")
+  )
+
+  expect_error(
+    list_csv(
+      tor_example("tsv"),
+      regexp = "[.]TSV$",
+      ignore.case = FALSE,
+    )
+  )
 })
