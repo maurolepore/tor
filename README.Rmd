@@ -41,9 +41,9 @@ library(tor)
 
 All functions input a path and output a list.
 
-#### `<input>_list
+#### `<input>_list`
 
-The simplest, less flexible functions are prefixed after the file format they read. The argument `path` always defaults to the working directory.
+The simplest functions are prefixed after the file format they read. The argument `path` always defaults to the working directory.
 
 ```{r}
 dir()
