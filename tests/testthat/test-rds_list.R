@@ -38,7 +38,7 @@ test_that("csv_list defaults to `stringsAsFactors = FALSE`", {
 })
 
 test_that("csv_list defaults to read from working directory", {
-  expect_named(csv_list(), "csv")
+  expect_true(any("csv" %in% names(csv_list())))
 })
 
 context("tsv_list")
