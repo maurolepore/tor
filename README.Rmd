@@ -60,7 +60,7 @@ tor_example()
 (path_rds <- tor_example("rds"))
 dir(path_rds)
 
-rds_list(path_rds)
+list_rds(path_rds)
 
 (path_tsv <- tor_example("tsv"))
 dir(path_tsv)

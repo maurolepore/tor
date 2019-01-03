@@ -70,7 +70,7 @@ tor_example()
 dir(path_rds)
 #> [1] "file1.rds" "file2.rds"
 
-rds_list(path_rds)
+list_rds(path_rds)
 #> $file1
 #>   x
 #> 1 1

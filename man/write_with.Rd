@@ -45,7 +45,7 @@ read_with(
 )
 }
 \seealso{
-Other general functions to import data: \code{\link{rds_list}},
+Other general functions to import data: \code{\link{list_rds}},
   \code{\link{read_with}}
 }
 \concept{general functions to import data}

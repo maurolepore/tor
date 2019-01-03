@@ -15,7 +15,7 @@
 #' (rds <- tor_example("rds"))
 #' dir(rds)
 #'
-#' rds_list(rds)
+#' list_rds(rds)
 #'
 #' (mixed <- tor_example("mixed"))
 #' dir(mixed)
@@ -28,11 +28,11 @@
 #' dir(tsv)
 #'
 #' tsv_list(tsv)
-rds_list <- function(path = ".") {
+list_rds <- function(path = ".") {
   read_with(path, base::readRDS, regexp = "[.]rds$", ignore.case = TRUE)
 }
 
-#' @rdname rds_list
+#' @rdname list_rds
 #' @export
 rdata_list <- function(path = ".") {
   read_with(
@@ -43,7 +43,7 @@ rdata_list <- function(path = ".") {
   )
 }
 
-#' @rdname rds_list
+#' @rdname list_rds
 #' @export
 csv_list <- function(path = ".",
                       header = TRUE,
@@ -74,7 +74,7 @@ csv_list <- function(path = ".",
     )
 }
 
-#' @rdname rds_list
+#' @rdname list_rds
 #' @export
 tsv_list <- function(path = ".",
                       header = TRUE,

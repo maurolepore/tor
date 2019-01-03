@@ -1,14 +1,14 @@
-context("rds_list")
+context("list_rds")
 
-test_that("rds_list lists .rds files", {
+test_that("list_rds lists .rds files", {
   expect_named(
-    rds_list(tor_example("rds")),
+    list_rds(tor_example("rds")),
     c("file1", "file2")
   )
 })
 
-test_that("rds_list defaults to read from working directory", {
-  expect_named(rds_list(), "rds")
+test_that("list_rds defaults to read from working directory", {
+  expect_named(list_rds(), "rds")
 })
 
 context("rdata_list")
