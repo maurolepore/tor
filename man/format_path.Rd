@@ -2,7 +2,7 @@
 % Please edit documentation in R/format_path.R
 \name{format_path}
 \alias{format_path}
-\title{Formtat paths.}
+\title{Format paths.}
 \usage{
 format_path(files, ext, base = ".", prefix = NULL)
 }

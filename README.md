@@ -11,11 +11,17 @@ status](https://coveralls.io/repos/github/maurolepore/tor/badge.svg)](https://co
 [![CRAN
 status](https://www.r-pkg.org/badges/version/tor)](https://cran.r-project.org/package=tor)
 
-The goal of **tor** is to read multiple files at once with any reading
-function. It is simple, flexible, and fits well in data-science
-workflows with the tidyverse. It is easy to extend because it is focused
-and small (it depends only on [**fs**](https://fs.r-lib.org/) and
-[**rlang**](https://rlang.r-lib.org/)).
+The goal of **tor** is to import multiple files of any kind into R, and
+to do so as flexibly, quickly, and fluently when combined with tools
+from the tidyverse. Essentially, it vectorizes reading functions so you
+provide not the path to each file you want to read but the path to the
+directory they live in.
+
+**tor** does nothing you can’t do with functions from base R (or
+[**fs**](https://fs.r-lib.org/) plus
+[**purrr**](https://purrr.tidyverse.org/%20plus%20some%20reader%20package)
+but it provides a shortcut so you don’t have to waste brain power in
+such a common task.
 
 ## Installation
 
@@ -28,23 +34,21 @@ devtools::install_github("maurolepore/tor")
 
 ``` r
 library(magrittr)
+library(fs)
 library(tor)
 ```
 
-All functions input a path and output a list.
-
-#### `list_<something>`
-
-The simplest functions are prefixed after the file format they read. The
-argument `path` always defaults to the working directory.
+All functions list whatever they read, and default to reading from the
+working directory.
 
 ``` r
 dir()
 #>  [1] "cran-comments.md" "csv1.csv"         "csv2.csv"        
-#>  [4] "DESCRIPTION"      "inst"             "LICENSE.md"      
-#>  [7] "man"              "NAMESPACE"        "NEWS.md"         
-#> [10] "R"                "README.md"        "README.Rmd"      
-#> [13] "tests"            "tmp.R"            "tor.Rproj"
+#>  [4] "datasets"         "DESCRIPTION"      "inst"            
+#>  [7] "LICENSE.md"       "man"              "NAMESPACE"       
+#> [10] "NEWS.md"          "R"                "README.md"       
+#> [13] "README.Rmd"       "tests"            "tmp.R"           
+#> [16] "tor.Rproj"
 
 list_csv()
 #> $csv1
@@ -86,7 +90,7 @@ list_rds(path_rds)
 dir(path_tsv)
 #> [1] "tsv1.tsv" "tsv2.tsv"
 
-tsv_list(path_tsv)
+list_tsv(path_tsv)
 #> $tsv1
 #>   x    y
 #> 1 1    a
@@ -126,8 +130,6 @@ list_rdata(path_mixed)
 #> 1 a
 #> 2 b
 ```
-
-### `list_any()`
 
 `list_any()` is the most flexible. You supply the function to read with.
 
@@ -248,6 +250,62 @@ path_mixed %>%
 #>   y
 #> 1 a
 #> 2 b
+```
+
+### Writing data
+
+**tor** does not write data. Compared to reading, writing data is a
+little easier because you have all the tools from R to choose what to
+write, how and where.
+
+Yet **tor** helps you in a small, important way. Because creating the
+paths to write files may interrupt your workflow, **torr** provides a
+helper to do just that.
+
+``` r
+dir(pattern = "[.]csv$")
+#> [1] "csv1.csv" "csv2.csv"
+
+dfms <- list_csv()
+
+format_path(names(dfms), "csv")
+#> [1] "./csv1.csv" "./csv2.csv"
+
+format_path(names(dfms), "csv", "base", "prefix-")
+#> [1] "base/prefix-csv1.csv" "base/prefix-csv2.csv"
+```
+
+Combine it with \[**purrr**\](<https://purrr.tidyverse.org/>.
+
+``` r
+library(purrr)
+#> 
+#> Attaching package: 'purrr'
+#> The following object is masked from 'package:magrittr':
+#> 
+#>     set_names
+
+imap_chr(dfms, ~ format_path(.y, "csv"))
+#>         csv1         csv2 
+#> "./csv1.csv" "./csv2.csv"
+
+# Same
+map_chr(dfms, ~ format_path(names(.), "csv", ".", "this-"))
+#>           csv1           csv2 
+#> "./this-x.csv" "./this-y.csv"
+```
+
+This is how to use it in a pipeline:
+
+``` r
+list_csv() %>% 
+  walk2(
+    imap_chr(dfms, ~ format_path(.y, "csv", base = ".", prefix = "this-")), 
+    write.csv
+  )
+
+dir_ls(".", regexp = "this-")
+#> this-csv1.csv this-csv2.csv
 ```
 
 # Related projects

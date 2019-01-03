@@ -1,4 +1,4 @@
-#' Formtat paths.
+#' Format paths.
 #'
 #' This function is most useful to map the name of each element in a list to
 #' an output path.

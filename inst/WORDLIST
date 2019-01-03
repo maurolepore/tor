@@ -1,7 +1,11 @@
 behaviour
 fs
+https
 io
 lifecycle
+purrr
 rio
 rlang
 tidyverse
+torr
+vectorizes
