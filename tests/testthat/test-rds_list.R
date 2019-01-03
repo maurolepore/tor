@@ -41,16 +41,16 @@ test_that("list_csv defaults to read from working directory", {
   expect_true(any("csv" %in% names(list_csv())))
 })
 
-context("tsv_list")
+context("list_tsv")
 
-test_that("tsv_list lists .tsv files", {
+test_that("list_tsv lists .tsv files", {
   skip_if_not_installed("readr")
 
   readr <- readr::read_tsv(fs::dir_ls(tor_example("tsv"))[[1]])
-  tor <- tsv_list(tor_example("tsv"))[[1]]
+  tor <- list_tsv(tor_example("tsv"))[[1]]
   expect_equivalent(readr, tor)
 })
 
-test_that("tsv_list defaults to read from working directory", {
-  expect_named(tsv_list(), "tsv")
+test_that("list_tsv defaults to read from working directory", {
+  expect_named(list_tsv(), "tsv")
 })

@@ -4,7 +4,7 @@
 \alias{list_rds}
 \alias{list_rdata}
 \alias{list_csv}
-\alias{tsv_list}
+\alias{list_tsv}
 \title{Read multiple (common) files from a directory into a list.}
 \usage{
 list_rds(path = ".")
@@ -15,7 +15,7 @@ list_csv(path = ".", header = TRUE, sep = ",", quote = "\\"",
   dec = ".", fill = TRUE, comment.char = "",
   stringsAsFactors = FALSE, na.strings = c("", "NA"), ...)
 
-tsv_list(path = ".", header = TRUE, sep = "\\t", quote = "\\"",
+list_tsv(path = ".", header = TRUE, sep = "\\t", quote = "\\"",
   dec = ".", fill = TRUE, comment.char = "",
   stringsAsFactors = FALSE, na.strings = c("", "NA"), ...)
 }
@@ -83,7 +83,7 @@ list_csv(mixed)
 (tsv <- tor_example("tsv"))
 dir(tsv)
 
-tsv_list(tsv)
+list_tsv(tsv)
 }
 \seealso{
 Other general functions to import data: \code{\link{list_any}},

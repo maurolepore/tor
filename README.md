@@ -33,7 +33,7 @@ library(tor)
 
 All functions input a path and output a list.
 
-#### `<input>_list`
+#### `list_<something>`
 
 The simplest functions are prefixed after the file format they read. The
 argument `path` always defaults to the working directory.

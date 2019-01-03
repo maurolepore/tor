@@ -27,7 +27,7 @@
 #' (tsv <- tor_example("tsv"))
 #' dir(tsv)
 #'
-#' tsv_list(tsv)
+#' list_tsv(tsv)
 list_rds <- function(path = ".") {
   list_any(path, base::readRDS, regexp = "[.]rds$", ignore.case = TRUE)
 }
@@ -76,7 +76,7 @@ list_csv <- function(path = ".",
 
 #' @rdname list_rds
 #' @export
-tsv_list <- function(path = ".",
+list_tsv <- function(path = ".",
                       header = TRUE,
                       sep = "\t",
                       quote = "\"",
