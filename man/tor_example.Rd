@@ -17,9 +17,12 @@ Easily access example data.
 }
 \examples{
 tor_example()
+
 tor_example("csv")
+
 dir(tor_example("csv"))
 }
 \author{
-Copied from \code{readr::readr_example()}, by Jim Hester and colleagues.
+Copied from \code{readr_example()} from the \strong{readr} package, by Jim
+Hester and colleagues.
 }

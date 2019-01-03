@@ -1,6 +1,7 @@
 #' Easily access example data.
 #'
-#' @author Copied from `readr::readr_example()`, by Jim Hester and colleagues.
+#' @author Copied from `readr_example()` from the __readr__ package, by Jim
+#'   Hester and colleagues.
 #'
 #' @param path Length-1 character vector. A path to an available directory.
 #'
@@ -9,7 +10,9 @@
 #'
 #' @examples
 #' tor_example()
+#'
 #' tor_example("csv")
+#'
 #' dir(tor_example("csv"))
 tor_example <- function(path = NULL) {
   if (is.null(path)) {
