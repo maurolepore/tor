@@ -104,14 +104,6 @@ test_that("list_csv is sensitive to `regexp`, `invert, and `ignore.case`", {
 
 context("list_tsv")
 
-test_that("list_tsv lists .tsv files", {
-  skip_if_not_installed("readr")
-
-  readr <- readr::read_tsv(fs::dir_ls(tor_example("tsv"))[[1]])
-  tor <- list_tsv(tor_example("tsv"))[[1]]
-  expect_equivalent(readr, tor)
-})
-
 test_that("list_tsv defaults to read from working directory", {
   expect_named(list_tsv(), "tsv")
 })

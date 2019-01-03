@@ -19,7 +19,6 @@ Imports:
     rlang
 Suggests: 
     covr,
-    readr,
     spelling,
     testthat
 Encoding: UTF-8
