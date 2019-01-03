@@ -40,19 +40,19 @@ argument `path` always defaults to the working directory.
 
 ``` r
 dir()
-#>  [1] "cran-comments.md" "DESCRIPTION"      "file1.csv"       
-#>  [4] "file2.csv"        "inst"             "LICENSE.md"      
+#>  [1] "cran-comments.md" "csv1.csv"         "csv2.csv"        
+#>  [4] "DESCRIPTION"      "inst"             "LICENSE.md"      
 #>  [7] "man"              "NAMESPACE"        "NEWS.md"         
 #> [10] "R"                "README.md"        "README.Rmd"      
 #> [13] "tests"            "tmp.R"            "tor.Rproj"
 
 csv_list()
-#> $file1
+#> $csv1
 #>   x
 #> 1 1
 #> 2 2
 #> 
-#> $file2
+#> $csv2
 #>   y
 #> 1 a
 #> 2 b
@@ -66,7 +66,7 @@ tor_example()
 #> [1] "csv"   "mixed" "rdata" "rds"   "tsv"
 
 (path_rds <- tor_example("rds"))
-#> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/readwith/extdata/rds"
+#> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/tor/extdata/rds"
 dir(path_rds)
 #> [1] "file1.rds" "file2.rds"
 
@@ -82,7 +82,7 @@ rds_list(path_rds)
 #> 2 b
 
 (path_tsv <- tor_example("tsv"))
-#> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/readwith/extdata/tsv"
+#> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/tor/extdata/tsv"
 dir(path_tsv)
 #> [1] "tsv1.tsv" "tsv2.tsv"
 
@@ -134,7 +134,7 @@ with.
 
 ``` r
 (path_csv <- tor_example("csv"))
-#> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/readwith/extdata/csv"
+#> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/tor/extdata/csv"
 dir(path_csv)
 #> [1] "file1.csv" "file2.csv"
 
@@ -155,7 +155,7 @@ It understands lambda functions and formulas (powered by
 
 ``` r
 (path_rdata <- tor_example("rdata"))
-#> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/readwith/extdata/rdata"
+#> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/tor/extdata/rdata"
 dir(path_rdata)
 #> [1] "file1.rdata" "file2.rdata"
 

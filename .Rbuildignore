@@ -1,3 +1,4 @@
+^tmp\.R$
 ^csv2\.csv$
 ^csv1\.csv$
 ^cran-comments\.md$
