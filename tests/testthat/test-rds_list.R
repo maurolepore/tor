@@ -47,8 +47,8 @@ test_that("tsv_list lists .tsv files", {
   skip_if_not_installed("readr")
 
   readr <- readr::read_tsv(fs::dir_ls(tor_example("tsv"))[[1]])
-  readwith <- tsv_list(tor_example("tsv"))[[1]]
-  expect_equivalent(readr, readwith)
+  tor <- tsv_list(tor_example("tsv"))[[1]]
+  expect_equivalent(readr, tor)
 })
 
 test_that("tsv_list defaults to read from working directory", {

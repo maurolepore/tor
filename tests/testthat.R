@@ -1,4 +1,4 @@
 library(testthat)
-library(readwith)
+library(tor)
 
-test_check("readwith")
+test_check("tor")

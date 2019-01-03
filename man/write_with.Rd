@@ -20,16 +20,16 @@ A list.
 Read multiple files into a list using any given reading function.
 }
 \examples{
-readwith_example()
+tor_example()
 
-path <- readwith_example("csv")
+path <- tor_example("csv")
 dir(path)
 
 read_with(path, read.csv)
 
 read_with(path, ~read.csv(.x, stringsAsFactors = FALSE))
 
-(path_mixed <- readwith_example("mixed"))
+(path_mixed <- tor_example("mixed"))
 dir(path_mixed)
 
 read_with(

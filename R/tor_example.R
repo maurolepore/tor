@@ -13,19 +13,9 @@
 #' dir(tor_example("csv"))
 tor_example <- function(path = NULL) {
   if (is.null(path)) {
-    dir(system.file("extdata", package = "readwith"))
+    dir(system.file("extdata", package = "tor"))
   }
   else {
-    system.file("extdata", path, package = "readwith", mustWork = TRUE)
-  }
-}
-
-# FIXME Remove
-#' @export
-tor_example <- function(path = NULL) {
-  if (is.null(path)) {
-    dir(system.file("extdata", package = "readwith"))
-  } else {
-    system.file("extdata", path, package = "readwith", mustWork = TRUE)
+    system.file("extdata", path, package = "tor", mustWork = TRUE)
   }
 }

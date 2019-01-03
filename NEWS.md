@@ -1,3 +1,3 @@
-# readwith 1.0.0
+# tor 1.0.0
 
 * Initial release.
