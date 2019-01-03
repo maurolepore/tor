@@ -35,18 +35,37 @@
 #' )
 #' @importFrom rlang %||% abort set_names
 write_with <- function(.x,
+                       path = ".",
                        .f,
                        ext,
-                       path = ".",
                        prefix = NULL,
                        ...) {
-  purrr::walk2(.x, fmt_paths(prefix, names(.x), ext), .f, ...)
+  # purrr::walk2(.x, fmt_paths(prefix, names(.x), ext), .f, ...)
+  # Map(.f, .x, fmt_paths(prefix, paths = names(.x), ext = ext), ...)
+
+  Map(
+    rlang::as_function(.f),
+    .x,
+    fmt_paths(base = path, prefix, files = names(.x), ext = ext),
+    ...
+  )
+}
+
+
+# base <- "home"
+# prefix <- "pre"
+# files <- c("f1", "f2")
+# ext <- "csv"
+# fmt_paths(base = base, prefix, files = files, ext = ext)
+fmt_paths <- function(base, prefix, files, ext) {
+  paste0(
+    base, "/",
+    if (!is.null(prefix)) fmt_prefix(prefix),
+    files,
+    fmt_ext(ext)
+  )
 }
 
 fmt_prefix <- function(prefix) sprintf("%s-", prefix)
 
 fmt_ext <- function(ext) sprintf(".%s", ext)
-
-fmt_paths <- function(prefix, paths, ext) {
-  paste0(if (!is.null(prefix)) fmt_prefix(prefix), paths, fmt_ext(ext))
-}
