@@ -65,7 +65,7 @@ tsv_list(path = ".", header = TRUE, sep = "\\t", quote = "\\"",
 A list.
 }
 \description{
-These functions wrap the most common special cases of \code{\link[=read_with]{read_with()}}.
+These functions wrap the most common special cases of \code{\link[=list_any]{list_any()}}.
 }
 \examples{
 (rds <- tor_example("rds"))
@@ -86,7 +86,7 @@ dir(tsv)
 tsv_list(tsv)
 }
 \seealso{
-Other general functions to import data: \code{\link{read_with}},
+Other general functions to import data: \code{\link{list_any}},
   \code{\link{write_with}}
 }
 \concept{general functions to import data}

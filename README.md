@@ -127,10 +127,9 @@ rdata_list(path_mixed)
 #> 2 b
 ```
 
-### `read_with()`
+### `list_any()`
 
-`read_with()` is the most flexible. You supply the function to read
-with.
+`list_any()` is the most flexible. You supply the function to read with.
 
 ``` r
 (path_csv <- tor_example("csv"))
@@ -138,7 +137,7 @@ with.
 dir(path_csv)
 #> [1] "file1.csv" "file2.csv"
 
-read_with(path_csv, read.csv)
+list_any(path_csv, read.csv)
 #> $file1
 #>   x
 #> 1 1
@@ -160,7 +159,7 @@ dir(path_rdata)
 #> [1] "file1.rdata" "file2.rdata"
 
 path_rdata %>% 
-  read_with(function(x) get(load(x)))
+  list_any(function(x) get(load(x)))
 #> $file1
 #>   x
 #> 1 1
@@ -173,7 +172,7 @@ path_rdata %>%
 
 # Same
 path_rdata %>% 
-  read_with(~get(load(.x)))
+  list_any(~get(load(.x)))
 #> $file1
 #>   x
 #> 1 1
@@ -189,7 +188,7 @@ Pass additional arguments via `...` or inside the lambda function (as
 `lapply()`).
 
 ``` r
-read_with(path_csv, read.csv, stringsAsFactors = FALSE)
+list_any(path_csv, read.csv, stringsAsFactors = FALSE)
 #> $file1
 #>   x
 #> 1 1
@@ -200,7 +199,7 @@ read_with(path_csv, read.csv, stringsAsFactors = FALSE)
 #> 1 a
 #> 2 b
 
-read_with(path_csv, ~read.csv(., stringsAsFactors = FALSE))
+list_any(path_csv, ~read.csv(., stringsAsFactors = FALSE))
 #> $file1
 #>   x
 #> 1 1
@@ -222,7 +221,7 @@ dir(path_mixed)
 #> [4] "upper_rdata.RData"
 
 path_mixed %>% 
-  read_with(~get(load(.)), "[.]Rdata$", ignore.case = TRUE)
+  list_any(~get(load(.)), "[.]Rdata$", ignore.case = TRUE)
 #> $lower_rdata
 #>   y
 #> 1 a
@@ -234,7 +233,7 @@ path_mixed %>%
 #> 2 b
 
 path_mixed %>% 
-  read_with(~get(load(.)), regexp = "[.]csv$", invert = TRUE)
+  list_any(~get(load(.)), regexp = "[.]csv$", invert = TRUE)
 #> $lower_rdata
 #>   y
 #> 1 a

@@ -1,8 +1,8 @@
 #' Read multiple (common) files from a directory into a list.
 #'
-#' These functions wrap the most common special cases of [read_with()].
+#' These functions wrap the most common special cases of [list_any()].
 #'
-#' @inheritParams read_with
+#' @inheritParams list_any
 #' @inheritParams utils::read.table
 #' @param ... Arguments passed to [utils::read.table()].
 #'
@@ -29,13 +29,13 @@
 #'
 #' tsv_list(tsv)
 list_rds <- function(path = ".") {
-  read_with(path, base::readRDS, regexp = "[.]rds$", ignore.case = TRUE)
+  list_any(path, base::readRDS, regexp = "[.]rds$", ignore.case = TRUE)
 }
 
 #' @rdname list_rds
 #' @export
 rdata_list <- function(path = ".") {
-  read_with(
+  list_any(
     path,
     ~get(load(.x)),
     regexp = "[.]rdata$|[.]rda$",
@@ -55,7 +55,7 @@ csv_list <- function(path = ".",
                       stringsAsFactors = FALSE,
                       na.strings = c("", "NA"),
                       ...) {
-    read_with(
+    list_any(
       path,
       ~utils::read.csv(
         file = .x,
@@ -86,7 +86,7 @@ tsv_list <- function(path = ".",
                       stringsAsFactors = FALSE,
                       na.strings = c("", "NA"),
                       ...) {
-    read_with(
+    list_any(
       path,
       ~utils::read.csv(
         file = .x,

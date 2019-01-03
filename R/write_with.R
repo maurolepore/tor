@@ -15,20 +15,20 @@
 #' path <- tor_example("csv")
 #' dir(path)
 #'
-#' read_with(path, read.csv)
+#' list_any(path, read.csv)
 #'
-#' read_with(path, ~read.csv(.x, stringsAsFactors = FALSE))
+#' list_any(path, ~read.csv(.x, stringsAsFactors = FALSE))
 #'
 #' (path_mixed <- tor_example("mixed"))
 #' dir(path_mixed)
 #'
-#' read_with(
+#' list_any(
 #'   path_mixed, ~get(load(.x)),
 #'   regexp = "[.]csv$",
 #'   invert = TRUE
 #' )
 #'
-#' read_with(
+#' list_any(
 #'   path_mixed, ~get(load(.x)),
 #'   "[.]Rdata$",
 #'   ignore.case = TRUE

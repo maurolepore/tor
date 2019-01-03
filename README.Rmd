@@ -75,15 +75,15 @@ csv_list(path_mixed)
 rdata_list(path_mixed)
 ```
 
-### `read_with()`
+### `list_any()`
 
-`read_with()` is the most flexible. You supply the function to read with.
+`list_any()` is the most flexible. You supply the function to read with.
 
 ```{r}
 (path_csv <- tor_example("csv"))
 dir(path_csv)
 
-read_with(path_csv, read.csv)
+list_any(path_csv, read.csv)
 ```
 
 It understands lambda functions and formulas (powered by [__rlang__](https://rlang.r-lib.org/)).
@@ -93,19 +93,19 @@ It understands lambda functions and formulas (powered by [__rlang__](https://rla
 dir(path_rdata)
 
 path_rdata %>% 
-  read_with(function(x) get(load(x)))
+  list_any(function(x) get(load(x)))
 
 # Same
 path_rdata %>% 
-  read_with(~get(load(.x)))
+  list_any(~get(load(.x)))
 ```
 
 Pass additional arguments via `...` or inside the lambda function (as `lapply()`).
 
 ```{r}
-read_with(path_csv, read.csv, stringsAsFactors = FALSE)
+list_any(path_csv, read.csv, stringsAsFactors = FALSE)
 
-read_with(path_csv, ~read.csv(., stringsAsFactors = FALSE))
+list_any(path_csv, ~read.csv(., stringsAsFactors = FALSE))
 ```
 
 Use `regexp`, `ignore.case`, and `invert` to pick specific files in a directory (powered by [__fs__](https://fs.r-lib.org/)).
@@ -115,10 +115,10 @@ path_mixed <- tor_example("mixed")
 dir(path_mixed)
 
 path_mixed %>% 
-  read_with(~get(load(.)), "[.]Rdata$", ignore.case = TRUE)
+  list_any(~get(load(.)), "[.]Rdata$", ignore.case = TRUE)
 
 path_mixed %>% 
-  read_with(~get(load(.)), regexp = "[.]csv$", invert = TRUE)
+  list_any(~get(load(.)), regexp = "[.]csv$", invert = TRUE)
 ```
 
 # Related projects
