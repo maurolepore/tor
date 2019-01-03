@@ -12,18 +12,18 @@
 #'
 #' @examples
 #' format_path(c("file1", "file2"), "csv")
-#' format_path(c("file1", "file2"), "csv", base = "home")
-#' format_path(c("file1", "file2"), "csv", base = "home", "this")
-#' @importFrom rlang expr_label expr enquo
+#'
+#' (dfs <- list_csv(tor_example("csv")))
+#'
+#' format_path(names(dfs), "csv")
+#'
+#' format_path(names(dfs), "csv", base = "home", prefix = "this-")
 format_path <- function(files, ext, base = ".", prefix = NULL) {
   if (missing(files)) abort("`files` can't be missing")
   if (missing(ext)) abort("`ext` can't be missing")
 
   paste0(
-    base, "/",
-    if (!is.null(prefix)) fmt_prefix(prefix),
-    files,
-    fmt_ext(ext)
+    base, "/", if (!is.null(prefix)) fmt_prefix(prefix), files, fmt_ext(ext)
   )
 }
 

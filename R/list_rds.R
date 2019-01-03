@@ -17,6 +17,11 @@
 #'
 #' list_rds(rds)
 #'
+#' (tsv <- tor_example("tsv"))
+#' dir(tsv)
+#'
+#' list_tsv(tsv)
+#'
 #' (mixed <- tor_example("mixed"))
 #' dir(mixed)
 #'
@@ -24,10 +29,7 @@
 #'
 #' list_csv(mixed)
 #'
-#' (tsv <- tor_example("tsv"))
-#' dir(tsv)
-#'
-#' list_tsv(tsv)
+#' list_rdata(mixed, regexp = "[.]RData", ignore.case = FALSE)
 list_rds <- function(path = ".",
                      regexp = "[.]rds$",
                      ignore.case = TRUE,

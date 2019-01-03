@@ -37,12 +37,12 @@ working directory.
 
 ``` r
 dir()
-#>  [1] "cran-comments.md" "csv1.csv"         "csv2.csv"        
-#>  [4] "datasets"         "DESCRIPTION"      "inst"            
-#>  [7] "LICENSE.md"       "man"              "NAMESPACE"       
-#> [10] "NEWS.md"          "R"                "README.md"       
-#> [13] "README.Rmd"       "tests"            "tmp.R"           
-#> [16] "tor.Rproj"
+#>  [1] "_pkgdown.yml"     "cran-comments.md" "csv1.csv"        
+#>  [4] "csv2.csv"         "datasets"         "DESCRIPTION"     
+#>  [7] "docs"             "inst"             "LICENSE.md"      
+#> [10] "man"              "NAMESPACE"        "NEWS.md"         
+#> [13] "R"                "README.md"        "README.Rmd"      
+#> [16] "tests"            "tmp.R"            "tor.Rproj"
 
 list_csv()
 #> $csv1
@@ -105,7 +105,7 @@ list_rdata(path_mixed)
 #> 2 b
 ```
 
-Or you may want to specify files matching a pattern.
+Or you may read specific files matching a pattern.
 
 ``` r
 list_rdata(path_mixed, regexp = "[.]RData", ignore.case = FALSE)

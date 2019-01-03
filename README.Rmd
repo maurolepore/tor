@@ -68,7 +68,7 @@ dir(path_mixed)
 list_rdata(path_mixed)
 ```
 
-Or you may want to specify files matching a pattern.
+Or you may read specific files matching a pattern.
 
 ```{r}
 list_rdata(path_mixed, regexp = "[.]RData", ignore.case = FALSE)

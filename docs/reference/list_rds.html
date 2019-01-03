@@ -233,6 +233,19 @@
 #&gt; </span><span style='color: #555555;'>1</span><span> a    
 #&gt; </span><span style='color: #555555;'>2</span><span> b    
 #&gt; </div><div class='input'>
+(<span class='no'>tsv</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tor_example.html'>tor_example</a></span>(<span class='st'>"tsv"</span>))</div><div class='output co'>#&gt; [1] "C:/Users/LeporeM/Documents/Dropbox/git/ml/tor/inst/extdata/tsv"</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list.files'>dir</a></span>(<span class='no'>tsv</span>)</div><div class='output co'>#&gt; [1] "tsv1.tsv" "tsv2.tsv"</div><div class='input'>
+<span class='fu'>list_tsv</span>(<span class='no'>tsv</span>)</div><div class='output co'>#&gt; $tsv1
+#&gt;   x    y
+#&gt; 1 1    a
+#&gt; 2 2 &lt;NA&gt;
+#&gt; 3 3 &lt;NA&gt;
+#&gt; 
+#&gt; $tsv2
+#&gt;   x    y
+#&gt; 1 1    a
+#&gt; 2 2 &lt;NA&gt;
+#&gt; 3 3    b
+#&gt; </div><div class='input'>
 (<span class='no'>mixed</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tor_example.html'>tor_example</a></span>(<span class='st'>"mixed"</span>))</div><div class='output co'>#&gt; [1] "C:/Users/LeporeM/Documents/Dropbox/git/ml/tor/inst/extdata/mixed"</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list.files'>dir</a></span>(<span class='no'>mixed</span>)</div><div class='output co'>#&gt; [1] "csv.csv"           "lower_rdata.rdata" "rda.rda"          
 #&gt; [4] "upper_rdata.RData"</div><div class='input'>
 <span class='fu'>list_rdata</span>(<span class='no'>mixed</span>)</div><div class='output co'>#&gt; $lower_rdata
@@ -261,18 +274,12 @@
 #&gt; 1 a
 #&gt; 2 b
 #&gt; </div><div class='input'>
-(<span class='no'>tsv</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tor_example.html'>tor_example</a></span>(<span class='st'>"tsv"</span>))</div><div class='output co'>#&gt; [1] "C:/Users/LeporeM/Documents/Dropbox/git/ml/tor/inst/extdata/tsv"</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list.files'>dir</a></span>(<span class='no'>tsv</span>)</div><div class='output co'>#&gt; [1] "tsv1.tsv" "tsv2.tsv"</div><div class='input'>
-<span class='fu'>list_tsv</span>(<span class='no'>tsv</span>)</div><div class='output co'>#&gt; $tsv1
-#&gt;   x    y
-#&gt; 1 1    a
-#&gt; 2 2 &lt;NA&gt;
-#&gt; 3 3 &lt;NA&gt;
-#&gt; 
-#&gt; $tsv2
-#&gt;   x    y
-#&gt; 1 1    a
-#&gt; 2 2 &lt;NA&gt;
-#&gt; 3 3    b
+<span class='fu'>list_rdata</span>(<span class='no'>mixed</span>, <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>"[.]RData"</span>, <span class='kw'>ignore.case</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; $upper_rdata
+#&gt; </span><span style='color: #555555;'># A tibble: 2 x 1</span><span>
+#&gt;   y    
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> a    
+#&gt; </span><span style='color: #555555;'>2</span><span> b    
 #&gt; </div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
