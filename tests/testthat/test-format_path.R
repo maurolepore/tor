@@ -1,5 +1,5 @@
-context("test-format_path")
+context("format_path")
 
-test_that("multiplication works", {
-  expect_equal(2 * 2, 4)
-})
+# format_path(c("file1", "file2"), "csv")
+# format_path(c("file1", "file2"), "csv", base = "home")
+# format_path(c("file1", "file2"), "csv", base = "home", "this")
