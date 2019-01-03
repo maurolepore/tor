@@ -11,13 +11,11 @@ status](https://coveralls.io/repos/github/maurolepore/readwith/badge.svg)](https
 [![CRAN
 status](https://www.r-pkg.org/badges/version/readwith)](https://cran.r-project.org/package=readwith)
 
-**readwith** allows you to read multiple files at once with any reading
-function. Its main function, `readwith::read_with()`, inputs a reader
-function and returns a modified version that reads any number of files
-and stores them into a list (provided the first argument of the reader
-function is a path to a file). Compared to other packages aimed to
-reading files, **readwith** is simpler, more flexible, and has less
-dependencies.
+The goal of **readwith** is to read multiple files at once with any
+reading function. It is simple, flexible, and fits well in data-science
+workflows with the tidyverse. It is easy to extend because it is focused
+and small (it depends only on [**fs**](https://fs.r-lib.org/) and
+[**rlang**](https://rlang.r-lib.org/)).
 
 ## Installation
 
@@ -29,19 +27,140 @@ devtools::install_github("maurolepore/readwith")
 ## Example
 
 ``` r
+library(magrittr)
 library(readwith)
+```
 
+All functions input a path and output a list.
+
+#### \`<input>\_list
+
+The simplest, less flexible functions are prefixed after the file format
+they read. The argument `path` always defaults to the working directory.
+
+``` r
+dir()
+#>  [1] "cran-comments.md" "csv1.csv"         "csv2.csv"        
+#>  [4] "DESCRIPTION"      "inst"             "LICENSE.md"      
+#>  [7] "man"              "NAMESPACE"        "NEWS.md"         
+#> [10] "R"                "README.md"        "README.Rmd"      
+#> [13] "readwith.Rproj"   "tests"
+
+csv_list()
+#> $csv1
+#>   x
+#> 1 1
+#> 2 2
+#> 
+#> $csv2
+#>   x
+#> 1 1
+#> 2 2
+```
+
+But often you will specify a `path`.
+
+``` r
+# Helpes create paths to examples
 readwith_example()
-#> [1] "csv"   "mixed" "rdata" "rds"
+#> [1] "csv"   "mixed" "rdata" "rds"   "tsv"
 
-(csv_files <- readwith_example("csv"))
+(path_rds <- readwith_example("rds"))
+#> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/readwith/extdata/rds"
+dir(path_rds)
+#> [1] "file1.rds" "file2.rds"
+
+rds_list(path_rds)
+#> $file1
+#>   x
+#> 1 1
+#> 2 2
+#> 
+#> $file2
+#>   y
+#> 1 a
+#> 2 b
+
+(path_tsv <- readwith_example("tsv"))
+#> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/readwith/extdata/tsv"
+dir(path_tsv)
+#> [1] "tsv1.tsv" "tsv2.tsv"
+
+tsv_list(path_tsv)
+#> $tsv1
+#>   x    y
+#> 1 1    a
+#> 2 2 <NA>
+#> 3 3 <NA>
+#> 
+#> $tsv2
+#>   x    y
+#> 1 1    a
+#> 2 2 <NA>
+#> 3 3    b
+
+path_mixed <- readwith_example("mixed")
+dir(path_mixed)
+#> [1] "csv.csv"           "lower_rdata.rdata" "rda.rda"          
+#> [4] "upper_rdata.RData"
+
+csv_list(path_mixed)
+#> $csv
+#>   y
+#> 1 a
+#> 2 b
+
+rdata_list(path_mixed)
+#> $lower_rdata
+#>   y
+#> 1 a
+#> 2 b
+#> 
+#> $rda
+#>   y
+#> 1 a
+#> 2 b
+#> 
+#> $upper_rdata
+#>   y
+#> 1 a
+#> 2 b
+```
+
+### `read_with()`
+
+`read_with()` is the most flexible. You supply the function to read
+with.
+
+``` r
+(path_csv <- readwith_example("csv"))
 #> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/readwith/extdata/csv"
-dir(csv_files)
+dir(path_csv)
 #> [1] "file1.csv" "file2.csv"
 
-csv_list <- read_with(read.csv)
+read_with(path_csv, read.csv)
+#> $file1
+#>   x
+#> 1 1
+#> 2 2
+#> 
+#> $file2
+#>   y
+#> 1 a
+#> 2 b
+```
 
-csv_list(csv_files)
+It understands lambda functions and formulas (powered by
+[**rlang**](https://rlang.r-lib.org/)).
+
+``` r
+(path_rdata <- readwith_example("rdata"))
+#> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/readwith/extdata/rdata"
+dir(path_rdata)
+#> [1] "file1.rdata" "file2.rdata"
+
+path_rdata %>% 
+  read_with(function(x) get(load(x)))
 #> $file1
 #>   x
 #> 1 1
@@ -53,7 +172,8 @@ csv_list(csv_files)
 #> 2 b
 
 # Same
-read_with(read.csv)(csv_files)
+path_rdata %>% 
+  read_with(~get(load(.x)))
 #> $file1
 #>   x
 #> 1 1
@@ -65,56 +185,67 @@ read_with(read.csv)(csv_files)
 #> 2 b
 ```
 
-The argument `regexp` allows you to match specific files. You can pass
-arguments to the reader function via `...` (not an argument of
-`read_with()` but of the modified function it creates).
+Pass additional arguments via `...` or inside the lambda function (as
+`lapply()`).
 
 ``` r
-(mixed_files <- readwith_example("mixed"))
-#> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/readwith/extdata/mixed"
-dir(mixed_files)
-#> [1] "file1.csv"   "file2.rdata"
-
-# Using `regexp` to match .csv only
-csv_list <- read_with(read.csv, regexp = "[.]csv$")
-
-# Passing `stringsAsFactors` via the argument `...` of read.csv
-result1 <- csv_list(mixed_files, stringsAsFactors = TRUE)
-result2 <- csv_list(mixed_files, stringsAsFactors = FALSE)
-
-# Compare
-class(result1[["file1"]]$y)
-#> [1] "factor"
-class(result2[["file1"]]$y)
-#> [1] "character"
-
-result2
-#> $file1
-#>   y
-#> 1 a
-#> 2 b
-```
-
-You may use any available reader function, such as
-[`readr::read_csv()`](https://CRAN.R-project.org/package=readr), and
-[`readxl::read_excel()`](https://CRAN.R-project.org/package=readxl)), or
-create your own.
-
-``` r
-read_rdata <- function(x) get(load(x))
-
-(rdata_files <- readwith_example("rdata"))
-#> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/readwith/extdata/rdata"
-dir(rdata_files)
-#> [1] "file1.rdata" "file2.rdata"
-
-read_with(read_rdata)(rdata_files)
+read_with(path_csv, read.csv, stringsAsFactors = FALSE)
 #> $file1
 #>   x
 #> 1 1
 #> 2 2
 #> 
 #> $file2
+#>   y
+#> 1 a
+#> 2 b
+
+read_with(path_csv, ~read.csv(., stringsAsFactors = FALSE))
+#> $file1
+#>   x
+#> 1 1
+#> 2 2
+#> 
+#> $file2
+#>   y
+#> 1 a
+#> 2 b
+```
+
+Use `regexp`, `ignore.case`, and `invert` to pick specific files in a
+directory (powered by [**fs**](https://fs.r-lib.org/)).
+
+``` r
+path_mixed <- readwith_example("mixed")
+dir(path_mixed)
+#> [1] "csv.csv"           "lower_rdata.rdata" "rda.rda"          
+#> [4] "upper_rdata.RData"
+
+path_mixed %>% 
+  read_with(~get(load(.)), "[.]Rdata$", ignore.case = TRUE)
+#> $lower_rdata
+#>   y
+#> 1 a
+#> 2 b
+#> 
+#> $upper_rdata
+#>   y
+#> 1 a
+#> 2 b
+
+path_mixed %>% 
+  read_with(~get(load(.)), regexp = "[.]csv$", invert = TRUE)
+#> $lower_rdata
+#>   y
+#> 1 a
+#> 2 b
+#> 
+#> $rda
+#>   y
+#> 1 a
+#> 2 b
+#> 
+#> $upper_rdata
 #>   y
 #> 1 a
 #> 2 b
@@ -124,12 +255,5 @@ read_with(read_rdata)(rdata_files)
 
 There are great packages to read and write data, for example
 [**rio**](https://CRAN.R-project.org/package=rio) and
-[**io**](https://CRAN.R-project.org/package=io). Compared to them
-**readwith**:
-
-  - may be confusing if you are unfamiliar with [function
-    factories](https://adv-r.hadley.nz/function-factories.html).
-  - is simpler because it does not write but only only read data and
-    because it has fewer dependencies.
-  - **readwith** is more flexible because it is you who decides what
-    reader function to use.
+[**io**](https://CRAN.R-project.org/package=io). **readwith** does less
+than the alternatives, yet it is more flexible and small.

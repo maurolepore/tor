@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 [![Coverage status](https://coveralls.io/repos/github/maurolepore/readwith/badge.svg)](https://coveralls.io/r/maurolepore/readwith?branch=master)
 [![CRAN status](https://www.r-pkg.org/badges/version/readwith)](https://cran.r-project.org/package=readwith)
 
-__readwith__ allows you to read multiple files at once with any reading function. Its main function, `readwith::read_with()`, inputs a reader function and returns a modified version that reads any number of files and stores them into a list (provided the first argument of the reader function is a path to a file). Compared to other packages aimed to reading files, __readwith__ is simpler, more flexible, and has less dependencies.
+The goal of __readwith__ is to read multiple files at once with any reading function. It is simple, flexible, and fits well in data-science workflows with the tidyverse. It is easy to extend because it is focused and small (it depends only on [__fs__](https://fs.r-lib.org/) and [__rlang__](https://rlang.r-lib.org/)).
 
 ## Installation
 
@@ -34,56 +34,94 @@ devtools::install_github("maurolepore/readwith")
 ## Example
 
 ```{r}
+library(magrittr)
 library(readwith)
 
+```
+
+All functions input a path and output a list.
+
+#### `<input>_list
+
+The simplest, less flexible functions are prefixed after the file format they read. The argument `path` always defaults to the working directory.
+
+```{r}
+dir()
+
+csv_list()
+```
+
+But often you will specify a `path`.
+
+```{r}
+# Helpes create paths to examples
 readwith_example()
 
-(csv_files <- readwith_example("csv"))
-dir(csv_files)
+(path_rds <- readwith_example("rds"))
+dir(path_rds)
 
-csv_list <- read_with(read.csv)
+rds_list(path_rds)
 
-csv_list(csv_files)
+(path_tsv <- readwith_example("tsv"))
+dir(path_tsv)
+
+tsv_list(path_tsv)
+
+path_mixed <- readwith_example("mixed")
+dir(path_mixed)
+
+csv_list(path_mixed)
+
+rdata_list(path_mixed)
+```
+
+### `read_with()`
+
+`read_with()` is the most flexible. You supply the function to read with.
+
+```{r}
+(path_csv <- readwith_example("csv"))
+dir(path_csv)
+
+read_with(path_csv, read.csv)
+```
+
+It understands lambda functions and formulas (powered by [__rlang__](https://rlang.r-lib.org/)).
+
+```{r}
+(path_rdata <- readwith_example("rdata"))
+dir(path_rdata)
+
+path_rdata %>% 
+  read_with(function(x) get(load(x)))
 
 # Same
-read_with(read.csv)(csv_files)
+path_rdata %>% 
+  read_with(~get(load(.x)))
 ```
 
-The argument `regexp` allows you to match specific files. You can pass arguments to the reader function via `...` (not an argument of `read_with()` but of the modified function it creates).
+Pass additional arguments via `...` or inside the lambda function (as `lapply()`).
 
 ```{r}
-(mixed_files <- readwith_example("mixed"))
-dir(mixed_files)
+read_with(path_csv, read.csv, stringsAsFactors = FALSE)
 
-# Using `regexp` to match .csv only
-csv_list <- read_with(read.csv, regexp = "[.]csv$")
-
-# Passing `stringsAsFactors` via the argument `...` of read.csv
-result1 <- csv_list(mixed_files, stringsAsFactors = TRUE)
-result2 <- csv_list(mixed_files, stringsAsFactors = FALSE)
-
-# Compare
-class(result1[["file1"]]$y)
-class(result2[["file1"]]$y)
-
-result2
+read_with(path_csv, ~read.csv(., stringsAsFactors = FALSE))
 ```
 
-You may use any available reader function, such as [`readr::read_csv()`](https://CRAN.R-project.org/package=readr), and  [`readxl::read_excel()`]( https://CRAN.R-project.org/package=readxl )), or create your own.
+Use `regexp`, `ignore.case`, and `invert` to pick specific files in a directory (powered by [__fs__](https://fs.r-lib.org/)).
 
 ```{r}
-read_rdata <- function(x) get(load(x))
+path_mixed <- readwith_example("mixed")
+dir(path_mixed)
 
-(rdata_files <- readwith_example("rdata"))
-dir(rdata_files)
+path_mixed %>% 
+  read_with(~get(load(.)), "[.]Rdata$", ignore.case = TRUE)
 
-read_with(read_rdata)(rdata_files)
+path_mixed %>% 
+  read_with(~get(load(.)), regexp = "[.]csv$", invert = TRUE)
 ```
 
 # Related projects
 
-There are great packages to read and write data, for example [__rio__](https://CRAN.R-project.org/package=rio) and [__io__](https://CRAN.R-project.org/package=io). Compared to them __readwith__:
+There are great packages to read and write data, for example [__rio__](https://CRAN.R-project.org/package=rio) and [__io__](https://CRAN.R-project.org/package=io). __readwith__ does less than the alternatives, yet it is more flexible and small.
 
-* may be confusing if you are unfamiliar with [function factories](https://adv-r.hadley.nz/function-factories.html). 
-* is simpler because it does not write but only only read data and because it has fewer dependencies.
-* __readwith__ is more flexible because it is you who decides what reader function to use.

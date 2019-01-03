@@ -1,22 +1,22 @@
 Package: readwith
-Title: Read Multiple Files With Any Reading Function
+Title: Read Multiple Files With Of Any Format From a Directory Into a List
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Mauro",
            family = "Lepore",
            role = c("aut", "cre"),
            email = "maurolepore@gmail.com")
-Description: Use readwith to read, with your favorite reading function, 
-    multiple files -- all at once. Its main function inputs a reader function 
-    and returns a modified version that maps each files to one element of 
-    a list (provided the first argument of the reader function is a path to a
-    file). Compared to other packages aimed to reading files, readwith is more
-    simpler, more flexible, and has less dependencies.
+Description: Read multiple files of any format from a directory
+    into a list, using a reader function of your choice. readwith is
+    designed to be simple, flexible, and to fit well in data-science
+    workflows with the tidyverse.  It is focused, flexible, small, and has
+    few dependencies.
 License: GPL-3
 URL: https://github.com/maurolepore/readwith
 BugReports: https://github.com/maurolepore/readwith/issues
 Imports: 
-    fs
+    fs,
+    rlang
 Suggests: 
     covr,
     spelling,

@@ -1,5 +1,4 @@
-dir
 io
 lifecycle
+readr
 rio
-vectorized

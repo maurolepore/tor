@@ -4,14 +4,13 @@
 \name{readwith-package}
 \alias{readwith}
 \alias{readwith-package}
-\title{readwith: Read Multiple Files With Any Reading Function}
+\title{readwith: Read Multiple Files With Of Any Format From a Directory Into a List}
 \description{
-Use readwith to read, with your favorite reading function, 
-    multiple files -- all at once. Its main function inputs a reader function 
-    and returns a modified version that maps each files to one element of 
-    a list (provided the first argument of the reader function is a path to a
-    file). Compared to other packages aimed to reading files, readwith is more
-    simpler, more flexible, and has less dependencies.
+Read multiple files of any format from a directory
+    into a list, using a reader function of your choice. readwith is
+    designed to be simple, flexible, and to fit well in data-science
+    workflows with the tidyverse.  It is focused, flexible, small, and has
+    few dependencies.
 }
 \seealso{
 Useful links:

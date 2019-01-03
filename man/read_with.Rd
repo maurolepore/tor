@@ -4,9 +4,12 @@
 \alias{read_with}
 \title{Read multiple files into a list using any given reading function.}
 \usage{
-read_with(.f, regexp = NULL, ignore.case = FALSE, invert = FALSE)
+read_with(path = ".", .f, regexp = NULL, ignore.case = FALSE,
+  invert = FALSE, ...)
 }
 \arguments{
+\item{path}{A character vector of one or more paths.}
+
 \item{.f}{A function able to read the desired file format.}
 
 \item{regexp}{A regular expression (e.g. \code{[.]csv$}) passed on to \code{\link[=grep]{grep()}} to filter paths.}
@@ -15,15 +18,11 @@ read_with(.f, regexp = NULL, ignore.case = FALSE, invert = FALSE)
       sensitive} and if \code{TRUE}, case is ignored during matching.}
 
 \item{invert}{If \code{TRUE} return files which do \emph{not} match}
+
+\item{...}{Additional arguments passed to \link{grep}.}
 }
 \value{
-A modified version of the input function with the following
-arguments:
-\itemize{
-\item \code{path_dir}: Optional string giving the path to the directory to read from.
-Defaults to reading from the working directory.
-\item \code{...} Arguments passed to the reader function.
-}
+A list.
 }
 \description{
 Read multiple files into a list using any given reading function.
@@ -31,41 +30,29 @@ Read multiple files into a list using any given reading function.
 \examples{
 readwith_example()
 
-(csv_files <- readwith_example("csv"))
-dir(csv_files)
+path <- readwith_example("csv")
+dir(path)
 
-csv_list <- read_with(read.csv)
-csv_list(csv_files)
+read_with(path, read.csv)
 
-# Same
-read_with(read.csv)(csv_files)
+read_with(path, ~read.csv(.x, stringsAsFactors = FALSE))
 
-# More robust
-csv_list <- read_with(read.csv, regexp = "[.]csv")
-csv_list(csv_files, stringsAsFactors = TRUE)
+(path_mixed <- readwith_example("mixed"))
+dir(path_mixed)
 
-# Compare
-class(csv_list(csv_files)[[2]]$y)
-class(csv_list(csv_files, stringsAsFactors = FALSE)[[2]]$y)
+read_with(
+  path_mixed, ~get(load(.x)),
+  regexp = "[.]csv$",
+  invert = TRUE
+)
 
-(rdata_files <- readwith_example("rdata"))
-dir(rdata_files)
-
-# You may create your own reader function
-read_rdata <- function(x) get(load(x))
-rdata_list <- read_with(read_rdata)
-rdata_list(rdata_files)
-
-(mixed_files <- readwith_example("mixed"))
-dir(mixed_files)
-
-# You may `invert`
-read_with(read_rdata, "[.]csv$", invert = TRUE)(mixed_files)
-
-# You may `ignore.case`
-read_with(read_rdata, "[.]Rdata$", ignore.case = TRUE)(mixed_files)
+read_with(
+  path_mixed, ~get(load(.x)),
+  "[.]Rdata$",
+  ignore.case = TRUE
+)
 }
 \seealso{
-Other general functions to import data: \code{\link{dir_list}}
+Other general functions to import data: \code{\link{rds_list}}
 }
 \concept{general functions to import data}
