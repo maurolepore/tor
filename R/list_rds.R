@@ -28,8 +28,14 @@
 #' dir(tsv)
 #'
 #' list_tsv(tsv)
-list_rds <- function(path = ".") {
-  list_any(path, base::readRDS, regexp = "[.]rds$", ignore.case = TRUE)
+list_rds <- function(path = ".", regexp = "[.]rds$", invert = FALSE) {
+  list_any(
+    path,
+    base::readRDS,
+    regexp = regexp,
+    ignore.case = TRUE,
+    invert = invert
+  )
 }
 
 #' @rdname list_rds

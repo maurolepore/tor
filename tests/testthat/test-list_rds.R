@@ -11,6 +11,20 @@ test_that("list_rds defaults to read from working directory", {
   expect_named(list_rds(), "rds")
 })
 
+test_that("list_rds allows specifying one of many .rds files", {
+  expect_named(
+    list_rds(tor_example("rds"), regexp = "file1"),
+    c("file1")
+  )
+})
+
+test_that("list_rds allows inverting a `regexp` pattern", {
+  expect_named(
+    list_rds(tor_example("rds"), regexp = "file1", invert = TRUE),
+    c("file2")
+  )
+})
+
 context("list_rdata")
 
 test_that("list_rdata lists .rdata, .Rdata, and .rda", {

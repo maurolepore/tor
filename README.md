@@ -42,9 +42,9 @@ dir()
 #>  [1] "cran-comments.md" "csv1.csv"         "csv2.csv"        
 #>  [4] "datasets"         "DESCRIPTION"      "inst"            
 #>  [7] "LICENSE.md"       "man"              "NAMESPACE"       
-#> [10] "NEWS.md"          "R"                "README.knit.md"  
-#> [13] "README.md"        "README.Rmd"       "tests"           
-#> [16] "tmp.R"            "tor.Rproj"
+#> [10] "NEWS.md"          "R"                "README.md"       
+#> [13] "README.Rmd"       "tests"            "tmp.R"           
+#> [16] "tor.Rproj"
 
 list_csv()
 #> $csv1
