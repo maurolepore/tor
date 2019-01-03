@@ -11,8 +11,8 @@ status](https://coveralls.io/repos/github/maurolepore/tor/badge.svg)](https://co
 [![CRAN
 status](https://www.r-pkg.org/badges/version/tor)](https://cran.r-project.org/package=tor)
 
-The goal of **tor** is to import multiple files of any kind into R. It
-does nothing you can’t do with functions from base R (or
+The goal of **tor** (*to-R*) is to import multiple files of any kind
+into R. It does nothing you can’t do with functions from base R (or
 [**fs**](https://fs.r-lib.org/) plus
 [**purrr**](https://purrr.tidyverse.org/) plus some reader package) but
 it provides a shortcut to save your time and brain power for more
@@ -42,9 +42,9 @@ dir()
 #>  [1] "cran-comments.md" "csv1.csv"         "csv2.csv"        
 #>  [4] "datasets"         "DESCRIPTION"      "inst"            
 #>  [7] "LICENSE.md"       "man"              "NAMESPACE"       
-#> [10] "NEWS.md"          "R"                "README.md"       
-#> [13] "README.Rmd"       "tests"            "tmp.R"           
-#> [16] "tor.Rproj"
+#> [10] "NEWS.md"          "R"                "README.knit.md"  
+#> [13] "README.md"        "README.Rmd"       "tests"           
+#> [16] "tmp.R"            "tor.Rproj"
 
 list_csv()
 #> $csv1

@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 [![Coverage status](https://coveralls.io/repos/github/maurolepore/tor/badge.svg)](https://coveralls.io/r/maurolepore/tor?branch=master)
 [![CRAN status](https://www.r-pkg.org/badges/version/tor)](https://cran.r-project.org/package=tor)
 
-The goal of __tor__ is to import multiple files of any kind into R. It does nothing you can't do with functions from base R (or [__fs__](https://fs.r-lib.org/) plus [__purrr__](https://purrr.tidyverse.org/) plus some reader package) but it provides a shortcut to save your time and brain power for more important tasks. __tor__ is flexible and small, and works well with tools from the [tidyverse](https://www.tidyverse.org/). 
+The goal of __tor__ (_to-R_) is to import multiple files of any kind into R. It does nothing you can't do with functions from base R (or [__fs__](https://fs.r-lib.org/) plus [__purrr__](https://purrr.tidyverse.org/) plus some reader package) but it provides a shortcut to save your time and brain power for more important tasks. __tor__ is flexible and small, and works well with tools from the [tidyverse](https://www.tidyverse.org/). 
 
 ## Installation
 
