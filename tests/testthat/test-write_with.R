@@ -33,11 +33,28 @@ test_that("write_with wries .csv files with readr::read_csv", {
 })
 
 
-# TODO:
-# Extension
-# Error messages invalid directory
-# Non null path
-# Extension with ".ext" instead of "ext"
+
+# dfm <- csv_list(readwith_example("csv"))
+# dfm
+#
+# write_with(
+#   dfm,
+#   # Is sensitive to path
+#   path = "../",
+#   # Accepts lamda as formula
+#   # Passes additional arguments via `...` inside lamda
+#   ~utils::write.csv(.x, .y, row.names = FALSE),
+#   # Is sensitive to ext
+#   ext = "csv",
+#   # Is sensitive to ext
+#   prefix = "pre"
+# )
+#
+# # TODO: Try other file formats
+# # Writes with other functions
+# write_with(dfm, path = ".", readr::write_tsv, ext = ".tsv")
 
 # TODO:
+# Error messages invalid directory
+# Extension with ".ext" instead of "ext"
 # Wrapper list_csv list_rdata list_rds list_tsv
