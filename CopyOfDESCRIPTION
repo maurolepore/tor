@@ -1,0 +1,28 @@
+Package: tor
+Title: Read Multiple Files With Of Any Format From a Directory Into a List
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Mauro",
+           family = "Lepore",
+           role = c("aut", "cre"),
+           email = "maurolepore@gmail.com")
+Description: Read multiple files of any format from a directory
+    into a list, using a reader function of your choice. tor is
+    designed to be simple, flexible, and to fit well in data-science
+    workflows with the tidyverse.  It is focused, flexible, small, and has
+    few dependencies.
+License: GPL-3
+URL: https://github.com/maurolepore/tor
+BugReports: https://github.com/maurolepore/tor/issues
+Imports: 
+    fs,
+    rlang
+Suggests: 
+    covr,
+    spelling,
+    testthat
+Encoding: UTF-8
+Language: en-US
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
