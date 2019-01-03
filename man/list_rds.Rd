@@ -2,14 +2,14 @@
 % Please edit documentation in R/list_rds.R
 \name{list_rds}
 \alias{list_rds}
-\alias{rdata_list}
+\alias{list_rdata}
 \alias{csv_list}
 \alias{tsv_list}
 \title{Read multiple (common) files from a directory into a list.}
 \usage{
 list_rds(path = ".")
 
-rdata_list(path = ".")
+list_rdata(path = ".")
 
 csv_list(path = ".", header = TRUE, sep = ",", quote = "\\"",
   dec = ".", fill = TRUE, comment.char = "",
@@ -76,7 +76,7 @@ list_rds(rds)
 (mixed <- tor_example("mixed"))
 dir(mixed)
 
-rdata_list(mixed)
+list_rdata(mixed)
 
 csv_list(mixed)
 

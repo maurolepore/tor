@@ -72,7 +72,7 @@ dir(path_mixed)
 
 csv_list(path_mixed)
 
-rdata_list(path_mixed)
+list_rdata(path_mixed)
 ```
 
 ### `list_any()`

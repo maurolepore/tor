@@ -110,7 +110,7 @@ csv_list(path_mixed)
 #> 1 a
 #> 2 b
 
-rdata_list(path_mixed)
+list_rdata(path_mixed)
 #> $lower_rdata
 #>   y
 #> 1 a

@@ -20,7 +20,7 @@
 #' (mixed <- tor_example("mixed"))
 #' dir(mixed)
 #'
-#' rdata_list(mixed)
+#' list_rdata(mixed)
 #'
 #' csv_list(mixed)
 #'
@@ -34,7 +34,7 @@ list_rds <- function(path = ".") {
 
 #' @rdname list_rds
 #' @export
-rdata_list <- function(path = ".") {
+list_rdata <- function(path = ".") {
   list_any(
     path,
     ~get(load(.x)),

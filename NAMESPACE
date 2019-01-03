@@ -2,8 +2,8 @@
 
 export(csv_list)
 export(list_any)
+export(list_rdata)
 export(list_rds)
-export(rdata_list)
 export(tor_example)
 export(tsv_list)
 export(write_with)

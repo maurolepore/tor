@@ -11,17 +11,17 @@ test_that("list_rds defaults to read from working directory", {
   expect_named(list_rds(), "rds")
 })
 
-context("rdata_list")
+context("list_rdata")
 
-test_that("rdata_list lists .rdata, .Rdata, and .rda", {
+test_that("list_rdata lists .rdata, .Rdata, and .rda", {
   expect_named(
-    rdata_list(tor_example("mixed")),
+    list_rdata(tor_example("mixed")),
     c("lower_rdata", "rda", "upper_rdata")
   )
 })
 
-test_that("rdata_list defaults to read from working directory", {
-  expect_named(rdata_list(), "rdata")
+test_that("list_rdata defaults to read from working directory", {
+  expect_named(list_rdata(), "rdata")
 })
 
 context("csv_list")
