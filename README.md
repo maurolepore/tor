@@ -14,10 +14,10 @@ status](https://www.r-pkg.org/badges/version/tor)](https://cran.r-project.org/pa
 The goal of **tor** is to import multiple files of any kind into R. It
 does nothing you can’t do with functions from base R (or
 [**fs**](https://fs.r-lib.org/) plus
-[**purrr**](https://purrr.tidyverse.org/%20plus%20some%20reader%20package))
-but it provides a shortcut to save your time and brain power for more
-important tasks. **tor** is flexible and small, and works with tools
-from the [tidyverse](https://www.tidyverse.org/).
+[**purrr**](https://purrr.tidyverse.org/) plus some reader package) but
+it provides a shortcut to save your time and brain power for more
+important tasks. **tor** is flexible and small, and works well with
+tools from the [tidyverse](https://www.tidyverse.org/).
 
 ## Installation
 
@@ -29,7 +29,7 @@ devtools::install_github("maurolepore/tor")
 ## Example
 
 ``` r
-library(magrittr)
+library(purrr)
 library(fs)
 library(tor)
 ```
@@ -127,7 +127,8 @@ list_rdata(path_mixed)
 #> 2 b
 ```
 
-`list_any()` is the most flexible. You supply the function to read with.
+`list_any()` is the most flexible function. You supply the function to
+read with.
 
 ``` r
 (path_csv <- tor_example("csv"))
@@ -182,8 +183,7 @@ path_rdata %>%
 #> 2 b
 ```
 
-Pass additional arguments via `...` or inside the lambda function (as
-`lapply()`).
+Pass additional arguments via `...` or inside the lambda function.
 
 ``` r
 list_any(path_csv, read.csv, stringsAsFactors = FALSE)
@@ -250,13 +250,9 @@ path_mixed %>%
 
 ### Writing data
 
-**tor** does not write data. Compared to reading, writing data is a
-little easier because you have all the tools from R to choose what to
-write, how and where.
-
-Yet **tor** helps you in a small, important way. Because creating the
-paths to write files may interrupt your workflow, **torr** provides a
-helper to do just that.
+**tor** does not write data because there are great and relatively
+simple tools for that. Yet it includes a helpter to create the paths to
+output files.
 
 ``` r
 dir(pattern = "[.]csv$")
@@ -271,16 +267,9 @@ format_path(names(dfms), "csv", "base", "prefix-")
 #> [1] "base/prefix-csv1.csv" "base/prefix-csv2.csv"
 ```
 
-Combine it with \[**purrr**\](<https://purrr.tidyverse.org/>.
+Combine it with [**purrr**](https://purrr.tidyverse.org/).
 
 ``` r
-library(purrr)
-#> 
-#> Attaching package: 'purrr'
-#> The following object is masked from 'package:magrittr':
-#> 
-#>     set_names
-
 imap_chr(dfms, ~ format_path(.y, "csv"))
 #>         csv1         csv2 
 #> "./csv1.csv" "./csv2.csv"

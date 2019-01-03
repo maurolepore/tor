@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 [![Coverage status](https://coveralls.io/repos/github/maurolepore/tor/badge.svg)](https://coveralls.io/r/maurolepore/tor?branch=master)
 [![CRAN status](https://www.r-pkg.org/badges/version/tor)](https://cran.r-project.org/package=tor)
 
-The goal of __tor__ is to import multiple files of any kind into R. It does nothing you can't do with functions from base R (or [__fs__](https://fs.r-lib.org/) plus [__purrr__](https://purrr.tidyverse.org/ plus some reader package)) but it provides a shortcut to save your time and brain power for more important tasks. __tor__ is flexible and small, and works with tools from the [tidyverse](https://www.tidyverse.org/). 
+The goal of __tor__ is to import multiple files of any kind into R. It does nothing you can't do with functions from base R (or [__fs__](https://fs.r-lib.org/) plus [__purrr__](https://purrr.tidyverse.org/) plus some reader package) but it provides a shortcut to save your time and brain power for more important tasks. __tor__ is flexible and small, and works well with tools from the [tidyverse](https://www.tidyverse.org/). 
 
 ## Installation
 
@@ -34,7 +34,7 @@ devtools::install_github("maurolepore/tor")
 ## Example
 
 ```{r}
-library(magrittr)
+library(purrr)
 library(fs)
 library(tor)
 ```
@@ -71,7 +71,7 @@ list_csv(path_mixed)
 list_rdata(path_mixed)
 ```
 
-`list_any()` is the most flexible. You supply the function to read with.
+`list_any()` is the most flexible function. You supply the function to read with.
 
 ```{r}
 (path_csv <- tor_example("csv"))
@@ -94,7 +94,7 @@ path_rdata %>%
   list_any(~get(load(.x)))
 ```
 
-Pass additional arguments via `...` or inside the lambda function (as `lapply()`).
+Pass additional arguments via `...` or inside the lambda function.
 
 ```{r}
 list_any(path_csv, read.csv, stringsAsFactors = FALSE)
@@ -117,9 +117,7 @@ path_mixed %>%
 
 ### Writing data
 
-__tor__ does not write data. Compared to reading, writing data is a little easier because you have all the tools from R to choose what to write, how and where. 
-
-Yet __tor__ helps you in a small, important way. Because creating the paths to write files may interrupt your workflow, __torr__ provides a helper to do just that.
+__tor__ does not write data because there are great and relatively simple tools for that. Yet it includes a helpter to create the paths to output files.
 
 ```{r}
 dir(pattern = "[.]csv$")
@@ -131,11 +129,9 @@ format_path(names(dfms), "csv")
 format_path(names(dfms), "csv", "base", "prefix-")
 ```
 
-Combine it with [__purrr__](https://purrr.tidyverse.org/.
+Combine it with [__purrr__](https://purrr.tidyverse.org/).
 
 ```{r}
-library(purrr)
-
 imap_chr(dfms, ~ format_path(.y, "csv"))
 
 # Same
