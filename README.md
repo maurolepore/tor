@@ -27,7 +27,15 @@ devtools::install_github("maurolepore/tor")
 ## Example
 
 ``` r
-library(purrr)
+library(tidyverse)
+#> -- Attaching packages --------------------------------------------- tidyverse 1.2.1 --
+#> v ggplot2 3.1.0     v purrr   0.2.5
+#> v tibble  1.4.2     v dplyr   0.7.8
+#> v tidyr   0.8.2     v stringr 1.3.1
+#> v readr   1.3.1     v forcats 0.3.0
+#> -- Conflicts ------------------------------------------------ tidyverse_conflicts() --
+#> x dplyr::filter() masks stats::filter()
+#> x dplyr::lag()    masks stats::lag()
 library(fs)
 library(tor)
 ```
@@ -70,13 +78,17 @@ dir(path_rds)
 
 list_rds(path_rds)
 #> $file1
-#>   x
-#> 1 1
-#> 2 2
+#> # A tibble: 2 x 1
+#>       x
+#>   <dbl>
+#> 1     1
+#> 2     2
 #> 
 #> $file2
-#>   y
-#> 1 a
+#> # A tibble: 2 x 1
+#>   y    
+#>   <chr>
+#> 1 a    
 #> 2 b
 ```
 
@@ -90,18 +102,24 @@ dir(path_mixed)
 
 list_rdata(path_mixed)
 #> $lower_rdata
-#>   y
-#> 1 a
-#> 2 b
+#> # A tibble: 2 x 1
+#>   y    
+#>   <chr>
+#> 1 a    
+#> 2 b    
 #> 
 #> $rda
-#>   y
-#> 1 a
-#> 2 b
+#> # A tibble: 2 x 1
+#>   y    
+#>   <chr>
+#> 1 a    
+#> 2 b    
 #> 
 #> $upper_rdata
-#>   y
-#> 1 a
+#> # A tibble: 2 x 1
+#>   y    
+#>   <chr>
+#> 1 a    
 #> 2 b
 ```
 
@@ -110,8 +128,10 @@ Or you may read specific files matching a pattern.
 ``` r
 list_rdata(path_mixed, regexp = "[.]RData", ignore.case = FALSE)
 #> $upper_rdata
-#>   y
-#> 1 a
+#> # A tibble: 2 x 1
+#>   y    
+#>   <chr>
+#> 1 a    
 #> 2 b
 ```
 
@@ -148,52 +168,77 @@ dir(path_rdata)
 path_rdata %>% 
   list_any(function(x) get(load(x)))
 #> $file1
-#>   x
-#> 1 1
-#> 2 2
+#> # A tibble: 2 x 1
+#>       x
+#>   <dbl>
+#> 1     1
+#> 2     2
 #> 
 #> $file2
-#>   y
-#> 1 a
+#> # A tibble: 2 x 1
+#>   y    
+#>   <chr>
+#> 1 a    
 #> 2 b
 
 # Same
 path_rdata %>% 
   list_any(~get(load(.x)))
 #> $file1
-#>   x
-#> 1 1
-#> 2 2
+#> # A tibble: 2 x 1
+#>       x
+#>   <dbl>
+#> 1     1
+#> 2     2
 #> 
 #> $file2
-#>   y
-#> 1 a
+#> # A tibble: 2 x 1
+#>   y    
+#>   <chr>
+#> 1 a    
 #> 2 b
 ```
 
 Pass additional arguments via `...` or inside the lambda function.
 
 ``` r
-list_any(path_csv, read.csv, stringsAsFactors = FALSE)
+path_csv %>% 
+  list_any(readr::read_csv, skip = 1)
+#> Parsed with column specification:
+#> cols(
+#>   `1` = col_double()
+#> )
+#> Parsed with column specification:
+#> cols(
+#>   a = col_character()
+#> )
 #> $file1
-#>   x
-#> 1 1
-#> 2 2
+#> # A tibble: 1 x 1
+#>     `1`
+#>   <dbl>
+#> 1     2
 #> 
 #> $file2
-#>   y
-#> 1 a
-#> 2 b
+#> # A tibble: 1 x 1
+#>   a    
+#>   <chr>
+#> 1 b
 
-list_any(path_csv, ~read.csv(., stringsAsFactors = FALSE))
+path_csv %>% 
+  list_any(~read.csv(., stringsAsFactors = FALSE)) %>% 
+  map(as_tibble)
 #> $file1
-#>   x
-#> 1 1
-#> 2 2
+#> # A tibble: 2 x 1
+#>       x
+#>   <int>
+#> 1     1
+#> 2     2
 #> 
 #> $file2
-#>   y
-#> 1 a
+#> # A tibble: 2 x 1
+#>   y    
+#>   <chr>
+#> 1 a    
 #> 2 b
 ```
 
@@ -210,30 +255,40 @@ dir(path_mixed)
 path_mixed %>% 
   list_any(~get(load(.)), "[.]Rdata$", ignore.case = TRUE)
 #> $lower_rdata
-#>   y
-#> 1 a
-#> 2 b
+#> # A tibble: 2 x 1
+#>   y    
+#>   <chr>
+#> 1 a    
+#> 2 b    
 #> 
 #> $upper_rdata
-#>   y
-#> 1 a
+#> # A tibble: 2 x 1
+#>   y    
+#>   <chr>
+#> 1 a    
 #> 2 b
 
 path_mixed %>% 
   list_any(~get(load(.)), regexp = "[.]csv$", invert = TRUE)
 #> $lower_rdata
-#>   y
-#> 1 a
-#> 2 b
+#> # A tibble: 2 x 1
+#>   y    
+#>   <chr>
+#> 1 a    
+#> 2 b    
 #> 
 #> $rda
-#>   y
-#> 1 a
-#> 2 b
+#> # A tibble: 2 x 1
+#>   y    
+#>   <chr>
+#> 1 a    
+#> 2 b    
 #> 
 #> $upper_rdata
-#>   y
-#> 1 a
+#> # A tibble: 2 x 1
+#>   y    
+#>   <chr>
+#> 1 a    
 #> 2 b
 ```
 

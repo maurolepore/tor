@@ -1,4 +1,4 @@
-#' Read multiple files into a list using any given reading function.
+#' Read multiple files into a list with your favorite reader function.
 #'
 #' @inheritParams fs::dir_ls
 #' @inheritParams base::grep

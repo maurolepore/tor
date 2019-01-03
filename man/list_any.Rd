@@ -2,7 +2,7 @@
 % Please edit documentation in R/list_any.R
 \name{list_any}
 \alias{list_any}
-\title{Read multiple files into a list using any given reading function.}
+\title{Read multiple files into a list with your favorite reader function.}
 \usage{
 list_any(path = ".", .f, regexp = NULL, ignore.case = FALSE,
   invert = FALSE, ...)
@@ -25,7 +25,7 @@ list_any(path = ".", .f, regexp = NULL, ignore.case = FALSE,
 A list.
 }
 \description{
-Read multiple files into a list using any given reading function.
+Read multiple files into a list with your favorite reader function.
 }
 \examples{
 tor_example()
