@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 [![Coverage status](https://coveralls.io/repos/github/maurolepore/tor/badge.svg)](https://coveralls.io/r/maurolepore/tor?branch=master)
 [![CRAN status](https://www.r-pkg.org/badges/version/tor)](https://cran.r-project.org/package=tor)
 
-The goal of __tor__ (_to-R_) is to import multiple files of any kind into R. It does nothing you can't do with functions from base R (or [__fs__](https://fs.r-lib.org/) plus [__purrr__](https://purrr.tidyverse.org/) plus some reader package) but it provides a shortcut to save your time and brain power for more important tasks. __tor__ is flexible and small, and works well with tools from the [tidyverse](https://www.tidyverse.org/). 
+The goal of __tor__ (_to-R_) is to help you to read multiple files from a single directory into R, and to do so as quickly, flexibly, and simply as possible. It does nothing you can't do with functions from base R but it makes a frequent task less painful. It has few dependencies and works well with the [tidyverse](https://www.tidyverse.org/). 
 
 ## Installation
 
@@ -47,7 +47,7 @@ dir()
 list_csv()
 ```
 
-But often you will specify a `path`.
+Often you will specify a `path` to read from.
 
 ```{r}
 # Helpes create paths to examples
@@ -57,18 +57,21 @@ tor_example()
 dir(path_rds)
 
 list_rds(path_rds)
+```
 
-(path_tsv <- tor_example("tsv"))
-dir(path_tsv)
+You may read all files with a particular extension.
 
-list_tsv(path_tsv)
-
+```{r}
 path_mixed <- tor_example("mixed")
 dir(path_mixed)
 
-list_csv(path_mixed)
-
 list_rdata(path_mixed)
+```
+
+Or you may want to specify files matching a pattern.
+
+```{r}
+list_rdata(path_mixed, regexp = "[.]RData", ignore.case = FALSE)
 ```
 
 `list_any()` is the most flexible function. You supply the function to read with.
@@ -102,7 +105,7 @@ list_any(path_csv, read.csv, stringsAsFactors = FALSE)
 list_any(path_csv, ~read.csv(., stringsAsFactors = FALSE))
 ```
 
-Use `regexp`, `ignore.case`, and `invert` to pick specific files in a directory (powered by [__fs__](https://fs.r-lib.org/)).
+It also provides the arguments `regexp`, `ignore.case`, and `invert` to pick specific files in a directory (powered by [__fs__](https://fs.r-lib.org/)).
 
 ```{r}
 path_mixed <- tor_example("mixed")

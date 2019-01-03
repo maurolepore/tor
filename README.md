@@ -11,13 +11,11 @@ status](https://coveralls.io/repos/github/maurolepore/tor/badge.svg)](https://co
 [![CRAN
 status](https://www.r-pkg.org/badges/version/tor)](https://cran.r-project.org/package=tor)
 
-The goal of **tor** (*to-R*) is to import multiple files of any kind
-into R. It does nothing you can’t do with functions from base R (or
-[**fs**](https://fs.r-lib.org/) plus
-[**purrr**](https://purrr.tidyverse.org/) plus some reader package) but
-it provides a shortcut to save your time and brain power for more
-important tasks. **tor** is flexible and small, and works well with
-tools from the [tidyverse](https://www.tidyverse.org/).
+The goal of **tor** (*to-R*) is to help you to read multiple files from
+a single directory into R, and to do so as quickly, flexibly, and simply
+as possible. It does nothing you can’t do with functions from base R but
+it makes a frequent task less painful. It has few dependencies and works
+well with the [tidyverse](https://www.tidyverse.org/).
 
 ## Installation
 
@@ -58,7 +56,7 @@ list_csv()
 #> 2 b
 ```
 
-But often you will specify a `path`.
+Often you will specify a `path` to read from.
 
 ``` r
 # Helpes create paths to examples
@@ -80,35 +78,15 @@ list_rds(path_rds)
 #>   y
 #> 1 a
 #> 2 b
+```
 
-(path_tsv <- tor_example("tsv"))
-#> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/tor/extdata/tsv"
-dir(path_tsv)
-#> [1] "tsv1.tsv" "tsv2.tsv"
+You may read all files with a particular extension.
 
-list_tsv(path_tsv)
-#> $tsv1
-#>   x    y
-#> 1 1    a
-#> 2 2 <NA>
-#> 3 3 <NA>
-#> 
-#> $tsv2
-#>   x    y
-#> 1 1    a
-#> 2 2 <NA>
-#> 3 3    b
-
+``` r
 path_mixed <- tor_example("mixed")
 dir(path_mixed)
 #> [1] "csv.csv"           "lower_rdata.rdata" "rda.rda"          
 #> [4] "upper_rdata.RData"
-
-list_csv(path_mixed)
-#> $csv
-#>   y
-#> 1 a
-#> 2 b
 
 list_rdata(path_mixed)
 #> $lower_rdata
@@ -121,6 +99,16 @@ list_rdata(path_mixed)
 #> 1 a
 #> 2 b
 #> 
+#> $upper_rdata
+#>   y
+#> 1 a
+#> 2 b
+```
+
+Or you may want to specify files matching a pattern.
+
+``` r
+list_rdata(path_mixed, regexp = "[.]RData", ignore.case = FALSE)
 #> $upper_rdata
 #>   y
 #> 1 a
@@ -209,8 +197,9 @@ list_any(path_csv, ~read.csv(., stringsAsFactors = FALSE))
 #> 2 b
 ```
 
-Use `regexp`, `ignore.case`, and `invert` to pick specific files in a
-directory (powered by [**fs**](https://fs.r-lib.org/)).
+It also provides the arguments `regexp`, `ignore.case`, and `invert` to
+pick specific files in a directory (powered by
+[**fs**](https://fs.r-lib.org/)).
 
 ``` r
 path_mixed <- tor_example("mixed")
