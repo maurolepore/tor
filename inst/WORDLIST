@@ -1,4 +1,7 @@
+behaviour
+fs
 io
 lifecycle
-readr
 rio
+rlang
+tidyverse

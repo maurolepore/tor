@@ -86,6 +86,7 @@ dir(tsv)
 tsv_list(tsv)
 }
 \seealso{
-Other general functions to import data: \code{\link{read_with}}
+Other general functions to import data: \code{\link{read_with}},
+  \code{\link{write_with}}
 }
 \concept{general functions to import data}
