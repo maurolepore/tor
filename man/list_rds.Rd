@@ -7,20 +7,31 @@
 \alias{list_tsv}
 \title{Read multiple (common) files from a directory into a list.}
 \usage{
-list_rds(path = ".")
+list_rds(path = ".", regexp = "[.]rds$", ignore.case = TRUE,
+  invert = FALSE)
 
-list_rdata(path = ".")
+list_rdata(path = ".", regexp = "[.]rdata$|[.]rda$",
+  ignore.case = TRUE, invert = FALSE)
 
-list_csv(path = ".", header = TRUE, sep = ",", quote = "\\"",
+list_csv(path = ".", regexp = "[.]csv$", ignore.case = TRUE,
+  invert = FALSE, header = TRUE, sep = ",", quote = "\\"",
   dec = ".", fill = TRUE, comment.char = "",
   stringsAsFactors = FALSE, na.strings = c("", "NA"), ...)
 
-list_tsv(path = ".", header = TRUE, sep = "\\t", quote = "\\"",
+list_tsv(path = ".", regexp = "[.]tsv$", ignore.case = TRUE,
+  invert = FALSE, header = TRUE, sep = "\\t", quote = "\\"",
   dec = ".", fill = TRUE, comment.char = "",
   stringsAsFactors = FALSE, na.strings = c("", "NA"), ...)
 }
 \arguments{
 \item{path}{A character vector of one or more paths.}
+
+\item{regexp}{A regular expression (e.g. \code{[.]csv$}) passed on to \code{\link[=grep]{grep()}} to filter paths.}
+
+\item{ignore.case}{if \code{FALSE}, the pattern matching is \emph{case
+      sensitive} and if \code{TRUE}, case is ignored during matching.}
+
+\item{invert}{If \code{TRUE} return files which do \emph{not} match}
 
 \item{header}{a logical value indicating whether the file contains the
     names of the variables as its first line.  If missing, the value is
