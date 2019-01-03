@@ -1,0 +1,32 @@
+#' Formtat paths.
+#'
+#' This function is most useful to map the name of each element in a list to
+#' an output path.
+#'
+#' @param base,prefix,files,ext Character vectors (all of length-1 except
+#'   `files`, which can be of any length.
+#'
+#' @return A string of the same length as `files`. For example:
+#'   `base/prefix-file1.csv` and `base/prefix-file2.csv`.
+#' @export
+#'
+#' @examples
+#' format_path(c("file1", "file2"), "csv")
+#' format_path(c("file1", "file2"), "csv", base = "home")
+#' format_path(c("file1", "file2"), "csv", base = "home", "this")
+format_path <- function(files, ext, base = ".", prefix = NULL) {
+  paste0(
+    base, "/",
+    if (!is.null(prefix)) fmt_prefix(prefix),
+    files,
+    fmt_ext(ext)
+  )
+}
+
+fmt_prefix <- function(prefix) {
+  sprintf("%s-", prefix)
+}
+
+fmt_ext <- function(ext) {
+  sprintf(".%s", ext)
+}

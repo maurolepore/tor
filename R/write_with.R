@@ -43,22 +43,3 @@ write_with <- function(.x,
   .y <- fmt_paths(base = path, prefix, files = names(.x), ext = ext)
   Map(rlang::as_function(.f), .x, .y)
 }
-
-
-# base <- "home"
-# prefix <- "pre"
-# files <- c("f1", "f2")
-# ext <- "csv"
-# fmt_paths(base = base, prefix, files = files, ext = ext)
-fmt_paths <- function(base, prefix, files, ext) {
-  paste0(
-    base, "/",
-    if (!is.null(prefix)) fmt_prefix(prefix),
-    files,
-    fmt_ext(ext)
-  )
-}
-
-fmt_prefix <- function(prefix) sprintf("%s-", prefix)
-
-fmt_ext <- function(ext) sprintf(".%s", ext)
