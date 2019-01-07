@@ -28,12 +28,12 @@ devtools::install_github("maurolepore/tor")
 
 ``` r
 library(tidyverse)
-#> -- Attaching packages ------------------------------------------------------------ tidyverse 1.2.1 --
+#> -- Attaching packages --------------------------------------------- tidyverse 1.2.1 --
 #> v ggplot2 3.1.0     v purrr   0.2.5
-#> v tibble  1.4.2     v dplyr   0.7.8
+#> v tibble  2.0.0     v dplyr   0.7.8
 #> v tidyr   0.8.2     v stringr 1.3.1
 #> v readr   1.3.1     v forcats 0.3.0
-#> -- Conflicts --------------------------------------------------------------- tidyverse_conflicts() --
+#> -- Conflicts ------------------------------------------------ tidyverse_conflicts() --
 #> x dplyr::filter() masks stats::filter()
 #> x dplyr::lag()    masks stats::lag()
 library(fs)
@@ -45,12 +45,13 @@ working directory.
 
 ``` r
 dir()
-#>  [1] "_pkgdown.yml"     "cran-comments.md" "csv1.csv"        
-#>  [4] "csv2.csv"         "datasets"         "DESCRIPTION"     
-#>  [7] "docs"             "inst"             "LICENSE.md"      
-#> [10] "man"              "NAMESPACE"        "NEWS.md"         
-#> [13] "R"                "README.md"        "README.Rmd"      
-#> [16] "tests"            "tmp.R"            "tor.Rproj"
+#>  [1] "_pkgdown.yml"     "cran-comments.md" "CRAN-RELEASE"    
+#>  [4] "csv1.csv"         "csv2.csv"         "datasets"        
+#>  [7] "DESCRIPTION"      "docs"             "inst"            
+#> [10] "LICENSE.md"       "man"              "NAMESPACE"       
+#> [13] "NEWS.md"          "R"                "README.md"       
+#> [16] "README.Rmd"       "tests"            "tmp.R"           
+#> [19] "tor.Rproj"
 
 list_csv()
 #> $csv1
@@ -292,7 +293,25 @@ path_mixed %>%
 #> 2 b
 ```
 
-### Writing data
+### From the list
+
+#### Map each list element to an object in an environment
+
+Add each element to an environment with `list2env()`
+
+``` r
+rm(list = ls())
+ls()
+#> character(0)
+
+list2env(list_csv(), envir = .GlobalEnv)
+#> <environment: R_GlobalEnv>
+
+ls()
+#> [1] "csv1" "csv2"
+```
+
+#### Map each list element to a file in a directory
 
 **tor** does not write data but includes a helper to create the paths to
 output files.

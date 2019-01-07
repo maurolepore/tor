@@ -121,7 +121,22 @@ path_mixed %>%
   list_any(~get(load(.)), regexp = "[.]csv$", invert = TRUE)
 ```
 
-### Writing data
+### From the list
+
+#### Map each list element to an object in an environment
+
+Add each element to an environment with `list2env()`
+
+```{r}
+rm(list = ls())
+ls()
+
+list2env(list_csv(), envir = .GlobalEnv)
+
+ls()
+```
+
+#### Map each list element to a file in a directory
 
 __tor__ does not write data but includes a helper to create the paths to output files.
 
