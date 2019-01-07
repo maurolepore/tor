@@ -41,7 +41,7 @@ library(tor)
 
 All functions list whatever they read, and default to reading from the working directory.
 
-#### `list_*()`: Import multiple files from a directory into a list
+### `list_*()`: Import multiple files from a directory into a list
 
 ```{r}
 dir()
@@ -123,19 +123,19 @@ path_mixed %>%
   list_any(~get(load(.)), regexp = "[.]csv$", invert = TRUE)
 ```
 
-#### `load_*()`: Load multiple files from a directory into an environment
+### `load_*()`: Load multiple files from a directory into an environment
 
 All functions default to load from the working directory.
 
 ```{r}
-rm(list = ls())
-ls()
+# The working directory contains .csv files
+dir()
 
 load_csv()
 
-# Each dataframe is now available in the global environment
-ls()
+# Each file is now available as a dataframe in the global environment
 csv1
+csv2
 ```
 
 You may load from a `path`.
@@ -153,7 +153,7 @@ ls()
 rda
 ```
 
-#### [__purrr__](https://purrr.tidyverse.org/) + `format_path()`: Map each list element to a file in a directory
+### [__purrr__](https://purrr.tidyverse.org/) + `format_path()`: Map each list element to a file in a directory
 
 __tor__ does not write data but includes a helper to create the paths to output files.
 
