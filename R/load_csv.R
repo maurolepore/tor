@@ -1,5 +1,24 @@
 #' @rdname list_rds
 #' @export
+load_rds <- function(path = ".",
+                     regexp = "[.]rds$",
+                     ignore.case = TRUE,
+                     invert = FALSE,
+                     envir = .GlobalEnv) {
+  lst <- list_any(
+    path,
+    function(x) base::readRDS(x),
+    regexp = regexp,
+    ignore.case = ignore.case,
+    invert = invert
+  )
+
+  list2env(lst, envir = envir)
+  invisible(path)
+}
+
+#' @rdname list_rds
+#' @export
 load_rdata <- function(path = ".",
                        regexp = "[.]rdata$|[.]rda$",
                        ignore.case = TRUE,
