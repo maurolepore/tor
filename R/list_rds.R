@@ -36,7 +36,7 @@ list_rds <- function(path = ".",
                      invert = FALSE) {
   list_any(
     path,
-    base::readRDS,
+    function(x) base::readRDS(x),
     regexp = regexp,
     ignore.case = ignore.case,
     invert = invert
