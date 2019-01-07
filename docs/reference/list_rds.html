@@ -32,7 +32,10 @@
 
 <meta property="og:title" content="Read multiple files from a directory into a list. — list_rds" />
 
-<meta property="og:description" content="These functions wrap the most common special cases of list_any()." />
+<meta property="og:description" content="These functions wrap the most common special cases of list_any().
+All functions default to load from the working directory.
+rm(list = ls())
+ls()" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -110,6 +113,9 @@
     <div class="ref-description">
     
     <p>These functions wrap the most common special cases of <code><a href='list_any.html'>list_any()</a></code>.</p>
+<p>All functions default to load from the working directory.</p>
+<p>rm(list = ls())
+ls()</p>
     
     </div>
 
@@ -230,6 +236,20 @@
 
     <p>A list.</p>
     
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>load_csv()Each dataframe is now available in the global environment</p>
+<p>ls()
+csv1</p>
+<p>#You may load from a <code>path</code>.
+rm(list = ls())
+ls()</p>
+<p>(path_mixed &lt;- tor_example("mixed"))
+dir(path_mixed)</p>
+<p>load_rdata(path_mixed)</p>
+<p>ls()
+rda</p>
+    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other general functions to import data: <code><a href='list_any.html'>list_any</a></code></p></div>
@@ -306,6 +326,8 @@
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
 
       <li><a href="#see-also">See also</a></li>
       

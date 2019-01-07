@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 [![Coverage status](https://coveralls.io/repos/github/maurolepore/tor/badge.svg)](https://coveralls.io/r/maurolepore/tor?branch=master)
 [![CRAN status](https://www.r-pkg.org/badges/version/tor)](https://cran.r-project.org/package=tor)
 
-The goal of __tor__ (_to-R_) is to help you to read multiple files from a single directory into R, and to do so as quickly, flexibly, and simply as possible. It does nothing you can't do with functions from base R but it makes a frequent task less painful. It has few dependencies and works well with the [tidyverse](https://www.tidyverse.org/). 
+The goal of __tor__ (_to-R_) is to make importing data into R ridiculously easy. It helps you to import multiple files from a single directory into R in a simple, intuitive way. `list_csv()` creates a list of all "\*.csv" files in your working directory; and `load_rdata()` loads all "\*.rdata" files into your global environment (see all functions in [Reference](https://maurolepore.github.io/tor/reference/index.html)). __tor__ does nothing you can't do with functions from base R but it makes a frequent task less painful. It has few dependencies and works well with the [tidyverse](https://www.tidyverse.org/). 
 
 ## Installation
 
@@ -40,6 +40,8 @@ library(tor)
 ```
 
 All functions list whatever they read, and default to reading from the working directory.
+
+#### `list_*()`: Import multiple files from a directory into a list
 
 ```{r}
 dir()
@@ -121,22 +123,37 @@ path_mixed %>%
   list_any(~get(load(.)), regexp = "[.]csv$", invert = TRUE)
 ```
 
-### From the list
+#### `load_*()`: Load multiple files from a directory into an environment
 
-#### Map each list element to an object in an environment
-
-Add each element to an environment with `list2env()`
+All functions default to load from the working directory.
 
 ```{r}
 rm(list = ls())
 ls()
 
-list2env(list_csv(), envir = .GlobalEnv)
+load_csv()
 
+# Each dataframe is now available in the global environment
 ls()
+csv1
 ```
 
-#### Map each list element to a file in a directory
+You may load from a `path`.
+
+```{r}
+rm(list = ls())
+ls()
+
+(path_mixed <- tor_example("mixed"))
+dir(path_mixed)
+
+load_rdata(path_mixed)
+
+ls()
+rda
+```
+
+#### [__purrr__](https://purrr.tidyverse.org/) + `format_path()`: Map each list element to a file in a directory
 
 __tor__ does not write data but includes a helper to create the paths to output files.
 

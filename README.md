@@ -11,10 +11,15 @@ status](https://coveralls.io/repos/github/maurolepore/tor/badge.svg)](https://co
 [![CRAN
 status](https://www.r-pkg.org/badges/version/tor)](https://cran.r-project.org/package=tor)
 
-The goal of **tor** (*to-R*) is to help you to read multiple files from
-a single directory into R, and to do so as quickly, flexibly, and simply
-as possible. It does nothing you can’t do with functions from base R but
-it makes a frequent task less painful. It has few dependencies and works
+The goal of **tor** (*to-R*) is to make importing data into R
+ridiculously easy. It helps you to import multiple files from a single
+directory into R in a simple, intuitive way. `list_csv()` creates a list
+of all “\*.csv” files in your working directory; and `load_rdata()`
+loads all “\*.rdata” files into your global environment (see all
+functions in
+[Reference](https://maurolepore.github.io/tor/reference/index.html)).
+**tor** does nothing you can’t do with functions from base R but it
+makes a frequent task less painful. It has few dependencies and works
 well with the [tidyverse](https://www.tidyverse.org/).
 
 ## Installation
@@ -42,6 +47,8 @@ library(tor)
 
 All functions list whatever they read, and default to reading from the
 working directory.
+
+#### `list_*()`: Import multiple files from a directory into a list
 
 ``` r
 dir()
@@ -293,25 +300,52 @@ path_mixed %>%
 #> 2 b
 ```
 
-### From the list
+#### `load_*()`: Load multiple files from a directory into an environment
 
-#### Map each list element to an object in an environment
-
-Add each element to an environment with `list2env()`
+All functions default to load from the working directory.
 
 ``` r
 rm(list = ls())
 ls()
 #> character(0)
 
-list2env(list_csv(), envir = .GlobalEnv)
-#> <environment: R_GlobalEnv>
+load_csv()
 
+# Each dataframe is now available in the global environment
 ls()
 #> [1] "csv1" "csv2"
+csv1
+#>   x
+#> 1 1
+#> 2 2
 ```
 
-#### Map each list element to a file in a directory
+You may load from a `path`.
+
+``` r
+rm(list = ls())
+ls()
+#> character(0)
+
+(path_mixed <- tor_example("mixed"))
+#> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/tor/extdata/mixed"
+dir(path_mixed)
+#> [1] "csv.csv"           "lower_rdata.rdata" "rda.rda"          
+#> [4] "upper_rdata.RData"
+
+load_rdata(path_mixed)
+
+ls()
+#> [1] "lower_rdata" "path_mixed"  "rda"         "upper_rdata"
+rda
+#> # A tibble: 2 x 1
+#>   y    
+#>   <chr>
+#> 1 a    
+#> 2 b
+```
+
+#### [**purrr**](https://purrr.tidyverse.org/) + `format_path()`: Map each list element to a file in a directory
 
 **tor** does not write data but includes a helper to create the paths to
 output files.
