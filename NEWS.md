@@ -4,6 +4,8 @@
 
 * Refactor: For clarity source now uses the more common function(x) syntax. Text editors highlight `function()` which makes code easier to read.
 
+* Source is now styled with `styler::style_pkg()` (defaults)
+
 # tor 1.0.0
 
 * Initial release.

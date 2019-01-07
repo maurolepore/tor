@@ -7,4 +7,3 @@ test_that("load_csv loads multiple csv in a new environment", {
   expect_equal(c("file1", "file2"), ls(e))
   rm(list = ls())
 })
-

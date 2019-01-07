@@ -14,21 +14,21 @@
 #' @examples
 #' (rds <- tor_example("rds"))
 #' dir(rds)
-#'
+#' 
 #' list_rds(rds)
-#'
+#' 
 #' (tsv <- tor_example("tsv"))
 #' dir(tsv)
-#'
+#' 
 #' list_tsv(tsv)
-#'
+#' 
 #' (mixed <- tor_example("mixed"))
 #' dir(mixed)
-#'
+#' 
 #' list_rdata(mixed)
-#'
+#' 
 #' list_csv(mixed)
-#'
+#' 
 #' list_rdata(mixed, regexp = "[.]RData", ignore.case = FALSE)
 list_rds <- function(path = ".",
                      regexp = "[.]rds$",
@@ -73,9 +73,9 @@ list_csv <- function(path = ".",
                      stringsAsFactors = FALSE,
                      na.strings = c("", "NA"),
                      ...) {
-    list_any(
-      path,
-      function(x) utils::read.csv(
+  list_any(
+    path,
+    function(x) utils::read.csv(
         file = x,
         header = header,
         sep = sep,
@@ -86,11 +86,11 @@ list_csv <- function(path = ".",
         stringsAsFactors = stringsAsFactors,
         na.strings = na.strings
       ),
-      regexp = regexp,
-      ignore.case = ignore.case,
-      invert = invert,
-      ...
-    )
+    regexp = regexp,
+    ignore.case = ignore.case,
+    invert = invert,
+    ...
+  )
 }
 
 #' @rdname list_rds
@@ -108,9 +108,9 @@ list_tsv <- function(path = ".",
                      stringsAsFactors = FALSE,
                      na.strings = c("", "NA"),
                      ...) {
-    list_any(
-      path,
-      function(x) utils::read.csv(
+  list_any(
+    path,
+    function(x) utils::read.csv(
         file = x,
         header = header,
         sep = sep,
@@ -121,9 +121,9 @@ list_tsv <- function(path = ".",
         stringsAsFactors = stringsAsFactors,
         na.strings = na.strings
       ),
-      regexp = regexp,
-      ignore.case = ignore.case,
-      invert = invert,
-      ...
-    )
+    regexp = regexp,
+    ignore.case = ignore.case,
+    invert = invert,
+    ...
+  )
 }

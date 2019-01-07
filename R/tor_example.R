@@ -10,9 +10,9 @@
 #'
 #' @examples
 #' tor_example()
-#'
+#' 
 #' tor_example("csv")
-#'
+#' 
 #' dir(tor_example("csv"))
 tor_example <- function(path = NULL) {
   if (is.null(path)) {
