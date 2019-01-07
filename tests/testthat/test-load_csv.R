@@ -4,7 +4,7 @@ test_that("load_rdata loads multiple .rdata files in a new environment", {
   e <- new.env()
   load_rdata(tor_example("rdata"), envir = e)
 
-  expect_equal(c("file1", "file2"), ls(e))
+  expect_equal(c("rdata1", "rdata2"), ls(e))
   rm(list = ls())
 })
 
@@ -16,7 +16,7 @@ test_that("load_rdata loads multiple .rdata files in a new environment", {
   e <- new.env()
   load_rdata(tor_example("rdata"), envir = e)
 
-  expect_equal(c("file1", "file2"), ls(e))
+  expect_equal(c("rdata1", "rdata2"), ls(e))
   rm(list = ls())
 })
 

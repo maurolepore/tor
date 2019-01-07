@@ -6,6 +6,8 @@
 
 * Source is now styled with `styler::style_pkg()` (defaults)
 
+* Example data is now named more consistently so that `dir(tor_example("rds"))` no longer is `c("file1.rds", "file2.rds")`, but `c("rds1.rds", "rds2.rds")`.
+
 # tor 1.0.0
 
 * Initial release.

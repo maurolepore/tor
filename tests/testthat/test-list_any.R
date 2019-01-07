@@ -19,7 +19,7 @@ test_that("list_any accepts lambda functions and formulas", {
   )
 
   expect_is(res, "list")
-  expect_named(res, c("file1", "file2"))
+  expect_named(res, c("rdata1", "rdata2"))
   expect_is(res[[1]], "data.frame")
   expect_identical(
     list_any(

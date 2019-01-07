@@ -75,17 +75,17 @@ tor_example()
 (path_rds <- tor_example("rds"))
 #> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/tor/extdata/rds"
 dir(path_rds)
-#> [1] "file1.rds" "file2.rds"
+#> [1] "rds1.rds" "rds2.rds"
 
 list_rds(path_rds)
-#> $file1
+#> $rds1
 #> # A tibble: 2 x 1
 #>       x
 #>   <dbl>
 #> 1     1
 #> 2     2
 #> 
-#> $file2
+#> $rds2
 #> # A tibble: 2 x 1
 #>   y    
 #>   <chr>
