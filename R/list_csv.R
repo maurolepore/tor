@@ -1,67 +1,35 @@
-#' Load each element of a list into an environment.
+#' Read multiple files from a directory into a list.
 #'
-#' @inheritParams list_rds
-#' @inheritParams base::list2env
+#' These functions wrap the most common special cases of [list_any()].
 #'
-#' @return `invisible(path)`.
+#' @inheritParams list_any
+#' @inheritParams utils::read.table
+#' @param ... Arguments passed to [utils::read.table()].
+#'
+#' @return A list.
 #'
 #' @examples
-#' (path_csv <- tor_example("csv"))
-#' dir(path_csv)
+#' (rds <- tor_example("rds"))
+#' dir(rds)
 #'
-#' load_csv(path_csv)
-#' # Each dataframe is now available in the global environment
-#' csv1
-#' csv2
+#' list_rds(rds)
 #'
-#' (path_mixed <- tor_example("mixed"))
-#' dir(path_mixed)
+#' (tsv <- tor_example("tsv"))
+#' dir(tsv)
 #'
-#' load_rdata(path_mixed)
-#' # Each dataframe is now available in the global environment
-#' lower_rdata
-#' upper_rdata
+#' list_tsv(tsv)
+#'
+#' (mixed <- tor_example("mixed"))
+#' dir(mixed)
+#'
+#' list_rdata(mixed)
+#'
+#' list_csv(mixed)
+#'
+#' list_rdata(mixed, regexp = "[.]RData", ignore.case = FALSE)
 #' @family general functions to import data
 #' @export
-load_rds <- function(path = ".",
-                     regexp = "[.]rds$",
-                     ignore.case = TRUE,
-                     invert = FALSE,
-                     envir = .GlobalEnv) {
-  lst <- list_any(
-    path,
-    function(x) base::readRDS(x),
-    regexp = regexp,
-    ignore.case = ignore.case,
-    invert = invert
-  )
-
-  list2env(lst, envir = envir)
-  invisible(path)
-}
-
-#' @rdname load_rds
-#' @export
-load_rdata <- function(path = ".",
-                       regexp = "[.]rdata$|[.]rda$",
-                       ignore.case = TRUE,
-                       invert = FALSE,
-                       envir = .GlobalEnv) {
-  lst <- list_any(
-    path,
-    function(x) get(load(x)),
-    regexp = regexp,
-    ignore.case = ignore.case,
-    invert = invert
-  )
-
-  list2env(lst, envir = envir)
-  invisible(path)
-}
-
-#' @rdname load_rds
-#' @export
-load_csv <- function(path = ".",
+list_csv <- function(path = ".",
                      regexp = "[.]csv$",
                      ignore.case = TRUE,
                      invert = FALSE,
@@ -73,11 +41,9 @@ load_csv <- function(path = ".",
                      comment.char = "",
                      stringsAsFactors = FALSE,
                      na.strings = c("", "NA"),
-                     envir = .GlobalEnv,
                      ...) {
-  lst <- list_any(
+  list_any(
     path,
-    # TODO: Use function(x) to more obviously show what's going on
     function(x) utils::read.csv(
         file = x,
         header = header,
@@ -94,14 +60,11 @@ load_csv <- function(path = ".",
     invert = invert,
     ...
   )
-
-  list2env(lst, envir = envir)
-  invisible(path)
 }
 
-#' @rdname load_rds
+#' @rdname list_csv
 #' @export
-load_tsv <- function(path = ".",
+list_tsv <- function(path = ".",
                      regexp = "[.]tsv$",
                      ignore.case = TRUE,
                      invert = FALSE,
@@ -113,9 +76,8 @@ load_tsv <- function(path = ".",
                      comment.char = "",
                      stringsAsFactors = FALSE,
                      na.strings = c("", "NA"),
-                     envir = .GlobalEnv,
                      ...) {
-  lst <- list_any(
+  list_any(
     path,
     function(x) utils::read.csv(
         file = x,
@@ -133,7 +95,34 @@ load_tsv <- function(path = ".",
     invert = invert,
     ...
   )
+}
 
-  list2env(lst, envir = envir)
-  invisible(path)
+#' @rdname list_csv
+#' @export
+list_rds <- function(path = ".",
+                     regexp = "[.]rds$",
+                     ignore.case = TRUE,
+                     invert = FALSE) {
+  list_any(
+    path,
+    function(x) base::readRDS(x),
+    regexp = regexp,
+    ignore.case = ignore.case,
+    invert = invert
+  )
+}
+
+#' @rdname list_csv
+#' @export
+list_rdata <- function(path = ".",
+                       regexp = "[.]rdata$|[.]rda$",
+                       ignore.case = TRUE,
+                       invert = FALSE) {
+  list_any(
+    path,
+    function(x) get(load(x)),
+    regexp = regexp,
+    ignore.case = ignore.case,
+    invert = invert
+  )
 }

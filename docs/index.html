@@ -81,7 +81,7 @@
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#tor" class="anchor"></a>tor</h1></div>
 
-<p>The goal of <strong>tor</strong> (<em>to-R</em>) is to make importing data into R ridiculously easy. It helps you to import multiple files from a single directory into R in a simple, intuitive way. <code><a href="reference/list_rds.html">list_csv()</a></code> creates a list of all “*.csv” files in your working directory; and <code><a href="reference/load_rds.html">load_rdata()</a></code> loads all “*.rdata” files into your global environment (see all functions in <a href="https://maurolepore.github.io/tor/reference/index.html">Reference</a>). <strong>tor</strong> does nothing you can’t do with functions from base R but it makes a frequent task less painful. It has few dependencies and works well with the <a href="https://www.tidyverse.org/">tidyverse</a>.</p>
+<p>The goal of <strong>tor</strong> (<em>to-R</em>) is to make importing data into R ridiculously easy. It helps you to import multiple files from a single directory into R in a simple, intuitive way. <code><a href="reference/list_csv.html">list_csv()</a></code> creates a list of all “*.csv” files in your working directory; and <code><a href="reference/load_rds.html">load_rdata()</a></code> loads all “*.rdata” files into your global environment (see all functions in <a href="https://maurolepore.github.io/tor/reference/index.html">Reference</a>). <strong>tor</strong> does nothing you can’t do with functions from base R but it makes a frequent task less painful. It has few dependencies and works well with the <a href="https://www.tidyverse.org/">tidyverse</a>.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
@@ -115,7 +115,7 @@
 <a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt; [16] "README.Rmd"       "tests"            "tmp.R"           </span></a>
 <a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt; [19] "tor.Rproj"</span></a>
 <a class="sourceLine" id="cb3-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="kw"><a href="reference/list_rds.html">list_csv</a></span>()</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="kw"><a href="reference/list_csv.html">list_csv</a></span>()</a>
 <a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt; $csv1</span></a>
 <a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt;   x</span></a>
 <a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt; 1 1</span></a>
@@ -135,7 +135,7 @@
 <a class="sourceLine" id="cb4-7" data-line-number="7"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list.files">dir</a></span>(path_rds)</a>
 <a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt; [1] "rds1.rds" "rds2.rds"</span></a>
 <a class="sourceLine" id="cb4-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="kw"><a href="reference/list_rds.html">list_rds</a></span>(path_rds)</a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="kw"><a href="reference/list_csv.html">list_rds</a></span>(path_rds)</a>
 <a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">#&gt; $rds1</span></a>
 <a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
 <a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">#&gt;       x</span></a>
@@ -155,7 +155,7 @@
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt; [1] "csv.csv"           "lower_rdata.rdata" "rda.rda"          </span></a>
 <a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt; [4] "upper_rdata.RData"</span></a>
 <a class="sourceLine" id="cb5-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="kw"><a href="reference/list_rds.html">list_rdata</a></span>(path_mixed)</a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="kw"><a href="reference/list_csv.html">list_rdata</a></span>(path_mixed)</a>
 <a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt; $lower_rdata</span></a>
 <a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
 <a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt;   y    </span></a>
@@ -177,7 +177,7 @@
 <a class="sourceLine" id="cb5-25" data-line-number="25"><span class="co">#&gt; 1 a    </span></a>
 <a class="sourceLine" id="cb5-26" data-line-number="26"><span class="co">#&gt; 2 b</span></a></code></pre></div>
 <p>Or you may read specific files matching a pattern.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="reference/list_rds.html">list_rdata</a></span>(path_mixed, <span class="dt">regexp =</span> <span class="st">"[.]RData"</span>, <span class="dt">ignore.case =</span> <span class="ot">FALSE</span>)</a>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="reference/list_csv.html">list_rdata</a></span>(path_mixed, <span class="dt">regexp =</span> <span class="st">"[.]RData"</span>, <span class="dt">ignore.case =</span> <span class="ot">FALSE</span>)</a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#&gt; $upper_rdata</span></a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
 <a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">#&gt;   y    </span></a>
@@ -368,7 +368,7 @@
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list.files">dir</a></span>(<span class="dt">pattern =</span> <span class="st">"[.]csv$"</span>)</a>
 <a class="sourceLine" id="cb13-2" data-line-number="2"><span class="co">#&gt; [1] "csv1.csv" "csv2.csv"</span></a>
 <a class="sourceLine" id="cb13-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb13-4" data-line-number="4">dfms &lt;-<span class="st"> </span><span class="kw"><a href="reference/list_rds.html">list_csv</a></span>()</a>
+<a class="sourceLine" id="cb13-4" data-line-number="4">dfms &lt;-<span class="st"> </span><span class="kw"><a href="reference/list_csv.html">list_csv</a></span>()</a>
 <a class="sourceLine" id="cb13-5" data-line-number="5"></a>
 <a class="sourceLine" id="cb13-6" data-line-number="6"><span class="kw"><a href="reference/format_path.html">format_path</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(dfms), <span class="st">"csv"</span>)</a>
 <a class="sourceLine" id="cb13-7" data-line-number="7"><span class="co">#&gt; [1] "./csv1.csv" "./csv2.csv"</span></a>
@@ -385,7 +385,7 @@
 <a class="sourceLine" id="cb14-7" data-line-number="7"><span class="co">#&gt;           csv1           csv2 </span></a>
 <a class="sourceLine" id="cb14-8" data-line-number="8"><span class="co">#&gt; "./this-x.csv" "./this-y.csv"</span></a>
 <a class="sourceLine" id="cb14-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb14-10" data-line-number="10">(dfs &lt;-<span class="st"> </span><span class="kw"><a href="reference/list_rds.html">list_csv</a></span>())</a>
+<a class="sourceLine" id="cb14-10" data-line-number="10">(dfs &lt;-<span class="st"> </span><span class="kw"><a href="reference/list_csv.html">list_csv</a></span>())</a>
 <a class="sourceLine" id="cb14-11" data-line-number="11"><span class="co">#&gt; $csv1</span></a>
 <a class="sourceLine" id="cb14-12" data-line-number="12"><span class="co">#&gt;   x</span></a>
 <a class="sourceLine" id="cb14-13" data-line-number="13"><span class="co">#&gt; 1 1</span></a>
