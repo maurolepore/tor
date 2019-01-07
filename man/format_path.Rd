@@ -26,3 +26,7 @@ format_path(names(dfs), "csv")
 
 format_path(names(dfs), "csv", base = "home", prefix = "this-")
 }
+\seealso{
+Other helpers: \code{\link{tor_example}}
+}
+\concept{helpers}

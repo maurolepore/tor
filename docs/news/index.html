@@ -117,9 +117,21 @@
 <h2 class="hasAnchor">
 <a href="#patch" class="anchor"></a>Patch</h2>
 <ul>
-<li><p>Refactor: For clarity source now uses the more common function(x) syntax. Text editors highlight <code>function()</code> which makes code easier to read.</p></li>
+<li><p>File names now emphasize the most common case when users import .csv files.</p></li>
+<li>Example data is now named more consistently. For example:
+<ul>
+<li>
+<code><a href="https://www.rdocumentation.org/packages/base/topics/list.files">dir(tor_example("rds"))</a></code> returns <code><a href="https://www.rdocumentation.org/packages/base/topics/c">c("rds1.rds", "rds2.rds")</a></code>.</li>
+<li>
+<code><a href="https://www.rdocumentation.org/packages/base/topics/list.files">dir(tor_example("csv"))</a></code> returns <code><a href="https://www.rdocumentation.org/packages/base/topics/c">c("csv1.csv", "csv2.csv")</a></code>.</li>
+</ul>
+</li>
 <li><p>Source is now styled with <code><a href="https://www.rdocumentation.org/packages/styler/topics/style_pkg">styler::style_pkg()</a></code> (defaults)</p></li>
-<li><p>Example data is now named more consistently so that <code><a href="https://www.rdocumentation.org/packages/base/topics/list.files">dir(tor_example("rds"))</a></code> no longer is <code><a href="https://www.rdocumentation.org/packages/base/topics/c">c("file1.rds", "file2.rds")</a></code>, but <code><a href="https://www.rdocumentation.org/packages/base/topics/c">c("rds1.rds", "rds2.rds")</a></code>.</p></li>
+<li>Lambda functions in source code now use the more common function(x) syntax.
+<ul>
+<li>Text editors highlight <code>function()</code> which makes code easier to read.</li>
+</ul>
+</li>
 </ul>
 </div>
 </div>

@@ -54,6 +54,6 @@ list_any(
 }
 \seealso{
 Other general functions to import data: \code{\link{list_csv}},
-  \code{\link{load_csv}}, \code{\link{load_rds}}
+  \code{\link{load_csv}}
 }
 \concept{general functions to import data}
