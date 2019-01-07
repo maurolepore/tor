@@ -8,28 +8,27 @@
 #'
 #' @return A list.
 #'
-#' @family general functions to import data
-#' @export
-#'
 #' @examples
 #' (rds <- tor_example("rds"))
 #' dir(rds)
-#' 
+#'
 #' list_rds(rds)
-#' 
+#'
 #' (tsv <- tor_example("tsv"))
 #' dir(tsv)
-#' 
+#'
 #' list_tsv(tsv)
-#' 
+#'
 #' (mixed <- tor_example("mixed"))
 #' dir(mixed)
-#' 
+#'
 #' list_rdata(mixed)
-#' 
+#'
 #' list_csv(mixed)
-#' 
+#'
 #' list_rdata(mixed, regexp = "[.]RData", ignore.case = FALSE)
+#' @family general functions to import data
+#' @export
 list_rds <- function(path = ".",
                      regexp = "[.]rds$",
                      ignore.case = TRUE,

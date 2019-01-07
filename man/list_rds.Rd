@@ -99,6 +99,7 @@ list_csv(mixed)
 list_rdata(mixed, regexp = "[.]RData", ignore.case = FALSE)
 }
 \seealso{
-Other general functions to import data: \code{\link{list_any}}
+Other general functions to import data: \code{\link{list_any}},
+  \code{\link{load_rds}}
 }
 \concept{general functions to import data}

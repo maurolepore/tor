@@ -53,6 +53,7 @@ list_any(
 )
 }
 \seealso{
-Other general functions to import data: \code{\link{list_rds}}
+Other general functions to import data: \code{\link{list_rds}},
+  \code{\link{load_rds}}
 }
 \concept{general functions to import data}

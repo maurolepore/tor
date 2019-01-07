@@ -83,25 +83,24 @@ load_tsv(path = ".", regexp = "[.]tsv$", ignore.case = TRUE,
 Load each element of a list into an environment.
 }
 \examples{
-# All functions default to load from the working directory.
-rm(list = ls())
-ls()
+(path_csv <- tor_example("csv"))
+dir(path_csv)
 
-load_csv()
-
+load_csv(path_csv)
 # Each dataframe is now available in the global environment
-ls()
 csv1
-
-#You may load from a `path`.
-rm(list = ls())
-ls()
+csv2
 
 (path_mixed <- tor_example("mixed"))
 dir(path_mixed)
 
 load_rdata(path_mixed)
-
-ls()
-rda
+# Each dataframe is now available in the global environment
+lower_rdata
+upper_rdata
 }
+\seealso{
+Other general functions to import data: \code{\link{list_any}},
+  \code{\link{list_rds}}
+}
+\concept{general functions to import data}

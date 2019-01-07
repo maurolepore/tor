@@ -6,27 +6,22 @@
 #' @return `invisible(path)`.
 #'
 #' @examples
-#' # All functions default to load from the working directory.
-#' rm(list = ls())
-#' ls()
+#' (path_csv <- tor_example("csv"))
+#' dir(path_csv)
 #'
-#' load_csv()
-#'
+#' load_csv(path_csv)
 #' # Each dataframe is now available in the global environment
-#' ls()
 #' csv1
-#'
-#' #You may load from a `path`.
-#' rm(list = ls())
-#' ls()
+#' csv2
 #'
 #' (path_mixed <- tor_example("mixed"))
 #' dir(path_mixed)
 #'
 #' load_rdata(path_mixed)
-#'
-#' ls()
-#' rda
+#' # Each dataframe is now available in the global environment
+#' lower_rdata
+#' upper_rdata
+#' @family general functions to import data
 #' @export
 load_rds <- function(path = ".",
                      regexp = "[.]rds$",
