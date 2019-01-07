@@ -81,7 +81,7 @@
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#tor" class="anchor"></a>tor</h1></div>
 
-<p>The goal of <strong>tor</strong> (<em>to-R</em>) is to make importing data into R ridiculously easy. It helps you to import multiple files from a single directory into R in a simple, intuitive way. <code><a href="reference/list_csv.html">list_csv()</a></code> creates a list of all “*.csv” files in your working directory; and <code><a href="reference/load_rds.html">load_rdata()</a></code> loads all “*.rdata” files into your global environment (see all functions in <a href="https://maurolepore.github.io/tor/reference/index.html">Reference</a>). <strong>tor</strong> does nothing you can’t do with functions from base R but it makes a frequent task less painful. It has few dependencies and works well with the <a href="https://www.tidyverse.org/">tidyverse</a>.</p>
+<p>The goal of <strong>tor</strong> (<em>to-R</em>) is to make importing data into R ridiculously easy. It helps you to import multiple files from a single directory into R in a simple, intuitive way. <code><a href="reference/list_csv.html">list_csv()</a></code> creates a list of all “*.csv” files in your working directory; and <code>load_rdata()</code> loads all “*.rdata” files into your global environment (see all functions in <a href="https://maurolepore.github.io/tor/reference/index.html">Reference</a>). <strong>tor</strong> does nothing you can’t do with functions from base R but it makes a frequent task less painful. It has few dependencies and works well with the <a href="https://www.tidyverse.org/">tidyverse</a>.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
@@ -330,7 +330,7 @@
 <a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/ls">ls</a></span>()</a>
 <a class="sourceLine" id="cb11-3" data-line-number="3"><span class="co">#&gt; character(0)</span></a>
 <a class="sourceLine" id="cb11-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="kw"><a href="reference/load_rds.html">load_csv</a></span>()</a>
+<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="kw">load_csv</span>()</a>
 <a class="sourceLine" id="cb11-6" data-line-number="6"></a>
 <a class="sourceLine" id="cb11-7" data-line-number="7"><span class="co"># Each dataframe is now available in the global environment</span></a>
 <a class="sourceLine" id="cb11-8" data-line-number="8"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/ls">ls</a></span>()</a>
@@ -350,7 +350,7 @@
 <a class="sourceLine" id="cb12-8" data-line-number="8"><span class="co">#&gt; [1] "csv.csv"           "lower_rdata.rdata" "rda.rda"          </span></a>
 <a class="sourceLine" id="cb12-9" data-line-number="9"><span class="co">#&gt; [4] "upper_rdata.RData"</span></a>
 <a class="sourceLine" id="cb12-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb12-11" data-line-number="11"><span class="kw"><a href="reference/load_rds.html">load_rdata</a></span>(path_mixed)</a>
+<a class="sourceLine" id="cb12-11" data-line-number="11"><span class="kw">load_rdata</span>(path_mixed)</a>
 <a class="sourceLine" id="cb12-12" data-line-number="12"></a>
 <a class="sourceLine" id="cb12-13" data-line-number="13"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/ls">ls</a></span>()</a>
 <a class="sourceLine" id="cb12-14" data-line-number="14"><span class="co">#&gt; [1] "lower_rdata" "path_mixed"  "rda"         "upper_rdata"</span></a>
