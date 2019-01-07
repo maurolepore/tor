@@ -1,11 +1,11 @@
 behaviour
+csv
 fs
-https
 io
 lifecycle
 purrr
+rdata
+readr
 rio
 rlang
 tidyverse
-torr
-vectorizes

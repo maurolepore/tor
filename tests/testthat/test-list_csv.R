@@ -3,7 +3,7 @@ context("list_rds")
 test_that("list_rds lists .rds files", {
   expect_named(
     list_rds(tor_example("rds")),
-    c("file1", "file2")
+    c("rds1", "rds2")
   )
 })
 
@@ -13,15 +13,15 @@ test_that("list_rds defaults to read from working directory", {
 
 test_that("list_rds reads specific .rds files", {
   expect_named(
-    list_rds(tor_example("rds"), regexp = "file1"),
-    c("file1")
+    list_rds(tor_example("rds"), regexp = "rds1"),
+    c("rds1")
   )
 })
 
 test_that("list_rds allows inverting a `regexp` pattern", {
   expect_named(
-    list_rds(tor_example("rds"), regexp = "file1", invert = TRUE),
-    c("file2")
+    list_rds(tor_example("rds"), regexp = "rds1", invert = TRUE),
+    c("rds2")
   )
 })
 
@@ -80,7 +80,7 @@ test_that("list_csv is sensitive to `regexp`, `invert, and `ignore.case`", {
       regexp = "[.]CSV$",
       ignore.case = TRUE,
     ),
-    c("file1", "file2")
+    c("csv1", "csv2")
   )
 
   expect_named(
@@ -90,7 +90,7 @@ test_that("list_csv is sensitive to `regexp`, `invert, and `ignore.case`", {
       ignore.case = FALSE,
       invert = TRUE
     ),
-    c("file1", "file2")
+    c("csv1", "csv2")
   )
 
   expect_error(

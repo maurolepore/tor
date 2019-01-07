@@ -64,7 +64,7 @@ an output path." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tor</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0.9000</span>
       </span>
     </div>
 
@@ -131,21 +131,25 @@ an output path.</p>
 
     <p>A string of the same length as <code>files</code>.</p>
     
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other helpers: <code><a href='tor_example.html'>tor_example</a></code></p></div>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>format_path</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"file1"</span>, <span class='st'>"file2"</span>), <span class='st'>"csv"</span>)</div><div class='output co'>#&gt; [1] "./file1.csv" "./file2.csv"</div><div class='input'>
-(<span class='no'>dfs</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='list_rds.html'>list_csv</a></span>(<span class='fu'><a href='tor_example.html'>tor_example</a></span>(<span class='st'>"csv"</span>)))</div><div class='output co'>#&gt; $file1
+(<span class='no'>dfs</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='list_csv.html'>list_csv</a></span>(<span class='fu'><a href='tor_example.html'>tor_example</a></span>(<span class='st'>"csv"</span>)))</div><div class='output co'>#&gt; $csv1
 #&gt;   x
 #&gt; 1 1
 #&gt; 2 2
 #&gt; 
-#&gt; $file2
+#&gt; $csv2
 #&gt;   y
 #&gt; 1 a
 #&gt; 2 b
 #&gt; </div><div class='input'>
-<span class='fu'>format_path</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/names'>names</a></span>(<span class='no'>dfs</span>), <span class='st'>"csv"</span>)</div><div class='output co'>#&gt; [1] "./file1.csv" "./file2.csv"</div><div class='input'>
-<span class='fu'>format_path</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/names'>names</a></span>(<span class='no'>dfs</span>), <span class='st'>"csv"</span>, <span class='kw'>base</span> <span class='kw'>=</span> <span class='st'>"home"</span>, <span class='kw'>prefix</span> <span class='kw'>=</span> <span class='st'>"this-"</span>)</div><div class='output co'>#&gt; [1] "home/this-file1.csv" "home/this-file2.csv"</div></pre>
+<span class='fu'>format_path</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/names'>names</a></span>(<span class='no'>dfs</span>), <span class='st'>"csv"</span>)</div><div class='output co'>#&gt; [1] "./csv1.csv" "./csv2.csv"</div><div class='input'>
+<span class='fu'>format_path</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/names'>names</a></span>(<span class='no'>dfs</span>), <span class='st'>"csv"</span>, <span class='kw'>base</span> <span class='kw'>=</span> <span class='st'>"home"</span>, <span class='kw'>prefix</span> <span class='kw'>=</span> <span class='st'>"this-"</span>)</div><div class='output co'>#&gt; [1] "home/this-csv1.csv" "home/this-csv2.csv"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -153,6 +157,8 @@ an output path.</p>
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#see-also">See also</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

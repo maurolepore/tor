@@ -8,8 +8,6 @@
 #'
 #' @return A string of the same length as `files`.
 #'
-#' @export
-#'
 #' @examples
 #' format_path(c("file1", "file2"), "csv")
 #'
@@ -18,6 +16,8 @@
 #' format_path(names(dfs), "csv")
 #'
 #' format_path(names(dfs), "csv", base = "home", prefix = "this-")
+#' @family helpers
+#' @export
 format_path <- function(files, ext, base = ".", prefix = NULL) {
   if (missing(files)) abort("`files` can't be missing")
   if (missing(ext)) abort("`ext` can't be missing")

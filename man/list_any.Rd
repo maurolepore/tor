@@ -35,24 +35,25 @@ dir(path)
 
 list_any(path, read.csv)
 
-list_any(path, ~read.csv(.x, stringsAsFactors = FALSE))
+list_any(path, ~ read.csv(.x, stringsAsFactors = FALSE))
 
 (path_mixed <- tor_example("mixed"))
 dir(path_mixed)
 
 list_any(
-  path_mixed, ~get(load(.x)),
+  path_mixed, ~ get(load(.x)),
   regexp = "[.]csv$",
   invert = TRUE
 )
 
 list_any(
-  path_mixed, ~get(load(.x)),
+  path_mixed, ~ get(load(.x)),
   "[.]Rdata$",
   ignore.case = TRUE
 )
 }
 \seealso{
-Other general functions to import data: \code{\link{list_rds}}
+Other general functions to import data: \code{\link{list_csv}},
+  \code{\link{load_csv}}
 }
 \concept{general functions to import data}

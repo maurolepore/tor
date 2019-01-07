@@ -22,7 +22,11 @@ tor_example("csv")
 
 dir(tor_example("csv"))
 }
+\seealso{
+Other helpers: \code{\link{format_path}}
+}
 \author{
 Copied from \code{readr_example()} from the \strong{readr} package, by Jim
 Hester and colleagues.
 }
+\concept{helpers}
