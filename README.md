@@ -48,7 +48,7 @@ library(tor)
 All functions list whatever they read, and default to reading from the
 working directory.
 
-#### `list_*()`: Import multiple files from a directory into a list
+### `list_*()`: Import multiple files from a directory into a list
 
 ``` r
 dir()
@@ -300,24 +300,32 @@ path_mixed %>%
 #> 2 b
 ```
 
-#### `load_*()`: Load multiple files from a directory into an environment
+### `load_*()`: Load multiple files from a directory into an environment
 
 All functions default to load from the working directory.
 
 ``` r
-rm(list = ls())
-ls()
-#> character(0)
+# The working directory contains .csv files
+dir()
+#>  [1] "_pkgdown.yml"     "cran-comments.md" "CRAN-RELEASE"    
+#>  [4] "csv1.csv"         "csv2.csv"         "datasets"        
+#>  [7] "DESCRIPTION"      "docs"             "inst"            
+#> [10] "LICENSE.md"       "man"              "NAMESPACE"       
+#> [13] "NEWS.md"          "R"                "README.md"       
+#> [16] "README.Rmd"       "tests"            "tmp.R"           
+#> [19] "tor.Rproj"
 
 load_csv()
 
-# Each dataframe is now available in the global environment
-ls()
-#> [1] "csv1" "csv2"
+# Each file is now available as a dataframe in the global environment
 csv1
 #>   x
 #> 1 1
 #> 2 2
+csv2
+#>   y
+#> 1 a
+#> 2 b
 ```
 
 You may load from a `path`.
@@ -345,7 +353,7 @@ rda
 #> 2 b
 ```
 
-#### [**purrr**](https://purrr.tidyverse.org/) + `format_path()`: Map each list element to a file in a directory
+### [**purrr**](https://purrr.tidyverse.org/) + `format_path()`: Map each list element to a file in a directory
 
 **tor** does not write data but includes a helper to create the paths to
 output files.
