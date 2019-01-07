@@ -164,18 +164,18 @@ It understands lambda functions and formulas (powered by
 (path_rdata <- tor_example("rdata"))
 #> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/tor/extdata/rdata"
 dir(path_rdata)
-#> [1] "file1.rdata" "file2.rdata"
+#> [1] "rdata1.rdata" "rdata2.rdata"
 
 path_rdata %>% 
   list_any(function(x) get(load(x)))
-#> $file1
+#> $rdata1
 #> # A tibble: 2 x 1
 #>       x
 #>   <dbl>
 #> 1     1
 #> 2     2
 #> 
-#> $file2
+#> $rdata2
 #> # A tibble: 2 x 1
 #>   y    
 #>   <chr>
@@ -185,14 +185,14 @@ path_rdata %>%
 # Same
 path_rdata %>% 
   list_any(~get(load(.x)))
-#> $file1
+#> $rdata1
 #> # A tibble: 2 x 1
 #>       x
 #>   <dbl>
 #> 1     1
 #> 2     2
 #> 
-#> $file2
+#> $rdata2
 #> # A tibble: 2 x 1
 #>   y    
 #>   <chr>

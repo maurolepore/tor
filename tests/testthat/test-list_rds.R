@@ -80,7 +80,7 @@ test_that("list_csv is sensitive to `regexp`, `invert, and `ignore.case`", {
       regexp = "[.]CSV$",
       ignore.case = TRUE,
     ),
-    c("file1", "file2")
+    c("csv1", "csv2")
   )
 
   expect_named(
@@ -90,7 +90,7 @@ test_that("list_csv is sensitive to `regexp`, `invert, and `ignore.case`", {
       ignore.case = FALSE,
       invert = TRUE
     ),
-    c("file1", "file2")
+    c("csv1", "csv2")
   )
 
   expect_error(

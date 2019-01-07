@@ -8,7 +8,7 @@ test_that("list_any with read.csv lists (file)named dataframes", {
   )
 
   expect_is(res, "list")
-  expect_named(res, c("file1", "file2"))
+  expect_named(res, c("csv1", "csv2"))
   expect_is(res[[1]], "data.frame")
 })
 
