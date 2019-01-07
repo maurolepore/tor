@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Read multiple (common) files from a directory into a list. — list_rds • tor</title>
+<title>Read multiple files from a directory into a list. — list_rds • tor</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,7 +30,7 @@
 
 
 
-<meta property="og:title" content="Read multiple (common) files from a directory into a list. — list_rds" />
+<meta property="og:title" content="Read multiple files from a directory into a list. — list_rds" />
 
 <meta property="og:description" content="These functions wrap the most common special cases of list_any()." />
 <meta name="twitter:card" content="summary" />
@@ -102,8 +102,8 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Read multiple (common) files from a directory into a list.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/maurolepore/tor/blob/master/R/list_rds.R'><code>R/list_rds.R</code></a></small>
+    <h1>Read multiple files from a directory into a list.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/maurolepore/tor/blob/master/R/list_rds.R'><code>R/list_rds.R</code></a>, <a href='https://github.com/maurolepore/tor/blob/master/R/load_csv.R'><code>R/load_csv.R</code></a></small>
     <div class="hidden name"><code>list_rds.Rd</code></div>
     </div>
 
@@ -127,7 +127,25 @@
 <span class='fu'>list_tsv</span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>"[.]tsv$"</span>, <span class='kw'>ignore.case</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
   <span class='kw'>invert</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>"\t"</span>, <span class='kw'>quote</span> <span class='kw'>=</span> <span class='st'>"\""</span>,
   <span class='kw'>dec</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>comment.char</span> <span class='kw'>=</span> <span class='st'>""</span>,
-  <span class='kw'>stringsAsFactors</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>na.strings</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>""</span>, <span class='st'>"NA"</span>), <span class='no'>...</span>)</pre>
+  <span class='kw'>stringsAsFactors</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>na.strings</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>""</span>, <span class='st'>"NA"</span>), <span class='no'>...</span>)
+
+<span class='fu'>load_rds</span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>"[.]rds$"</span>, <span class='kw'>ignore.case</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>invert</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>envir</span> <span class='kw'>=</span> <span class='no'>.GlobalEnv</span>)
+
+<span class='fu'>load_rdata</span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>"[.]rdata$|[.]rda$"</span>,
+  <span class='kw'>ignore.case</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>invert</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>envir</span> <span class='kw'>=</span> <span class='no'>.GlobalEnv</span>)
+
+<span class='fu'>load_csv</span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>"[.]csv$"</span>, <span class='kw'>ignore.case</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>invert</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>","</span>, <span class='kw'>quote</span> <span class='kw'>=</span> <span class='st'>"\""</span>,
+  <span class='kw'>dec</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>comment.char</span> <span class='kw'>=</span> <span class='st'>""</span>,
+  <span class='kw'>stringsAsFactors</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>na.strings</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>""</span>, <span class='st'>"NA"</span>),
+  <span class='kw'>envir</span> <span class='kw'>=</span> <span class='no'>.GlobalEnv</span>, <span class='no'>...</span>)
+
+<span class='fu'>load_tsv</span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>"[.]tsv$"</span>, <span class='kw'>ignore.case</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>invert</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>"\t"</span>, <span class='kw'>quote</span> <span class='kw'>=</span> <span class='st'>"\""</span>,
+  <span class='kw'>dec</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>comment.char</span> <span class='kw'>=</span> <span class='st'>""</span>,
+  <span class='kw'>stringsAsFactors</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>na.strings</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>""</span>, <span class='st'>"NA"</span>),
+  <span class='kw'>envir</span> <span class='kw'>=</span> <span class='no'>.GlobalEnv</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -218,15 +236,15 @@
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>(<span class='no'>rds</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tor_example.html'>tor_example</a></span>(<span class='st'>"rds"</span>))</div><div class='output co'>#&gt; [1] "C:/Users/LeporeM/Documents/Dropbox/git/ml/tor/inst/extdata/rds"</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list.files'>dir</a></span>(<span class='no'>rds</span>)</div><div class='output co'>#&gt; [1] "file1.rds" "file2.rds"</div><div class='input'>
-<span class='fu'>list_rds</span>(<span class='no'>rds</span>)</div><div class='output co'>#&gt; $file1
+    <pre class="examples"><div class='input'>(<span class='no'>rds</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tor_example.html'>tor_example</a></span>(<span class='st'>"rds"</span>))</div><div class='output co'>#&gt; [1] "C:/Users/LeporeM/Documents/Dropbox/git/ml/tor/inst/extdata/rds"</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list.files'>dir</a></span>(<span class='no'>rds</span>)</div><div class='output co'>#&gt; [1] "rds1.rds" "rds2.rds"</div><div class='input'>
+<span class='fu'>list_rds</span>(<span class='no'>rds</span>)</div><div class='output co'>#&gt; $rds1
 #&gt; <span style='color: #555555;'># A tibble: 2 x 1</span><span>
 #&gt;       x
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
 #&gt; </span><span style='color: #555555;'>1</span><span>     1
 #&gt; </span><span style='color: #555555;'>2</span><span>     2
 #&gt; 
-#&gt; $file2
+#&gt; $rds2
 #&gt; </span><span style='color: #555555;'># A tibble: 2 x 1</span><span>
 #&gt;   y    
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>

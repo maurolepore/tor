@@ -143,15 +143,15 @@ read with.
 (path_csv <- tor_example("csv"))
 #> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/tor/extdata/csv"
 dir(path_csv)
-#> [1] "file1.csv" "file2.csv"
+#> [1] "csv1.csv" "csv2.csv"
 
 list_any(path_csv, read.csv)
-#> $file1
+#> $csv1
 #>   x
 #> 1 1
 #> 2 2
 #> 
-#> $file2
+#> $csv2
 #>   y
 #> 1 a
 #> 2 b
@@ -213,13 +213,13 @@ path_csv %>%
 #> cols(
 #>   a = col_character()
 #> )
-#> $file1
+#> $csv1
 #> # A tibble: 1 x 1
 #>     `1`
 #>   <dbl>
 #> 1     2
 #> 
-#> $file2
+#> $csv2
 #> # A tibble: 1 x 1
 #>   a    
 #>   <chr>
@@ -228,14 +228,14 @@ path_csv %>%
 path_csv %>% 
   list_any(~read.csv(., stringsAsFactors = FALSE)) %>% 
   map(as_tibble)
-#> $file1
+#> $csv1
 #> # A tibble: 2 x 1
 #>       x
 #>   <int>
 #> 1     1
 #> 2     2
 #> 
-#> $file2
+#> $csv2
 #> # A tibble: 2 x 1
 #>   y    
 #>   <chr>
