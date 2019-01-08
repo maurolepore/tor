@@ -17,7 +17,6 @@ BugReports: https://github.com/maurolepore/tor/issues
 Imports: 
     fs,
     rlang,
-    purrr,
     tibble
 Suggests: 
     covr,
