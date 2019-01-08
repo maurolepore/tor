@@ -2,6 +2,9 @@
 
 ## Minor
 
+* Each dataframe output is now converted to tibble. 
+    * Users no longer need to call `tibble::as_tibble()`.
+    
 * New `load_*()` variants load each file in a directory into an environment.
 
 ## Patch

@@ -62,13 +62,17 @@ dir()
 
 list_csv()
 #> $csv1
-#>   x
-#> 1 1
-#> 2 2
+#> # A tibble: 2 x 1
+#>       x
+#>   <int>
+#> 1     1
+#> 2     2
 #> 
 #> $csv2
-#>   y
-#> 1 a
+#> # A tibble: 2 x 1
+#>   y    
+#>   <chr>
+#> 1 a    
 #> 2 b
 ```
 
@@ -154,13 +158,17 @@ dir(path_csv)
 
 list_any(path_csv, read.csv)
 #> $csv1
-#>   x
-#> 1 1
-#> 2 2
+#> # A tibble: 2 x 1
+#>       x
+#>   <int>
+#> 1     1
+#> 2     2
 #> 
 #> $csv2
-#>   y
-#> 1 a
+#> # A tibble: 2 x 1
+#>   y    
+#>   <fct>
+#> 1 a    
 #> 2 b
 ```
 
@@ -319,12 +327,16 @@ load_csv()
 
 # Each file is now available as a dataframe in the global environment
 csv1
-#>   x
-#> 1 1
-#> 2 2
+#> # A tibble: 2 x 1
+#>       x
+#>   <int>
+#> 1     1
+#> 2     2
 csv2
-#>   y
-#> 1 a
+#> # A tibble: 2 x 1
+#>   y    
+#>   <chr>
+#> 1 a    
 #> 2 b
 ```
 
@@ -385,13 +397,17 @@ map_chr(dfms, ~ format_path(names(.), "csv", ".", "this-"))
 
 (dfs <- list_csv())
 #> $csv1
-#>   x
-#> 1 1
-#> 2 2
+#> # A tibble: 2 x 1
+#>       x
+#>   <int>
+#> 1     1
+#> 2     2
 #> 
 #> $csv2
-#>   y
-#> 1 a
+#> # A tibble: 2 x 1
+#>   y    
+#>   <chr>
+#> 1 a    
 #> 2 b
 
 paths <- dfs %>% 

@@ -1,5 +1,9 @@
 context("list_rds")
 
+test_that("list_rds outputs tibbles", {
+  expect_is(list_rds(tor_example("rds"))[[1]], "tbl")
+})
+
 test_that("list_rds lists .rds files", {
   expect_named(
     list_rds(tor_example("rds")),
@@ -26,6 +30,10 @@ test_that("list_rds allows inverting a `regexp` pattern", {
 })
 
 context("list_rdata")
+
+test_that("list_rdata outputs tibbles", {
+  expect_is(list_rdata(tor_example("rdata"))[[1]], "tbl")
+})
 
 test_that("list_rdata lists .rdata, .Rdata, and .rda", {
   expect_named(
@@ -57,6 +65,10 @@ test_that("list_rdata defaults to read from working directory", {
 })
 
 context("list_csv")
+
+test_that("list_csv outputs tibbles", {
+  expect_is(list_csv(tor_example("csv"))[[1]], "tbl")
+})
 
 test_that("list_csv can read .csv specifically in a mixed directory", {
   expect_named(
@@ -103,6 +115,10 @@ test_that("list_csv is sensitive to `regexp`, `invert, and `ignore.case`", {
 })
 
 context("list_tsv")
+
+test_that("list_tsv outputs tibbles", {
+  expect_is(list_tsv(tor_example("tsv"))[[1]], "tbl")
+})
 
 test_that("list_tsv defaults to read from working directory", {
   expect_named(list_tsv(), "tsv")

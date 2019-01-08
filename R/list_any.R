@@ -8,23 +8,23 @@
 #'
 #' @examples
 #' tor_example()
-#' 
+#'
 #' path <- tor_example("csv")
 #' dir(path)
-#' 
+#'
 #' list_any(path, read.csv)
-#' 
+#'
 #' list_any(path, ~ read.csv(.x, stringsAsFactors = FALSE))
-#' 
+#'
 #' (path_mixed <- tor_example("mixed"))
 #' dir(path_mixed)
-#' 
+#'
 #' list_any(
 #'   path_mixed, ~ get(load(.x)),
 #'   regexp = "[.]csv$",
 #'   invert = TRUE
 #' )
-#' 
+#'
 #' list_any(
 #'   path_mixed, ~ get(load(.x)),
 #'   "[.]Rdata$",
@@ -52,5 +52,12 @@ list_any <- function(path = ".",
   }
 
   file_names <- fs::path_ext_remove(fs::path_file(files))
-  set_names(lapply(files, rlang::as_function(.f), ...), file_names)
+  result <- set_names(lapply(files, rlang::as_function(.f), ...), file_names)
+  dataframe_to_tibble(result)
+}
+
+dataframe_to_tibble <- function(.x) {
+  sel <- vapply(.x, is.data.frame, logical(1))
+  .x[sel] <- lapply(.x[sel], tibble::as_tibble)
+  .x
 }

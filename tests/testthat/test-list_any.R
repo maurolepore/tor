@@ -10,6 +10,7 @@ test_that("list_any with read.csv lists (file)named dataframes", {
   expect_is(res, "list")
   expect_named(res, c("csv1", "csv2"))
   expect_is(res[[1]], "data.frame")
+  expect_is(res[[1]], "tbl")
 })
 
 test_that("list_any accepts lambda functions and formulas", {
