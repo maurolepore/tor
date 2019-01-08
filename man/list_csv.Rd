@@ -8,14 +8,10 @@
 \title{Read multiple files from a directory into a list.}
 \usage{
 list_csv(path = ".", regexp = "[.]csv$", ignore.case = TRUE,
-  invert = FALSE, header = TRUE, sep = ",", quote = "\\"",
-  dec = ".", fill = TRUE, comment.char = "",
-  stringsAsFactors = FALSE, na.strings = c("", "NA"), ...)
+  invert = FALSE, ...)
 
 list_tsv(path = ".", regexp = "[.]tsv$", ignore.case = TRUE,
-  invert = FALSE, header = TRUE, sep = "\\t", quote = "\\"",
-  dec = ".", fill = TRUE, comment.char = "",
-  stringsAsFactors = FALSE, na.strings = c("", "NA"), ...)
+  invert = FALSE, ...)
 
 list_rds(path = ".", regexp = "[.]rds$", ignore.case = TRUE,
   invert = FALSE)
@@ -33,44 +29,7 @@ list_rdata(path = ".", regexp = "[.]rdata$|[.]rda$",
 
 \item{invert}{If \code{TRUE} return files which do \emph{not} match}
 
-\item{header}{a logical value indicating whether the file contains the
-    names of the variables as its first line.  If missing, the value is
-    determined from the file format: \code{header} is set to \code{TRUE}
-    if and only if the first row contains one fewer field than the
-    number of columns.}
-
-\item{sep}{the field separator character.  Values on each line of the
-    file are separated by this character.  If \code{sep = ""} (the
-    default for \code{read.table}) the separator is \sQuote{white space},
-    that is one or more spaces, tabs, newlines or carriage returns.}
-
-\item{quote}{the set of quoting characters. To disable quoting
-    altogether, use \code{quote = ""}.  See \code{\link{scan}} for the
-    behaviour on quotes embedded in quotes.  Quoting is only considered
-    for columns read as character, which is all of them unless
-    \code{colClasses} is specified.}
-
-\item{dec}{the character used in the file for decimal points.}
-
-\item{fill}{logical. If \code{TRUE} then in case the rows have unequal
-    length, blank fields are implicitly added.  See \sQuote{Details}.}
-
-\item{comment.char}{character: a character vector of length one
-    containing a single character or an empty string.  Use \code{""} to
-    turn off the interpretation of comments altogether.}
-
-\item{stringsAsFactors}{logical: should character vectors be converted
-    to factors?  Note that this is overridden by \code{as.is} and
-    \code{colClasses}, both of which allow finer control.}
-
-\item{na.strings}{a character vector of strings which are to be
-    interpreted as \code{\link{NA}} values.  Blank fields are also
-    considered to be missing values in logical, integer, numeric and
-    complex fields.  Note that the test happens \emph{after} 
-    white space is stripped from the input, so \code{na.strings} 
-    values may need their own white space stripped in advance.}
-
-\item{...}{Arguments passed to \code{\link[utils:read.table]{utils::read.table()}}.}
+\item{...}{Arguments passed to \code{readr::read_csv()} or \code{readr::read_tsv()}.}
 }
 \value{
 A list.

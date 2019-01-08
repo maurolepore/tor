@@ -46,9 +46,7 @@ list_any <- function(path = ".",
   )
 
   if (length(files) == 0) {
-    abort(
-      sprintf("Can't find files matching '%s' in:\n '%s'", regexp, path)
-    )
+    abort(sprintf("Can't find files matching '%s' in:\n '%s'", regexp, path))
   }
 
   file_names <- fs::path_ext_remove(fs::path_file(files))
