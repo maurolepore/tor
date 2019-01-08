@@ -3,29 +3,29 @@
 #' These functions wrap the most common special cases of [list_any()].
 #'
 #' @inheritParams list_any
-#' @inheritParams utils::read.table
-#' @param ... Arguments passed to [utils::read.table()].
+#' @inheritParams readr::read_delim
+#' @param ... Arguments passed to `readr::read_csv()` or `readr::read_tsv()`.
 #'
 #' @return A list.
 #'
 #' @examples
 #' (rds <- tor_example("rds"))
 #' dir(rds)
-#'
+#' 
 #' list_rds(rds)
-#'
+#' 
 #' (tsv <- tor_example("tsv"))
 #' dir(tsv)
-#'
+#' 
 #' list_tsv(tsv)
-#'
+#' 
 #' (mixed <- tor_example("mixed"))
 #' dir(mixed)
-#'
+#' 
 #' list_rdata(mixed)
-#'
+#' 
 #' list_csv(mixed)
-#'
+#' 
 #' list_rdata(mixed, regexp = "[.]RData", ignore.case = FALSE)
 #' @family general functions to import data
 #' @export
@@ -33,28 +33,10 @@ list_csv <- function(path = ".",
                      regexp = "[.]csv$",
                      ignore.case = TRUE,
                      invert = FALSE,
-                     header = TRUE,
-                     sep = ",",
-                     quote = "\"",
-                     dec = ".",
-                     fill = TRUE,
-                     comment.char = "",
-                     stringsAsFactors = FALSE,
-                     na.strings = c("", "NA"),
                      ...) {
   list_any(
     path,
-    function(x) utils::read.csv(
-        file = x,
-        header = header,
-        sep = sep,
-        quote = quote,
-        dec = dec,
-        fill = fill,
-        comment.char = comment.char,
-        stringsAsFactors = stringsAsFactors,
-        na.strings = na.strings
-      ),
+    readr::read_csv,
     regexp = regexp,
     ignore.case = ignore.case,
     invert = invert,
@@ -68,28 +50,10 @@ list_tsv <- function(path = ".",
                      regexp = "[.]tsv$",
                      ignore.case = TRUE,
                      invert = FALSE,
-                     header = TRUE,
-                     sep = "\t",
-                     quote = "\"",
-                     dec = ".",
-                     fill = TRUE,
-                     comment.char = "",
-                     stringsAsFactors = FALSE,
-                     na.strings = c("", "NA"),
                      ...) {
   list_any(
     path,
-    function(x) utils::read.csv(
-        file = x,
-        header = header,
-        sep = sep,
-        quote = quote,
-        dec = dec,
-        fill = fill,
-        comment.char = comment.char,
-        stringsAsFactors = stringsAsFactors,
-        na.strings = na.strings
-      ),
+    .f = readr::read_tsv,
     regexp = regexp,
     ignore.case = ignore.case,
     invert = invert,

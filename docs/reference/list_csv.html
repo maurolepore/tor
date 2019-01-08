@@ -114,14 +114,10 @@
     </div>
 
     <pre class="usage"><span class='fu'>list_csv</span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>"[.]csv$"</span>, <span class='kw'>ignore.case</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>invert</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>","</span>, <span class='kw'>quote</span> <span class='kw'>=</span> <span class='st'>"\""</span>,
-  <span class='kw'>dec</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>comment.char</span> <span class='kw'>=</span> <span class='st'>""</span>,
-  <span class='kw'>stringsAsFactors</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>na.strings</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>""</span>, <span class='st'>"NA"</span>), <span class='no'>...</span>)
+  <span class='kw'>invert</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)
 
 <span class='fu'>list_tsv</span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>"[.]tsv$"</span>, <span class='kw'>ignore.case</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>invert</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>"\t"</span>, <span class='kw'>quote</span> <span class='kw'>=</span> <span class='st'>"\""</span>,
-  <span class='kw'>dec</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>comment.char</span> <span class='kw'>=</span> <span class='st'>""</span>,
-  <span class='kw'>stringsAsFactors</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>na.strings</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>""</span>, <span class='st'>"NA"</span>), <span class='no'>...</span>)
+  <span class='kw'>invert</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)
 
 <span class='fu'>list_rds</span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>"[.]rds$"</span>, <span class='kw'>ignore.case</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
   <span class='kw'>invert</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
@@ -150,61 +146,8 @@
       <td><p>If <code>TRUE</code> return files which do <em>not</em> match</p></td>
     </tr>
     <tr>
-      <th>header</th>
-      <td><p>a logical value indicating whether the file contains the
-    names of the variables as its first line.  If missing, the value is
-    determined from the file format: <code>header</code> is set to <code>TRUE</code>
-    if and only if the first row contains one fewer field than the
-    number of columns.</p></td>
-    </tr>
-    <tr>
-      <th>sep</th>
-      <td><p>the field separator character.  Values on each line of the
-    file are separated by this character.  If <code>sep = ""</code> (the
-    default for <code>read.table</code>) the separator is &#8216;white space&#8217;,
-    that is one or more spaces, tabs, newlines or carriage returns.</p></td>
-    </tr>
-    <tr>
-      <th>quote</th>
-      <td><p>the set of quoting characters. To disable quoting
-    altogether, use <code>quote = ""</code>.  See <code><a href='https://www.rdocumentation.org/packages/base/topics/scan'>scan</a></code> for the
-    behaviour on quotes embedded in quotes.  Quoting is only considered
-    for columns read as character, which is all of them unless
-    <code>colClasses</code> is specified.</p></td>
-    </tr>
-    <tr>
-      <th>dec</th>
-      <td><p>the character used in the file for decimal points.</p></td>
-    </tr>
-    <tr>
-      <th>fill</th>
-      <td><p>logical. If <code>TRUE</code> then in case the rows have unequal
-    length, blank fields are implicitly added.  See &#8216;Details&#8217;.</p></td>
-    </tr>
-    <tr>
-      <th>comment.char</th>
-      <td><p>character: a character vector of length one
-    containing a single character or an empty string.  Use <code>""</code> to
-    turn off the interpretation of comments altogether.</p></td>
-    </tr>
-    <tr>
-      <th>stringsAsFactors</th>
-      <td><p>logical: should character vectors be converted
-    to factors?  Note that this is overridden by <code>as.is</code> and
-    <code>colClasses</code>, both of which allow finer control.</p></td>
-    </tr>
-    <tr>
-      <th>na.strings</th>
-      <td><p>a character vector of strings which are to be
-    interpreted as <code><a href='https://www.rdocumentation.org/packages/base/topics/NA'>NA</a></code> values.  Blank fields are also
-    considered to be missing values in logical, integer, numeric and
-    complex fields.  Note that the test happens <em>after</em> 
-    white space is stripped from the input, so <code>na.strings</code> 
-    values may need their own white space stripped in advance.</p></td>
-    </tr>
-    <tr>
       <th>...</th>
-      <td><p>Arguments passed to <code><a href='https://www.rdocumentation.org/packages/utils/topics/read.table'>utils::read.table()</a></code>.</p></td>
+      <td><p>Arguments passed to <code><a href='https://readr.tidyverse.org/reference/read_delim.html'>readr::read_csv()</a></code> or <code><a href='https://readr.tidyverse.org/reference/read_delim.html'>readr::read_tsv()</a></code>.</p></td>
     </tr>
     </table>
     
@@ -235,10 +178,18 @@
 #&gt; </span><span style='color: #555555;'>2</span><span> b    
 #&gt; </div><div class='input'>
 (<span class='no'>tsv</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tor_example.html'>tor_example</a></span>(<span class='st'>"tsv"</span>))</div><div class='output co'>#&gt; [1] "C:/Users/LeporeM/Documents/Dropbox/git/ml/tor/inst/extdata/tsv"</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list.files'>dir</a></span>(<span class='no'>tsv</span>)</div><div class='output co'>#&gt; [1] "tsv1.tsv" "tsv2.tsv"</div><div class='input'>
-<span class='fu'>list_tsv</span>(<span class='no'>tsv</span>)</div><div class='output co'>#&gt; $tsv1
+<span class='fu'>list_tsv</span>(<span class='no'>tsv</span>)</div><div class='output co'>#&gt; <span class='message'>Parsed with column specification:</span>
+#&gt; <span class='message'>cols(</span>
+#&gt; <span class='message'>  x = </span><span style='color: #00BB00;'>col_double()</span><span>,</span>
+#&gt; <span class='message'>  y = </span><span style='color: #BB0000;'>col_character()</span><span></span>
+#&gt; <span class='message'>)</span></div><div class='output co'>#&gt; <span class='message'>Parsed with column specification:</span>
+#&gt; <span class='message'>cols(</span>
+#&gt; <span class='message'>  x = </span><span style='color: #00BB00;'>col_double()</span><span>,</span>
+#&gt; <span class='message'>  y = </span><span style='color: #BB0000;'>col_character()</span><span></span>
+#&gt; <span class='message'>)</span></div><div class='output co'>#&gt; $tsv1
 #&gt; </span><span style='color: #555555;'># A tibble: 3 x 2</span><span>
 #&gt;       x y    
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
 #&gt; </span><span style='color: #555555;'>1</span><span>     1 a    
 #&gt; </span><span style='color: #555555;'>2</span><span>     2 </span><span style='color: #BB0000;'>NA</span><span>   
 #&gt; </span><span style='color: #555555;'>3</span><span>     3 </span><span style='color: #BB0000;'>NA</span><span>   
@@ -246,7 +197,7 @@
 #&gt; $tsv2
 #&gt; </span><span style='color: #555555;'># A tibble: 3 x 2</span><span>
 #&gt;       x y    
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
 #&gt; </span><span style='color: #555555;'>1</span><span>     1 a    
 #&gt; </span><span style='color: #555555;'>2</span><span>     2 </span><span style='color: #BB0000;'>NA</span><span>   
 #&gt; </span><span style='color: #555555;'>3</span><span>     3 b    
@@ -274,7 +225,10 @@
 #&gt; </span><span style='color: #555555;'>1</span><span> a    
 #&gt; </span><span style='color: #555555;'>2</span><span> b    
 #&gt; </div><div class='input'>
-<span class='fu'>list_csv</span>(<span class='no'>mixed</span>)</div><div class='output co'>#&gt; $csv
+<span class='fu'>list_csv</span>(<span class='no'>mixed</span>)</div><div class='output co'>#&gt; <span class='message'>Parsed with column specification:</span>
+#&gt; <span class='message'>cols(</span>
+#&gt; <span class='message'>  y = </span><span style='color: #BB0000;'>col_character()</span><span></span>
+#&gt; <span class='message'>)</span></div><div class='output co'>#&gt; $csv
 #&gt; </span><span style='color: #555555;'># A tibble: 2 x 1</span><span>
 #&gt;   y    
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>

@@ -8,23 +8,23 @@
 #'
 #' @examples
 #' tor_example()
-#'
+#' 
 #' path <- tor_example("csv")
 #' dir(path)
-#'
+#' 
 #' list_any(path, read.csv)
-#'
+#' 
 #' list_any(path, ~ read.csv(.x, stringsAsFactors = FALSE))
-#'
+#' 
 #' (path_mixed <- tor_example("mixed"))
 #' dir(path_mixed)
-#'
+#' 
 #' list_any(
 #'   path_mixed, ~ get(load(.x)),
 #'   regexp = "[.]csv$",
 #'   invert = TRUE
 #' )
-#'
+#' 
 #' list_any(
 #'   path_mixed, ~ get(load(.x)),
 #'   "[.]Rdata$",
@@ -46,9 +46,7 @@ list_any <- function(path = ".",
   )
 
   if (length(files) == 0) {
-    abort(
-      sprintf("Can't find files matching '%s' in:\n '%s'", regexp, path)
-    )
+    abort(sprintf("Can't find files matching '%s' in:\n '%s'", regexp, path))
   }
 
   file_names <- fs::path_ext_remove(fs::path_file(files))

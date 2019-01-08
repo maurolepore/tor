@@ -82,7 +82,8 @@ test_that("list_csv defaults to `stringsAsFactors = FALSE`", {
 })
 
 test_that("list_csv defaults to read from working directory", {
-  expect_true(any("csv" %in% names(list_csv())))
+  # WARNING: Not for interactive use.
+  expect_true(all(c("csv1", "csv2") %in% names(list_csv())))
 })
 
 test_that("list_csv is sensitive to `regexp`, `invert, and `ignore.case`", {

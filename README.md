@@ -33,12 +33,12 @@ devtools::install_github("maurolepore/tor")
 
 ``` r
 library(tidyverse)
-#> -- Attaching packages --------------------------------------------- tidyverse 1.2.1 --
+#> -- Attaching packages -------------------------------------------- tidyverse 1.2.1 --
 #> v ggplot2 3.1.0     v purrr   0.2.5
 #> v tibble  2.0.0     v dplyr   0.7.8
 #> v tidyr   0.8.2     v stringr 1.3.1
 #> v readr   1.3.1     v forcats 0.3.0
-#> -- Conflicts ------------------------------------------------ tidyverse_conflicts() --
+#> -- Conflicts ----------------------------------------------- tidyverse_conflicts() --
 #> x dplyr::filter() masks stats::filter()
 #> x dplyr::lag()    masks stats::lag()
 library(fs)
@@ -61,10 +61,18 @@ dir()
 #> [19] "tor.Rproj"
 
 list_csv()
+#> Parsed with column specification:
+#> cols(
+#>   x = col_double()
+#> )
+#> Parsed with column specification:
+#> cols(
+#>   y = col_character()
+#> )
 #> $csv1
 #> # A tibble: 2 x 1
 #>       x
-#>   <int>
+#>   <dbl>
 #> 1     1
 #> 2     2
 #> 
@@ -375,6 +383,14 @@ dir(pattern = "[.]csv$")
 #> [1] "csv1.csv" "csv2.csv"
 
 dfms <- list_csv()
+#> Parsed with column specification:
+#> cols(
+#>   x = col_double()
+#> )
+#> Parsed with column specification:
+#> cols(
+#>   y = col_character()
+#> )
 
 format_path(names(dfms), "csv")
 #> [1] "./csv1.csv" "./csv2.csv"
@@ -396,10 +412,18 @@ map_chr(dfms, ~ format_path(names(.), "csv", ".", "this-"))
 #> "./this-x.csv" "./this-y.csv"
 
 (dfs <- list_csv())
+#> Parsed with column specification:
+#> cols(
+#>   x = col_double()
+#> )
+#> Parsed with column specification:
+#> cols(
+#>   y = col_character()
+#> )
 #> $csv1
 #> # A tibble: 2 x 1
 #>       x
-#>   <int>
+#>   <dbl>
 #> 1     1
 #> 2     2
 #> 

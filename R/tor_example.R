@@ -9,9 +9,9 @@
 #'
 #' @examples
 #' tor_example()
-#'
+#' 
 #' tor_example("csv")
-#'
+#' 
 #' dir(tor_example("csv"))
 #' @family helpers
 #' @export

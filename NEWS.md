@@ -2,6 +2,9 @@
 
 ## Minor
 
+* `list_any()`, `list_csv()`, `list_tsv()`, `load_csv()`, and `load_tsv()` now use __readr__.
+  * This makes reading data faster and safer.
+
 * Each dataframe output is now converted to tibble. 
     * Users no longer need to call `tibble::as_tibble()`.
     

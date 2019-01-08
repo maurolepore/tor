@@ -8,15 +8,15 @@
 #' @examples
 #' (path_csv <- tor_example("csv"))
 #' dir(path_csv)
-#'
+#' 
 #' load_csv(path_csv)
 #' # Each dataframe is now available in the global environment
 #' csv1
 #' csv2
-#'
+#' 
 #' (path_mixed <- tor_example("mixed"))
 #' dir(path_mixed)
-#'
+#' 
 #' load_rdata(path_mixed)
 #' # Each dataframe is now available in the global environment
 #' lower_rdata
@@ -27,30 +27,11 @@ load_csv <- function(path = ".",
                      regexp = "[.]csv$",
                      ignore.case = TRUE,
                      invert = FALSE,
-                     header = TRUE,
-                     sep = ",",
-                     quote = "\"",
-                     dec = ".",
-                     fill = TRUE,
-                     comment.char = "",
-                     stringsAsFactors = FALSE,
-                     na.strings = c("", "NA"),
                      envir = .GlobalEnv,
                      ...) {
   lst <- list_any(
     path,
-    # TODO: Use function(x) to more obviously show what's going on
-    function(x) utils::read.csv(
-        file = x,
-        header = header,
-        sep = sep,
-        quote = quote,
-        dec = dec,
-        fill = fill,
-        comment.char = comment.char,
-        stringsAsFactors = stringsAsFactors,
-        na.strings = na.strings
-      ),
+    readr::read_csv,
     regexp = regexp,
     ignore.case = ignore.case,
     invert = invert,
@@ -67,29 +48,11 @@ load_tsv <- function(path = ".",
                      regexp = "[.]tsv$",
                      ignore.case = TRUE,
                      invert = FALSE,
-                     header = TRUE,
-                     sep = "\t",
-                     quote = "\"",
-                     dec = ".",
-                     fill = TRUE,
-                     comment.char = "",
-                     stringsAsFactors = FALSE,
-                     na.strings = c("", "NA"),
                      envir = .GlobalEnv,
                      ...) {
   lst <- list_any(
     path,
-    function(x) utils::read.csv(
-        file = x,
-        header = header,
-        sep = sep,
-        quote = quote,
-        dec = dec,
-        fill = fill,
-        comment.char = comment.char,
-        stringsAsFactors = stringsAsFactors,
-        na.strings = na.strings
-      ),
+    readr::read_tsv,
     regexp = regexp,
     ignore.case = ignore.case,
     invert = invert,
