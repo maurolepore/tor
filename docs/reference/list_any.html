@@ -161,24 +161,32 @@
 <span class='no'>path</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tor_example.html'>tor_example</a></span>(<span class='st'>"csv"</span>)
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list.files'>dir</a></span>(<span class='no'>path</span>)</div><div class='output co'>#&gt; [1] "csv1.csv" "csv2.csv"</div><div class='input'>
 <span class='fu'>list_any</span>(<span class='no'>path</span>, <span class='no'>read.csv</span>)</div><div class='output co'>#&gt; $csv1
-#&gt;   x
-#&gt; 1 1
-#&gt; 2 2
+#&gt; <span style='color: #555555;'># A tibble: 2 x 1</span><span>
+#&gt;       x
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span>     1
+#&gt; </span><span style='color: #555555;'>2</span><span>     2
 #&gt; 
 #&gt; $csv2
-#&gt;   y
-#&gt; 1 a
-#&gt; 2 b
+#&gt; </span><span style='color: #555555;'># A tibble: 2 x 1</span><span>
+#&gt;   y    
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> a    
+#&gt; </span><span style='color: #555555;'>2</span><span> b    
 #&gt; </div><div class='input'>
 <span class='fu'>list_any</span>(<span class='no'>path</span>, ~ <span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/read.table'>read.csv</a></span>(<span class='no'>.x</span>, <span class='kw'>stringsAsFactors</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>))</div><div class='output co'>#&gt; $csv1
-#&gt;   x
-#&gt; 1 1
-#&gt; 2 2
+#&gt; </span><span style='color: #555555;'># A tibble: 2 x 1</span><span>
+#&gt;       x
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span>     1
+#&gt; </span><span style='color: #555555;'>2</span><span>     2
 #&gt; 
 #&gt; $csv2
-#&gt;   y
-#&gt; 1 a
-#&gt; 2 b
+#&gt; </span><span style='color: #555555;'># A tibble: 2 x 1</span><span>
+#&gt;   y    
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> a    
+#&gt; </span><span style='color: #555555;'>2</span><span> b    
 #&gt; </div><div class='input'>
 (<span class='no'>path_mixed</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tor_example.html'>tor_example</a></span>(<span class='st'>"mixed"</span>))</div><div class='output co'>#&gt; [1] "C:/Users/LeporeM/Documents/Dropbox/git/ml/tor/inst/extdata/mixed"</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list.files'>dir</a></span>(<span class='no'>path_mixed</span>)</div><div class='output co'>#&gt; [1] "csv.csv"           "lower_rdata.rdata" "rda.rda"          
 #&gt; [4] "upper_rdata.RData"</div><div class='input'>
@@ -187,7 +195,7 @@
   <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>"[.]csv$"</span>,
   <span class='kw'>invert</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
 )</div><div class='output co'>#&gt; $lower_rdata
-#&gt; <span style='color: #555555;'># A tibble: 2 x 1</span><span>
+#&gt; </span><span style='color: #555555;'># A tibble: 2 x 1</span><span>
 #&gt;   y    
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
 #&gt; </span><span style='color: #555555;'>1</span><span> a    

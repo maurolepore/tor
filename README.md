@@ -46,7 +46,7 @@ library(tor)
 ```
 
 All functions list whatever they read, and default to reading from the
-working directory.
+working directory. Dataframes are coerced to tibbles.
 
 ### `list_*()`: Import multiple files from a directory into a list
 
