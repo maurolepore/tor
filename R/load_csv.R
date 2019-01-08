@@ -8,15 +8,15 @@
 #' @examples
 #' (path_csv <- tor_example("csv"))
 #' dir(path_csv)
-#'
+#' 
 #' load_csv(path_csv)
 #' # Each dataframe is now available in the global environment
 #' csv1
 #' csv2
-#'
+#' 
 #' (path_mixed <- tor_example("mixed"))
 #' dir(path_mixed)
-#'
+#' 
 #' load_rdata(path_mixed)
 #' # Each dataframe is now available in the global environment
 #' lower_rdata

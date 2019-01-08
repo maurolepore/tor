@@ -10,11 +10,11 @@
 #'
 #' @examples
 #' format_path(c("file1", "file2"), "csv")
-#'
+#' 
 #' (dfs <- list_csv(tor_example("csv")))
-#'
+#' 
 #' format_path(names(dfs), "csv")
-#'
+#' 
 #' format_path(names(dfs), "csv", base = "home", prefix = "this-")
 #' @family helpers
 #' @export
