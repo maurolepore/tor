@@ -1,6 +1,6 @@
 reference:
 
-  - title: Import ForestGEO data
+  - title: All functions
     contents:
     - has_concept("general functions to import data")
     - has_concept("helpers")
