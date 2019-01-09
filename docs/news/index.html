@@ -60,7 +60,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tor</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1.9000</span>
       </span>
     </div>
 
@@ -76,11 +76,6 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">Release notes</li>
-    <li>
-      <a href="../articles/siteonly/tor-1-0-0.html">Version 1.0.0</a>
-    </li>
-    <li class="divider"></li>
     <li>
       <a href="../news/index.html">Change log</a>
     </li>
@@ -111,54 +106,11 @@
       <small>Source: <a href='https://github.com/maurolepore/tor/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="tor-1-0-9001-unreleased" class="section level1">
+    <div id="tor-1-0-1-9000" class="section level1">
 <h1 class="page-header">
-<a href="#tor-1-0-9001-unreleased" class="anchor"></a>tor 1.0.9001 unreleased</h1>
-<div id="minor" class="section level2">
-<h2 class="hasAnchor">
-<a href="#minor" class="anchor"></a>Minor</h2>
+<a href="#tor-1-0-1-9000" class="anchor"></a>tor 1.0.1.9000</h1>
 <ul>
-<li>
-<code><a href="../reference/list_any.html">list_any()</a></code>, <code><a href="../reference/list_csv.html">list_csv()</a></code>, <code><a href="../reference/list_csv.html">list_tsv()</a></code>, <code><a href="../reference/load_csv.html">load_csv()</a></code>, and <code><a href="../reference/load_csv.html">load_tsv()</a></code> now use <strong>readr</strong>.
-<ul>
-<li>This makes reading data faster and safer.</li>
-</ul>
-</li>
-<li>Each dataframe output is now converted to tibble.
-<ul>
-<li>Users no longer need to call <code><a href="https://www.rdocumentation.org/packages/tibble/topics/as_tibble">tibble::as_tibble()</a></code>.</li>
-</ul>
-</li>
-<li>New <code>load_*()</code> variants load each file in a directory into an environment.</li>
-</ul>
-</div>
-<div id="patch" class="section level2">
-<h2 class="hasAnchor">
-<a href="#patch" class="anchor"></a>Patch</h2>
-<ul>
-<li><p>File names now emphasize the most common case when users import .csv files.</p></li>
-<li>Example data is now named more consistently. For example:
-<ul>
-<li>
-<code><a href="https://www.rdocumentation.org/packages/base/topics/list.files">dir(tor_example("rds"))</a></code> returns <code><a href="https://www.rdocumentation.org/packages/base/topics/c">c("rds1.rds", "rds2.rds")</a></code>.</li>
-<li>
-<code><a href="https://www.rdocumentation.org/packages/base/topics/list.files">dir(tor_example("csv"))</a></code> returns <code><a href="https://www.rdocumentation.org/packages/base/topics/c">c("csv1.csv", "csv2.csv")</a></code>.</li>
-</ul>
-</li>
-<li><p>Source is now styled with <code><a href="https://www.rdocumentation.org/packages/styler/topics/style_pkg">styler::style_pkg()</a></code> (defaults)</p></li>
-<li>Lambda functions in source code now use the more common function(x) syntax.
-<ul>
-<li>Text editors highlight <code>function()</code> which makes code easier to read.</li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-    <div id="tor-1-0-0" class="section level1">
-<h1 class="page-header">
-<a href="#tor-1-0-0" class="anchor"></a>tor 1.0.0</h1>
-<ul>
-<li>Initial release.</li>
+<li>Work in progress for the initial release.</li>
 </ul>
 </div>
   </div>
@@ -167,8 +119,7 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-        <li><a href="#tor-1-0-9001-unreleased">1.0.9001</a></li>
-        <li><a href="#tor-1-0-0">1.0.0</a></li>
+        <li><a href="#tor-1-0-1-9000">1.0.1.9000</a></li>
       </ul>
     </div>
   </div>

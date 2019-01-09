@@ -153,44 +153,6 @@ ls()
 rda
 ```
 
-### [__purrr__](https://purrr.tidyverse.org/) + `format_path()`: Map each list element to a file in a directory
-
-__tor__ does not write data but includes a helper to create the paths to output files.
-
-```{r}
-dir(pattern = "[.]csv$")
-
-dfms <- list_csv()
-
-format_path(names(dfms), "csv")
-
-format_path(names(dfms), "csv", base = "home", prefix = "this-")
-```
-
-Combine it with [__purrr__](https://purrr.tidyverse.org/).
-
-```{r}
-library(purrr)
-library(fs)
-
-imap_chr(dfms, ~ format_path(.y, "csv"))
-
-# Same
-map_chr(dfms, ~ format_path(names(.), "csv", ".", "this-"))
-
-(dfs <- list_csv())
-
-paths <- dfs %>% 
-  imap_chr(~ format_path(.y, "csv", base = ".", prefix = "this-"))
-
-walk2(dfs, paths, readr::write_csv)
-
-dir_ls(".", regexp = "this-")
-```
-
-```{r include=FALSE}
-fs::file_delete(fs::dir_ls(".", regexp = "this-"))
-```
 
 # Related projects
 

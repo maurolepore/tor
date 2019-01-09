@@ -4,9 +4,6 @@
     <loc>https://maurolepore.github.io/tor//index.html</loc>
   </url>
   <url>
-    <loc>https://maurolepore.github.io/tor//reference/format_path.html</loc>
-  </url>
-  <url>
     <loc>https://maurolepore.github.io/tor//reference/list_any.html</loc>
   </url>
   <url>
@@ -20,8 +17,5 @@
   </url>
   <url>
     <loc>https://maurolepore.github.io/tor//reference/tor_example.html</loc>
-  </url>
-  <url>
-    <loc>https://maurolepore.github.io/tor//articles/siteonly/tor-1-0-0.html</loc>
   </url>
 </urlset>

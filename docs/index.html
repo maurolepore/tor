@@ -5,17 +5,15 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Read Multiple Files Of Any Format From a Directory
-    Into a List • tor</title>
+<title>Import Multiple Files From a Single Directory at Once • tor</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><meta property="og:title" content="Read Multiple Files Of Any Format From a Directory
-    Into a List">
-<meta property="og:description" content="The goal of tor (to-R) is to help you to read
-    multiple files from a single directory into R, and to do so as
-    quickly, flexibly, and simply as possible. It makes a frequent,
-    challenging task less painful.">
+<script src="pkgdown.js"></script><meta property="og:title" content="Import Multiple Files From a Single Directory at Once">
+<meta property="og:description" content="The goal of tor (to-R) is to help you to import
+    multiple files from a single directory at once, and to do so as
+    quickly, flexibly, and simply as possible. It makes a frequent, task
+    less painful.">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -35,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">tor</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1.9000</span>
       </span>
     </div>
 
@@ -51,12 +49,6 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-<li class="dropdown-header">Release notes</li>
-    <li>
-      <a href="articles/siteonly/tor-1-0-0.html">Version 1.0.0</a>
-    </li>
-    <li class="divider">
-    </li>
 <li>
       <a href="news/index.html">Change log</a>
     </li>
@@ -106,13 +98,13 @@
 <h3 class="hasAnchor">
 <a href="#list_-import-multiple-files-from-a-directory-into-a-list" class="anchor"></a><code>list_*()</code>: Import multiple files from a directory into a list</h3>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list.files">dir</a></span>()</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co">#&gt;  [1] "_pkgdown.yml"     "cran-comments.md" "CRAN-RELEASE"    </span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">#&gt;  [4] "csv1.csv"         "csv2.csv"         "datasets"        </span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt;  [7] "DESCRIPTION"      "docs"             "inst"            </span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt; [10] "LICENSE.md"       "man"              "NAMESPACE"       </span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt; [13] "NEWS.md"          "R"                "README.md"       </span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt; [16] "README.Rmd"       "tests"            "tmp.R"           </span></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt; [19] "tor.Rproj"        "vignettes"</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co">#&gt;  [1] "_pkgdown.yml"     "cran-comments.md" "csv1.csv"        </span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">#&gt;  [4] "csv2.csv"         "datasets"         "DESCRIPTION"     </span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt;  [7] "docs"             "inst"             "LICENSE.md"      </span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt; [10] "man"              "NAMESPACE"        "NEWS.md"         </span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt; [13] "R"                "README.md"        "README.Rmd"      </span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt; [16] "tests"            "tmp.R"            "tor.Rproj"       </span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt; [19] "vignettes"</span></a>
 <a class="sourceLine" id="cb3-9" data-line-number="9"></a>
 <a class="sourceLine" id="cb3-10" data-line-number="10"><span class="kw"><a href="reference/list_csv.html">list_csv</a></span>()</a>
 <a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt; Parsed with column specification:</span></a>
@@ -345,13 +337,13 @@
 <p>All functions default to load from the working directory.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co"># The working directory contains .csv files</span></a>
 <a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list.files">dir</a></span>()</a>
-<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="co">#&gt;  [1] "_pkgdown.yml"     "cran-comments.md" "CRAN-RELEASE"    </span></a>
-<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="co">#&gt;  [4] "csv1.csv"         "csv2.csv"         "datasets"        </span></a>
-<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="co">#&gt;  [7] "DESCRIPTION"      "docs"             "inst"            </span></a>
-<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="co">#&gt; [10] "LICENSE.md"       "man"              "NAMESPACE"       </span></a>
-<a class="sourceLine" id="cb11-7" data-line-number="7"><span class="co">#&gt; [13] "NEWS.md"          "R"                "README.md"       </span></a>
-<a class="sourceLine" id="cb11-8" data-line-number="8"><span class="co">#&gt; [16] "README.Rmd"       "tests"            "tmp.R"           </span></a>
-<a class="sourceLine" id="cb11-9" data-line-number="9"><span class="co">#&gt; [19] "tor.Rproj"        "vignettes"</span></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="co">#&gt;  [1] "_pkgdown.yml"     "cran-comments.md" "csv1.csv"        </span></a>
+<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="co">#&gt;  [4] "csv2.csv"         "datasets"         "DESCRIPTION"     </span></a>
+<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="co">#&gt;  [7] "docs"             "inst"             "LICENSE.md"      </span></a>
+<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="co">#&gt; [10] "man"              "NAMESPACE"        "NEWS.md"         </span></a>
+<a class="sourceLine" id="cb11-7" data-line-number="7"><span class="co">#&gt; [13] "R"                "README.md"        "README.Rmd"      </span></a>
+<a class="sourceLine" id="cb11-8" data-line-number="8"><span class="co">#&gt; [16] "tests"            "tmp.R"            "tor.Rproj"       </span></a>
+<a class="sourceLine" id="cb11-9" data-line-number="9"><span class="co">#&gt; [19] "vignettes"</span></a>
 <a class="sourceLine" id="cb11-10" data-line-number="10"></a>
 <a class="sourceLine" id="cb11-11" data-line-number="11"><span class="kw"><a href="reference/load_csv.html">load_csv</a></span>()</a>
 <a class="sourceLine" id="cb11-12" data-line-number="12"><span class="co">#&gt; Parsed with column specification:</span></a>
@@ -397,77 +389,6 @@
 <a class="sourceLine" id="cb12-18" data-line-number="18"><span class="co">#&gt;   &lt;chr&gt;</span></a>
 <a class="sourceLine" id="cb12-19" data-line-number="19"><span class="co">#&gt; 1 a    </span></a>
 <a class="sourceLine" id="cb12-20" data-line-number="20"><span class="co">#&gt; 2 b</span></a></code></pre></div>
-</div>
-<div id="purrr-format_path-map-each-list-element-to-a-file-in-a-directory" class="section level3">
-<h3 class="hasAnchor">
-<a href="#purrr-format_path-map-each-list-element-to-a-file-in-a-directory" class="anchor"></a><a href="https://purrr.tidyverse.org/"><strong>purrr</strong></a> + <code><a href="reference/format_path.html">format_path()</a></code>: Map each list element to a file in a directory</h3>
-<p><strong>tor</strong> does not write data but includes a helper to create the paths to output files.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list.files">dir</a></span>(<span class="dt">pattern =</span> <span class="st">"[.]csv$"</span>)</a>
-<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="co">#&gt; [1] "csv1.csv" "csv2.csv"</span></a>
-<a class="sourceLine" id="cb13-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb13-4" data-line-number="4">dfms &lt;-<span class="st"> </span><span class="kw"><a href="reference/list_csv.html">list_csv</a></span>()</a>
-<a class="sourceLine" id="cb13-5" data-line-number="5"><span class="co">#&gt; Parsed with column specification:</span></a>
-<a class="sourceLine" id="cb13-6" data-line-number="6"><span class="co">#&gt; cols(</span></a>
-<a class="sourceLine" id="cb13-7" data-line-number="7"><span class="co">#&gt;   x = col_double()</span></a>
-<a class="sourceLine" id="cb13-8" data-line-number="8"><span class="co">#&gt; )</span></a>
-<a class="sourceLine" id="cb13-9" data-line-number="9"><span class="co">#&gt; Parsed with column specification:</span></a>
-<a class="sourceLine" id="cb13-10" data-line-number="10"><span class="co">#&gt; cols(</span></a>
-<a class="sourceLine" id="cb13-11" data-line-number="11"><span class="co">#&gt;   y = col_character()</span></a>
-<a class="sourceLine" id="cb13-12" data-line-number="12"><span class="co">#&gt; )</span></a>
-<a class="sourceLine" id="cb13-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb13-14" data-line-number="14"><span class="kw"><a href="reference/format_path.html">format_path</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(dfms), <span class="st">"csv"</span>)</a>
-<a class="sourceLine" id="cb13-15" data-line-number="15"><span class="co">#&gt; [1] "./csv1.csv" "./csv2.csv"</span></a>
-<a class="sourceLine" id="cb13-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb13-17" data-line-number="17"><span class="kw"><a href="reference/format_path.html">format_path</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(dfms), <span class="st">"csv"</span>, <span class="dt">base =</span> <span class="st">"home"</span>, <span class="dt">prefix =</span> <span class="st">"this-"</span>)</a>
-<a class="sourceLine" id="cb13-18" data-line-number="18"><span class="co">#&gt; [1] "home/this-csv1.csv" "home/this-csv2.csv"</span></a></code></pre></div>
-<p>Combine it with <a href="https://purrr.tidyverse.org/"><strong>purrr</strong></a>.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(purrr)</a>
-<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="co">#&gt; Attaching package: 'purrr'</span></a>
-<a class="sourceLine" id="cb14-4" data-line-number="4"><span class="co">#&gt; The following object is masked from 'package:magrittr':</span></a>
-<a class="sourceLine" id="cb14-5" data-line-number="5"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb14-6" data-line-number="6"><span class="co">#&gt;     set_names</span></a>
-<a class="sourceLine" id="cb14-7" data-line-number="7"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(fs)</a>
-<a class="sourceLine" id="cb14-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb14-9" data-line-number="9"><span class="kw">imap_chr</span>(dfms, <span class="op">~</span><span class="st"> </span><span class="kw"><a href="reference/format_path.html">format_path</a></span>(.y, <span class="st">"csv"</span>))</a>
-<a class="sourceLine" id="cb14-10" data-line-number="10"><span class="co">#&gt;         csv1         csv2 </span></a>
-<a class="sourceLine" id="cb14-11" data-line-number="11"><span class="co">#&gt; "./csv1.csv" "./csv2.csv"</span></a>
-<a class="sourceLine" id="cb14-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb14-13" data-line-number="13"><span class="co"># Same</span></a>
-<a class="sourceLine" id="cb14-14" data-line-number="14"><span class="kw">map_chr</span>(dfms, <span class="op">~</span><span class="st"> </span><span class="kw"><a href="reference/format_path.html">format_path</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(.), <span class="st">"csv"</span>, <span class="st">"."</span>, <span class="st">"this-"</span>))</a>
-<a class="sourceLine" id="cb14-15" data-line-number="15"><span class="co">#&gt;           csv1           csv2 </span></a>
-<a class="sourceLine" id="cb14-16" data-line-number="16"><span class="co">#&gt; "./this-x.csv" "./this-y.csv"</span></a>
-<a class="sourceLine" id="cb14-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb14-18" data-line-number="18">(dfs &lt;-<span class="st"> </span><span class="kw"><a href="reference/list_csv.html">list_csv</a></span>())</a>
-<a class="sourceLine" id="cb14-19" data-line-number="19"><span class="co">#&gt; Parsed with column specification:</span></a>
-<a class="sourceLine" id="cb14-20" data-line-number="20"><span class="co">#&gt; cols(</span></a>
-<a class="sourceLine" id="cb14-21" data-line-number="21"><span class="co">#&gt;   x = col_double()</span></a>
-<a class="sourceLine" id="cb14-22" data-line-number="22"><span class="co">#&gt; )</span></a>
-<a class="sourceLine" id="cb14-23" data-line-number="23"><span class="co">#&gt; Parsed with column specification:</span></a>
-<a class="sourceLine" id="cb14-24" data-line-number="24"><span class="co">#&gt; cols(</span></a>
-<a class="sourceLine" id="cb14-25" data-line-number="25"><span class="co">#&gt;   y = col_character()</span></a>
-<a class="sourceLine" id="cb14-26" data-line-number="26"><span class="co">#&gt; )</span></a>
-<a class="sourceLine" id="cb14-27" data-line-number="27"><span class="co">#&gt; $csv1</span></a>
-<a class="sourceLine" id="cb14-28" data-line-number="28"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
-<a class="sourceLine" id="cb14-29" data-line-number="29"><span class="co">#&gt;       x</span></a>
-<a class="sourceLine" id="cb14-30" data-line-number="30"><span class="co">#&gt;   &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb14-31" data-line-number="31"><span class="co">#&gt; 1     1</span></a>
-<a class="sourceLine" id="cb14-32" data-line-number="32"><span class="co">#&gt; 2     2</span></a>
-<a class="sourceLine" id="cb14-33" data-line-number="33"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb14-34" data-line-number="34"><span class="co">#&gt; $csv2</span></a>
-<a class="sourceLine" id="cb14-35" data-line-number="35"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
-<a class="sourceLine" id="cb14-36" data-line-number="36"><span class="co">#&gt;   y    </span></a>
-<a class="sourceLine" id="cb14-37" data-line-number="37"><span class="co">#&gt;   &lt;chr&gt;</span></a>
-<a class="sourceLine" id="cb14-38" data-line-number="38"><span class="co">#&gt; 1 a    </span></a>
-<a class="sourceLine" id="cb14-39" data-line-number="39"><span class="co">#&gt; 2 b</span></a>
-<a class="sourceLine" id="cb14-40" data-line-number="40"></a>
-<a class="sourceLine" id="cb14-41" data-line-number="41">paths &lt;-<span class="st"> </span>dfs <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb14-42" data-line-number="42"><span class="st">  </span><span class="kw">imap_chr</span>(<span class="op">~</span><span class="st"> </span><span class="kw"><a href="reference/format_path.html">format_path</a></span>(.y, <span class="st">"csv"</span>, <span class="dt">base =</span> <span class="st">"."</span>, <span class="dt">prefix =</span> <span class="st">"this-"</span>))</a>
-<a class="sourceLine" id="cb14-43" data-line-number="43"></a>
-<a class="sourceLine" id="cb14-44" data-line-number="44"><span class="kw">walk2</span>(dfs, paths, readr<span class="op">::</span>write_csv)</a>
-<a class="sourceLine" id="cb14-45" data-line-number="45"></a>
-<a class="sourceLine" id="cb14-46" data-line-number="46"><span class="kw">dir_ls</span>(<span class="st">"."</span>, <span class="dt">regexp =</span> <span class="st">"this-"</span>)</a>
-<a class="sourceLine" id="cb14-47" data-line-number="47"><span class="co">#&gt; this-csv1.csv this-csv2.csv</span></a></code></pre></div>
 </div>
 </div>
 </div>

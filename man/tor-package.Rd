@@ -4,13 +4,12 @@
 \name{tor-package}
 \alias{tor}
 \alias{tor-package}
-\title{tor: Read Multiple Files Of Any Format From a Directory
-    Into a List}
+\title{tor: Import Multiple Files From a Single Directory at Once}
 \description{
-The goal of tor (to-R) is to help you to read
-    multiple files from a single directory into R, and to do so as
-    quickly, flexibly, and simply as possible. It makes a frequent,
-    challenging task less painful.
+The goal of tor (to-R) is to help you to import
+    multiple files from a single directory at once, and to do so as
+    quickly, flexibly, and simply as possible. It makes a frequent, task
+    less painful.
 }
 \seealso{
 Useful links:

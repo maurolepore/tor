@@ -14,10 +14,6 @@ navbar:
     href: reference/index.html
   - text: News
     menu:
-    - text: "Release notes"
-    - text: "Version 1.0.0"
-      href: articles/siteonly/tor-1-0-0.html
-    - text: "------------------"
     - text: "Change log"
       href: news/index.html
   right:
