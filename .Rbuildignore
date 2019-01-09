@@ -1,3 +1,4 @@
+^vignettes$
 ^\.buildignore$
 ^vignettes/siteonly$
 ^cran-comments\.md$
