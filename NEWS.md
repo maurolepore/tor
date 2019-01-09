@@ -1,3 +1,3 @@
-# tor 1.0.1.9000
+# tor 1.0.1
 
-* Work in progress for the initial release.
+* Initial release
