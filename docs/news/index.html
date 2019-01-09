@@ -110,7 +110,36 @@
 <h1 class="page-header">
 <a href="#tor-1-0-1-9000" class="anchor"></a>tor 1.0.1.9000</h1>
 <ul>
-<li>Work in progress for the initial release.</li>
+<li>Work in progress.</li>
+</ul>
+</div>
+    <div id="tor-1-0-1-github-release-2019-01-09" class="section level1">
+<h1 class="page-header">
+<a href="#tor-1-0-1-github-release-2019-01-09" class="anchor"></a>tor 1.0.1 (GitHub release 2019-01-09)</h1>
+<ul>
+<li>
+<code><a href="../reference/list_any.html">list_any()</a></code>, <code><a href="../reference/list_csv.html">list_csv()</a></code>, <code><a href="../reference/list_csv.html">list_tsv()</a></code>, <code><a href="../reference/load_csv.html">load_csv()</a></code>, and <code><a href="../reference/load_csv.html">load_tsv()</a></code> now use <strong>readr</strong>.
+<ul>
+<li>This makes reading data faster and safer.</li>
+</ul>
+</li>
+<li><p>Listed dataframes are now converted to tibbles. Users no longer need to call <code><a href="https://tibble.tidyverse.org/reference/as_tibble.html">tibble::as_tibble()</a></code>.</p></li>
+<li><p>New <code>load_*()</code> functions load each file in a directory into an environment.</p></li>
+<li>Example data is now named more consistently. For example:
+<ul>
+<li>
+<code><a href="https://www.rdocumentation.org/packages/base/topics/list.files">dir(tor_example("rds"))</a></code> returns <code><a href="https://www.rdocumentation.org/packages/base/topics/c">c("rds1.rds", "rds2.rds")</a></code>.</li>
+<li>
+<code><a href="https://www.rdocumentation.org/packages/base/topics/list.files">dir(tor_example("csv"))</a></code> returns <code><a href="https://www.rdocumentation.org/packages/base/topics/c">c("csv1.csv", "csv2.csv")</a></code>.</li>
+</ul>
+</li>
+</ul>
+</div>
+    <div id="tor-1-0-0-github-release-2019-01-07" class="section level1">
+<h1 class="page-header">
+<a href="#tor-1-0-0-github-release-2019-01-07" class="anchor"></a>tor 1.0.0 (GitHub release 2019-01-07)</h1>
+<ul>
+<li>Initial GitHub release.</li>
 </ul>
 </div>
   </div>
@@ -120,6 +149,8 @@
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
         <li><a href="#tor-1-0-1-9000">1.0.1.9000</a></li>
+        <li><a href="#tor-1-0-1-github-release-2019-01-09">1.0.1</a></li>
+        <li><a href="#tor-1-0-0-github-release-2019-01-07">1.0.0</a></li>
       </ul>
     </div>
   </div>
