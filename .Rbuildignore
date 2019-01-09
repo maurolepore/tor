@@ -1,3 +1,4 @@
+^vignettes/siteonly$
 ^cran-comments\.md$
 ^CRAN-RELEASE$
 ^docs$

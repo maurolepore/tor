@@ -4,7 +4,7 @@
 \name{tor-package}
 \alias{tor}
 \alias{tor-package}
-\title{tor: Read Multiple Files With Of Any Format From a Directory
+\title{tor: Read Multiple Files Of Any Format From a Directory
     Into a List}
 \description{
 The goal of tor (to-R) is to help you to read

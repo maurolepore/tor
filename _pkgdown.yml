@@ -1,7 +1,25 @@
+url: https://maurolepore.github.io/tor/
+
+navbar:
+  structure:
+    left:  [home, reference, news]
+    right: [github]
+  components:
+    news:
+      text: News
+      menu:
+      - text: "Release notes"
+      - text: "Version 1.0.0"
+        href: FIXME
+      - text: "------------------"
+      - text: "Change log"
+        href: news/index.html
+
+
+
 reference:
 
   - title: All functions
     contents:
     - has_concept("general functions to import data")
     - has_concept("helpers")
-

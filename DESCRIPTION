@@ -22,9 +22,12 @@ Imports:
 Suggests: 
     covr,
     spelling,
-    testthat
+    testthat,
+    knitr,
+    rmarkdown
 Encoding: UTF-8
 Language: en-US
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
+VignetteBuilder: knitr

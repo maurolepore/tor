@@ -1,0 +1,51 @@
+---
+title: "tor 1.0.0"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{tor 1.0.0}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Introduction
+
+I'm happy to announce that tor 1.0.0 in now on CRAN! __tor__ (to-R) helps you to
+read multiple files from a single directory into R, as simply as possible. It makes a frequent task less painful. __tor__ is particularly useful during quick, exploratory data analysis and works well with the [tidyverse](https://www.tidyverse.org/). 
+
+This initial release is minimal. It delivers the most useful functionality with few dependencies. Install the latest version of __tor__ from CRAN with:
+
+```
+install.packages("tor")
+```
+
+(The development version includes some [exciting new features](https://maurolepore.github.io/tor/news/index.html) and you can [install it from GitHub](https://maurolepore.github.io/tor/index.html).)
+
+## Motivation
+
+Your nickname is R-guru. Your colleague enjoys analyzing data and she head that R is great.
+
+> I have a couple of minutes before the next meeting. Would you show me how to start playing with some data in R?
+
+TWO MINUTES?! 
+
+Don't panic. __tor__ is here to help you.
+
+```{r}
+# Here I have a bunch of files, including some .csv files with data.
+dir()
+
+# I "open" the programs I need to read the .csv files.
+library(tor)
+
+# And I list the data in all those .csv files
+list_csv()
+
+# Done.
+```

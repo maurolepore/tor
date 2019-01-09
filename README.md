@@ -29,81 +29,6 @@ well with the [tidyverse](https://www.tidyverse.org/).
 devtools::install_github("maurolepore/tor")
 ```
 
-## Motivation
-
-Your nickname is R-guru. Your colleague enjoys analyzing data and she
-head that R is great.
-
-> I have a couple of minutes before the next meeting. Can you please
-> show me how to start playing with some data in R?
-
-TWO MINUTES?\!
-
-Don’t panic. **tor** is here to help you.
-
-``` r
-# Here I have a bunch of files, including some .csv files with data.
-dir()
-#>  [1] "_pkgdown.yml"     "cran-comments.md" "CRAN-RELEASE"    
-#>  [4] "csv1.csv"         "csv2.csv"         "datasets"        
-#>  [7] "DESCRIPTION"      "docs"             "inst"            
-#> [10] "LICENSE.md"       "man"              "NAMESPACE"       
-#> [13] "NEWS.md"          "R"                "README.md"       
-#> [16] "README.Rmd"       "tests"            "this-csv1.csv"   
-#> [19] "this-csv2.csv"    "tmp.R"            "tor.Rproj"
-
-# I "open" the programs I need to read the .csv files.
-library(tor)
-
-# And I list the data in all those .csv files
-list_csv()
-#> Parsed with column specification:
-#> cols(
-#>   x = col_double()
-#> )
-#> Parsed with column specification:
-#> cols(
-#>   y = col_character()
-#> )
-#> Parsed with column specification:
-#> cols(
-#>   x = col_double()
-#> )
-#> Parsed with column specification:
-#> cols(
-#>   y = col_character()
-#> )
-#> $csv1
-#> # A tibble: 2 x 1
-#>       x
-#>   <dbl>
-#> 1     1
-#> 2     2
-#> 
-#> $csv2
-#> # A tibble: 2 x 1
-#>   y    
-#>   <chr>
-#> 1 a    
-#> 2 b    
-#> 
-#> $`this-csv1`
-#> # A tibble: 2 x 1
-#>       x
-#>   <dbl>
-#> 1     1
-#> 2     2
-#> 
-#> $`this-csv2`
-#> # A tibble: 2 x 1
-#>   y    
-#>   <chr>
-#> 1 a    
-#> 2 b
-
-# Done.
-```
-
 ## Example
 
 ``` r
@@ -122,18 +47,10 @@ dir()
 #>  [7] "DESCRIPTION"      "docs"             "inst"            
 #> [10] "LICENSE.md"       "man"              "NAMESPACE"       
 #> [13] "NEWS.md"          "R"                "README.md"       
-#> [16] "README.Rmd"       "tests"            "this-csv1.csv"   
-#> [19] "this-csv2.csv"    "tmp.R"            "tor.Rproj"
+#> [16] "README.Rmd"       "tests"            "tmp.R"           
+#> [19] "tor.Rproj"        "vignettes"
 
 list_csv()
-#> Parsed with column specification:
-#> cols(
-#>   x = col_double()
-#> )
-#> Parsed with column specification:
-#> cols(
-#>   y = col_character()
-#> )
 #> Parsed with column specification:
 #> cols(
 #>   x = col_double()
@@ -150,20 +67,6 @@ list_csv()
 #> 2     2
 #> 
 #> $csv2
-#> # A tibble: 2 x 1
-#>   y    
-#>   <chr>
-#> 1 a    
-#> 2 b    
-#> 
-#> $`this-csv1`
-#> # A tibble: 2 x 1
-#>       x
-#>   <dbl>
-#> 1     1
-#> 2     2
-#> 
-#> $`this-csv2`
 #> # A tibble: 2 x 1
 #>   y    
 #>   <chr>
@@ -417,8 +320,8 @@ dir()
 #>  [7] "DESCRIPTION"      "docs"             "inst"            
 #> [10] "LICENSE.md"       "man"              "NAMESPACE"       
 #> [13] "NEWS.md"          "R"                "README.md"       
-#> [16] "README.Rmd"       "tests"            "this-csv1.csv"   
-#> [19] "this-csv2.csv"    "tmp.R"            "tor.Rproj"
+#> [16] "README.Rmd"       "tests"            "tmp.R"           
+#> [19] "tor.Rproj"        "vignettes"
 
 load_csv()
 
@@ -469,7 +372,7 @@ output files.
 
 ``` r
 dir(pattern = "[.]csv$")
-#> [1] "csv1.csv"      "csv2.csv"      "this-csv1.csv" "this-csv2.csv"
+#> [1] "csv1.csv" "csv2.csv"
 
 dfms <- list_csv()
 #> Parsed with column specification:
@@ -480,21 +383,12 @@ dfms <- list_csv()
 #> cols(
 #>   y = col_character()
 #> )
-#> Parsed with column specification:
-#> cols(
-#>   x = col_double()
-#> )
-#> Parsed with column specification:
-#> cols(
-#>   y = col_character()
-#> )
 
 format_path(names(dfms), "csv")
-#> [1] "./csv1.csv"      "./csv2.csv"      "./this-csv1.csv" "./this-csv2.csv"
+#> [1] "./csv1.csv" "./csv2.csv"
 
 format_path(names(dfms), "csv", base = "home", prefix = "this-")
-#> [1] "home/this-csv1.csv"      "home/this-csv2.csv"     
-#> [3] "home/this-this-csv1.csv" "home/this-this-csv2.csv"
+#> [1] "home/this-csv1.csv" "home/this-csv2.csv"
 ```
 
 Combine it with [**purrr**](https://purrr.tidyverse.org/).
@@ -509,23 +403,15 @@ library(purrr)
 library(fs)
 
 imap_chr(dfms, ~ format_path(.y, "csv"))
-#>              csv1              csv2         this-csv1         this-csv2 
-#>      "./csv1.csv"      "./csv2.csv" "./this-csv1.csv" "./this-csv2.csv"
+#>         csv1         csv2 
+#> "./csv1.csv" "./csv2.csv"
 
 # Same
 map_chr(dfms, ~ format_path(names(.), "csv", ".", "this-"))
-#>           csv1           csv2      this-csv1      this-csv2 
-#> "./this-x.csv" "./this-y.csv" "./this-x.csv" "./this-y.csv"
+#>           csv1           csv2 
+#> "./this-x.csv" "./this-y.csv"
 
 (dfs <- list_csv())
-#> Parsed with column specification:
-#> cols(
-#>   x = col_double()
-#> )
-#> Parsed with column specification:
-#> cols(
-#>   y = col_character()
-#> )
 #> Parsed with column specification:
 #> cols(
 #>   x = col_double()
@@ -546,20 +432,6 @@ map_chr(dfms, ~ format_path(names(.), "csv", ".", "this-"))
 #>   y    
 #>   <chr>
 #> 1 a    
-#> 2 b    
-#> 
-#> $`this-csv1`
-#> # A tibble: 2 x 1
-#>       x
-#>   <dbl>
-#> 1     1
-#> 2     2
-#> 
-#> $`this-csv2`
-#> # A tibble: 2 x 1
-#>   y    
-#>   <chr>
-#> 1 a    
 #> 2 b
 
 paths <- dfs %>% 
@@ -568,8 +440,7 @@ paths <- dfs %>%
 walk2(dfs, paths, readr::write_csv)
 
 dir_ls(".", regexp = "this-")
-#> this-csv1.csv      this-csv2.csv      this-this-csv1.csv 
-#> this-this-csv2.csv
+#> this-csv1.csv this-csv2.csv
 ```
 
 # Related projects

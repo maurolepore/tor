@@ -31,29 +31,6 @@ The goal of __tor__ (_to-R_) is to make importing data into R ridiculously easy.
 devtools::install_github("maurolepore/tor")
 ```
 
-## Motivation
-
-Your nickname is R-guru. Your colleague enjoys analyzing data and she head that R is great.
-
-> I have a couple of minutes before the next meeting. Can you please show me how to start playing with some data in R?
-
-TWO MINUTES?! 
-
-Don't panic. __tor__ is here to help you.
-
-```{r}
-# Here I have a bunch of files, including some .csv files with data.
-dir()
-
-# I "open" the programs I need to read the .csv files.
-library(tor)
-
-# And I list the data in all those .csv files
-list_csv()
-
-# Done.
-```
-
 ## Example
 
 ```{r}
