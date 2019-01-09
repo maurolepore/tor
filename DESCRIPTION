@@ -1,7 +1,7 @@
 Package: tor
 Title: Read Multiple Files Of Any Format From a Directory
     Into a List
-Version: 1.0.0.9000
+Version: 1.0.1.9000
 Authors@R: 
     person(given = "Mauro",
            family = "Lepore",
