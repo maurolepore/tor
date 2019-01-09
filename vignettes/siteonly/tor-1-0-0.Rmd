@@ -12,11 +12,16 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+
+install.packages(
+  here::here(".buildignore/tor_1.0.0.zip"), 
+  repos = NULL, type = "win.binary"
+)
 ```
 
-## Introduction
+I'm happy to announce that __tor__ 1.0.0 in now on CRAN! 
 
-I'm happy to announce that tor 1.0.0 in now on CRAN! __tor__ (to-R) helps you to
+__tor__ (to-R) helps you to
 read multiple files from a single directory into R, as simply as possible. It makes a frequent task less painful. __tor__ is particularly useful during quick, exploratory data analysis and works well with the [tidyverse](https://www.tidyverse.org/). 
 
 This initial release is minimal. It delivers the most useful functionality with few dependencies. Install the latest version of __tor__ from CRAN with:
@@ -25,27 +30,60 @@ This initial release is minimal. It delivers the most useful functionality with 
 install.packages("tor")
 ```
 
-(The development version includes some [exciting new features](https://maurolepore.github.io/tor/news/index.html) and you can [install it from GitHub](https://maurolepore.github.io/tor/index.html).)
+(Or [install the development version from GitHub](https://maurolepore.github.io/tor/index.html) which includes [exciting new features](https://maurolepore.github.io/tor/news/index.html).)
 
-## Motivation
-
-Your nickname is R-guru. Your colleague enjoys analyzing data and she head that R is great.
-
-> I have a couple of minutes before the next meeting. Would you show me how to start playing with some data in R?
-
-TWO MINUTES?! 
-
-Don't panic. __tor__ is here to help you.
+---
 
 ```{r}
-# Here I have a bunch of files, including some .csv files with data.
+library(tor)
+```
+
+All functions list whatever they read, and default to reading from the working directory.
+
+`list_csv()` and friends import multiple files from a directory into a list.
+
+```{r}
 dir()
 
-# I "open" the programs I need to read the .csv files.
-library(tor)
-
-# And I list the data in all those .csv files
 list_csv()
-
-# Done.
 ```
+
+You may import specific files matching a pattern.
+
+```{r}
+(path_mixed <- tor_example("mixed"))
+dir(path_mixed)
+
+list_rdata(path_mixed, regexp = "[.]RData", ignore.case = FALSE)
+```
+
+`list_any()` is the most flexible function. You supply the function to read with.
+
+```{r}
+(path_csv <- tor_example("csv"))
+dir(path_csv)
+
+list_any(path_csv, readr::read_csv)
+```
+
+It understands lambda functions and formulas (powered by [__rlang__](https://rlang.r-lib.org/)).
+
+```{r}
+# Use the pipe (%>%)
+library(magrittr)
+
+(path_rdata <- tor_example("rdata"))
+dir(path_rdata)
+
+path_rdata %>% 
+  list_any(function(x) get(load(x)))
+
+# Same
+path_rdata %>% 
+  list_any(~get(load(.x)))
+```
+
+```{r, include=FALSE}
+devtools::install_github("maurolepore/tor", upgrade = "never")
+```
+
