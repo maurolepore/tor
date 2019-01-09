@@ -29,24 +29,122 @@ well with the [tidyverse](https://www.tidyverse.org/).
 devtools::install_github("maurolepore/tor")
 ```
 
+## Motivation
+
+Your nickname is R-guru. Your colleague enjoys analyzing data and she
+head that R is great.
+
+> I have a couple of minutes before the next meeting. Can you please
+> show me how to start playing with some data in R?
+
+Which of the following two options do you choose?
+
+### Option 1 (with seriously great packages)
+
+``` r
+# Here I have a bunch of files, including some .csv files with data.
+dir()
+#>  [1] "_pkgdown.yml"     "cran-comments.md" "CRAN-RELEASE"    
+#>  [4] "csv1.csv"         "csv2.csv"         "datasets"        
+#>  [7] "DESCRIPTION"      "docs"             "inst"            
+#> [10] "LICENSE.md"       "man"              "NAMESPACE"       
+#> [13] "NEWS.md"          "R"                "README.md"       
+#> [16] "README.Rmd"       "tests"            "tmp.R"           
+#> [19] "tor.Rproj"
+
+# I "open" a bunch of programs I need to read the .csv files.
+# This program is to find files in my computer.
+library(fs)
+# This program is to read each individual .csv file.
+library(readr)
+# And this program is to iterate over each file so I can read all of them.
+library(purrr)
+
+# First I need to find the address in my computer to each file I want to read.
+# `"."` means "here" -- where I have the files I showed you before
+# `regexp = "[.]csv$"` means "care only about .csv files -- ignore the rest".
+csv_files <- dir_ls(".", regexp = "[.]csv$")
+
+# So I take the addresses to the .csv files, and then ...
+csv_files %>% 
+  # ... and I read each file into a list
+  map(read_csv)
+#> Parsed with column specification:
+#> cols(
+#>   x = col_double()
+#> )
+#> Parsed with column specification:
+#> cols(
+#>   y = col_character()
+#> )
+#> $csv1.csv
+#> # A tibble: 2 x 1
+#>       x
+#>   <dbl>
+#> 1     1
+#> 2     2
+#> 
+#> $csv2.csv
+#> # A tibble: 2 x 1
+#>   y    
+#>   <chr>
+#> 1 a    
+#> 2 b
+
+# Done.
+```
+
+### Option 2 (with the modest tor)
+
+``` r
+# Here I have a bunch of files, including some .csv files with data.
+dir()
+#>  [1] "_pkgdown.yml"     "cran-comments.md" "CRAN-RELEASE"    
+#>  [4] "csv1.csv"         "csv2.csv"         "datasets"        
+#>  [7] "DESCRIPTION"      "docs"             "inst"            
+#> [10] "LICENSE.md"       "man"              "NAMESPACE"       
+#> [13] "NEWS.md"          "R"                "README.md"       
+#> [16] "README.Rmd"       "tests"            "tmp.R"           
+#> [19] "tor.Rproj"
+
+# I "open" the programs I need to read the .csv files.
+library(tor)
+
+# And I list the data in all those .csv files
+list_csv()
+#> Parsed with column specification:
+#> cols(
+#>   x = col_double()
+#> )
+#> Parsed with column specification:
+#> cols(
+#>   y = col_character()
+#> )
+#> $csv1
+#> # A tibble: 2 x 1
+#>       x
+#>   <dbl>
+#> 1     1
+#> 2     2
+#> 
+#> $csv2
+#> # A tibble: 2 x 1
+#>   y    
+#>   <chr>
+#> 1 a    
+#> 2 b
+
+# Done.
+```
+
 ## Example
 
 ``` r
-library(tidyverse)
-#> -- Attaching packages -------------------------------------------- tidyverse 1.2.1 --
-#> v ggplot2 3.1.0     v purrr   0.2.5
-#> v tibble  2.0.0     v dplyr   0.7.8
-#> v tidyr   0.8.2     v stringr 1.3.1
-#> v readr   1.3.1     v forcats 0.3.0
-#> -- Conflicts ----------------------------------------------- tidyverse_conflicts() --
-#> x dplyr::filter() masks stats::filter()
-#> x dplyr::lag()    masks stats::lag()
-library(fs)
 library(tor)
 ```
 
 All functions list whatever they read, and default to reading from the
-working directory. Dataframes are coerced to tibbles.
+working directory.
 
 ### `list_*()`: Import multiple files from a directory into a list
 
@@ -184,6 +282,14 @@ It understands lambda functions and formulas (powered by
 [**rlang**](https://rlang.r-lib.org/)).
 
 ``` r
+# Use the pipe (%>%)
+library(magrittr)
+#> 
+#> Attaching package: 'magrittr'
+#> The following object is masked from 'package:purrr':
+#> 
+#>     set_names
+
 (path_rdata <- tor_example("rdata"))
 #> [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/tor/extdata/rdata"
 dir(path_rdata)
@@ -249,8 +355,7 @@ path_csv %>%
 #> 1 b
 
 path_csv %>% 
-  list_any(~read.csv(., stringsAsFactors = FALSE)) %>% 
-  map(as_tibble)
+  list_any(~read.csv(., stringsAsFactors = FALSE))
 #> $csv1
 #> # A tibble: 2 x 1
 #>       x

@@ -31,15 +31,63 @@ The goal of __tor__ (_to-R_) is to make importing data into R ridiculously easy.
 devtools::install_github("maurolepore/tor")
 ```
 
+## Motivation
+
+Your nickname is R-guru. Your colleague enjoys analyzing data and she head that R is great.
+
+> I have a couple of minutes before the next meeting. Can you please show me how to start playing with some data in R?
+
+Which of the following two options do you choose?
+
+### Option 1 (with seriously great packages)
+
+```{r}
+# Here I have a bunch of files, including some .csv files with data.
+dir()
+
+# I "open" a bunch of programs I need to read the .csv files.
+# This program is to find files in my computer.
+library(fs)
+# This program is to read each individual .csv file.
+library(readr)
+# And this program is to iterate over each file so I can read all of them.
+library(purrr)
+
+# First I need to find the address in my computer to each file I want to read.
+# `"."` means "here" -- where I have the files I showed you before
+# `regexp = "[.]csv$"` means "care only about .csv files -- ignore the rest".
+csv_files <- dir_ls(".", regexp = "[.]csv$")
+
+# So I take the addresses to the .csv files, and then ...
+csv_files %>% 
+  # ... and I read each file into a list
+  map(read_csv)
+
+# Done.
+```
+
+### Option 2 (with the modest tor)
+
+```{r}
+# Here I have a bunch of files, including some .csv files with data.
+dir()
+
+# I "open" the programs I need to read the .csv files.
+library(tor)
+
+# And I list the data in all those .csv files
+list_csv()
+
+# Done.
+```
+
 ## Example
 
 ```{r}
-library(tidyverse)
-library(fs)
 library(tor)
 ```
 
-All functions list whatever they read, and default to reading from the working directory. Dataframes are coerced to tibbles.
+All functions list whatever they read, and default to reading from the working directory.
 
 ### `list_*()`: Import multiple files from a directory into a list
 
@@ -88,6 +136,9 @@ list_any(path_csv, read.csv)
 It understands lambda functions and formulas (powered by [__rlang__](https://rlang.r-lib.org/)).
 
 ```{r}
+# Use the pipe (%>%)
+library(magrittr)
+
 (path_rdata <- tor_example("rdata"))
 dir(path_rdata)
 
@@ -106,8 +157,7 @@ path_csv %>%
   list_any(readr::read_csv, skip = 1)
 
 path_csv %>% 
-  list_any(~read.csv(., stringsAsFactors = FALSE)) %>% 
-  map(as_tibble)
+  list_any(~read.csv(., stringsAsFactors = FALSE))
 ```
 
 It also provides the arguments `regexp`, `ignore.case`, and `invert` to pick specific files in a directory (powered by [__fs__](https://fs.r-lib.org/)).
