@@ -1,8 +1,8 @@
-# tor 1.0.1.9000
+# tor (development version)
 
 * Work in progress.
 
-# tor 1.0.1 (GitHub release 2019-01-09)
+# tor 1.0.1 (CRAN release)
 
 * `list_any()`, `list_csv()`, `list_tsv()`, `load_csv()`, and `load_tsv()` now use __readr__.
   * This makes reading data faster and safer.
@@ -15,6 +15,6 @@
     * `dir(tor_example("rds"))` returns `c("rds1.rds", "rds2.rds")`.
     * `dir(tor_example("csv"))` returns `c("csv1.csv", "csv2.csv")`.
 
-# tor 1.0.0 (GitHub release 2019-01-07)
+# tor 1.0.0 (GitHub release)
 
 * Initial GitHub release.
