@@ -5,7 +5,7 @@
 \alias{load_tsv}
 \alias{load_rds}
 \alias{load_rdata}
-\title{Load each element of a list into an environment.}
+\title{Load multiple files from a directory into an environment.}
 \usage{
 load_csv(path = ".", regexp = "[.]csv$", ignore.case = TRUE,
   invert = FALSE, envir = .GlobalEnv, ...)
@@ -37,7 +37,7 @@ load_rdata(path = ".", regexp = "[.]rdata$|[.]rda$",
 \code{invisible(path)}.
 }
 \description{
-Load each element of a list into an environment.
+Load multiple files from a directory into an environment.
 }
 \examples{
 (path_csv <- tor_example("csv"))

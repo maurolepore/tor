@@ -1,6 +1,6 @@
 # tor (development version)
 
-* Work in progress.
+* The title of `load_csv()` and friends is now correct.
 
 # tor 1.0.1 (CRAN release)
 
