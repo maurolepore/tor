@@ -3,28 +3,29 @@
 #' @inheritParams fs::dir_ls
 #' @inheritParams base::grep
 #' @param .f A function able to read the desired file format.
+#' @param ... Additional arguments passed to `.f`.
 #'
 #' @return A list.
 #'
 #' @examples
 #' tor_example()
-#' 
+#'
 #' path <- tor_example("csv")
 #' dir(path)
-#' 
+#'
 #' list_any(path, read.csv)
-#' 
+#'
 #' list_any(path, ~ read.csv(.x, stringsAsFactors = FALSE))
-#' 
+#'
 #' (path_mixed <- tor_example("mixed"))
 #' dir(path_mixed)
-#' 
+#'
 #' list_any(
 #'   path_mixed, ~ get(load(.x)),
 #'   regexp = "[.]csv$",
 #'   invert = TRUE
 #' )
-#' 
+#'
 #' list_any(
 #'   path_mixed, ~ get(load(.x)),
 #'   "[.]Rdata$",

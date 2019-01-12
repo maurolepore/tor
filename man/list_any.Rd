@@ -19,7 +19,7 @@ list_any(path = ".", .f, regexp = NULL, ignore.case = FALSE,
 
 \item{invert}{If \code{TRUE} return files which do \emph{not} match}
 
-\item{...}{Additional arguments passed to \link{grep}.}
+\item{...}{Additional arguments passed to \code{.f}.}
 }
 \value{
 A list.
@@ -54,6 +54,6 @@ list_any(
 }
 \seealso{
 Other general functions to import data: \code{\link{list_csv}},
-  \code{\link{load_csv}}
+  \code{\link{load_any}}
 }
 \concept{general functions to import data}

@@ -1,5 +1,6 @@
 # tor (development version)
 
+* In `list_any()` `...` is now correctly defined.
 * New `load_any()` is analog to `list_any()` and completes the set.
 * The title of `load_csv()` and friends is now correct.
 
