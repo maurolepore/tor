@@ -1,0 +1,88 @@
+---
+title: "tor 1.0.0"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{tor 1.0.0}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+install.packages(
+  here::here(".buildignore/tor_1.0.0.zip"), 
+  repos = NULL, type = "win.binary"
+)
+```
+
+I'm happy to announce that __tor__ 1.0.1 in now on CRAN! 
+
+__tor__ (to-R) helps you to read multiple files from a single directory into R, as simply as possible. It makes a frequent task less painful. __tor__ is particularly useful during quick, exploratory data analysis and works well with the [tidyverse](https://www.tidyverse.org/). 
+
+This initial release is minimal. It delivers the most useful functionality with few dependencies. Install the latest version of __tor__ from CRAN with:
+
+```
+install.packages("tor")
+```
+
+(Or [install the development version from GitHub](https://maurolepore.github.io/tor/index.html) which includes [exciting new features](https://maurolepore.github.io/tor/news/index.html).)
+
+---
+
+```{r}
+library(tor)
+```
+
+All functions list whatever they read, and default to reading from the working directory.
+
+`list_csv()` and friends import multiple files from a directory into a list.
+
+```{r}
+dir()
+
+list_csv()
+```
+
+You may import specific files matching a pattern.
+
+```{r}
+(path_mixed <- tor_example("mixed"))
+dir(path_mixed)
+
+list_rdata(path_mixed, regexp = "[.]RData", ignore.case = FALSE)
+```
+
+`list_any()` is the most flexible function. You supply the function to read with.
+
+```{r}
+(path_csv <- tor_example("csv"))
+dir(path_csv)
+
+list_any(path_csv, readr::read_csv)
+```
+
+It understands lambda functions and formulas (powered by [__rlang__](https://rlang.r-lib.org/)).
+
+```{r}
+# Use the pipe (%>%)
+library(magrittr)
+
+(path_rdata <- tor_example("rdata"))
+dir(path_rdata)
+
+path_rdata %>% 
+  list_any(function(x) get(load(x)))
+
+# Same
+path_rdata %>% 
+  list_any(~get(load(.x)))
+```
+
+```{r, include=FALSE}
+devtools::install_github("maurolepore/tor", upgrade = "never")
+```
+
