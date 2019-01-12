@@ -1,5 +1,6 @@
 # tor (development version)
 
+* New `load_any()` is analog to `list_any()` and completes the set.
 * The title of `load_csv()` and friends is now correct.
 
 # tor 1.0.1 (CRAN release)
