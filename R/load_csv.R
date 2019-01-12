@@ -2,6 +2,7 @@
 #'
 #' @inheritParams list_csv
 #' @inheritParams base::list2env
+#' @param ... Additional arguments passed to `.f`.
 #'
 #' @return `invisible(path)`.
 #'
@@ -21,6 +22,14 @@
 #' # Each dataframe is now available in the global environment
 #' lower_rdata
 #' upper_rdata
+#'
+#' e <- new.env()
+#' load_any(tor_example("rdata"), .f = ~ get(load(.x)), envir = e)
+#' ls(e)
+#'
+#' # The data is now available in the environment `e`
+#' e$rdata1
+#' e$rdata2
 #' @family general functions to import data
 #' @export
 load_csv <- function(path = ".",
@@ -95,6 +104,28 @@ load_rdata <- function(path = ".",
     regexp = regexp,
     ignore.case = ignore.case,
     invert = invert
+  )
+
+  list2env(lst, envir = envir)
+  invisible(path)
+}
+
+#' @rdname load_csv
+#' @export
+load_any <- function(path = ".",
+  .f,
+  regexp = NULL,
+  ignore.case = FALSE,
+  invert = FALSE,
+  envir = .GlobalEnv,
+  ...) {
+  lst <- list_any(
+    path = path,
+    .f = .f,
+    regexp = regexp,
+    ignore.case = ignore.case,
+    invert = invert,
+    ...
   )
 
   list2env(lst, envir = envir)
