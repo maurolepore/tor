@@ -395,7 +395,7 @@
 <a class="sourceLine" id="cb13-18" data-line-number="18"><span class="co">#&gt;   &lt;chr&gt;</span></a>
 <a class="sourceLine" id="cb13-19" data-line-number="19"><span class="co">#&gt; 1 a    </span></a>
 <a class="sourceLine" id="cb13-20" data-line-number="20"><span class="co">#&gt; 2 b</span></a></code></pre></div>
-<p>For more flexibility use <code><a href="reference/load_csv.html">load_any()</a></code> with a function able to read one file of the format you want to import.</p>
+<p>For more flexibility use <code><a href="reference/load_any.html">load_any()</a></code> with a function able to read one file of the format you want to import.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list.files">dir</a></span>()</a>
 <a class="sourceLine" id="cb14-2" data-line-number="2"><span class="co">#&gt;  [1] "_pkgdown.yml"     "cran-comments.md" "csv1.csv"        </span></a>
 <a class="sourceLine" id="cb14-3" data-line-number="3"><span class="co">#&gt;  [4] "csv2.csv"         "DESCRIPTION"      "docs"            </span></a>
@@ -404,7 +404,7 @@
 <a class="sourceLine" id="cb14-6" data-line-number="6"><span class="co">#&gt; [13] "README.md"        "README.Rmd"       "tests"           </span></a>
 <a class="sourceLine" id="cb14-7" data-line-number="7"><span class="co">#&gt; [16] "tmp.R"            "tor.Rproj"        "vignettes"</span></a>
 <a class="sourceLine" id="cb14-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb14-9" data-line-number="9"><span class="kw"><a href="reference/load_csv.html">load_any</a></span>(<span class="st">"."</span>, <span class="dt">.f =</span> readr<span class="op">::</span>read_csv, <span class="dt">regexp =</span> <span class="st">"[.]csv$"</span>)</a>
+<a class="sourceLine" id="cb14-9" data-line-number="9"><span class="kw"><a href="reference/load_any.html">load_any</a></span>(<span class="st">"."</span>, <span class="dt">.f =</span> readr<span class="op">::</span>read_csv, <span class="dt">regexp =</span> <span class="st">"[.]csv$"</span>)</a>
 <a class="sourceLine" id="cb14-10" data-line-number="10"><span class="co">#&gt; Parsed with column specification:</span></a>
 <a class="sourceLine" id="cb14-11" data-line-number="11"><span class="co">#&gt; cols(</span></a>
 <a class="sourceLine" id="cb14-12" data-line-number="12"><span class="co">#&gt;   x = col_double()</span></a>

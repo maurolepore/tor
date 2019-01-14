@@ -8,7 +8,7 @@ list_any(path = ".", .f, regexp = NULL, ignore.case = FALSE,
   invert = FALSE, ...)
 }
 \arguments{
-\item{path}{A character vector of one or more paths.}
+\item{path}{A character vector of one path.}
 
 \item{.f}{A function able to read the desired file format.}
 
@@ -53,7 +53,9 @@ list_any(
 )
 }
 \seealso{
-Other general functions to import data: \code{\link{list_csv}},
-  \code{\link{load_any}}, \code{\link{load_csv}}
+Other functions to import files into a list: \code{\link{list_csv}}
+
+Other functions to import files of any format: \code{\link{load_any}}
 }
-\concept{general functions to import data}
+\concept{functions to import files into a list}
+\concept{functions to import files of any format}

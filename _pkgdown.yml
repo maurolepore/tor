@@ -27,5 +27,6 @@ navbar:
 reference:
   - title: All functions
     contents:
-    - has_concept("general functions to import data")
+    - has_concept("functions to import files into a list")
+    - has_concept("functions to import files into an environment")
     - has_concept("helpers")

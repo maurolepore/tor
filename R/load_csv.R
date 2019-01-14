@@ -22,7 +22,8 @@
 #' # Each dataframe is now available in the global environment
 #' lower_rdata
 #' upper_rdata
-#' @family general functions to import data
+#' @family functions to import files into an environment
+#' @family functions to import files of common formats
 #' @export
 load_csv <- function(path = ".",
                      regexp = "[.]csv$",

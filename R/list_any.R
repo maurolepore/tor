@@ -1,7 +1,8 @@
 #' Import multiple files of any format from a directory into a list.
 #'
-#' @inheritParams fs::dir_ls
+#' @param path A character vector of one path.
 #' @param .f A function able to read the desired file format.
+#' @inheritParams fs::dir_ls
 #' @inheritParams base::grep
 #' @param ... Additional arguments passed to `.f`.
 #'
@@ -31,7 +32,8 @@
 #'   "[.]Rdata$",
 #'   ignore.case = TRUE
 #' )
-#' @family general functions to import data
+#' @family functions to import files into a list
+#' @family functions to import files of any format
 #' @export
 list_any <- function(path = ".",
                      .f,

@@ -1,6 +1,6 @@
 #' Import multiple files of any format from a directory into an environment.
 #'
-#' @inheritParams fs::dir_ls
+#' @param path A character vector of one path.
 #' @param .f A function able to read the desired file format.
 #' @inheritParams base::grep
 #' @inheritParams base::list2env
@@ -17,7 +17,8 @@
 #' # The data is now available in the environment `e`
 #' e$rdata1
 #' e$rdata2
-#' @family general functions to import data
+#' @family functions to import files into an environment
+#' @family functions to import files of any format
 load_any <- function(path = ".",
                      .f,
                      regexp = NULL,

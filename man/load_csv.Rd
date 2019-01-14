@@ -20,14 +20,13 @@ load_rdata(path = ".", regexp = "[.]rdata$|[.]rda$",
   ignore.case = TRUE, invert = FALSE, envir = .GlobalEnv)
 }
 \arguments{
-\item{path}{A character vector of one or more paths.}
-
-\item{regexp}{A regular expression (e.g. \code{[.]csv$}) passed on to \code{\link[=grep]{grep()}} to filter paths.}
+\item{path}{A character vector of one path.}
 
 \item{ignore.case}{if \code{FALSE}, the pattern matching is \emph{case
       sensitive} and if \code{TRUE}, case is ignored during matching.}
 
-\item{invert}{If \code{TRUE} return files which do \emph{not} match}
+\item{invert}{logical.  If \code{TRUE} return indices or values for
+    elements that do \emph{not} match.}
 
 \item{envir}{an \code{\link{environment}} or \code{NULL}.}
 
@@ -57,7 +56,9 @@ lower_rdata
 upper_rdata
 }
 \seealso{
-Other general functions to import data: \code{\link{list_any}},
-  \code{\link{list_csv}}, \code{\link{load_any}}
+Other functions to import files into an environment: \code{\link{load_any}}
+
+Other functions to import files of common formats: \code{\link{list_csv}}
 }
-\concept{general functions to import data}
+\concept{functions to import files into an environment}
+\concept{functions to import files of common formats}

@@ -1,4 +1,4 @@
-#' Read multiple files from a directory into a list.
+#' Read multiple common files from a directory into a list.
 #'
 #' These functions wrap the most common special cases of [list_any()].
 #'
@@ -11,23 +11,24 @@
 #' @examples
 #' (rds <- tor_example("rds"))
 #' dir(rds)
-#' 
+#'
 #' list_rds(rds)
-#' 
+#'
 #' (tsv <- tor_example("tsv"))
 #' dir(tsv)
-#' 
+#'
 #' list_tsv(tsv)
-#' 
+#'
 #' (mixed <- tor_example("mixed"))
 #' dir(mixed)
-#' 
+#'
 #' list_rdata(mixed)
-#' 
+#'
 #' list_csv(mixed)
-#' 
+#'
 #' list_rdata(mixed, regexp = "[.]RData", ignore.case = FALSE)
-#' @family general functions to import data
+#' @family functions to import files into a list
+#' @family functions to import files of common formats
 #' @export
 list_csv <- function(path = ".",
                      regexp = "[.]csv$",

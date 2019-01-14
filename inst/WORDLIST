@@ -1,11 +1,8 @@
-behaviour
 csv
 fs
 io
-lifecycle
 purrr
-rdata
 readr
 rio
 rlang
-tidyverse
+tibbles
