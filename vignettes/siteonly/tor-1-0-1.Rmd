@@ -29,7 +29,7 @@ install.packages("tor")
 
 ## List common files
 
-`list_csv()`, `list_rdata()`, and friends import multiple common files from a directory into a list. These and all functions in __tor__ default to import from the working directory -- i.e. to import files from your working directory you can simply call a suitable function with no argument.
+`list_csv()`, `list_rdata()`, and friends, import multiple common files from a directory into a list. They default to importing from the working directory.
 
 ```{r}
 dir()
@@ -37,7 +37,7 @@ dir()
 list_csv()
 ```
 
-You can specify a `path` argument to import files from any directory. Also, you can use `regexp`, `ignore.case`, and `invert` to specify a pattern to match the specific files you want to import.
+You can specify a `path` to import from any directory. `regexp`, `ignore.case`, and `invert` allow you to pick specific files.
 
 ```{r}
 (path_mixed <- tor_example("mixed"))
@@ -51,9 +51,23 @@ list_rdata(
 )
 ```
 
-## List files of any format
+## Load common files
 
-`list_any()` is the most flexible function. Pass a function to `.f` to import the specific files you want to list.
+Instead of creating a list, the `load_*()` variants import the data into an environment -- the global environment by default.
+
+```{r}
+dir()
+
+load_csv()
+
+# Each dataframe is now available in the global environment
+csv1
+csv2
+```
+
+## Beyond common files
+
+`list_any()` allows you to import files of any format into a list. You need to supply a function, `.f`, able to import a single file.
 
 ```{r}
 (path_csv <- tor_example("csv"))
@@ -62,7 +76,7 @@ dir(path_csv)
 list_any(path_csv, readr::read_csv)
 ```
 
-`.f` can be an annonymous function or __purrr__-like formula (powered by [__rlang__](https://rlang.r-lib.org/)).
+`.f` can be an anonymous function or a __purrr__-like formula (powered by [__rlang__](https://rlang.r-lib.org/)).
 
 ```{r}
 (path_rdata <- tor_example("rdata"))
@@ -74,19 +88,5 @@ path_rdata %>%
 # Same
 path_rdata %>% 
   list_any(~get(load(.x)))
-```
-
-## List files of any format
-
-The `load_*()` variants import multiple files from a directory into an environment. As all other functions, they default to importing from the working directory.
-
-```{r}
-dir()
-
-load_csv()
-
-# Each dataframe is now available in the global environment
-csv1
-csv2
 ```
 

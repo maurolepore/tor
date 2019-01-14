@@ -5,14 +5,9 @@
 
 The goal of **tor** (*to-R*) is to make importing data into R
 ridiculously easy. It helps you to import multiple files from a single
-directory into R in a simple, intuitive way. `list_csv()` creates a list
-of all “\*.csv” files in your working directory; and `load_rdata()`
-loads all “\*.rdata” files into your global environment (see all
-functions in
-[Reference](https://maurolepore.github.io/tor/reference/index.html)).
-**tor** does nothing you can’t do with functions from base R but it
-makes a frequent task less painful. It has few dependencies and works
-well with the [tidyverse](https://www.tidyverse.org/).
+directory into R in a simple, intuitive way. For example, `load_csv()`
+with no argument loads all “\*.csv” files in your working directory into
+the global environment, making them directly available for analysis.
 
 ## Installation
 
@@ -43,11 +38,11 @@ working directory.
 ``` r
 dir()
 #>  [1] "_pkgdown.yml"     "cran-comments.md" "csv1.csv"        
-#>  [4] "csv2.csv"         "DESCRIPTION"      "inst"            
-#>  [7] "LICENSE.md"       "man"              "NAMESPACE"       
-#> [10] "NEWS.md"          "R"                "README.Rmd"      
-#> [13] "tests"            "tmp.R"            "tor.Rproj"       
-#> [16] "vignettes"
+#>  [4] "csv2.csv"         "DESCRIPTION"      "docs"            
+#>  [7] "inst"             "LICENSE.md"       "man"             
+#> [10] "NAMESPACE"        "NEWS.md"          "R"               
+#> [13] "README.md"        "README.Rmd"       "tests"           
+#> [16] "tmp.R"            "tor.Rproj"        "vignettes"
 
 list_csv()
 #> Parsed with column specification:
@@ -309,17 +304,17 @@ path_mixed %>%
 
 ### `load_*()`: Load multiple files from a directory into an environment
 
-All functions default to load from the working directory.
+All functions default to loading from the working directory.
 
 ``` r
 # The working directory contains .csv files
 dir()
 #>  [1] "_pkgdown.yml"     "cran-comments.md" "csv1.csv"        
-#>  [4] "csv2.csv"         "DESCRIPTION"      "inst"            
-#>  [7] "LICENSE.md"       "man"              "NAMESPACE"       
-#> [10] "NEWS.md"          "R"                "README.Rmd"      
-#> [13] "tests"            "tmp.R"            "tor.Rproj"       
-#> [16] "vignettes"
+#>  [4] "csv2.csv"         "DESCRIPTION"      "docs"            
+#>  [7] "inst"             "LICENSE.md"       "man"             
+#> [10] "NAMESPACE"        "NEWS.md"          "R"               
+#> [13] "README.md"        "README.Rmd"       "tests"           
+#> [16] "tmp.R"            "tor.Rproj"        "vignettes"
 
 load_csv()
 #> Parsed with column specification:
@@ -364,6 +359,43 @@ load_rdata(path_mixed)
 ls()
 #> [1] "lower_rdata" "path_mixed"  "rda"         "upper_rdata"
 rda
+#> # A tibble: 2 x 1
+#>   y    
+#>   <chr>
+#> 1 a    
+#> 2 b
+```
+
+For more flexibility use `load_any()` with a function able to read one
+file of the format you want to import.
+
+``` r
+dir()
+#>  [1] "_pkgdown.yml"     "cran-comments.md" "csv1.csv"        
+#>  [4] "csv2.csv"         "DESCRIPTION"      "docs"            
+#>  [7] "inst"             "LICENSE.md"       "man"             
+#> [10] "NAMESPACE"        "NEWS.md"          "R"               
+#> [13] "README.md"        "README.Rmd"       "tests"           
+#> [16] "tmp.R"            "tor.Rproj"        "vignettes"
+
+load_any(".", .f = readr::read_csv, regexp = "[.]csv$")
+#> Parsed with column specification:
+#> cols(
+#>   x = col_double()
+#> )
+#> Parsed with column specification:
+#> cols(
+#>   y = col_character()
+#> )
+
+# The data is now available in the global environment
+csv1
+#> # A tibble: 2 x 1
+#>       x
+#>   <dbl>
+#> 1     1
+#> 2     2
+csv2
 #> # A tibble: 2 x 1
 #>   y    
 #>   <chr>
