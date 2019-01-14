@@ -22,9 +22,17 @@ knitr::opts_chunk$set(
 [![Coverage status](https://coveralls.io/repos/github/maurolepore/tor/badge.svg)](https://coveralls.io/r/maurolepore/tor?branch=master)
 [![CRAN status](https://www.r-pkg.org/badges/version/tor)](https://cran.r-project.org/package=tor)
 
-The goal of __tor__ (_to-R_) is to make importing data into R ridiculously easy. It helps you to import multiple files from a single directory into R in a simple, intuitive way. `list_csv()` creates a list of all "\*.csv" files in your working directory; and `load_rdata()` loads all "\*.rdata" files into your global environment (see all functions in [Reference](https://maurolepore.github.io/tor/reference/index.html)). __tor__ does nothing you can't do with functions from base R but it makes a frequent task less painful. It has few dependencies and works well with the [tidyverse](https://www.tidyverse.org/). 
+The goal of __tor__ (_to-R_) is to make importing data into R ridiculously easy. It helps you to import multiple files from a single directory into R in a simple, intuitive way. For example, `load_csv()` with no argument loads all "\*.csv" files in your working directory into the global environment, making them directly available for analysis.
 
 ## Installation
+
+Install __tor__ from CRAN with:
+
+```r
+install.packages("tor")
+```
+
+Or install the development version from GitHub with:
 
 ``` r
 # install.packages("devtools")
@@ -125,7 +133,7 @@ path_mixed %>%
 
 ### `load_*()`: Load multiple files from a directory into an environment
 
-All functions default to load from the working directory.
+All functions default to loading from the working directory.
 
 ```{r}
 # The working directory contains .csv files
@@ -153,6 +161,17 @@ ls()
 rda
 ```
 
+For more flexibility use `load_any()` with a function able to read one file of the format you want to import.
+
+```{r}
+dir()
+
+load_any(".", .f = readr::read_csv, regexp = "[.]csv$")
+
+# The data is now available in the global environment
+csv1
+csv2
+```
 
 # Related projects
 

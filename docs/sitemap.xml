@@ -10,6 +10,9 @@
     <loc>https://maurolepore.github.io/tor//reference/list_csv.html</loc>
   </url>
   <url>
+    <loc>https://maurolepore.github.io/tor//reference/load_any.html</loc>
+  </url>
+  <url>
     <loc>https://maurolepore.github.io/tor//reference/load_csv.html</loc>
   </url>
   <url>
@@ -17,5 +20,8 @@
   </url>
   <url>
     <loc>https://maurolepore.github.io/tor//reference/tor_example.html</loc>
+  </url>
+  <url>
+    <loc>https://maurolepore.github.io/tor//articles/siteonly/tor-1-0-1.html</loc>
   </url>
 </urlset>

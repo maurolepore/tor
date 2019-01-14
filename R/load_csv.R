@@ -1,27 +1,29 @@
-#' Load each element of a list into an environment.
+#' Import multiple common files from a directory into an environment.
 #'
-#' @inheritParams list_csv
-#' @inheritParams base::list2env
+#' @inheritParams load_any
+#' @inheritParams readr::read_delim
+#' @param ... Arguments passed to `readr::read_csv()` or `readr::read_tsv()`.
 #'
 #' @return `invisible(path)`.
 #'
 #' @examples
 #' (path_csv <- tor_example("csv"))
 #' dir(path_csv)
-#' 
+#'
 #' load_csv(path_csv)
 #' # Each dataframe is now available in the global environment
 #' csv1
 #' csv2
-#' 
+#'
 #' (path_mixed <- tor_example("mixed"))
 #' dir(path_mixed)
-#' 
+#'
 #' load_rdata(path_mixed)
 #' # Each dataframe is now available in the global environment
 #' lower_rdata
 #' upper_rdata
-#' @family general functions to import data
+#' @family functions to import files into an environment
+#' @family functions to import files of common formats
 #' @export
 load_csv <- function(path = ".",
                      regexp = "[.]csv$",
@@ -100,3 +102,4 @@ load_rdata <- function(path = ".",
   list2env(lst, envir = envir)
   invisible(path)
 }
+

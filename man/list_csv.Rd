@@ -5,7 +5,7 @@
 \alias{list_tsv}
 \alias{list_rds}
 \alias{list_rdata}
-\title{Read multiple files from a directory into a list.}
+\title{Import multiple common files from a directory into a list.}
 \usage{
 list_csv(path = ".", regexp = "[.]csv$", ignore.case = TRUE,
   invert = FALSE, ...)
@@ -20,7 +20,7 @@ list_rdata(path = ".", regexp = "[.]rdata$|[.]rda$",
   ignore.case = TRUE, invert = FALSE)
 }
 \arguments{
-\item{path}{A character vector of one or more paths.}
+\item{path}{A character vector of one path.}
 
 \item{regexp}{A regular expression (e.g. \code{[.]csv$}) passed on to \code{\link[=grep]{grep()}} to filter paths.}
 
@@ -58,7 +58,9 @@ list_csv(mixed)
 list_rdata(mixed, regexp = "[.]RData", ignore.case = FALSE)
 }
 \seealso{
-Other general functions to import data: \code{\link{list_any}},
-  \code{\link{load_csv}}
+Other functions to import files into a list: \code{\link{list_any}}
+
+Other functions to import files of common formats: \code{\link{load_csv}}
 }
-\concept{general functions to import data}
+\concept{functions to import files into a list}
+\concept{functions to import files of common formats}

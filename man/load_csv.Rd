@@ -5,7 +5,7 @@
 \alias{load_tsv}
 \alias{load_rds}
 \alias{load_rdata}
-\title{Load each element of a list into an environment.}
+\title{Import multiple common files from a directory into an environment.}
 \usage{
 load_csv(path = ".", regexp = "[.]csv$", ignore.case = TRUE,
   invert = FALSE, envir = .GlobalEnv, ...)
@@ -20,7 +20,7 @@ load_rdata(path = ".", regexp = "[.]rdata$|[.]rda$",
   ignore.case = TRUE, invert = FALSE, envir = .GlobalEnv)
 }
 \arguments{
-\item{path}{A character vector of one or more paths.}
+\item{path}{A character vector of one path.}
 
 \item{regexp}{A regular expression (e.g. \code{[.]csv$}) passed on to \code{\link[=grep]{grep()}} to filter paths.}
 
@@ -37,7 +37,7 @@ load_rdata(path = ".", regexp = "[.]rdata$|[.]rda$",
 \code{invisible(path)}.
 }
 \description{
-Load each element of a list into an environment.
+Import multiple common files from a directory into an environment.
 }
 \examples{
 (path_csv <- tor_example("csv"))
@@ -57,7 +57,9 @@ lower_rdata
 upper_rdata
 }
 \seealso{
-Other general functions to import data: \code{\link{list_any}},
-  \code{\link{list_csv}}
+Other functions to import files into an environment: \code{\link{load_any}}
+
+Other functions to import files of common formats: \code{\link{list_csv}}
 }
-\concept{general functions to import data}
+\concept{functions to import files into an environment}
+\concept{functions to import files of common formats}

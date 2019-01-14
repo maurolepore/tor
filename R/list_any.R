@@ -1,36 +1,39 @@
-#' Read multiple files into a list with your favorite reader function.
+#' Import multiple files of any format from a directory into a list.
 #'
+#' @param path A character vector of one path.
+#' @param .f A function able to read the desired file format.
 #' @inheritParams fs::dir_ls
 #' @inheritParams base::grep
-#' @param .f A function able to read the desired file format.
+#' @param ... Additional arguments passed to `.f`.
 #'
 #' @return A list.
 #'
 #' @examples
 #' tor_example()
-#' 
+#'
 #' path <- tor_example("csv")
 #' dir(path)
-#' 
+#'
 #' list_any(path, read.csv)
-#' 
+#'
 #' list_any(path, ~ read.csv(.x, stringsAsFactors = FALSE))
-#' 
+#'
 #' (path_mixed <- tor_example("mixed"))
 #' dir(path_mixed)
-#' 
+#'
 #' list_any(
 #'   path_mixed, ~ get(load(.x)),
 #'   regexp = "[.]csv$",
 #'   invert = TRUE
 #' )
-#' 
+#'
 #' list_any(
 #'   path_mixed, ~ get(load(.x)),
 #'   "[.]Rdata$",
 #'   ignore.case = TRUE
 #' )
-#' @family general functions to import data
+#' @family functions to import files into a list
+#' @family functions to import files of any format
 #' @export
 list_any <- function(path = ".",
                      .f,

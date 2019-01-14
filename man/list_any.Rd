@@ -2,13 +2,13 @@
 % Please edit documentation in R/list_any.R
 \name{list_any}
 \alias{list_any}
-\title{Read multiple files into a list with your favorite reader function.}
+\title{Import multiple files of any format from a directory into a list.}
 \usage{
 list_any(path = ".", .f, regexp = NULL, ignore.case = FALSE,
   invert = FALSE, ...)
 }
 \arguments{
-\item{path}{A character vector of one or more paths.}
+\item{path}{A character vector of one path.}
 
 \item{.f}{A function able to read the desired file format.}
 
@@ -19,13 +19,13 @@ list_any(path = ".", .f, regexp = NULL, ignore.case = FALSE,
 
 \item{invert}{If \code{TRUE} return files which do \emph{not} match}
 
-\item{...}{Additional arguments passed to \link{grep}.}
+\item{...}{Additional arguments passed to \code{.f}.}
 }
 \value{
 A list.
 }
 \description{
-Read multiple files into a list with your favorite reader function.
+Import multiple files of any format from a directory into a list.
 }
 \examples{
 tor_example()
@@ -53,7 +53,9 @@ list_any(
 )
 }
 \seealso{
-Other general functions to import data: \code{\link{list_csv}},
-  \code{\link{load_csv}}
+Other functions to import files into a list: \code{\link{list_csv}}
+
+Other functions to import files of any format: \code{\link{load_any}}
 }
-\concept{general functions to import data}
+\concept{functions to import files into a list}
+\concept{functions to import files of any format}

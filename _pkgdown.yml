@@ -14,6 +14,10 @@ navbar:
     href: reference/index.html
   - text: News
     menu:
+    - text: "Release notes"
+    - text: "Version 1.0.1"
+      href: articles/siteonly/tor-1-0-1.html
+    - text: "------------------"
     - text: "Change log"
       href: news/index.html
   right:
@@ -23,5 +27,6 @@ navbar:
 reference:
   - title: All functions
     contents:
-    - has_concept("general functions to import data")
+    - has_concept("functions to import files into a list")
+    - has_concept("functions to import files into an environment")
     - has_concept("helpers")

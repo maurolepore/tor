@@ -1,6 +1,6 @@
 Package: tor
 Title: Import Multiple Files From a Single Directory at Once
-Version: 1.0.1.9000
+Version: 1.0.1
 Authors@R: 
     person(given = "Mauro",
            family = "Lepore",
@@ -24,6 +24,8 @@ Suggests:
     rmarkdown,
     spelling,
     testthat
+VignetteBuilder: 
+    knitr
 Encoding: UTF-8
 Language: en-US
 LazyData: true
