@@ -5,8 +5,7 @@
 \alias{load_tsv}
 \alias{load_rds}
 \alias{load_rdata}
-\alias{load_any}
-\title{Load multiple files from a directory into an environment.}
+\title{Load multiple common files from a directory into an environment.}
 \usage{
 load_csv(path = ".", regexp = "[.]csv$", ignore.case = TRUE,
   invert = FALSE, envir = .GlobalEnv, ...)
@@ -19,9 +18,6 @@ load_rds(path = ".", regexp = "[.]rds$", ignore.case = TRUE,
 
 load_rdata(path = ".", regexp = "[.]rdata$|[.]rda$",
   ignore.case = TRUE, invert = FALSE, envir = .GlobalEnv)
-
-load_any(path = ".", .f, regexp = NULL, ignore.case = FALSE,
-  invert = FALSE, envir = .GlobalEnv, ...)
 }
 \arguments{
 \item{path}{A character vector of one or more paths.}
@@ -35,13 +31,13 @@ load_any(path = ".", .f, regexp = NULL, ignore.case = FALSE,
 
 \item{envir}{an \code{\link{environment}} or \code{NULL}.}
 
-\item{...}{Additional arguments passed to \code{.f}.}
+\item{...}{Arguments passed to \code{readr::read_csv()} or \code{readr::read_tsv()}.}
 }
 \value{
 \code{invisible(path)}.
 }
 \description{
-Load multiple files from a directory into an environment.
+Load multiple common files from a directory into an environment.
 }
 \examples{
 (path_csv <- tor_example("csv"))
@@ -59,17 +55,9 @@ load_rdata(path_mixed)
 # Each dataframe is now available in the global environment
 lower_rdata
 upper_rdata
-
-e <- new.env()
-load_any(tor_example("rdata"), .f = ~ get(load(.x)), envir = e)
-ls(e)
-
-# The data is now available in the environment `e`
-e$rdata1
-e$rdata2
 }
 \seealso{
 Other general functions to import data: \code{\link{list_any}},
-  \code{\link{list_csv}}
+  \code{\link{list_csv}}, \code{\link{load_any}}
 }
 \concept{general functions to import data}

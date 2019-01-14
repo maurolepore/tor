@@ -2,7 +2,7 @@
 % Please edit documentation in R/list_any.R
 \name{list_any}
 \alias{list_any}
-\title{Read multiple files into a list with your favorite reader function.}
+\title{Import multiple files of any format from a directory into a list.}
 \usage{
 list_any(path = ".", .f, regexp = NULL, ignore.case = FALSE,
   invert = FALSE, ...)
@@ -25,7 +25,7 @@ list_any(path = ".", .f, regexp = NULL, ignore.case = FALSE,
 A list.
 }
 \description{
-Read multiple files into a list with your favorite reader function.
+Import multiple files of any format from a directory into a list.
 }
 \examples{
 tor_example()
@@ -54,6 +54,6 @@ list_any(
 }
 \seealso{
 Other general functions to import data: \code{\link{list_csv}},
-  \code{\link{load_csv}}
+  \code{\link{load_any}}, \code{\link{load_csv}}
 }
 \concept{general functions to import data}

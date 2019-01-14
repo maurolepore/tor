@@ -1,8 +1,8 @@
-#' Read multiple files into a list with your favorite reader function.
+#' Import multiple files of any format from a directory into a list.
 #'
 #' @inheritParams fs::dir_ls
-#' @inheritParams base::grep
 #' @param .f A function able to read the desired file format.
+#' @inheritParams base::grep
 #' @param ... Additional arguments passed to `.f`.
 #'
 #' @return A list.
