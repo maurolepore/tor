@@ -5,7 +5,7 @@
 \alias{list_tsv}
 \alias{list_rds}
 \alias{list_rdata}
-\title{Read multiple common files from a directory into a list.}
+\title{Import multiple common files from a directory into a list.}
 \usage{
 list_csv(path = ".", regexp = "[.]csv$", ignore.case = TRUE,
   invert = FALSE, ...)

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Load multiple common files from a directory into an environment. — load_csv • tor</title>
+<title>Import multiple common files from a directory into an environment. — load_csv • tor</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Load multiple common files from a directory into an environment. — load_csv" />
+<meta property="og:title" content="Import multiple common files from a directory into an environment. — load_csv" />
 
-<meta property="og:description" content="Load multiple common files from a directory into an environment." />
+<meta property="og:description" content="Import multiple common files from a directory into an environment." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -110,14 +110,14 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Load multiple common files from a directory into an environment.</h1>
+    <h1>Import multiple common files from a directory into an environment.</h1>
     <small class="dont-index">Source: <a href='https://github.com/maurolepore/tor/blob/master/R/load_csv.R'><code>R/load_csv.R</code></a></small>
     <div class="hidden name"><code>load_csv.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Load multiple common files from a directory into an environment.</p>
+    <p>Import multiple common files from a directory into an environment.</p>
     
     </div>
 
@@ -141,14 +141,17 @@
       <td><p>A character vector of one path.</p></td>
     </tr>
     <tr>
+      <th>regexp</th>
+      <td><p>A regular expression (e.g. <code>[.]csv$</code>) passed on to <code><a href='https://www.rdocumentation.org/packages/base/topics/grep'>grep()</a></code> to filter paths.</p></td>
+    </tr>
+    <tr>
       <th>ignore.case</th>
       <td><p>if <code>FALSE</code>, the pattern matching is <em>case
       sensitive</em> and if <code>TRUE</code>, case is ignored during matching.</p></td>
     </tr>
     <tr>
       <th>invert</th>
-      <td><p>logical.  If <code>TRUE</code> return indices or values for
-    elements that do <em>not</em> match.</p></td>
+      <td><p>If <code>TRUE</code> return files which do <em>not</em> match</p></td>
     </tr>
     <tr>
       <th>envir</th>

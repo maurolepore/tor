@@ -19,7 +19,7 @@ library(magrittr)
 
 ## Introduction
 
-I'm happy to announce that __tor__ 1.0.1 in now on CRAN! __tor__ (to-R) helps you to read multiple files from a single directory into R, as simply as possible. It makes a small but frequent task less painful.
+I'm happy to announce that __tor__ 1.0.1 in now on CRAN! __tor__ (to-R) helps you to import multiple files from a single directory into R as simply as possible. It makes a small but frequent task less painful.
 
 You can install __tor__ with:
 

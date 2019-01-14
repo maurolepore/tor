@@ -1,4 +1,4 @@
-#' Read multiple common files from a directory into a list.
+#' Import multiple common files from a directory into a list.
 #'
 #' These functions wrap the most common special cases of [list_any()].
 #'

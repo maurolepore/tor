@@ -12,11 +12,12 @@ load_any(path = ".", .f, regexp = NULL, ignore.case = FALSE,
 
 \item{.f}{A function able to read the desired file format.}
 
+\item{regexp}{A regular expression (e.g. \code{[.]csv$}) passed on to \code{\link[=grep]{grep()}} to filter paths.}
+
 \item{ignore.case}{if \code{FALSE}, the pattern matching is \emph{case
       sensitive} and if \code{TRUE}, case is ignored during matching.}
 
-\item{invert}{logical.  If \code{TRUE} return indices or values for
-    elements that do \emph{not} match.}
+\item{invert}{If \code{TRUE} return files which do \emph{not} match}
 
 \item{envir}{an \code{\link{environment}} or \code{NULL}.}
 

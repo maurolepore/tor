@@ -5,7 +5,7 @@
 \alias{load_tsv}
 \alias{load_rds}
 \alias{load_rdata}
-\title{Load multiple common files from a directory into an environment.}
+\title{Import multiple common files from a directory into an environment.}
 \usage{
 load_csv(path = ".", regexp = "[.]csv$", ignore.case = TRUE,
   invert = FALSE, envir = .GlobalEnv, ...)
@@ -22,11 +22,12 @@ load_rdata(path = ".", regexp = "[.]rdata$|[.]rda$",
 \arguments{
 \item{path}{A character vector of one path.}
 
+\item{regexp}{A regular expression (e.g. \code{[.]csv$}) passed on to \code{\link[=grep]{grep()}} to filter paths.}
+
 \item{ignore.case}{if \code{FALSE}, the pattern matching is \emph{case
       sensitive} and if \code{TRUE}, case is ignored during matching.}
 
-\item{invert}{logical.  If \code{TRUE} return indices or values for
-    elements that do \emph{not} match.}
+\item{invert}{If \code{TRUE} return files which do \emph{not} match}
 
 \item{envir}{an \code{\link{environment}} or \code{NULL}.}
 
@@ -36,7 +37,7 @@ load_rdata(path = ".", regexp = "[.]rdata$|[.]rda$",
 \code{invisible(path)}.
 }
 \description{
-Load multiple common files from a directory into an environment.
+Import multiple common files from a directory into an environment.
 }
 \examples{
 (path_csv <- tor_example("csv"))

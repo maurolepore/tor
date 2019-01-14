@@ -1,4 +1,4 @@
-#' Load multiple common files from a directory into an environment.
+#' Import multiple common files from a directory into an environment.
 #'
 #' @inheritParams load_any
 #' @inheritParams readr::read_delim

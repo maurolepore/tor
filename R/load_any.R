@@ -2,6 +2,7 @@
 #'
 #' @param path A character vector of one path.
 #' @param .f A function able to read the desired file format.
+#' @inheritParams fs::dir_ls
 #' @inheritParams base::grep
 #' @inheritParams base::list2env
 #' @param ... Additional arguments passed to `.f`.
