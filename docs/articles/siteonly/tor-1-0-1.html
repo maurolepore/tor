@@ -124,7 +124,7 @@
 <a class="sourceLine" id="cb2-25" data-line-number="25"><span class="co">#&gt; 2 b</span></a></code></pre></div>
 <p>You can specify a <code>path</code> to import from any directory. <code>regexp</code>, <code>ignore.case</code>, and <code>invert</code> allow you to pick specific files.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">(path_mixed &lt;-<span class="st"> </span><span class="kw"><a href="../../reference/tor_example.html">tor_example</a></span>(<span class="st">"mixed"</span>))</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co">#&gt; [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/tor/extdata/mixed"</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co">#&gt; [1] "C:/Users/LeporeM/Documents/R/win-library/3.5/tor/extdata/mixed"</span></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list.files">dir</a></span>(path_mixed)</a>
 <a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt; [1] "csv.csv"           "lower_rdata.rdata" "rda.rda"          </span></a>
 <a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt; [4] "upper_rdata.RData"</span></a>
@@ -178,7 +178,7 @@
 <a href="#beyond-common-files" class="anchor"></a>Beyond common files</h2>
 <p><code><a href="../../reference/list_any.html">list_any()</a></code> allows you to import files of any format into a list. You need to supply a function, <code>.f</code>, able to import a single file.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">(path_csv &lt;-<span class="st"> </span><span class="kw"><a href="../../reference/tor_example.html">tor_example</a></span>(<span class="st">"csv"</span>))</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#&gt; [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/tor/extdata/csv"</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#&gt; [1] "C:/Users/LeporeM/Documents/R/win-library/3.5/tor/extdata/csv"</span></a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list.files">dir</a></span>(path_csv)</a>
 <a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt; [1] "csv1.csv" "csv2.csv"</span></a>
 <a class="sourceLine" id="cb5-5" data-line-number="5"></a>
@@ -206,7 +206,7 @@
 <a class="sourceLine" id="cb5-27" data-line-number="27"><span class="co">#&gt; 2 b</span></a></code></pre></div>
 <p><code>.f</code> can be an anonymous function or a <strong>purrr</strong>-like formula (powered by <a href="https://rlang.r-lib.org/"><strong>rlang</strong></a>).</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">(path_rdata &lt;-<span class="st"> </span><span class="kw"><a href="../../reference/tor_example.html">tor_example</a></span>(<span class="st">"rdata"</span>))</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#&gt; [1] "C:/Users/LeporeM/Documents/R/R-3.5.2/library/tor/extdata/rdata"</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#&gt; [1] "C:/Users/LeporeM/Documents/R/win-library/3.5/tor/extdata/rdata"</span></a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list.files">dir</a></span>(path_rdata)</a>
 <a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">#&gt; [1] "rdata1.rdata" "rdata2.rdata"</span></a>
 <a class="sourceLine" id="cb6-5" data-line-number="5"></a>
