@@ -20,7 +20,8 @@ list_rdata(path = ".", regexp = "[.]rdata$|[.]rda$",
   ignore.case = TRUE, invert = FALSE)
 }
 \arguments{
-\item{path}{A character vector of one path.}
+\item{path}{A character vector of one path. Defaults to the working
+directory.}
 
 \item{regexp}{A regular expression (e.g. \code{[.]csv$}) passed on to \code{\link[=grep]{grep()}} to filter paths.}
 
@@ -38,6 +39,14 @@ A list.
 These functions wrap the most common special cases of \code{\link[=list_any]{list_any()}}.
 }
 \examples{
+# The working directory contains some .csv files
+dir()
+
+# By default `list_csv()` imports all .csv files from the working directory
+# into a list
+list_csv()
+
+# Using `path`s other than the working directory
 (rds <- tor_example("rds"))
 dir(rds)
 
