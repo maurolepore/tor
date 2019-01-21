@@ -57,8 +57,8 @@ list_any <- function(path = ".",
   dataframe_to_tibble(result)
 }
 
-dataframe_to_tibble <- function(.x) {
-  sel <- vapply(.x, is.data.frame, logical(1))
-  .x[sel] <- lapply(.x[sel], tibble::as_tibble)
-  .x
+dataframe_to_tibble <- function(x) {
+  sel <- vapply(x, is.data.frame, logical(1))
+  x[sel] <- lapply(x[sel], tibble::as_tibble)
+  x
 }
