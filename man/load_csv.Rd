@@ -38,21 +38,9 @@ directory.}
 \code{invisible(path)}.
 }
 \description{
-Import multiple common files from a directory into an environment.
+These functions wrap common use-cases of \code{\link[=load_any]{load_any()}}.
 }
 \examples{
-# The working directory contains some .csv files
-dir()
-
-# By default `load_csv()` imports all .csv files from the working directory
-# into the global environment
-load_csv()
-
-# Each file is now available in the global environment
-csv1
-csv2
-
-# Using a `path` other than the working directory
 (path_csv <- tor_example("csv"))
 dir(path_csv)
 

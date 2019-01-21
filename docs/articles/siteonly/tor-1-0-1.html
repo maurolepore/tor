@@ -5,11 +5,11 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>tor 1.0.0 • tor</title>
+<title>tor 1.0.1 • tor</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../../pkgdown.css" rel="stylesheet">
-<script src="../../pkgdown.js"></script><meta property="og:title" content="tor 1.0.0">
+<script src="../../pkgdown.js"></script><meta property="og:title" content="tor 1.0.1">
 <meta property="og:description" content="">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -76,7 +76,7 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>tor 1.0.0</h1>
+      <h1>tor 1.0.1</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/maurolepore/tor/blob/master/vignettes/siteonly/tor-1-0-1.Rmd"><code>vignettes/siteonly/tor-1-0-1.Rmd</code></a></small>
@@ -89,14 +89,14 @@
 <div id="introduction" class="section level2">
 <h2 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h2>
-<p>I’m happy to announce that <strong>tor</strong> 1.0.1 in now on CRAN! <strong>tor</strong> (to-R) helps you to import multiple files from a single directory into R as simply as possible. It makes a small but frequent task less painful.</p>
+<p>I’m happy to announce that <strong>tor</strong> 1.0.1 in now on CRAN! <strong>tor</strong> (to-R) helps you to import multiple files at once into a list or an environment. It makes a small but frequent task less painful.</p>
 <p>You can install <strong>tor</strong> with:</p>
 <pre><code><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages("tor")</a></code></pre>
 </div>
 <div id="list-common-files" class="section level2">
 <h2 class="hasAnchor">
 <a href="#list-common-files" class="anchor"></a>List common files</h2>
-<p><code><a href="../../reference/list_csv.html">list_csv()</a></code>, <code><a href="../../reference/list_csv.html">list_rdata()</a></code>, and friends, import multiple common files from a directory into a list. They default to importing from the working directory.</p>
+<p><code><a href="../../reference/list_csv.html">list_csv()</a></code> and friends import multiple common files from a directory into a list. They default to importing from the working directory.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list.files">dir</a></span>()</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co">#&gt; [1] "csv1.csv"      "csv2.csv"      "other_stuff"   "tor-1-0-1.Rmd"</span></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"></a>
@@ -145,7 +145,7 @@
 <div id="load-common-files" class="section level2">
 <h2 class="hasAnchor">
 <a href="#load-common-files" class="anchor"></a>Load common files</h2>
-<p>Instead of creating a list, the <code>load_*()</code> variants import the data into an environment – the global environment by default.</p>
+<p><code><a href="../../reference/load_csv.html">load_csv()</a></code> and friends import files into an environment – the global environment by default.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list.files">dir</a></span>()</a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; [1] "csv1.csv"      "csv2.csv"      "other_stuff"   "tor-1-0-1.Rmd"</span></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"></a>
@@ -176,7 +176,7 @@
 <div id="beyond-common-files" class="section level2">
 <h2 class="hasAnchor">
 <a href="#beyond-common-files" class="anchor"></a>Beyond common files</h2>
-<p><code><a href="../../reference/list_any.html">list_any()</a></code> allows you to import files of any format into a list. You need to supply a function, <code>.f</code>, able to import a single file.</p>
+<p><code><a href="../../reference/list_any.html">list_any()</a></code> imports files of any format into a list. You need to supply a function able to import a single file.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">(path_csv &lt;-<span class="st"> </span><span class="kw"><a href="../../reference/tor_example.html">tor_example</a></span>(<span class="st">"csv"</span>))</a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#&gt; [1] "C:/Users/LeporeM/Documents/R/win-library/3.5/tor/extdata/csv"</span></a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list.files">dir</a></span>(path_csv)</a>
@@ -204,7 +204,7 @@
 <a class="sourceLine" id="cb5-25" data-line-number="25"><span class="co">#&gt;   &lt;chr&gt;</span></a>
 <a class="sourceLine" id="cb5-26" data-line-number="26"><span class="co">#&gt; 1 a    </span></a>
 <a class="sourceLine" id="cb5-27" data-line-number="27"><span class="co">#&gt; 2 b</span></a></code></pre></div>
-<p><code>.f</code> can be an anonymous function or a <strong>purrr</strong>-like formula (powered by <a href="https://rlang.r-lib.org/"><strong>rlang</strong></a>).</p>
+<p>You may use anonymous functions using the formula syntax (powered by <a href="https://rlang.r-lib.org/"><strong>rlang</strong></a>).</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">(path_rdata &lt;-<span class="st"> </span><span class="kw"><a href="../../reference/tor_example.html">tor_example</a></span>(<span class="st">"rdata"</span>))</a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#&gt; [1] "C:/Users/LeporeM/Documents/R/win-library/3.5/tor/extdata/rdata"</span></a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list.files">dir</a></span>(path_rdata)</a>

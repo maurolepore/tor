@@ -3,7 +3,7 @@
 
 # tor
 
-[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![Travis build
 status](https://travis-ci.org/maurolepore/tor.svg?branch=master)](https://travis-ci.org/maurolepore/tor)
 [![Coverage
@@ -11,11 +11,13 @@ status](https://coveralls.io/repos/github/maurolepore/tor/badge.svg)](https://co
 [![CRAN
 status](https://www.r-pkg.org/badges/version/tor)](https://cran.r-project.org/package=tor)
 
-The goal of **tor** (*to-R*) is to make importing data into R
-ridiculously easy. It helps you to import multiple files from a single
-directory into R in a simple, intuitive way. For example, `load_csv()`
-with no argument loads all “\*.csv” files in your working directory into
-the global environment, making them directly available for analysis.
+**tor** (*to-R*) helps you to import multiple files at once. For
+example:
+
+  - Run `list_rds()` to import all .csv files from your working
+    directory into a list.
+  - Run `load_csv()` to import all .csv files from your working
+    directory into your global environment.
 
 ## Installation
 
@@ -38,10 +40,9 @@ devtools::install_github("maurolepore/tor")
 library(tor)
 ```
 
-All functions list whatever they read, and default to reading from the
-working directory.
-
 ### `list_*()`: Import multiple files from a directory into a list
+
+All functions default to importing files from the working directory.
 
 ``` r
 dir()
@@ -312,7 +313,8 @@ path_mixed %>%
 
 ### `load_*()`: Load multiple files from a directory into an environment
 
-All functions default to loading from the working directory.
+All functions default to importing files from the working directory and
+into the global environment.
 
 ``` r
 # The working directory contains .csv files
@@ -347,15 +349,13 @@ csv2
 #>   <chr>
 #> 1 a    
 #> 2 b
+
+rm(list = ls())
 ```
 
-You may load from a `path`.
+You may import files from a specific `path`.
 
 ``` r
-rm(list = ls())
-ls()
-#> character(0)
-
 (path_mixed <- tor_example("mixed"))
 #> [1] "C:/Users/LeporeM/Documents/R/win-library/3.5/tor/extdata/mixed"
 dir(path_mixed)
@@ -372,6 +372,19 @@ rda
 #>   <chr>
 #> 1 a    
 #> 2 b
+```
+
+You may import files into a specific `envir`onment.
+
+``` r
+e <- new.env()
+ls(e)
+#> character(0)
+
+load_rdata(path_mixed, envir = e)
+
+ls(e)
+#> [1] "lower_rdata" "rda"         "upper_rdata"
 ```
 
 For more flexibility use `load_any()` with a function able to read one
@@ -413,7 +426,6 @@ csv2
 
 # Related projects
 
-There are great packages to read and write data, for example
+Two great packages to read and write data are
 [**rio**](https://CRAN.R-project.org/package=rio) and
-[**io**](https://CRAN.R-project.org/package=io). **tor** does less than
-the alternatives, but it is much smaller and more flexible.
+[**io**](https://CRAN.R-project.org/package=io).

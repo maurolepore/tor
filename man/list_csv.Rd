@@ -36,17 +36,9 @@ directory.}
 A list.
 }
 \description{
-These functions wrap the most common special cases of \code{\link[=list_any]{list_any()}}.
+These functions wrap common use-cases of \code{\link[=list_any]{list_any()}}.
 }
 \examples{
-# The working directory contains some .csv files
-dir()
-
-# By default `list_csv()` imports all .csv files from the working directory
-# into a list
-list_csv()
-
-# Using `path`s other than the working directory
 (rds <- tor_example("rds"))
 dir(rds)
 
