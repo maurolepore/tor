@@ -30,7 +30,7 @@ Import multiple files of any format from a directory into a list.
 \examples{
 tor_example()
 
-path <- tor_example("csv")
+(path <- tor_example("csv"))
 dir(path)
 
 list_any(path, read.csv)
@@ -42,14 +42,14 @@ dir(path_mixed)
 
 list_any(
   path_mixed, ~ get(load(.x)),
-  regexp = "[.]csv$",
-  invert = TRUE
+  "[.]Rdata$",
+  ignore.case = TRUE
 )
 
 list_any(
   path_mixed, ~ get(load(.x)),
-  "[.]Rdata$",
-  ignore.case = TRUE
+  regexp = "[.]csv$",
+  invert = TRUE
 )
 }
 \seealso{

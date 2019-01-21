@@ -11,7 +11,7 @@
 #' @examples
 #' tor_example()
 #'
-#' path <- tor_example("csv")
+#' (path <- tor_example("csv"))
 #' dir(path)
 #'
 #' list_any(path, read.csv)
@@ -23,14 +23,14 @@
 #'
 #' list_any(
 #'   path_mixed, ~ get(load(.x)),
-#'   regexp = "[.]csv$",
-#'   invert = TRUE
+#'   "[.]Rdata$",
+#'   ignore.case = TRUE
 #' )
 #'
 #' list_any(
 #'   path_mixed, ~ get(load(.x)),
-#'   "[.]Rdata$",
-#'   ignore.case = TRUE
+#'   regexp = "[.]csv$",
+#'   invert = TRUE
 #' )
 #' @family functions to import files into a list
 #' @family functions to import files of any format
