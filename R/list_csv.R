@@ -9,6 +9,14 @@
 #' @return A list.
 #'
 #' @examples
+#' # The working directory contains some .csv files
+#' dir()
+#'
+#' # By default `list_csv()` imports all .csv files from the working directory
+#' # into a list
+#' list_csv()
+#'
+#' # Using `path`s other than the working directory
 #' (rds <- tor_example("rds"))
 #' dir(rds)
 #'

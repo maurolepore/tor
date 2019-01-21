@@ -8,8 +8,7 @@
 \description{
 The goal of tor (to-R) is to help you to import
     multiple files from a single directory at once, and to do so as
-    quickly, flexibly, and simply as possible. It makes a frequent, task
-    less painful.
+    quickly, flexibly, and simply as possible.
 }
 \seealso{
 Useful links:

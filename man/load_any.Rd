@@ -8,7 +8,8 @@ load_any(path = ".", .f, regexp = NULL, ignore.case = FALSE,
   invert = FALSE, envir = .GlobalEnv, ...)
 }
 \arguments{
-\item{path}{A character vector of one path.}
+\item{path}{A character vector of one path. Defaults to the working
+directory.}
 
 \item{.f}{A function able to read the desired file format.}
 

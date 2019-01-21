@@ -1,6 +1,7 @@
 #' Import multiple files of any format from a directory into a list.
 #'
-#' @param path A character vector of one path.
+#' @param path A character vector of one path. Defaults to the working
+#'   directory.
 #' @param .f A function able to read the desired file format.
 #' @inheritParams fs::dir_ls
 #' @inheritParams base::grep

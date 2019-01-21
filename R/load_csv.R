@@ -7,21 +7,35 @@
 #' @return `invisible(path)`.
 #'
 #' @examples
+#' # The working directory contains some .csv files
+#' dir()
+#'
+#' # By default `load_csv()` imports all .csv files from the working directory
+#' # into the global environment
+#' load_csv()
+#'
+#' # Each file is now available in the global environment
+#' csv1
+#' csv2
+#'
+#' # Using a `path` other than the working directory
 #' (path_csv <- tor_example("csv"))
 #' dir(path_csv)
 #'
 #' load_csv(path_csv)
-#' # Each dataframe is now available in the global environment
+#' # Each file is now available in the global environment
 #' csv1
 #' csv2
 #'
 #' (path_mixed <- tor_example("mixed"))
 #' dir(path_mixed)
 #'
-#' load_rdata(path_mixed)
-#' # Each dataframe is now available in the global environment
-#' lower_rdata
-#' upper_rdata
+#' # Loading the data in an environment other than the global environment
+#' e <- new.env()
+#' load_rdata(path_mixed, envir = e)
+#' # Each dataframe is now available in the environment `e`
+#' e$lower_rdata
+#' e$upper_rdata
 #' @family functions to import files into an environment
 #' @family functions to import files of common formats
 #' @export
