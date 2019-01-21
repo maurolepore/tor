@@ -10,7 +10,8 @@ tor_example(path = NULL)
 \item{path}{Length-1 character vector. A path to an available directory.}
 }
 \value{
-A list of available directories or a path to them.
+A character string listing available directories or a length-1 string
+giving a path to a directory.
 }
 \description{
 Easily access example data.

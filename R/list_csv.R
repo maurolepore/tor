@@ -1,6 +1,6 @@
 #' Import multiple common files from a directory into a list.
 #'
-#' These functions wrap the most common special cases of [list_any()].
+#' These functions wrap common use-cases of [list_any()].
 #'
 #' @inheritParams list_any
 #' @inheritParams readr::read_delim
@@ -9,14 +9,6 @@
 #' @return A list.
 #'
 #' @examples
-#' # The working directory contains some .csv files
-#' dir()
-#'
-#' # By default `list_csv()` imports all .csv files from the working directory
-#' # into a list
-#' list_csv()
-#'
-#' # Using `path`s other than the working directory
 #' (rds <- tor_example("rds"))
 #' dir(rds)
 #'

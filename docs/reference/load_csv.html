@@ -32,7 +32,7 @@
 
 <meta property="og:title" content="Import multiple common files from a directory into an environment. — load_csv" />
 
-<meta property="og:description" content="Import multiple common files from a directory into an environment." />
+<meta property="og:description" content="These functions wrap common use-cases of load_any()." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -117,7 +117,7 @@
 
     <div class="ref-description">
     
-    <p>Import multiple common files from a directory into an environment.</p>
+    <p>These functions wrap common use-cases of <code><a href='load_any.html'>load_any()</a></code>.</p>
     
     </div>
 
@@ -138,7 +138,8 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>path</th>
-      <td><p>A character vector of one path.</p></td>
+      <td><p>A character vector of one path. Defaults to the working
+directory.</p></td>
     </tr>
     <tr>
       <th>regexp</th>
@@ -181,7 +182,7 @@
 #&gt; <span class='message'>)</span></div><div class='output co'>#&gt; <span class='message'>Parsed with column specification:</span>
 #&gt; <span class='message'>cols(</span>
 #&gt; <span class='message'>  y = </span><span style='color: #BB0000;'>col_character()</span><span></span>
-#&gt; <span class='message'>)</span></div><div class='input'><span class='co'># Each dataframe is now available in the global environment</span>
+#&gt; <span class='message'>)</span></div><div class='input'><span class='co'># Each file is now available in the global environment</span>
 <span class='no'>csv1</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 2 x 1</span><span>
 #&gt;       x
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
@@ -193,13 +194,15 @@
 #&gt; </span><span style='color: #555555;'>2</span><span> b    </div><div class='input'>
 (<span class='no'>path_mixed</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tor_example.html'>tor_example</a></span>(<span class='st'>"mixed"</span>))</div><div class='output co'>#&gt; [1] "C:/Users/LeporeM/Documents/Dropbox/git/ml/tor/inst/extdata/mixed"</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list.files'>dir</a></span>(<span class='no'>path_mixed</span>)</div><div class='output co'>#&gt; [1] "csv.csv"           "lower_rdata.rdata" "rda.rda"          
 #&gt; [4] "upper_rdata.RData"</div><div class='input'>
-<span class='fu'>load_rdata</span>(<span class='no'>path_mixed</span>)
-<span class='co'># Each dataframe is now available in the global environment</span>
-<span class='no'>lower_rdata</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 2 x 1</span><span>
+<span class='co'># Loading the data in an environment other than the global environment</span>
+<span class='no'>e</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/environment'>new.env</a></span>()
+<span class='fu'>load_rdata</span>(<span class='no'>path_mixed</span>, <span class='kw'>envir</span> <span class='kw'>=</span> <span class='no'>e</span>)
+<span class='co'># Each dataframe is now available in the environment `e`</span>
+<span class='no'>e</span>$<span class='no'>lower_rdata</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 2 x 1</span><span>
 #&gt;   y    
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
 #&gt; </span><span style='color: #555555;'>1</span><span> a    
-#&gt; </span><span style='color: #555555;'>2</span><span> b    </div><div class='input'><span class='no'>upper_rdata</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 2 x 1</span><span>
+#&gt; </span><span style='color: #555555;'>2</span><span> b    </div><div class='input'><span class='no'>e</span>$<span class='no'>upper_rdata</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 2 x 1</span><span>
 #&gt;   y    
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
 #&gt; </span><span style='color: #555555;'>1</span><span> a    

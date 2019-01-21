@@ -1,8 +1,8 @@
 ---
-title: "tor 1.0.0"
+title: "tor 1.0.1"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{tor 1.0.0}
+  %\VignetteIndexEntry{tor 1.0.1}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -19,7 +19,7 @@ library(magrittr)
 
 ## Introduction
 
-I'm happy to announce that __tor__ 1.0.1 in now on CRAN! __tor__ (to-R) helps you to import multiple files from a single directory into R as simply as possible. It makes a small but frequent task less painful.
+I'm happy to announce that __tor__ 1.0.1 in now on CRAN! __tor__ (to-R) helps you to import multiple files at once into a list or an environment. It makes a small but frequent task less painful.
 
 You can install __tor__ with:
 
@@ -29,7 +29,7 @@ install.packages("tor")
 
 ## List common files
 
-`list_csv()`, `list_rdata()`, and friends, import multiple common files from a directory into a list. They default to importing from the working directory.
+`list_csv()` and friends import multiple common files from a directory into a list. They default to importing from the working directory.
 
 ```{r}
 dir()
@@ -53,7 +53,7 @@ list_rdata(
 
 ## Load common files
 
-Instead of creating a list, the `load_*()` variants import the data into an environment -- the global environment by default.
+`load_csv()` and friends import files into an environment -- the global environment by default.
 
 ```{r}
 dir()
@@ -67,7 +67,7 @@ csv2
 
 ## Beyond common files
 
-`list_any()` allows you to import files of any format into a list. You need to supply a function, `.f`, able to import a single file.
+`list_any()` imports files of any format into a list. You need to supply a function able to import a single file.
 
 ```{r}
 (path_csv <- tor_example("csv"))
@@ -76,7 +76,7 @@ dir(path_csv)
 list_any(path_csv, readr::read_csv)
 ```
 
-`.f` can be an anonymous function or a __purrr__-like formula (powered by [__rlang__](https://rlang.r-lib.org/)).
+You may use anonymous functions using the formula syntax (powered by [__rlang__](https://rlang.r-lib.org/)).
 
 ```{r}
 (path_rdata <- tor_example("rdata"))
