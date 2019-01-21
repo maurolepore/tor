@@ -1,6 +1,7 @@
 csv
 fs
 io
+lifecycle
 purrr
 readr
 rio
