@@ -1,7 +1,7 @@
-# tor (development version)
+# tor 1.1.1
 
-* In `list_any()`, the argument `...` is now correctly defined.
 * New `load_any()` is analog to `list_any()` and completes the set.
+* In `list_any()`, the argument `...` is now correctly defined.
 * The title of `load_csv()` and friends is now correct.
 
 # tor 1.0.1 (CRAN release)
