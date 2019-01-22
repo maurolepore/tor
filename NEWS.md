@@ -1,10 +1,15 @@
 # tor 1.1.1
 
+## Feature
+
 * New `load_any()` is analog to `list_any()` and completes the set.
+
+## Fixes
+
 * In `list_any()`, the argument `...` is now correctly defined.
 * The title of `load_csv()` and friends is now correct.
 
-# tor 1.0.1 (CRAN release)
+# tor 1.0.1
 
 * `list_any()`, `list_csv()`, `list_tsv()`, `load_csv()`, and `load_tsv()` now use __readr__.
   * This makes reading data faster and safer.
