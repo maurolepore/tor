@@ -50,7 +50,7 @@
   <ul class="dropdown-menu" role="menu">
 <li class="dropdown-header">Release notes</li>
     <li>
-      <a href="articles/siteonly/tor-1-0-1.html">Version 1.0.1</a>
+      <a href="articles/siteonly/tor-1-1-1.html">Version 1.1.1</a>
     </li>
     <li class="divider">
     </li>
@@ -110,36 +110,35 @@
 <a href="#list_-import-multiple-files-from-a-directory-into-a-list" class="anchor"></a><code>list_*()</code>: Import multiple files from a directory into a list</h3>
 <p>All functions default to importing files from the working directory.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list.files">dir</a></span>()</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt;  [1] "_pkgdown.yml"     "cran-comments.md" "CRAN-RELEASE"    </span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt;  [4] "csv1.csv"         "csv2.csv"         "DESCRIPTION"     </span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt;  [7] "docs"             "inst"             "LICENSE.md"      </span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt; [10] "man"              "NAMESPACE"        "NEWS.md"         </span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt; [13] "R"                "README.md"        "README.Rmd"      </span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt; [16] "tests"            "tmp.R"            "tor.Rproj"       </span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt; [19] "vignettes"</span></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="kw"><a href="reference/list_csv.html">list_csv</a></span>()</a>
-<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">#&gt; Parsed with column specification:</span></a>
-<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">#&gt; cols(</span></a>
-<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">#&gt;   x = col_double()</span></a>
-<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co">#&gt; )</span></a>
-<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#&gt; Parsed with column specification:</span></a>
-<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">#&gt; cols(</span></a>
-<a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">#&gt;   y = col_character()</span></a>
-<a class="sourceLine" id="cb4-18" data-line-number="18"><span class="co">#&gt; )</span></a>
-<a class="sourceLine" id="cb4-19" data-line-number="19"><span class="co">#&gt; $csv1</span></a>
-<a class="sourceLine" id="cb4-20" data-line-number="20"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
-<a class="sourceLine" id="cb4-21" data-line-number="21"><span class="co">#&gt;       x</span></a>
-<a class="sourceLine" id="cb4-22" data-line-number="22"><span class="co">#&gt;   &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb4-23" data-line-number="23"><span class="co">#&gt; 1     1</span></a>
-<a class="sourceLine" id="cb4-24" data-line-number="24"><span class="co">#&gt; 2     2</span></a>
-<a class="sourceLine" id="cb4-25" data-line-number="25"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-26" data-line-number="26"><span class="co">#&gt; $csv2</span></a>
-<a class="sourceLine" id="cb4-27" data-line-number="27"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
-<a class="sourceLine" id="cb4-28" data-line-number="28"><span class="co">#&gt;   y    </span></a>
-<a class="sourceLine" id="cb4-29" data-line-number="29"><span class="co">#&gt;   &lt;chr&gt;</span></a>
-<a class="sourceLine" id="cb4-30" data-line-number="30"><span class="co">#&gt; 1 a    </span></a>
-<a class="sourceLine" id="cb4-31" data-line-number="31"><span class="co">#&gt; 2 b</span></a></code></pre></div>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt;  [1] "_pkgdown.yml"     "cran-comments.md" "csv1.csv"        </span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt;  [4] "csv2.csv"         "DESCRIPTION"      "docs"            </span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt;  [7] "inst"             "LICENSE.md"       "man"             </span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt; [10] "NAMESPACE"        "NEWS.md"          "R"               </span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt; [13] "README.md"        "README.Rmd"       "tests"           </span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt; [16] "tmp.R"            "tor.Rproj"        "vignettes"</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="kw"><a href="reference/list_csv.html">list_csv</a></span>()</a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">#&gt; Parsed with column specification:</span></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">#&gt; cols(</span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">#&gt;   x = col_double()</span></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">#&gt; )</span></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co">#&gt; Parsed with column specification:</span></a>
+<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#&gt; cols(</span></a>
+<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">#&gt;   y = col_character()</span></a>
+<a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">#&gt; )</span></a>
+<a class="sourceLine" id="cb4-18" data-line-number="18"><span class="co">#&gt; $csv1</span></a>
+<a class="sourceLine" id="cb4-19" data-line-number="19"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
+<a class="sourceLine" id="cb4-20" data-line-number="20"><span class="co">#&gt;       x</span></a>
+<a class="sourceLine" id="cb4-21" data-line-number="21"><span class="co">#&gt;   &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb4-22" data-line-number="22"><span class="co">#&gt; 1     1</span></a>
+<a class="sourceLine" id="cb4-23" data-line-number="23"><span class="co">#&gt; 2     2</span></a>
+<a class="sourceLine" id="cb4-24" data-line-number="24"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb4-25" data-line-number="25"><span class="co">#&gt; $csv2</span></a>
+<a class="sourceLine" id="cb4-26" data-line-number="26"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
+<a class="sourceLine" id="cb4-27" data-line-number="27"><span class="co">#&gt;   y    </span></a>
+<a class="sourceLine" id="cb4-28" data-line-number="28"><span class="co">#&gt;   &lt;chr&gt;</span></a>
+<a class="sourceLine" id="cb4-29" data-line-number="29"><span class="co">#&gt; 1 a    </span></a>
+<a class="sourceLine" id="cb4-30" data-line-number="30"><span class="co">#&gt; 2 b</span></a></code></pre></div>
 <p>Often you will specify a <code>path</code> to read from.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># Helpes create paths to examples</span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw"><a href="reference/tor_example.html">tor_example</a></span>()</a>
@@ -349,39 +348,38 @@
 <p>All functions default to importing files from the working directory and into the global environment.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co"># The working directory contains .csv files</span></a>
 <a class="sourceLine" id="cb12-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list.files">dir</a></span>()</a>
-<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="co">#&gt;  [1] "_pkgdown.yml"     "cran-comments.md" "CRAN-RELEASE"    </span></a>
-<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="co">#&gt;  [4] "csv1.csv"         "csv2.csv"         "DESCRIPTION"     </span></a>
-<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="co">#&gt;  [7] "docs"             "inst"             "LICENSE.md"      </span></a>
-<a class="sourceLine" id="cb12-6" data-line-number="6"><span class="co">#&gt; [10] "man"              "NAMESPACE"        "NEWS.md"         </span></a>
-<a class="sourceLine" id="cb12-7" data-line-number="7"><span class="co">#&gt; [13] "R"                "README.md"        "README.Rmd"      </span></a>
-<a class="sourceLine" id="cb12-8" data-line-number="8"><span class="co">#&gt; [16] "tests"            "tmp.R"            "tor.Rproj"       </span></a>
-<a class="sourceLine" id="cb12-9" data-line-number="9"><span class="co">#&gt; [19] "vignettes"</span></a>
-<a class="sourceLine" id="cb12-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb12-11" data-line-number="11"><span class="kw"><a href="reference/load_csv.html">load_csv</a></span>()</a>
-<a class="sourceLine" id="cb12-12" data-line-number="12"><span class="co">#&gt; Parsed with column specification:</span></a>
-<a class="sourceLine" id="cb12-13" data-line-number="13"><span class="co">#&gt; cols(</span></a>
-<a class="sourceLine" id="cb12-14" data-line-number="14"><span class="co">#&gt;   x = col_double()</span></a>
-<a class="sourceLine" id="cb12-15" data-line-number="15"><span class="co">#&gt; )</span></a>
-<a class="sourceLine" id="cb12-16" data-line-number="16"><span class="co">#&gt; Parsed with column specification:</span></a>
-<a class="sourceLine" id="cb12-17" data-line-number="17"><span class="co">#&gt; cols(</span></a>
-<a class="sourceLine" id="cb12-18" data-line-number="18"><span class="co">#&gt;   y = col_character()</span></a>
-<a class="sourceLine" id="cb12-19" data-line-number="19"><span class="co">#&gt; )</span></a>
-<a class="sourceLine" id="cb12-20" data-line-number="20"></a>
-<a class="sourceLine" id="cb12-21" data-line-number="21"><span class="co"># Each file is now available as a dataframe in the global environment</span></a>
-<a class="sourceLine" id="cb12-22" data-line-number="22">csv1</a>
-<a class="sourceLine" id="cb12-23" data-line-number="23"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
-<a class="sourceLine" id="cb12-24" data-line-number="24"><span class="co">#&gt;       x</span></a>
-<a class="sourceLine" id="cb12-25" data-line-number="25"><span class="co">#&gt;   &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb12-26" data-line-number="26"><span class="co">#&gt; 1     1</span></a>
-<a class="sourceLine" id="cb12-27" data-line-number="27"><span class="co">#&gt; 2     2</span></a>
-<a class="sourceLine" id="cb12-28" data-line-number="28">csv2</a>
-<a class="sourceLine" id="cb12-29" data-line-number="29"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
-<a class="sourceLine" id="cb12-30" data-line-number="30"><span class="co">#&gt;   y    </span></a>
-<a class="sourceLine" id="cb12-31" data-line-number="31"><span class="co">#&gt;   &lt;chr&gt;</span></a>
-<a class="sourceLine" id="cb12-32" data-line-number="32"><span class="co">#&gt; 1 a    </span></a>
-<a class="sourceLine" id="cb12-33" data-line-number="33"><span class="co">#&gt; 2 b</span></a>
-<a class="sourceLine" id="cb12-34" data-line-number="34"></a>
-<a class="sourceLine" id="cb12-35" data-line-number="35"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rm">rm</a></span>(<span class="dt">list =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/ls">ls</a></span>())</a></code></pre></div>
+<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="co">#&gt;  [1] "_pkgdown.yml"     "cran-comments.md" "csv1.csv"        </span></a>
+<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="co">#&gt;  [4] "csv2.csv"         "DESCRIPTION"      "docs"            </span></a>
+<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="co">#&gt;  [7] "inst"             "LICENSE.md"       "man"             </span></a>
+<a class="sourceLine" id="cb12-6" data-line-number="6"><span class="co">#&gt; [10] "NAMESPACE"        "NEWS.md"          "R"               </span></a>
+<a class="sourceLine" id="cb12-7" data-line-number="7"><span class="co">#&gt; [13] "README.md"        "README.Rmd"       "tests"           </span></a>
+<a class="sourceLine" id="cb12-8" data-line-number="8"><span class="co">#&gt; [16] "tmp.R"            "tor.Rproj"        "vignettes"</span></a>
+<a class="sourceLine" id="cb12-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb12-10" data-line-number="10"><span class="kw"><a href="reference/load_csv.html">load_csv</a></span>()</a>
+<a class="sourceLine" id="cb12-11" data-line-number="11"><span class="co">#&gt; Parsed with column specification:</span></a>
+<a class="sourceLine" id="cb12-12" data-line-number="12"><span class="co">#&gt; cols(</span></a>
+<a class="sourceLine" id="cb12-13" data-line-number="13"><span class="co">#&gt;   x = col_double()</span></a>
+<a class="sourceLine" id="cb12-14" data-line-number="14"><span class="co">#&gt; )</span></a>
+<a class="sourceLine" id="cb12-15" data-line-number="15"><span class="co">#&gt; Parsed with column specification:</span></a>
+<a class="sourceLine" id="cb12-16" data-line-number="16"><span class="co">#&gt; cols(</span></a>
+<a class="sourceLine" id="cb12-17" data-line-number="17"><span class="co">#&gt;   y = col_character()</span></a>
+<a class="sourceLine" id="cb12-18" data-line-number="18"><span class="co">#&gt; )</span></a>
+<a class="sourceLine" id="cb12-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb12-20" data-line-number="20"><span class="co"># Each file is now available as a dataframe in the global environment</span></a>
+<a class="sourceLine" id="cb12-21" data-line-number="21">csv1</a>
+<a class="sourceLine" id="cb12-22" data-line-number="22"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
+<a class="sourceLine" id="cb12-23" data-line-number="23"><span class="co">#&gt;       x</span></a>
+<a class="sourceLine" id="cb12-24" data-line-number="24"><span class="co">#&gt;   &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb12-25" data-line-number="25"><span class="co">#&gt; 1     1</span></a>
+<a class="sourceLine" id="cb12-26" data-line-number="26"><span class="co">#&gt; 2     2</span></a>
+<a class="sourceLine" id="cb12-27" data-line-number="27">csv2</a>
+<a class="sourceLine" id="cb12-28" data-line-number="28"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
+<a class="sourceLine" id="cb12-29" data-line-number="29"><span class="co">#&gt;   y    </span></a>
+<a class="sourceLine" id="cb12-30" data-line-number="30"><span class="co">#&gt;   &lt;chr&gt;</span></a>
+<a class="sourceLine" id="cb12-31" data-line-number="31"><span class="co">#&gt; 1 a    </span></a>
+<a class="sourceLine" id="cb12-32" data-line-number="32"><span class="co">#&gt; 2 b</span></a>
+<a class="sourceLine" id="cb12-33" data-line-number="33"></a>
+<a class="sourceLine" id="cb12-34" data-line-number="34"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rm">rm</a></span>(<span class="dt">list =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/ls">ls</a></span>())</a></code></pre></div>
 <p>You may import files from a specific <code>path</code>.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">(path_mixed &lt;-<span class="st"> </span><span class="kw"><a href="reference/tor_example.html">tor_example</a></span>(<span class="st">"mixed"</span>))</a>
 <a class="sourceLine" id="cb13-2" data-line-number="2"><span class="co">#&gt; [1] "C:/Users/LeporeM/Documents/R/win-library/3.5/tor/extdata/mixed"</span></a>
@@ -410,37 +408,36 @@
 <a class="sourceLine" id="cb14-8" data-line-number="8"><span class="co">#&gt; [1] "lower_rdata" "rda"         "upper_rdata"</span></a></code></pre></div>
 <p>For more flexibility use <code><a href="reference/load_any.html">load_any()</a></code> with a function able to read one file of the format you want to import.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list.files">dir</a></span>()</a>
-<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="co">#&gt;  [1] "_pkgdown.yml"     "cran-comments.md" "CRAN-RELEASE"    </span></a>
-<a class="sourceLine" id="cb15-3" data-line-number="3"><span class="co">#&gt;  [4] "csv1.csv"         "csv2.csv"         "DESCRIPTION"     </span></a>
-<a class="sourceLine" id="cb15-4" data-line-number="4"><span class="co">#&gt;  [7] "docs"             "inst"             "LICENSE.md"      </span></a>
-<a class="sourceLine" id="cb15-5" data-line-number="5"><span class="co">#&gt; [10] "man"              "NAMESPACE"        "NEWS.md"         </span></a>
-<a class="sourceLine" id="cb15-6" data-line-number="6"><span class="co">#&gt; [13] "R"                "README.md"        "README.Rmd"      </span></a>
-<a class="sourceLine" id="cb15-7" data-line-number="7"><span class="co">#&gt; [16] "tests"            "tmp.R"            "tor.Rproj"       </span></a>
-<a class="sourceLine" id="cb15-8" data-line-number="8"><span class="co">#&gt; [19] "vignettes"</span></a>
-<a class="sourceLine" id="cb15-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb15-10" data-line-number="10"><span class="kw"><a href="reference/load_any.html">load_any</a></span>(<span class="st">"."</span>, <span class="dt">.f =</span> readr<span class="op">::</span>read_csv, <span class="dt">regexp =</span> <span class="st">"[.]csv$"</span>)</a>
-<a class="sourceLine" id="cb15-11" data-line-number="11"><span class="co">#&gt; Parsed with column specification:</span></a>
-<a class="sourceLine" id="cb15-12" data-line-number="12"><span class="co">#&gt; cols(</span></a>
-<a class="sourceLine" id="cb15-13" data-line-number="13"><span class="co">#&gt;   x = col_double()</span></a>
-<a class="sourceLine" id="cb15-14" data-line-number="14"><span class="co">#&gt; )</span></a>
-<a class="sourceLine" id="cb15-15" data-line-number="15"><span class="co">#&gt; Parsed with column specification:</span></a>
-<a class="sourceLine" id="cb15-16" data-line-number="16"><span class="co">#&gt; cols(</span></a>
-<a class="sourceLine" id="cb15-17" data-line-number="17"><span class="co">#&gt;   y = col_character()</span></a>
-<a class="sourceLine" id="cb15-18" data-line-number="18"><span class="co">#&gt; )</span></a>
-<a class="sourceLine" id="cb15-19" data-line-number="19"></a>
-<a class="sourceLine" id="cb15-20" data-line-number="20"><span class="co"># The data is now available in the global environment</span></a>
-<a class="sourceLine" id="cb15-21" data-line-number="21">csv1</a>
-<a class="sourceLine" id="cb15-22" data-line-number="22"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
-<a class="sourceLine" id="cb15-23" data-line-number="23"><span class="co">#&gt;       x</span></a>
-<a class="sourceLine" id="cb15-24" data-line-number="24"><span class="co">#&gt;   &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb15-25" data-line-number="25"><span class="co">#&gt; 1     1</span></a>
-<a class="sourceLine" id="cb15-26" data-line-number="26"><span class="co">#&gt; 2     2</span></a>
-<a class="sourceLine" id="cb15-27" data-line-number="27">csv2</a>
-<a class="sourceLine" id="cb15-28" data-line-number="28"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
-<a class="sourceLine" id="cb15-29" data-line-number="29"><span class="co">#&gt;   y    </span></a>
-<a class="sourceLine" id="cb15-30" data-line-number="30"><span class="co">#&gt;   &lt;chr&gt;</span></a>
-<a class="sourceLine" id="cb15-31" data-line-number="31"><span class="co">#&gt; 1 a    </span></a>
-<a class="sourceLine" id="cb15-32" data-line-number="32"><span class="co">#&gt; 2 b</span></a></code></pre></div>
+<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="co">#&gt;  [1] "_pkgdown.yml"     "cran-comments.md" "csv1.csv"        </span></a>
+<a class="sourceLine" id="cb15-3" data-line-number="3"><span class="co">#&gt;  [4] "csv2.csv"         "DESCRIPTION"      "docs"            </span></a>
+<a class="sourceLine" id="cb15-4" data-line-number="4"><span class="co">#&gt;  [7] "inst"             "LICENSE.md"       "man"             </span></a>
+<a class="sourceLine" id="cb15-5" data-line-number="5"><span class="co">#&gt; [10] "NAMESPACE"        "NEWS.md"          "R"               </span></a>
+<a class="sourceLine" id="cb15-6" data-line-number="6"><span class="co">#&gt; [13] "README.md"        "README.Rmd"       "tests"           </span></a>
+<a class="sourceLine" id="cb15-7" data-line-number="7"><span class="co">#&gt; [16] "tmp.R"            "tor.Rproj"        "vignettes"</span></a>
+<a class="sourceLine" id="cb15-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb15-9" data-line-number="9"><span class="kw"><a href="reference/load_any.html">load_any</a></span>(<span class="st">"."</span>, <span class="dt">.f =</span> readr<span class="op">::</span>read_csv, <span class="dt">regexp =</span> <span class="st">"[.]csv$"</span>)</a>
+<a class="sourceLine" id="cb15-10" data-line-number="10"><span class="co">#&gt; Parsed with column specification:</span></a>
+<a class="sourceLine" id="cb15-11" data-line-number="11"><span class="co">#&gt; cols(</span></a>
+<a class="sourceLine" id="cb15-12" data-line-number="12"><span class="co">#&gt;   x = col_double()</span></a>
+<a class="sourceLine" id="cb15-13" data-line-number="13"><span class="co">#&gt; )</span></a>
+<a class="sourceLine" id="cb15-14" data-line-number="14"><span class="co">#&gt; Parsed with column specification:</span></a>
+<a class="sourceLine" id="cb15-15" data-line-number="15"><span class="co">#&gt; cols(</span></a>
+<a class="sourceLine" id="cb15-16" data-line-number="16"><span class="co">#&gt;   y = col_character()</span></a>
+<a class="sourceLine" id="cb15-17" data-line-number="17"><span class="co">#&gt; )</span></a>
+<a class="sourceLine" id="cb15-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb15-19" data-line-number="19"><span class="co"># The data is now available in the global environment</span></a>
+<a class="sourceLine" id="cb15-20" data-line-number="20">csv1</a>
+<a class="sourceLine" id="cb15-21" data-line-number="21"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
+<a class="sourceLine" id="cb15-22" data-line-number="22"><span class="co">#&gt;       x</span></a>
+<a class="sourceLine" id="cb15-23" data-line-number="23"><span class="co">#&gt;   &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb15-24" data-line-number="24"><span class="co">#&gt; 1     1</span></a>
+<a class="sourceLine" id="cb15-25" data-line-number="25"><span class="co">#&gt; 2     2</span></a>
+<a class="sourceLine" id="cb15-26" data-line-number="26">csv2</a>
+<a class="sourceLine" id="cb15-27" data-line-number="27"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
+<a class="sourceLine" id="cb15-28" data-line-number="28"><span class="co">#&gt;   y    </span></a>
+<a class="sourceLine" id="cb15-29" data-line-number="29"><span class="co">#&gt;   &lt;chr&gt;</span></a>
+<a class="sourceLine" id="cb15-30" data-line-number="30"><span class="co">#&gt; 1 a    </span></a>
+<a class="sourceLine" id="cb15-31" data-line-number="31"><span class="co">#&gt; 2 b</span></a></code></pre></div>
 </div>
 </div>
 </div>
