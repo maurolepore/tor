@@ -22,7 +22,7 @@ navbar:
       href: news/index.html
   right:
   - icon: fa-github
-    href: https://github.com/maurolepore
+    href: https://github.com/maurolepore/tor
 
 reference:
   - title: All functions
