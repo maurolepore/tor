@@ -5,7 +5,8 @@ Authors@R:
     person(given = "Mauro",
            family = "Lepore",
            role = c("aut", "cre"),
-           email = "maurolepore@gmail.com")
+           email = "maurolepore@gmail.com",
+           comment = c(ORCID = "0000-0002-1986-7988"))
 Description: The goal of tor (to-R) is to help you to import
     multiple files from a single directory at once, and to do so as
     quickly, flexibly, and simply as possible.
