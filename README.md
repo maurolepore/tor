@@ -14,7 +14,7 @@ status](https://www.r-pkg.org/badges/version/tor)](https://cran.r-project.org/pa
 **tor** (*to-R*) helps you to import multiple files at once. For
 example:
 
-  - Run `list_rds()` to import all .csv files from your working
+  - Run `list_rds()` to import all .rds files from your working
     directory into a list.
   - Run `load_csv()` to import all .csv files from your working
     directory into your global environment.
