@@ -1,6 +1,6 @@
 # tor
 
-* Require R >= 3.1 (checked on travis).
+* Require R >= 3.2 (checked on travis).
 * Add ORCID.
 * Build and deploy site on Travis.
 # tor 1.1.1
