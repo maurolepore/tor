@@ -19,7 +19,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Mauro Lepore \email{maurolepore@gmail.com}
+\strong{Maintainer}: Mauro Lepore \email{maurolepore@gmail.com} (0000-0002-1986-7988)
 
 }
 \keyword{internal}
