@@ -1,8 +1,11 @@
 # tor
 
+* Add contributing info.
+* Check with R 3.4 on TravisCI.
 * Require R >= 3.2 (checked on travis).
 * Add ORCID.
 * Build and deploy site on Travis.
+
 # tor 1.1.1
 
 ## Feature
