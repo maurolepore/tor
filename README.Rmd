@@ -189,3 +189,9 @@ csv2
 # Related projects
 
 Two great packages to read and write data are [__rio__](https://CRAN.R-project.org/package=rio) and [__io__](https://CRAN.R-project.org/package=io).
+
+## Information
+
+* [Getting help](https://maurolepore.github.io/tor/SUPPORT.html).
+* [Contributing](https://maurolepore.github.io/tor/CONTRIBUTING.html).
+* [Contributor Code of Conduct](https://maurolepore.github.io/tor/CODE_OF_CONDUCT.html).
