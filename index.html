@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Import Multiple Files From a Single Directory at Once • tor</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Import Multiple Files From a Single Directory at Once">
 <meta property="og:description" content="The goal of tor (to-R) is to help you to import
     multiple files from a single directory at once, and to do so as
@@ -20,7 +21,7 @@
 <![endif]-->
 </head>
 <body>
-    <div class="container template-article">
+    <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -53,8 +54,7 @@
       <a href="articles/siteonly/tor-1-1-1.html">Version 1.1.1</a>
     </li>
     <li class="divider">
-    </li>
-<li>
+    <li>
       <a href="news/index.html">Change log</a>
     </li>
   </ul>
@@ -76,27 +76,24 @@
 <!--/.navbar -->
 
       
-      </header><div class="row">
-  <div class="col-md-9 contents">
-    
 
-    
-    
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+      </header><div class="row">
+  <div class="contents col-md-9">
+
 <div id="tor" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#tor" class="anchor"></a>tor</h1></div>
 
 <p><strong>tor</strong> (<em>to-R</em>) helps you to import multiple files at once. For example:</p>
 <ul>
-<li>Run <code><a href="reference/list_csv.html">list_rds()</a></code> to import all .csv files from your working directory into a list.</li>
+<li>Run <code><a href="reference/list_csv.html">list_rds()</a></code> to import all .rds files from your working directory into a list.</li>
 <li>Run <code><a href="reference/load_csv.html">load_csv()</a></code> to import all .csv files from your working directory into your global environment.</li>
 </ul>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>Install <strong>tor</strong> from CRAN with:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"tor"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"tor"</span>)</a></code></pre></div>
 <p>Or install the development version from GitHub with:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># install.packages("devtools")</span></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"maurolepore/tor"</span>)</a></code></pre></div>
@@ -104,52 +101,49 @@
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(tor)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(tor)</a></code></pre></div>
 <div id="list_-import-multiple-files-from-a-directory-into-a-list" class="section level3">
 <h3 class="hasAnchor">
 <a href="#list_-import-multiple-files-from-a-directory-into-a-list" class="anchor"></a><code>list_*()</code>: Import multiple files from a directory into a list</h3>
 <p>All functions default to importing files from the working directory.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list.files">dir</a></span>()</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt;  [1] "_pkgdown.yml"          "cran-comments.md"     </span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt;  [3] "csv1.csv"              "csv2.csv"             </span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt;  [5] "DESCRIPTION"           "inst"                 </span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt;  [7] "LICENSE.md"            "man"                  </span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt;  [9] "NAMESPACE"             "NEWS.md"              </span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt; [11] "R"                     "README.md"            </span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt; [13] "README.Rmd"            "tests"                </span></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt; [15] "tor_1.1.1.9000.tar.gz" "tor.Rcheck"           </span></a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">#&gt; [17] "tor.Rproj"             "vignettes"</span></a>
-<a class="sourceLine" id="cb4-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="kw"><a href="reference/list_csv.html">list_csv</a></span>()</a>
-<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">#&gt; Parsed with column specification:</span></a>
-<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co">#&gt; cols(</span></a>
-<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#&gt;   x = col_double()</span></a>
-<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">#&gt; )</span></a>
-<a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">#&gt; Parsed with column specification:</span></a>
-<a class="sourceLine" id="cb4-18" data-line-number="18"><span class="co">#&gt; cols(</span></a>
-<a class="sourceLine" id="cb4-19" data-line-number="19"><span class="co">#&gt;   y = col_character()</span></a>
-<a class="sourceLine" id="cb4-20" data-line-number="20"><span class="co">#&gt; )</span></a>
-<a class="sourceLine" id="cb4-21" data-line-number="21"><span class="co">#&gt; $csv1</span></a>
-<a class="sourceLine" id="cb4-22" data-line-number="22"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
-<a class="sourceLine" id="cb4-23" data-line-number="23"><span class="co">#&gt;       x</span></a>
-<a class="sourceLine" id="cb4-24" data-line-number="24"><span class="co">#&gt;   &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb4-25" data-line-number="25"><span class="co">#&gt; 1     1</span></a>
-<a class="sourceLine" id="cb4-26" data-line-number="26"><span class="co">#&gt; 2     2</span></a>
-<a class="sourceLine" id="cb4-27" data-line-number="27"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-28" data-line-number="28"><span class="co">#&gt; $csv2</span></a>
-<a class="sourceLine" id="cb4-29" data-line-number="29"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
-<a class="sourceLine" id="cb4-30" data-line-number="30"><span class="co">#&gt;   y    </span></a>
-<a class="sourceLine" id="cb4-31" data-line-number="31"><span class="co">#&gt;   &lt;chr&gt;</span></a>
-<a class="sourceLine" id="cb4-32" data-line-number="32"><span class="co">#&gt; 1 a    </span></a>
-<a class="sourceLine" id="cb4-33" data-line-number="33"><span class="co">#&gt; 2 b</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>()</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt;  [1] "_pkgdown.yml"     "cran-comments.md" "csv1.csv"        </span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt;  [4] "csv2.csv"         "DESCRIPTION"      "docs"            </span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt;  [7] "inst"             "LICENSE.md"       "man"             </span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt; [10] "NAMESPACE"        "NEWS.md"          "R"               </span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt; [13] "README.md"        "README.Rmd"       "tests"           </span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt; [16] "tmp.R"            "tor.Rproj"        "vignettes"</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="kw"><a href="reference/list_csv.html">list_csv</a></span>()</a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">#&gt; Parsed with column specification:</span></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">#&gt; cols(</span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">#&gt;   x = col_double()</span></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">#&gt; )</span></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co">#&gt; Parsed with column specification:</span></a>
+<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#&gt; cols(</span></a>
+<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">#&gt;   y = col_character()</span></a>
+<a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">#&gt; )</span></a>
+<a class="sourceLine" id="cb4-18" data-line-number="18"><span class="co">#&gt; $csv1</span></a>
+<a class="sourceLine" id="cb4-19" data-line-number="19"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
+<a class="sourceLine" id="cb4-20" data-line-number="20"><span class="co">#&gt;       x</span></a>
+<a class="sourceLine" id="cb4-21" data-line-number="21"><span class="co">#&gt;   &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb4-22" data-line-number="22"><span class="co">#&gt; 1     1</span></a>
+<a class="sourceLine" id="cb4-23" data-line-number="23"><span class="co">#&gt; 2     2</span></a>
+<a class="sourceLine" id="cb4-24" data-line-number="24"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb4-25" data-line-number="25"><span class="co">#&gt; $csv2</span></a>
+<a class="sourceLine" id="cb4-26" data-line-number="26"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
+<a class="sourceLine" id="cb4-27" data-line-number="27"><span class="co">#&gt;   y    </span></a>
+<a class="sourceLine" id="cb4-28" data-line-number="28"><span class="co">#&gt;   &lt;chr&gt;</span></a>
+<a class="sourceLine" id="cb4-29" data-line-number="29"><span class="co">#&gt; 1 a    </span></a>
+<a class="sourceLine" id="cb4-30" data-line-number="30"><span class="co">#&gt; 2 b</span></a></code></pre></div>
 <p>Often you will specify a <code>path</code> to read from.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># Helpes create paths to examples</span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw"><a href="reference/tor_example.html">tor_example</a></span>()</a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt; [1] "csv"   "mixed" "rdata" "rds"   "tsv"</span></a>
 <a class="sourceLine" id="cb5-4" data-line-number="4"></a>
 <a class="sourceLine" id="cb5-5" data-line-number="5">(path_rds &lt;-<span class="st"> </span><span class="kw"><a href="reference/tor_example.html">tor_example</a></span>(<span class="st">"rds"</span>))</a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt; [1] "/home/travis/R/Library/tor/extdata/rds"</span></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list.files">dir</a></span>(path_rds)</a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt; [1] "C:/Users/LeporeM/Documents/R/win-library/3.5/tor/extdata/rds"</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="kw"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>(path_rds)</a>
 <a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#&gt; [1] "rds1.rds" "rds2.rds"</span></a>
 <a class="sourceLine" id="cb5-9" data-line-number="9"></a>
 <a class="sourceLine" id="cb5-10" data-line-number="10"><span class="kw"><a href="reference/list_csv.html">list_rds</a></span>(path_rds)</a>
@@ -168,7 +162,7 @@
 <a class="sourceLine" id="cb5-23" data-line-number="23"><span class="co">#&gt; 2 b</span></a></code></pre></div>
 <p>You may read all files with a particular extension.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">path_mixed &lt;-<span class="st"> </span><span class="kw"><a href="reference/tor_example.html">tor_example</a></span>(<span class="st">"mixed"</span>)</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list.files">dir</a></span>(path_mixed)</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>(path_mixed)</a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#&gt; [1] "csv.csv"           "lower_rdata.rdata" "rda.rda"          </span></a>
 <a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">#&gt; [4] "upper_rdata.RData"</span></a>
 <a class="sourceLine" id="cb6-5" data-line-number="5"></a>
@@ -203,8 +197,8 @@
 <a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">#&gt; 2 b</span></a></code></pre></div>
 <p><code><a href="reference/list_any.html">list_any()</a></code> is the most flexible function. You supply the function to read with.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">(path_csv &lt;-<span class="st"> </span><span class="kw"><a href="reference/tor_example.html">tor_example</a></span>(<span class="st">"csv"</span>))</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">#&gt; [1] "/home/travis/R/Library/tor/extdata/csv"</span></a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list.files">dir</a></span>(path_csv)</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">#&gt; [1] "C:/Users/LeporeM/Documents/R/win-library/3.5/tor/extdata/csv"</span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>(path_csv)</a>
 <a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co">#&gt; [1] "csv1.csv" "csv2.csv"</span></a>
 <a class="sourceLine" id="cb8-5" data-line-number="5"></a>
 <a class="sourceLine" id="cb8-6" data-line-number="6"><span class="kw"><a href="reference/list_any.html">list_any</a></span>(path_csv, read.csv)</a>
@@ -223,15 +217,15 @@
 <a class="sourceLine" id="cb8-19" data-line-number="19"><span class="co">#&gt; 2 b</span></a></code></pre></div>
 <p>It understands lambda functions and formulas (powered by <a href="https://rlang.r-lib.org/"><strong>rlang</strong></a>).</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># Use the pipe (%&gt;%)</span></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(magrittr)</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(magrittr)</a>
 <a class="sourceLine" id="cb9-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb9-4" data-line-number="4">(path_rdata &lt;-<span class="st"> </span><span class="kw"><a href="reference/tor_example.html">tor_example</a></span>(<span class="st">"rdata"</span>))</a>
-<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="co">#&gt; [1] "/home/travis/R/Library/tor/extdata/rdata"</span></a>
-<a class="sourceLine" id="cb9-6" data-line-number="6"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list.files">dir</a></span>(path_rdata)</a>
+<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="co">#&gt; [1] "C:/Users/LeporeM/Documents/R/win-library/3.5/tor/extdata/rdata"</span></a>
+<a class="sourceLine" id="cb9-6" data-line-number="6"><span class="kw"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>(path_rdata)</a>
 <a class="sourceLine" id="cb9-7" data-line-number="7"><span class="co">#&gt; [1] "rdata1.rdata" "rdata2.rdata"</span></a>
 <a class="sourceLine" id="cb9-8" data-line-number="8"></a>
 <a class="sourceLine" id="cb9-9" data-line-number="9">path_rdata <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb9-10" data-line-number="10"><span class="st">  </span><span class="kw"><a href="reference/list_any.html">list_any</a></span>(<span class="cf">function</span>(x) <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/get">get</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/load">load</a></span>(x)))</a>
+<a class="sourceLine" id="cb9-10" data-line-number="10"><span class="st">  </span><span class="kw"><a href="reference/list_any.html">list_any</a></span>(<span class="cf">function</span>(x) <span class="kw"><a href="https://rdrr.io/r/base/get.html">get</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/load.html">load</a></span>(x)))</a>
 <a class="sourceLine" id="cb9-11" data-line-number="11"><span class="co">#&gt; $rdata1</span></a>
 <a class="sourceLine" id="cb9-12" data-line-number="12"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
 <a class="sourceLine" id="cb9-13" data-line-number="13"><span class="co">#&gt;       x</span></a>
@@ -248,7 +242,7 @@
 <a class="sourceLine" id="cb9-24" data-line-number="24"></a>
 <a class="sourceLine" id="cb9-25" data-line-number="25"><span class="co"># Same</span></a>
 <a class="sourceLine" id="cb9-26" data-line-number="26">path_rdata <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb9-27" data-line-number="27"><span class="st">  </span><span class="kw"><a href="reference/list_any.html">list_any</a></span>(<span class="op">~</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/get">get</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/load">load</a></span>(.x)))</a>
+<a class="sourceLine" id="cb9-27" data-line-number="27"><span class="st">  </span><span class="kw"><a href="reference/list_any.html">list_any</a></span>(<span class="op">~</span><span class="kw"><a href="https://rdrr.io/r/base/get.html">get</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/load.html">load</a></span>(.x)))</a>
 <a class="sourceLine" id="cb9-28" data-line-number="28"><span class="co">#&gt; $rdata1</span></a>
 <a class="sourceLine" id="cb9-29" data-line-number="29"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
 <a class="sourceLine" id="cb9-30" data-line-number="30"><span class="co">#&gt;       x</span></a>
@@ -286,7 +280,7 @@
 <a class="sourceLine" id="cb10-21" data-line-number="21"><span class="co">#&gt; 1 b</span></a>
 <a class="sourceLine" id="cb10-22" data-line-number="22"></a>
 <a class="sourceLine" id="cb10-23" data-line-number="23">path_csv <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb10-24" data-line-number="24"><span class="st">  </span><span class="kw"><a href="reference/list_any.html">list_any</a></span>(<span class="op">~</span><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/read.table">read.csv</a></span>(., <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>))</a>
+<a class="sourceLine" id="cb10-24" data-line-number="24"><span class="st">  </span><span class="kw"><a href="reference/list_any.html">list_any</a></span>(<span class="op">~</span><span class="kw"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span>(., <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>))</a>
 <a class="sourceLine" id="cb10-25" data-line-number="25"><span class="co">#&gt; $csv1</span></a>
 <a class="sourceLine" id="cb10-26" data-line-number="26"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
 <a class="sourceLine" id="cb10-27" data-line-number="27"><span class="co">#&gt;       x</span></a>
@@ -302,12 +296,12 @@
 <a class="sourceLine" id="cb10-37" data-line-number="37"><span class="co">#&gt; 2 b</span></a></code></pre></div>
 <p>It also provides the arguments <code>regexp</code>, <code>ignore.case</code>, and <code>invert</code> to pick specific files in a directory (powered by <a href="https://fs.r-lib.org/"><strong>fs</strong></a>).</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">path_mixed &lt;-<span class="st"> </span><span class="kw"><a href="reference/tor_example.html">tor_example</a></span>(<span class="st">"mixed"</span>)</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list.files">dir</a></span>(path_mixed)</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>(path_mixed)</a>
 <a class="sourceLine" id="cb11-3" data-line-number="3"><span class="co">#&gt; [1] "csv.csv"           "lower_rdata.rdata" "rda.rda"          </span></a>
 <a class="sourceLine" id="cb11-4" data-line-number="4"><span class="co">#&gt; [4] "upper_rdata.RData"</span></a>
 <a class="sourceLine" id="cb11-5" data-line-number="5"></a>
 <a class="sourceLine" id="cb11-6" data-line-number="6">path_mixed <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb11-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="reference/list_any.html">list_any</a></span>(<span class="op">~</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/get">get</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/load">load</a></span>(.)), <span class="st">"[.]Rdata$"</span>, <span class="dt">ignore.case =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb11-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="reference/list_any.html">list_any</a></span>(<span class="op">~</span><span class="kw"><a href="https://rdrr.io/r/base/get.html">get</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/load.html">load</a></span>(.)), <span class="st">"[.]Rdata$"</span>, <span class="dt">ignore.case =</span> <span class="ot">TRUE</span>)</a>
 <a class="sourceLine" id="cb11-8" data-line-number="8"><span class="co">#&gt; $lower_rdata</span></a>
 <a class="sourceLine" id="cb11-9" data-line-number="9"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
 <a class="sourceLine" id="cb11-10" data-line-number="10"><span class="co">#&gt;   y    </span></a>
@@ -323,7 +317,7 @@
 <a class="sourceLine" id="cb11-20" data-line-number="20"><span class="co">#&gt; 2 b</span></a>
 <a class="sourceLine" id="cb11-21" data-line-number="21"></a>
 <a class="sourceLine" id="cb11-22" data-line-number="22">path_mixed <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb11-23" data-line-number="23"><span class="st">  </span><span class="kw"><a href="reference/list_any.html">list_any</a></span>(<span class="op">~</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/get">get</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/load">load</a></span>(.)), <span class="dt">regexp =</span> <span class="st">"[.]csv$"</span>, <span class="dt">invert =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb11-23" data-line-number="23"><span class="st">  </span><span class="kw"><a href="reference/list_any.html">list_any</a></span>(<span class="op">~</span><span class="kw"><a href="https://rdrr.io/r/base/get.html">get</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/load.html">load</a></span>(.)), <span class="dt">regexp =</span> <span class="st">"[.]csv$"</span>, <span class="dt">invert =</span> <span class="ot">TRUE</span>)</a>
 <a class="sourceLine" id="cb11-24" data-line-number="24"><span class="co">#&gt; $lower_rdata</span></a>
 <a class="sourceLine" id="cb11-25" data-line-number="25"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
 <a class="sourceLine" id="cb11-26" data-line-number="26"><span class="co">#&gt;   y    </span></a>
@@ -350,52 +344,49 @@
 <a href="#load_-load-multiple-files-from-a-directory-into-an-environment" class="anchor"></a><code>load_*()</code>: Load multiple files from a directory into an environment</h3>
 <p>All functions default to importing files from the working directory and into the global environment.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co"># The working directory contains .csv files</span></a>
-<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list.files">dir</a></span>()</a>
-<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="co">#&gt;  [1] "_pkgdown.yml"          "cran-comments.md"     </span></a>
-<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="co">#&gt;  [3] "csv1.csv"              "csv2.csv"             </span></a>
-<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="co">#&gt;  [5] "DESCRIPTION"           "inst"                 </span></a>
-<a class="sourceLine" id="cb12-6" data-line-number="6"><span class="co">#&gt;  [7] "LICENSE.md"            "man"                  </span></a>
-<a class="sourceLine" id="cb12-7" data-line-number="7"><span class="co">#&gt;  [9] "NAMESPACE"             "NEWS.md"              </span></a>
-<a class="sourceLine" id="cb12-8" data-line-number="8"><span class="co">#&gt; [11] "R"                     "README.md"            </span></a>
-<a class="sourceLine" id="cb12-9" data-line-number="9"><span class="co">#&gt; [13] "README.Rmd"            "tests"                </span></a>
-<a class="sourceLine" id="cb12-10" data-line-number="10"><span class="co">#&gt; [15] "tor_1.1.1.9000.tar.gz" "tor.Rcheck"           </span></a>
-<a class="sourceLine" id="cb12-11" data-line-number="11"><span class="co">#&gt; [17] "tor.Rproj"             "vignettes"</span></a>
-<a class="sourceLine" id="cb12-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb12-13" data-line-number="13"><span class="kw"><a href="reference/load_csv.html">load_csv</a></span>()</a>
-<a class="sourceLine" id="cb12-14" data-line-number="14"><span class="co">#&gt; Parsed with column specification:</span></a>
-<a class="sourceLine" id="cb12-15" data-line-number="15"><span class="co">#&gt; cols(</span></a>
-<a class="sourceLine" id="cb12-16" data-line-number="16"><span class="co">#&gt;   x = col_double()</span></a>
-<a class="sourceLine" id="cb12-17" data-line-number="17"><span class="co">#&gt; )</span></a>
-<a class="sourceLine" id="cb12-18" data-line-number="18"><span class="co">#&gt; Parsed with column specification:</span></a>
-<a class="sourceLine" id="cb12-19" data-line-number="19"><span class="co">#&gt; cols(</span></a>
-<a class="sourceLine" id="cb12-20" data-line-number="20"><span class="co">#&gt;   y = col_character()</span></a>
-<a class="sourceLine" id="cb12-21" data-line-number="21"><span class="co">#&gt; )</span></a>
-<a class="sourceLine" id="cb12-22" data-line-number="22"></a>
-<a class="sourceLine" id="cb12-23" data-line-number="23"><span class="co"># Each file is now available as a dataframe in the global environment</span></a>
-<a class="sourceLine" id="cb12-24" data-line-number="24">csv1</a>
-<a class="sourceLine" id="cb12-25" data-line-number="25"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
-<a class="sourceLine" id="cb12-26" data-line-number="26"><span class="co">#&gt;       x</span></a>
-<a class="sourceLine" id="cb12-27" data-line-number="27"><span class="co">#&gt;   &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb12-28" data-line-number="28"><span class="co">#&gt; 1     1</span></a>
-<a class="sourceLine" id="cb12-29" data-line-number="29"><span class="co">#&gt; 2     2</span></a>
-<a class="sourceLine" id="cb12-30" data-line-number="30">csv2</a>
-<a class="sourceLine" id="cb12-31" data-line-number="31"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
-<a class="sourceLine" id="cb12-32" data-line-number="32"><span class="co">#&gt;   y    </span></a>
-<a class="sourceLine" id="cb12-33" data-line-number="33"><span class="co">#&gt;   &lt;chr&gt;</span></a>
-<a class="sourceLine" id="cb12-34" data-line-number="34"><span class="co">#&gt; 1 a    </span></a>
-<a class="sourceLine" id="cb12-35" data-line-number="35"><span class="co">#&gt; 2 b</span></a>
-<a class="sourceLine" id="cb12-36" data-line-number="36"></a>
-<a class="sourceLine" id="cb12-37" data-line-number="37"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rm">rm</a></span>(<span class="dt">list =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/ls">ls</a></span>())</a></code></pre></div>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>()</a>
+<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="co">#&gt;  [1] "_pkgdown.yml"     "cran-comments.md" "csv1.csv"        </span></a>
+<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="co">#&gt;  [4] "csv2.csv"         "DESCRIPTION"      "docs"            </span></a>
+<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="co">#&gt;  [7] "inst"             "LICENSE.md"       "man"             </span></a>
+<a class="sourceLine" id="cb12-6" data-line-number="6"><span class="co">#&gt; [10] "NAMESPACE"        "NEWS.md"          "R"               </span></a>
+<a class="sourceLine" id="cb12-7" data-line-number="7"><span class="co">#&gt; [13] "README.md"        "README.Rmd"       "tests"           </span></a>
+<a class="sourceLine" id="cb12-8" data-line-number="8"><span class="co">#&gt; [16] "tmp.R"            "tor.Rproj"        "vignettes"</span></a>
+<a class="sourceLine" id="cb12-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb12-10" data-line-number="10"><span class="kw"><a href="reference/load_csv.html">load_csv</a></span>()</a>
+<a class="sourceLine" id="cb12-11" data-line-number="11"><span class="co">#&gt; Parsed with column specification:</span></a>
+<a class="sourceLine" id="cb12-12" data-line-number="12"><span class="co">#&gt; cols(</span></a>
+<a class="sourceLine" id="cb12-13" data-line-number="13"><span class="co">#&gt;   x = col_double()</span></a>
+<a class="sourceLine" id="cb12-14" data-line-number="14"><span class="co">#&gt; )</span></a>
+<a class="sourceLine" id="cb12-15" data-line-number="15"><span class="co">#&gt; Parsed with column specification:</span></a>
+<a class="sourceLine" id="cb12-16" data-line-number="16"><span class="co">#&gt; cols(</span></a>
+<a class="sourceLine" id="cb12-17" data-line-number="17"><span class="co">#&gt;   y = col_character()</span></a>
+<a class="sourceLine" id="cb12-18" data-line-number="18"><span class="co">#&gt; )</span></a>
+<a class="sourceLine" id="cb12-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb12-20" data-line-number="20"><span class="co"># Each file is now available as a dataframe in the global environment</span></a>
+<a class="sourceLine" id="cb12-21" data-line-number="21">csv1</a>
+<a class="sourceLine" id="cb12-22" data-line-number="22"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
+<a class="sourceLine" id="cb12-23" data-line-number="23"><span class="co">#&gt;       x</span></a>
+<a class="sourceLine" id="cb12-24" data-line-number="24"><span class="co">#&gt;   &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb12-25" data-line-number="25"><span class="co">#&gt; 1     1</span></a>
+<a class="sourceLine" id="cb12-26" data-line-number="26"><span class="co">#&gt; 2     2</span></a>
+<a class="sourceLine" id="cb12-27" data-line-number="27">csv2</a>
+<a class="sourceLine" id="cb12-28" data-line-number="28"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
+<a class="sourceLine" id="cb12-29" data-line-number="29"><span class="co">#&gt;   y    </span></a>
+<a class="sourceLine" id="cb12-30" data-line-number="30"><span class="co">#&gt;   &lt;chr&gt;</span></a>
+<a class="sourceLine" id="cb12-31" data-line-number="31"><span class="co">#&gt; 1 a    </span></a>
+<a class="sourceLine" id="cb12-32" data-line-number="32"><span class="co">#&gt; 2 b</span></a>
+<a class="sourceLine" id="cb12-33" data-line-number="33"></a>
+<a class="sourceLine" id="cb12-34" data-line-number="34"><span class="kw"><a href="https://rdrr.io/r/base/rm.html">rm</a></span>(<span class="dt">list =</span> <span class="kw"><a href="https://rdrr.io/r/base/ls.html">ls</a></span>())</a></code></pre></div>
 <p>You may import files from a specific <code>path</code>.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">(path_mixed &lt;-<span class="st"> </span><span class="kw"><a href="reference/tor_example.html">tor_example</a></span>(<span class="st">"mixed"</span>))</a>
-<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="co">#&gt; [1] "/home/travis/R/Library/tor/extdata/mixed"</span></a>
-<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list.files">dir</a></span>(path_mixed)</a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="co">#&gt; [1] "C:/Users/LeporeM/Documents/R/win-library/3.5/tor/extdata/mixed"</span></a>
+<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>(path_mixed)</a>
 <a class="sourceLine" id="cb13-4" data-line-number="4"><span class="co">#&gt; [1] "csv.csv"           "lower_rdata.rdata" "rda.rda"          </span></a>
 <a class="sourceLine" id="cb13-5" data-line-number="5"><span class="co">#&gt; [4] "upper_rdata.RData"</span></a>
 <a class="sourceLine" id="cb13-6" data-line-number="6"></a>
 <a class="sourceLine" id="cb13-7" data-line-number="7"><span class="kw"><a href="reference/load_csv.html">load_rdata</a></span>(path_mixed)</a>
 <a class="sourceLine" id="cb13-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb13-9" data-line-number="9"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/ls">ls</a></span>()</a>
+<a class="sourceLine" id="cb13-9" data-line-number="9"><span class="kw"><a href="https://rdrr.io/r/base/ls.html">ls</a></span>()</a>
 <a class="sourceLine" id="cb13-10" data-line-number="10"><span class="co">#&gt; [1] "lower_rdata" "path_mixed"  "rda"         "upper_rdata"</span></a>
 <a class="sourceLine" id="cb13-11" data-line-number="11">rda</a>
 <a class="sourceLine" id="cb13-12" data-line-number="12"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
@@ -404,49 +395,46 @@
 <a class="sourceLine" id="cb13-15" data-line-number="15"><span class="co">#&gt; 1 a    </span></a>
 <a class="sourceLine" id="cb13-16" data-line-number="16"><span class="co">#&gt; 2 b</span></a></code></pre></div>
 <p>You may import files into a specific <code>envir</code>onment.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">e &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/environment">new.env</a></span>()</a>
-<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/ls">ls</a></span>(e)</a>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">e &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/environment.html">new.env</a></span>()</a>
+<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/ls.html">ls</a></span>(e)</a>
 <a class="sourceLine" id="cb14-3" data-line-number="3"><span class="co">#&gt; character(0)</span></a>
 <a class="sourceLine" id="cb14-4" data-line-number="4"></a>
 <a class="sourceLine" id="cb14-5" data-line-number="5"><span class="kw"><a href="reference/load_csv.html">load_rdata</a></span>(path_mixed, <span class="dt">envir =</span> e)</a>
 <a class="sourceLine" id="cb14-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb14-7" data-line-number="7"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/ls">ls</a></span>(e)</a>
+<a class="sourceLine" id="cb14-7" data-line-number="7"><span class="kw"><a href="https://rdrr.io/r/base/ls.html">ls</a></span>(e)</a>
 <a class="sourceLine" id="cb14-8" data-line-number="8"><span class="co">#&gt; [1] "lower_rdata" "rda"         "upper_rdata"</span></a></code></pre></div>
 <p>For more flexibility use <code><a href="reference/load_any.html">load_any()</a></code> with a function able to read one file of the format you want to import.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list.files">dir</a></span>()</a>
-<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="co">#&gt;  [1] "_pkgdown.yml"          "cran-comments.md"     </span></a>
-<a class="sourceLine" id="cb15-3" data-line-number="3"><span class="co">#&gt;  [3] "csv1.csv"              "csv2.csv"             </span></a>
-<a class="sourceLine" id="cb15-4" data-line-number="4"><span class="co">#&gt;  [5] "DESCRIPTION"           "inst"                 </span></a>
-<a class="sourceLine" id="cb15-5" data-line-number="5"><span class="co">#&gt;  [7] "LICENSE.md"            "man"                  </span></a>
-<a class="sourceLine" id="cb15-6" data-line-number="6"><span class="co">#&gt;  [9] "NAMESPACE"             "NEWS.md"              </span></a>
-<a class="sourceLine" id="cb15-7" data-line-number="7"><span class="co">#&gt; [11] "R"                     "README.md"            </span></a>
-<a class="sourceLine" id="cb15-8" data-line-number="8"><span class="co">#&gt; [13] "README.Rmd"            "tests"                </span></a>
-<a class="sourceLine" id="cb15-9" data-line-number="9"><span class="co">#&gt; [15] "tor_1.1.1.9000.tar.gz" "tor.Rcheck"           </span></a>
-<a class="sourceLine" id="cb15-10" data-line-number="10"><span class="co">#&gt; [17] "tor.Rproj"             "vignettes"</span></a>
-<a class="sourceLine" id="cb15-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb15-12" data-line-number="12"><span class="kw"><a href="reference/load_any.html">load_any</a></span>(<span class="st">"."</span>, <span class="dt">.f =</span> readr<span class="op">::</span>read_csv, <span class="dt">regexp =</span> <span class="st">"[.]csv$"</span>)</a>
-<a class="sourceLine" id="cb15-13" data-line-number="13"><span class="co">#&gt; Parsed with column specification:</span></a>
-<a class="sourceLine" id="cb15-14" data-line-number="14"><span class="co">#&gt; cols(</span></a>
-<a class="sourceLine" id="cb15-15" data-line-number="15"><span class="co">#&gt;   x = col_double()</span></a>
-<a class="sourceLine" id="cb15-16" data-line-number="16"><span class="co">#&gt; )</span></a>
-<a class="sourceLine" id="cb15-17" data-line-number="17"><span class="co">#&gt; Parsed with column specification:</span></a>
-<a class="sourceLine" id="cb15-18" data-line-number="18"><span class="co">#&gt; cols(</span></a>
-<a class="sourceLine" id="cb15-19" data-line-number="19"><span class="co">#&gt;   y = col_character()</span></a>
-<a class="sourceLine" id="cb15-20" data-line-number="20"><span class="co">#&gt; )</span></a>
-<a class="sourceLine" id="cb15-21" data-line-number="21"></a>
-<a class="sourceLine" id="cb15-22" data-line-number="22"><span class="co"># The data is now available in the global environment</span></a>
-<a class="sourceLine" id="cb15-23" data-line-number="23">csv1</a>
-<a class="sourceLine" id="cb15-24" data-line-number="24"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
-<a class="sourceLine" id="cb15-25" data-line-number="25"><span class="co">#&gt;       x</span></a>
-<a class="sourceLine" id="cb15-26" data-line-number="26"><span class="co">#&gt;   &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb15-27" data-line-number="27"><span class="co">#&gt; 1     1</span></a>
-<a class="sourceLine" id="cb15-28" data-line-number="28"><span class="co">#&gt; 2     2</span></a>
-<a class="sourceLine" id="cb15-29" data-line-number="29">csv2</a>
-<a class="sourceLine" id="cb15-30" data-line-number="30"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
-<a class="sourceLine" id="cb15-31" data-line-number="31"><span class="co">#&gt;   y    </span></a>
-<a class="sourceLine" id="cb15-32" data-line-number="32"><span class="co">#&gt;   &lt;chr&gt;</span></a>
-<a class="sourceLine" id="cb15-33" data-line-number="33"><span class="co">#&gt; 1 a    </span></a>
-<a class="sourceLine" id="cb15-34" data-line-number="34"><span class="co">#&gt; 2 b</span></a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>()</a>
+<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="co">#&gt;  [1] "_pkgdown.yml"     "cran-comments.md" "csv1.csv"        </span></a>
+<a class="sourceLine" id="cb15-3" data-line-number="3"><span class="co">#&gt;  [4] "csv2.csv"         "DESCRIPTION"      "docs"            </span></a>
+<a class="sourceLine" id="cb15-4" data-line-number="4"><span class="co">#&gt;  [7] "inst"             "LICENSE.md"       "man"             </span></a>
+<a class="sourceLine" id="cb15-5" data-line-number="5"><span class="co">#&gt; [10] "NAMESPACE"        "NEWS.md"          "R"               </span></a>
+<a class="sourceLine" id="cb15-6" data-line-number="6"><span class="co">#&gt; [13] "README.md"        "README.Rmd"       "tests"           </span></a>
+<a class="sourceLine" id="cb15-7" data-line-number="7"><span class="co">#&gt; [16] "tmp.R"            "tor.Rproj"        "vignettes"</span></a>
+<a class="sourceLine" id="cb15-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb15-9" data-line-number="9"><span class="kw"><a href="reference/load_any.html">load_any</a></span>(<span class="st">"."</span>, <span class="dt">.f =</span> readr<span class="op">::</span>read_csv, <span class="dt">regexp =</span> <span class="st">"[.]csv$"</span>)</a>
+<a class="sourceLine" id="cb15-10" data-line-number="10"><span class="co">#&gt; Parsed with column specification:</span></a>
+<a class="sourceLine" id="cb15-11" data-line-number="11"><span class="co">#&gt; cols(</span></a>
+<a class="sourceLine" id="cb15-12" data-line-number="12"><span class="co">#&gt;   x = col_double()</span></a>
+<a class="sourceLine" id="cb15-13" data-line-number="13"><span class="co">#&gt; )</span></a>
+<a class="sourceLine" id="cb15-14" data-line-number="14"><span class="co">#&gt; Parsed with column specification:</span></a>
+<a class="sourceLine" id="cb15-15" data-line-number="15"><span class="co">#&gt; cols(</span></a>
+<a class="sourceLine" id="cb15-16" data-line-number="16"><span class="co">#&gt;   y = col_character()</span></a>
+<a class="sourceLine" id="cb15-17" data-line-number="17"><span class="co">#&gt; )</span></a>
+<a class="sourceLine" id="cb15-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb15-19" data-line-number="19"><span class="co"># The data is now available in the global environment</span></a>
+<a class="sourceLine" id="cb15-20" data-line-number="20">csv1</a>
+<a class="sourceLine" id="cb15-21" data-line-number="21"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
+<a class="sourceLine" id="cb15-22" data-line-number="22"><span class="co">#&gt;       x</span></a>
+<a class="sourceLine" id="cb15-23" data-line-number="23"><span class="co">#&gt;   &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb15-24" data-line-number="24"><span class="co">#&gt; 1     1</span></a>
+<a class="sourceLine" id="cb15-25" data-line-number="25"><span class="co">#&gt; 2     2</span></a>
+<a class="sourceLine" id="cb15-26" data-line-number="26">csv2</a>
+<a class="sourceLine" id="cb15-27" data-line-number="27"><span class="co">#&gt; # A tibble: 2 x 1</span></a>
+<a class="sourceLine" id="cb15-28" data-line-number="28"><span class="co">#&gt;   y    </span></a>
+<a class="sourceLine" id="cb15-29" data-line-number="29"><span class="co">#&gt;   &lt;chr&gt;</span></a>
+<a class="sourceLine" id="cb15-30" data-line-number="30"><span class="co">#&gt; 1 a    </span></a>
+<a class="sourceLine" id="cb15-31" data-line-number="31"><span class="co">#&gt; 2 b</span></a></code></pre></div>
 </div>
 </div>
 </div>
@@ -454,19 +442,8 @@
 <h1 class="hasAnchor">
 <a href="#related-projects" class="anchor"></a>Related projects</h1>
 <p>Two great packages to read and write data are <a href="https://CRAN.R-project.org/package=rio"><strong>rio</strong></a> and <a href="https://CRAN.R-project.org/package=io"><strong>io</strong></a>.</p>
-<div id="information" class="section level2">
-<h2 class="hasAnchor">
-<a href="#information" class="anchor"></a>Information</h2>
-<ul>
-<li>
-<a href="https://maurolepore.github.io/tor/SUPPORT.html">Getting help</a>.</li>
-<li>
-<a href="https://maurolepore.github.io/tor/CONTRIBUTING.html">Contributing</a>.</li>
-<li>
-<a href="https://maurolepore.github.io/tor/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>.</li>
-</ul>
 </div>
-</div>
+
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -488,16 +465,22 @@
 <li><small><a href="https://www.r-project.org/Licenses/GPL-3">GPL-3</a></small></li>
 </ul>
 </div>
+<div class="community">
+<h2>Community</h2>
+<ul class="list-unstyled">
+<li><a href="CONTRIBUTING.html">Contributing guide</a></li>
+<li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
+</ul>
+</div>
 <div class="developers">
 <h2>Developers</h2>
 <ul class="list-unstyled">
 <li>
-<a href="https://forestgeo.si.edu/mauro-lepore">Mauro Lepore</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-1986-7988" target="orcid.widget"><img src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" class="orcid" alt="ORCID" height="16"></a> </li>
+<a href="https://forestgeo.si.edu/mauro-lepore">Mauro Lepore</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-1986-7988" target="orcid.widget"><img src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" class="orcid" alt="ORCID"></a> </li>
 </ul>
 </div>
 
-
-      <div class="dev-status">
+  <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="lifecycle"></a></li>
@@ -507,7 +490,6 @@
 </ul>
 </div>
 </div>
-
 </div>
 
 
@@ -516,12 +498,14 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.0.</p>
 </div>
+
       </footer>
 </div>
 
   
+
 
   </body>
 </html>
