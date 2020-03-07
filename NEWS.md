@@ -1,7 +1,6 @@
-# tor
+# tor 1.1.2
 
 * No longer assume `stringsAsFactor` defaults to `TRUE`.
-* Add contributing info.
 * Require R >= 3.2 (checked on GitHub actions).
 
 # tor 1.1.1
