@@ -18,8 +18,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/v4-shims.min.css" integrity="sha256-A6jcAdwFD48VMjlI3GDxUd+eCQa7/KWy6G9oe/ovaPA=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tor</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.2</span>
       </span>
     </div>
 
@@ -87,7 +87,7 @@
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-header">Release notes</li>
     <li>
-      <a href="../articles/siteonly/tor-1-1-1.html">Version 1.1.1</a>
+      <a href="../articles/tor-1-1-1.html">Version 1.1.1</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -125,17 +125,30 @@
     <p>These functions wrap common use-cases of <code><a href='list_any.html'>list_any()</a></code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>list_csv</span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>"[.]csv$"</span>, <span class='kw'>ignore.case</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>invert</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'>list_csv</span>(
+  <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>,
+  <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>"[.]csv$"</span>,
+  <span class='kw'>ignore.case</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>invert</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='no'>...</span>
+)
 
-<span class='fu'>list_tsv</span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>"[.]tsv$"</span>, <span class='kw'>ignore.case</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>invert</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)
+<span class='fu'>list_tsv</span>(
+  <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>,
+  <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>"[.]tsv$"</span>,
+  <span class='kw'>ignore.case</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>invert</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='no'>...</span>
+)
 
-<span class='fu'>list_rds</span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>"[.]rds$"</span>, <span class='kw'>ignore.case</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>invert</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+<span class='fu'>list_rds</span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>"[.]rds$"</span>, <span class='kw'>ignore.case</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>invert</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 
-<span class='fu'>list_rdata</span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>"[.]rdata$|[.]rda$"</span>,
-  <span class='kw'>ignore.case</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>invert</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+<span class='fu'>list_rdata</span>(
+  <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>,
+  <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>"[.]rdata$|[.]rda$"</span>,
+  <span class='kw'>ignore.case</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>invert</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -169,92 +182,94 @@ directory.</p></td>
     <p>A list.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other functions to import files into a list: <code><a href='list_any.html'>list_any</a></code></p>
-<p>Other functions to import files of common formats: <code><a href='load_csv.html'>load_csv</a></code></p></div>
+    <div class='dont-index'><p>Other functions to import files into a list: 
+<code><a href='list_any.html'>list_any</a>()</code></p>
+<p>Other functions to import files of common formats: 
+<code><a href='load_csv.html'>load_csv</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>(<span class='no'>rds</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tor_example.html'>tor_example</a></span>(<span class='st'>"rds"</span>))</div><div class='output co'>#&gt; [1] "/home/travis/R/Library/tor/extdata/rds"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/list.files.html'>dir</a></span>(<span class='no'>rds</span>)</div><div class='output co'>#&gt; [1] "rds1.rds" "rds2.rds"</div><div class='input'>
+    <pre class="examples"><div class='input'>(<span class='no'>rds</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tor_example.html'>tor_example</a></span>(<span class='st'>"rds"</span>))</div><div class='output co'>#&gt; [1] "/Users/runner/runners/2.165.2/work/_temp/Library/tor/extdata/rds"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/list.files.html'>dir</a></span>(<span class='no'>rds</span>)</div><div class='output co'>#&gt; [1] "rds1.rds" "rds2.rds"</div><div class='input'>
 <span class='fu'>list_rds</span>(<span class='no'>rds</span>)</div><div class='output co'>#&gt; $rds1
-#&gt; # A tibble: 2 x 1
+#&gt; <span style='color: #555555;'># A tibble: 2 x 1</span><span>
 #&gt;       x
-#&gt;   &lt;dbl&gt;
-#&gt; 1     1
-#&gt; 2     2
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span>     1
+#&gt; </span><span style='color: #555555;'>2</span><span>     2
 #&gt; 
 #&gt; $rds2
-#&gt; # A tibble: 2 x 1
+#&gt; </span><span style='color: #555555;'># A tibble: 2 x 1</span><span>
 #&gt;   y    
-#&gt;   &lt;chr&gt;
-#&gt; 1 a    
-#&gt; 2 b    
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> a    
+#&gt; </span><span style='color: #555555;'>2</span><span> b    
 #&gt; </div><div class='input'>
-(<span class='no'>tsv</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tor_example.html'>tor_example</a></span>(<span class='st'>"tsv"</span>))</div><div class='output co'>#&gt; [1] "/home/travis/R/Library/tor/extdata/tsv"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/list.files.html'>dir</a></span>(<span class='no'>tsv</span>)</div><div class='output co'>#&gt; [1] "tsv1.tsv" "tsv2.tsv"</div><div class='input'>
+(<span class='no'>tsv</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tor_example.html'>tor_example</a></span>(<span class='st'>"tsv"</span>))</div><div class='output co'>#&gt; [1] "/Users/runner/runners/2.165.2/work/_temp/Library/tor/extdata/tsv"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/list.files.html'>dir</a></span>(<span class='no'>tsv</span>)</div><div class='output co'>#&gt; [1] "tsv1.tsv" "tsv2.tsv"</div><div class='input'>
 <span class='fu'>list_tsv</span>(<span class='no'>tsv</span>)</div><div class='output co'>#&gt; <span class='message'>Parsed with column specification:</span>
 #&gt; <span class='message'>cols(</span>
-#&gt; <span class='message'>  x = col_double(),</span>
-#&gt; <span class='message'>  y = col_character()</span>
+#&gt; <span class='message'>  x = </span><span style='color: #00BB00;'>col_double()</span><span>,</span>
+#&gt; <span class='message'>  y = </span><span style='color: #BB0000;'>col_character()</span><span></span>
 #&gt; <span class='message'>)</span></div><div class='output co'>#&gt; <span class='message'>Parsed with column specification:</span>
 #&gt; <span class='message'>cols(</span>
-#&gt; <span class='message'>  x = col_double(),</span>
-#&gt; <span class='message'>  y = col_character()</span>
+#&gt; <span class='message'>  x = </span><span style='color: #00BB00;'>col_double()</span><span>,</span>
+#&gt; <span class='message'>  y = </span><span style='color: #BB0000;'>col_character()</span><span></span>
 #&gt; <span class='message'>)</span></div><div class='output co'>#&gt; $tsv1
-#&gt; # A tibble: 3 x 2
+#&gt; </span><span style='color: #555555;'># A tibble: 3 x 2</span><span>
 #&gt;       x y    
-#&gt;   &lt;dbl&gt; &lt;chr&gt;
-#&gt; 1     1 a    
-#&gt; 2     2 &lt;NA&gt; 
-#&gt; 3     3 &lt;NA&gt; 
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span>     1 a    
+#&gt; </span><span style='color: #555555;'>2</span><span>     2 </span><span style='color: #BB0000;'>NA</span><span>   
+#&gt; </span><span style='color: #555555;'>3</span><span>     3 </span><span style='color: #BB0000;'>NA</span><span>   
 #&gt; 
 #&gt; $tsv2
-#&gt; # A tibble: 3 x 2
+#&gt; </span><span style='color: #555555;'># A tibble: 3 x 2</span><span>
 #&gt;       x y    
-#&gt;   &lt;dbl&gt; &lt;chr&gt;
-#&gt; 1     1 a    
-#&gt; 2     2 &lt;NA&gt; 
-#&gt; 3     3 b    
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span>     1 a    
+#&gt; </span><span style='color: #555555;'>2</span><span>     2 </span><span style='color: #BB0000;'>NA</span><span>   
+#&gt; </span><span style='color: #555555;'>3</span><span>     3 b    
 #&gt; </div><div class='input'>
-(<span class='no'>mixed</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tor_example.html'>tor_example</a></span>(<span class='st'>"mixed"</span>))</div><div class='output co'>#&gt; [1] "/home/travis/R/Library/tor/extdata/mixed"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/list.files.html'>dir</a></span>(<span class='no'>mixed</span>)</div><div class='output co'>#&gt; [1] "csv.csv"           "lower_rdata.rdata" "rda.rda"          
+(<span class='no'>mixed</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tor_example.html'>tor_example</a></span>(<span class='st'>"mixed"</span>))</div><div class='output co'>#&gt; [1] "/Users/runner/runners/2.165.2/work/_temp/Library/tor/extdata/mixed"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/list.files.html'>dir</a></span>(<span class='no'>mixed</span>)</div><div class='output co'>#&gt; [1] "csv.csv"           "lower_rdata.rdata" "rda.rda"          
 #&gt; [4] "upper_rdata.RData"</div><div class='input'>
 <span class='fu'>list_rdata</span>(<span class='no'>mixed</span>)</div><div class='output co'>#&gt; $lower_rdata
-#&gt; # A tibble: 2 x 1
+#&gt; </span><span style='color: #555555;'># A tibble: 2 x 1</span><span>
 #&gt;   y    
-#&gt;   &lt;chr&gt;
-#&gt; 1 a    
-#&gt; 2 b    
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> a    
+#&gt; </span><span style='color: #555555;'>2</span><span> b    
 #&gt; 
 #&gt; $rda
-#&gt; # A tibble: 2 x 1
+#&gt; </span><span style='color: #555555;'># A tibble: 2 x 1</span><span>
 #&gt;   y    
-#&gt;   &lt;chr&gt;
-#&gt; 1 a    
-#&gt; 2 b    
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> a    
+#&gt; </span><span style='color: #555555;'>2</span><span> b    
 #&gt; 
 #&gt; $upper_rdata
-#&gt; # A tibble: 2 x 1
+#&gt; </span><span style='color: #555555;'># A tibble: 2 x 1</span><span>
 #&gt;   y    
-#&gt;   &lt;chr&gt;
-#&gt; 1 a    
-#&gt; 2 b    
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> a    
+#&gt; </span><span style='color: #555555;'>2</span><span> b    
 #&gt; </div><div class='input'>
 <span class='fu'>list_csv</span>(<span class='no'>mixed</span>)</div><div class='output co'>#&gt; <span class='message'>Parsed with column specification:</span>
 #&gt; <span class='message'>cols(</span>
-#&gt; <span class='message'>  y = col_character()</span>
+#&gt; <span class='message'>  y = </span><span style='color: #BB0000;'>col_character()</span><span></span>
 #&gt; <span class='message'>)</span></div><div class='output co'>#&gt; $csv
-#&gt; # A tibble: 2 x 1
+#&gt; </span><span style='color: #555555;'># A tibble: 2 x 1</span><span>
 #&gt;   y    
-#&gt;   &lt;chr&gt;
-#&gt; 1 a    
-#&gt; 2 b    
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> a    
+#&gt; </span><span style='color: #555555;'>2</span><span> b    
 #&gt; </div><div class='input'>
 <span class='fu'>list_rdata</span>(<span class='no'>mixed</span>, <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='st'>"[.]RData"</span>, <span class='kw'>ignore.case</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; $upper_rdata
-#&gt; # A tibble: 2 x 1
+#&gt; </span><span style='color: #555555;'># A tibble: 2 x 1</span><span>
 #&gt;   y    
-#&gt;   &lt;chr&gt;
-#&gt; 1 a    
-#&gt; 2 b    
-#&gt; </div></pre>
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> a    
+#&gt; </span><span style='color: #555555;'>2</span><span> b    
+#&gt; </div></span></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
@@ -273,7 +288,7 @@ directory.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.9000.</p>
 </div>
 
       </footer>
