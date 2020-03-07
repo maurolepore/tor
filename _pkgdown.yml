@@ -16,7 +16,7 @@ navbar:
     menu:
     - text: "Release notes"
     - text: "Version 1.1.1"
-      href: articles/siteonly/tor-1-1-1.html
+      href: articles/tor-1-1-1.html
     - text: "------------------"
     - text: "Change log"
       href: news/index.html

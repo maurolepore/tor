@@ -1,10 +1,5 @@
 ---
-title: "tor 1.1.1"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{tor 1.0.1}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+title: "tor-1-1-1"
 ---
 
 ```{r setup, include = FALSE}
