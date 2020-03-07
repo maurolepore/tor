@@ -16,3 +16,4 @@
 ^csv1\.csv$
 ^csv2\.csv$
 ^\.github$
+^codecov\.yml$
