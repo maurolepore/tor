@@ -7,30 +7,52 @@
 \alias{load_rdata}
 \title{Import multiple common files from a directory into an environment.}
 \usage{
-load_csv(path = ".", regexp = "[.]csv$", ignore.case = TRUE,
-  invert = FALSE, envir = .GlobalEnv, ...)
+load_csv(
+  path = ".",
+  regexp = "[.]csv$",
+  ignore.case = TRUE,
+  invert = FALSE,
+  envir = .GlobalEnv,
+  ...
+)
 
-load_tsv(path = ".", regexp = "[.]tsv$", ignore.case = TRUE,
-  invert = FALSE, envir = .GlobalEnv, ...)
+load_tsv(
+  path = ".",
+  regexp = "[.]tsv$",
+  ignore.case = TRUE,
+  invert = FALSE,
+  envir = .GlobalEnv,
+  ...
+)
 
-load_rds(path = ".", regexp = "[.]rds$", ignore.case = TRUE,
-  invert = FALSE, envir = .GlobalEnv)
+load_rds(
+  path = ".",
+  regexp = "[.]rds$",
+  ignore.case = TRUE,
+  invert = FALSE,
+  envir = .GlobalEnv
+)
 
-load_rdata(path = ".", regexp = "[.]rdata$|[.]rda$",
-  ignore.case = TRUE, invert = FALSE, envir = .GlobalEnv)
+load_rdata(
+  path = ".",
+  regexp = "[.]rdata$|[.]rda$",
+  ignore.case = TRUE,
+  invert = FALSE,
+  envir = .GlobalEnv
+)
 }
 \arguments{
 \item{path}{A character vector of one path. Defaults to the working
 directory.}
 
-\item{regexp}{A regular expression (e.g. \code{[.]csv$}) passed on to \code{\link[=grep]{grep()}} to filter paths.}
+\item{regexp}{A regular expression (e.g. \verb{[.]csv$}) passed on to \code{\link[=grep]{grep()}} to filter paths.}
 
 \item{ignore.case}{if \code{FALSE}, the pattern matching is \emph{case
       sensitive} and if \code{TRUE}, case is ignored during matching.}
 
 \item{invert}{If \code{TRUE} return files which do \emph{not} match}
 
-\item{envir}{an \code{\link{environment}} or \code{NULL}.}
+\item{envir}{an \code{\link[base]{environment}} or \code{NULL}.}
 
 \item{...}{Arguments passed to \code{readr::read_csv()} or \code{readr::read_tsv()}.}
 }
@@ -60,9 +82,11 @@ e$lower_rdata
 e$upper_rdata
 }
 \seealso{
-Other functions to import files into an environment: \code{\link{load_any}}
+Other functions to import files into an environment: 
+\code{\link{load_any}()}
 
-Other functions to import files of common formats: \code{\link{list_csv}}
+Other functions to import files of common formats: 
+\code{\link{list_csv}()}
 }
 \concept{functions to import files into an environment}
 \concept{functions to import files of common formats}

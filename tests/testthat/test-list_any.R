@@ -57,7 +57,7 @@ test_that("list_any passes arguments to the reader function via `...`", {
   expect_is(
     list_any(
       tor_example("csv"),
-      read.csv
+      ~ read.csv(., stringsAsFactors = TRUE)
     )[[2]]$y,
     "factor"
   )

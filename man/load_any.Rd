@@ -4,8 +4,15 @@
 \alias{load_any}
 \title{Import multiple files of any format from a directory into an environment.}
 \usage{
-load_any(path = ".", .f, regexp = NULL, ignore.case = FALSE,
-  invert = FALSE, envir = .GlobalEnv, ...)
+load_any(
+  path = ".",
+  .f,
+  regexp = NULL,
+  ignore.case = FALSE,
+  invert = FALSE,
+  envir = .GlobalEnv,
+  ...
+)
 }
 \arguments{
 \item{path}{A character vector of one path. Defaults to the working
@@ -13,14 +20,14 @@ directory.}
 
 \item{.f}{A function able to read the desired file format.}
 
-\item{regexp}{A regular expression (e.g. \code{[.]csv$}) passed on to \code{\link[=grep]{grep()}} to filter paths.}
+\item{regexp}{A regular expression (e.g. \verb{[.]csv$}) passed on to \code{\link[=grep]{grep()}} to filter paths.}
 
 \item{ignore.case}{if \code{FALSE}, the pattern matching is \emph{case
       sensitive} and if \code{TRUE}, case is ignored during matching.}
 
 \item{invert}{If \code{TRUE} return files which do \emph{not} match}
 
-\item{envir}{an \code{\link{environment}} or \code{NULL}.}
+\item{envir}{an \code{\link[base]{environment}} or \code{NULL}.}
 
 \item{...}{Additional arguments passed to \code{.f}.}
 }
@@ -40,9 +47,11 @@ e$rdata1
 e$rdata2
 }
 \seealso{
-Other functions to import files into an environment: \code{\link{load_csv}}
+Other functions to import files into an environment: 
+\code{\link{load_csv}()}
 
-Other functions to import files of any format: \code{\link{list_any}}
+Other functions to import files of any format: 
+\code{\link{list_any}()}
 }
 \concept{functions to import files into an environment}
 \concept{functions to import files of any format}

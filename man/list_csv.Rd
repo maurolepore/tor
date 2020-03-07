@@ -7,23 +7,36 @@
 \alias{list_rdata}
 \title{Import multiple common files from a directory into a list.}
 \usage{
-list_csv(path = ".", regexp = "[.]csv$", ignore.case = TRUE,
-  invert = FALSE, ...)
+list_csv(
+  path = ".",
+  regexp = "[.]csv$",
+  ignore.case = TRUE,
+  invert = FALSE,
+  ...
+)
 
-list_tsv(path = ".", regexp = "[.]tsv$", ignore.case = TRUE,
-  invert = FALSE, ...)
+list_tsv(
+  path = ".",
+  regexp = "[.]tsv$",
+  ignore.case = TRUE,
+  invert = FALSE,
+  ...
+)
 
-list_rds(path = ".", regexp = "[.]rds$", ignore.case = TRUE,
-  invert = FALSE)
+list_rds(path = ".", regexp = "[.]rds$", ignore.case = TRUE, invert = FALSE)
 
-list_rdata(path = ".", regexp = "[.]rdata$|[.]rda$",
-  ignore.case = TRUE, invert = FALSE)
+list_rdata(
+  path = ".",
+  regexp = "[.]rdata$|[.]rda$",
+  ignore.case = TRUE,
+  invert = FALSE
+)
 }
 \arguments{
 \item{path}{A character vector of one path. Defaults to the working
 directory.}
 
-\item{regexp}{A regular expression (e.g. \code{[.]csv$}) passed on to \code{\link[=grep]{grep()}} to filter paths.}
+\item{regexp}{A regular expression (e.g. \verb{[.]csv$}) passed on to \code{\link[=grep]{grep()}} to filter paths.}
 
 \item{ignore.case}{if \code{FALSE}, the pattern matching is \emph{case
       sensitive} and if \code{TRUE}, case is ignored during matching.}
@@ -59,9 +72,11 @@ list_csv(mixed)
 list_rdata(mixed, regexp = "[.]RData", ignore.case = FALSE)
 }
 \seealso{
-Other functions to import files into a list: \code{\link{list_any}}
+Other functions to import files into a list: 
+\code{\link{list_any}()}
 
-Other functions to import files of common formats: \code{\link{load_csv}}
+Other functions to import files of common formats: 
+\code{\link{load_csv}()}
 }
 \concept{functions to import files into a list}
 \concept{functions to import files of common formats}

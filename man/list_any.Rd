@@ -4,8 +4,14 @@
 \alias{list_any}
 \title{Import multiple files of any format from a directory into a list.}
 \usage{
-list_any(path = ".", .f, regexp = NULL, ignore.case = FALSE,
-  invert = FALSE, ...)
+list_any(
+  path = ".",
+  .f,
+  regexp = NULL,
+  ignore.case = FALSE,
+  invert = FALSE,
+  ...
+)
 }
 \arguments{
 \item{path}{A character vector of one path. Defaults to the working
@@ -13,7 +19,7 @@ directory.}
 
 \item{.f}{A function able to read the desired file format.}
 
-\item{regexp}{A regular expression (e.g. \code{[.]csv$}) passed on to \code{\link[=grep]{grep()}} to filter paths.}
+\item{regexp}{A regular expression (e.g. \verb{[.]csv$}) passed on to \code{\link[=grep]{grep()}} to filter paths.}
 
 \item{ignore.case}{if \code{FALSE}, the pattern matching is \emph{case
       sensitive} and if \code{TRUE}, case is ignored during matching.}
@@ -54,9 +60,11 @@ list_any(
 )
 }
 \seealso{
-Other functions to import files into a list: \code{\link{list_csv}}
+Other functions to import files into a list: 
+\code{\link{list_csv}()}
 
-Other functions to import files of any format: \code{\link{load_any}}
+Other functions to import files of any format: 
+\code{\link{load_any}()}
 }
 \concept{functions to import files into a list}
 \concept{functions to import files of any format}
