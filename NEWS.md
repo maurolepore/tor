@@ -1,14 +1,8 @@
 # tor
 
-* Simplify articles structure.
-* Use GitHub actions.
-* Use codecov.
 * No longer assume `stringsAsFactor` defaults to `TRUE`.
 * Add contributing info.
-* Check with R 3.4 on TravisCI.
-* Require R >= 3.2 (checked on travis).
-* Add ORCID.
-* Build and deploy site on Travis.
+* Require R >= 3.2 (checked on GitHub actions).
 
 # tor 1.1.1
 
