@@ -1,3 +1,5 @@
+# tor (development version)
+
 # tor 1.1.2
 
 * No longer assume `stringsAsFactor` defaults to `TRUE`.
