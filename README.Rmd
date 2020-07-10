@@ -23,6 +23,7 @@ knitr::opts_chunk$set(
 [![Codecov test coverage](https://codecov.io/gh/maurolepore/tor/branch/master/graph/badge.svg)](https://codecov.io/gh/maurolepore/tor?branch=master)
 [![Coverage status](https://coveralls.io/repos/github/maurolepore/tor/badge.svg)](https://coveralls.io/r/maurolepore/tor?branch=master)
 [![CRAN status](https://www.r-pkg.org/badges/version/tor)](https://cran.r-project.org/package=tor)
+[![CodeFactor](https://www.codefactor.io/repository/github/maurolepore/tor/badge)](https://www.codefactor.io/repository/github/maurolepore/tor)
 <!-- badges: end -->
 
 __tor__ (_to-R_) helps you to import multiple files at once. For example:
