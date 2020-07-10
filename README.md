@@ -14,6 +14,7 @@ coverage](https://codecov.io/gh/maurolepore/tor/branch/master/graph/badge.svg)](
 status](https://coveralls.io/repos/github/maurolepore/tor/badge.svg)](https://coveralls.io/r/maurolepore/tor?branch=master)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/tor)](https://cran.r-project.org/package=tor)
+[![CodeFactor](https://www.codefactor.io/repository/github/maurolepore/tor/badge)](https://www.codefactor.io/repository/github/maurolepore/tor)
 <!-- badges: end -->
 
 **tor** (*to-R*) helps you to import multiple files at once. For
@@ -89,7 +90,7 @@ tor_example()
 #> [1] "csv"   "mixed" "rdata" "rds"   "tsv"
 
 (path_rds <- tor_example("rds"))
-#> [1] "/home/mauro/R/x86_64-pc-linux-gnu-library/3.6/tor/extdata/rds"
+#> [1] "/home/mauro/R/x86_64-pc-linux-gnu-library/4.0/tor/extdata/rds"
 dir(path_rds)
 #> [1] "rds1.rds" "rds2.rds"
 
@@ -157,7 +158,7 @@ read with.
 
 ``` r
 (path_csv <- tor_example("csv"))
-#> [1] "/home/mauro/R/x86_64-pc-linux-gnu-library/3.6/tor/extdata/csv"
+#> [1] "/home/mauro/R/x86_64-pc-linux-gnu-library/4.0/tor/extdata/csv"
 dir(path_csv)
 #> [1] "csv1.csv" "csv2.csv"
 
@@ -172,7 +173,7 @@ list_any(path_csv, read.csv)
 #> $csv2
 #> # A tibble: 2 x 1
 #>   y    
-#>   <fct>
+#>   <chr>
 #> 1 a    
 #> 2 b
 ```
@@ -185,7 +186,7 @@ It understands lambda functions and formulas (powered by
 library(magrittr)
 
 (path_rdata <- tor_example("rdata"))
-#> [1] "/home/mauro/R/x86_64-pc-linux-gnu-library/3.6/tor/extdata/rdata"
+#> [1] "/home/mauro/R/x86_64-pc-linux-gnu-library/4.0/tor/extdata/rdata"
 dir(path_rdata)
 #> [1] "rdata1.rdata" "rdata2.rdata"
 
@@ -360,7 +361,7 @@ You may import files from a specific `path`.
 
 ``` r
 (path_mixed <- tor_example("mixed"))
-#> [1] "/home/mauro/R/x86_64-pc-linux-gnu-library/3.6/tor/extdata/mixed"
+#> [1] "/home/mauro/R/x86_64-pc-linux-gnu-library/4.0/tor/extdata/mixed"
 dir(path_mixed)
 #> [1] "csv.csv"           "lower_rdata.rdata" "rda.rda"          
 #> [4] "upper_rdata.RData"
