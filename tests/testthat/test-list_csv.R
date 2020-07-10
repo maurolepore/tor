@@ -18,14 +18,14 @@ test_that("list_rds defaults to read from working directory", {
 test_that("list_rds reads specific .rds files", {
   expect_named(
     list_rds(tor_example("rds"), regexp = "rds1"),
-    c("rds1")
+    "rds1"
   )
 })
 
 test_that("list_rds allows inverting a `regexp` pattern", {
   expect_named(
     list_rds(tor_example("rds"), regexp = "rds1", invert = TRUE),
-    c("rds2")
+    "rds2"
   )
 })
 
