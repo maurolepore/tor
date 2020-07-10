@@ -128,14 +128,14 @@
     <p>Import multiple files of any format from a directory into an environment.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>load_any</span>(
-  <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>,
-  <span class='no'>.f</span>,
-  <span class='kw'>regexp</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>ignore.case</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>invert</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>envir</span> <span class='kw'>=</span> <span class='no'>.GlobalEnv</span>,
-  <span class='no'>...</span>
+    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/tor/man/load_any.html'>load_any</a></span>(
+  path = <span class='st'>"."</span>,
+  <span class='kw'>.f</span>,
+  regexp = <span class='kw'>NULL</span>,
+  ignore.case = <span class='fl'>FALSE</span>,
+  invert = <span class='fl'>FALSE</span>,
+  envir = <span class='kw'>.GlobalEnv</span>,
+  <span class='kw'>...</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -179,20 +179,32 @@ directory.</p></td>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other functions to import files into an environment: 
-<code><a href='load_csv.html'>load_csv</a>()</code></p>
+<code><a href='https://rdrr.io/pkg/tor/man/load_csv.html'>load_csv</a>()</code></p>
 <p>Other functions to import files of any format: 
-<code><a href='list_any.html'>list_any</a>()</code></p></div>
+<code><a href='https://rdrr.io/pkg/tor/man/list_any.html'>list_any</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>e</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/environment.html'>new.env</a></span>()
-<span class='fu'>load_any</span>(<span class='fu'><a href='tor_example.html'>tor_example</a></span>(<span class='st'>"rdata"</span>), <span class='kw'>.f</span> <span class='kw'>=</span> ~ <span class='fu'><a href='https://rdrr.io/r/base/get.html'>get</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/load.html'>load</a></span>(<span class='no'>.x</span>)), <span class='kw'>envir</span> <span class='kw'>=</span> <span class='no'>e</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/ls.html'>ls</a></span>(<span class='no'>e</span>)</div><div class='output co'>#&gt; [1] "rdata1" "rdata2"</div><div class='input'>
+    <pre class="examples"><div class='input'><span class='kw'>e</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/environment.html'>new.env</a></span>()
+<span class='fu'><a href='https://rdrr.io/pkg/tor/man/load_any.html'>load_any</a></span>(<span class='fu'><a href='https://rdrr.io/pkg/tor/man/tor_example.html'>tor_example</a></span>(<span class='st'>"rdata"</span>), .f = <span class='op'>~</span> <span class='fu'><a href='https://rdrr.io/r/base/get.html'>get</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/load.html'>load</a></span>(<span class='kw'>.x</span>)), envir = <span class='kw'>e</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/ls.html'>ls</a></span>(<span class='kw'>e</span>)</div><div class='output co'>#&gt; [1] "rdata1" "rdata2"</div><div class='input'>
 <span class='co'># The data is now available in the environment `e`</span>
-<span class='no'>e</span>$<span class='no'>rdata1</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 2 x 1</span><span>
+<span class='kw'>e</span><span class='op'>$</span><span class='kw'>rdata1</span></div><div class='output co'>#&gt; <span class='warning'>Warning: `...` is not empty.</span>
+#&gt; <span class='warning'></span>
+#&gt; <span class='warning'>We detected these problematic arguments:</span>
+#&gt; <span class='warning'>* `needs_dots`</span>
+#&gt; <span class='warning'></span>
+#&gt; <span class='warning'>These dots only exist to allow future extensions and should be empty.</span>
+#&gt; <span class='warning'>Did you misspecify an argument?</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 2 x 1</span><span>
 #&gt;       x
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
 #&gt; </span><span style='color: #555555;'>1</span><span>     1
-#&gt; </span><span style='color: #555555;'>2</span><span>     2</div><div class='input'><span class='no'>e</span>$<span class='no'>rdata2</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 2 x 1</span><span>
+#&gt; </span><span style='color: #555555;'>2</span><span>     2</div><div class='input'><span class='kw'>e</span><span class='op'>$</span><span class='kw'>rdata2</span></div><div class='output co'>#&gt; <span class='warning'>Warning: `...` is not empty.</span>
+#&gt; <span class='warning'></span>
+#&gt; <span class='warning'>We detected these problematic arguments:</span>
+#&gt; <span class='warning'>* `needs_dots`</span>
+#&gt; <span class='warning'></span>
+#&gt; <span class='warning'>These dots only exist to allow future extensions and should be empty.</span>
+#&gt; <span class='warning'>Did you misspecify an argument?</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 2 x 1</span><span>
 #&gt;   y    
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
 #&gt; </span><span style='color: #555555;'>1</span><span> a    

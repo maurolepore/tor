@@ -75,7 +75,7 @@
 
       
 
-      </header><div class="row">
+      </header><script src="tor-1-1-1_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>tor-1-1-1</h1>
@@ -99,7 +99,8 @@
 <h2 class="hasAnchor">
 <a href="#list-common-files" class="anchor"></a>List common files</h2>
 <p><code><a href="../reference/list_csv.html">list_csv()</a></code> and friends import multiple common files from a directory into a list. They default to importing from the working directory.</p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>()
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>()
 <span class="co">#&gt; [1] "csv1.csv"      "csv2.csv"      "tor-1-1-1.Rmd"</span>
 
 <span class="fu"><a href="../reference/list_csv.html">list_csv</a></span>()
@@ -112,6 +113,13 @@
 <span class="co">#&gt;   y = col_character()</span>
 <span class="co">#&gt; )</span>
 <span class="co">#&gt; $csv1</span>
+<span class="co">#&gt; Warning: `...` is not empty.</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; We detected these problematic arguments:</span>
+<span class="co">#&gt; * `needs_dots`</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; These dots only exist to allow future extensions and should be empty.</span>
+<span class="co">#&gt; Did you misspecify an argument?</span>
 <span class="co">#&gt; # A tibble: 2 x 1</span>
 <span class="co">#&gt;       x</span>
 <span class="co">#&gt;   &lt;dbl&gt;</span>
@@ -119,36 +127,54 @@
 <span class="co">#&gt; 2     2</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $csv2</span>
+<span class="co">#&gt; Warning: `...` is not empty.</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; We detected these problematic arguments:</span>
+<span class="co">#&gt; * `needs_dots`</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; These dots only exist to allow future extensions and should be empty.</span>
+<span class="co">#&gt; Did you misspecify an argument?</span>
 <span class="co">#&gt; # A tibble: 2 x 1</span>
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
-<span class="co">#&gt; 2 b</span></pre></body></html></div>
+<span class="co">#&gt; 2 b</span>
+</pre></div>
 <p>You can specify a <code>path</code> to import from any directory. <code>regexp</code>, <code>ignore.case</code>, and <code>invert</code> allow you to pick specific files.</p>
-<div class="sourceCode" id="cb3"><html><body><pre class="r">(<span class="no">path_mixed</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/tor_example.html">tor_example</a></span>(<span class="st">"mixed"</span>))
-<span class="co">#&gt; [1] "/Users/runner/runners/2.263.0/work/_temp/Library/tor/extdata/mixed"</span>
-<span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>(<span class="no">path_mixed</span>)
+<div class="sourceCode" id="cb3"><pre class="downlit">
+(<span class="kw">path_mixed</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/tor_example.html">tor_example</a></span>(<span class="st">"mixed"</span>))
+<span class="co">#&gt; [1] "/Users/runner/work/_temp/Library/tor/extdata/mixed"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>(<span class="kw">path_mixed</span>)
 <span class="co">#&gt; [1] "csv.csv"           "lower_rdata.rdata" "rda.rda"          </span>
 <span class="co">#&gt; [4] "upper_rdata.RData"</span>
 
 <span class="fu"><a href="../reference/list_csv.html">list_rdata</a></span>(
-  <span class="no">path_mixed</span>,
-  <span class="kw">regexp</span> <span class="kw">=</span> <span class="st">"[.]RData"</span>,
-  <span class="kw">ignore.case</span> <span class="kw">=</span> <span class="fl">FALSE</span>,
-  <span class="kw">invert</span> <span class="kw">=</span> <span class="fl">FALSE</span>
+  <span class="kw">path_mixed</span>, 
+  regexp = <span class="st">"[.]RData"</span>, 
+  ignore.case = <span class="fl">FALSE</span>, 
+  invert = <span class="fl">FALSE</span>
 )
 <span class="co">#&gt; $upper_rdata</span>
+<span class="co">#&gt; Warning: `...` is not empty.</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; We detected these problematic arguments:</span>
+<span class="co">#&gt; * `needs_dots`</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; These dots only exist to allow future extensions and should be empty.</span>
+<span class="co">#&gt; Did you misspecify an argument?</span>
 <span class="co">#&gt; # A tibble: 2 x 1</span>
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
-<span class="co">#&gt; 2 b</span></pre></body></html></div>
+<span class="co">#&gt; 2 b</span>
+</pre></div>
 </div>
 <div id="load-common-files" class="section level2">
 <h2 class="hasAnchor">
 <a href="#load-common-files" class="anchor"></a>Load common files</h2>
 <p><code><a href="../reference/load_csv.html">load_csv()</a></code> and friends import files into an environment – the global environment by default.</p>
-<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>()
+<div class="sourceCode" id="cb4"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>()
 <span class="co">#&gt; [1] "csv1.csv"      "csv2.csv"      "tor-1-1-1.Rmd"</span>
 
 <span class="fu"><a href="../reference/load_csv.html">load_csv</a></span>()
@@ -162,29 +188,45 @@
 <span class="co">#&gt; )</span>
 
 <span class="co"># Each dataframe is now available in the global environment</span>
-<span class="no">csv1</span>
+<span class="kw">csv1</span>
+<span class="co">#&gt; Warning: `...` is not empty.</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; We detected these problematic arguments:</span>
+<span class="co">#&gt; * `needs_dots`</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; These dots only exist to allow future extensions and should be empty.</span>
+<span class="co">#&gt; Did you misspecify an argument?</span>
 <span class="co">#&gt; # A tibble: 2 x 1</span>
 <span class="co">#&gt;       x</span>
 <span class="co">#&gt;   &lt;dbl&gt;</span>
 <span class="co">#&gt; 1     1</span>
 <span class="co">#&gt; 2     2</span>
-<span class="no">csv2</span>
+<span class="kw">csv2</span>
+<span class="co">#&gt; Warning: `...` is not empty.</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; We detected these problematic arguments:</span>
+<span class="co">#&gt; * `needs_dots`</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; These dots only exist to allow future extensions and should be empty.</span>
+<span class="co">#&gt; Did you misspecify an argument?</span>
 <span class="co">#&gt; # A tibble: 2 x 1</span>
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
-<span class="co">#&gt; 2 b</span></pre></body></html></div>
+<span class="co">#&gt; 2 b</span>
+</pre></div>
 </div>
 <div id="beyond-common-files" class="section level2">
 <h2 class="hasAnchor">
 <a href="#beyond-common-files" class="anchor"></a>Beyond common files</h2>
 <p><code><a href="../reference/list_any.html">list_any()</a></code> imports files of any format into a list. You need to supply a function able to import a single file.</p>
-<div class="sourceCode" id="cb5"><html><body><pre class="r">(<span class="no">path_csv</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/tor_example.html">tor_example</a></span>(<span class="st">"csv"</span>))
-<span class="co">#&gt; [1] "/Users/runner/runners/2.263.0/work/_temp/Library/tor/extdata/csv"</span>
-<span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>(<span class="no">path_csv</span>)
+<div class="sourceCode" id="cb5"><pre class="downlit">
+(<span class="kw">path_csv</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/tor_example.html">tor_example</a></span>(<span class="st">"csv"</span>))
+<span class="co">#&gt; [1] "/Users/runner/work/_temp/Library/tor/extdata/csv"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>(<span class="kw">path_csv</span>)
 <span class="co">#&gt; [1] "csv1.csv" "csv2.csv"</span>
 
-<span class="fu"><a href="../reference/list_any.html">list_any</a></span>(<span class="no">path_csv</span>, <span class="kw pkg">readr</span><span class="kw ns">::</span><span class="no"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span>)
+<span class="fu"><a href="../reference/list_any.html">list_any</a></span>(<span class="kw">path_csv</span>, <span class="kw">readr</span>::<span class="kw"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span>)
 <span class="co">#&gt; Parsed with column specification:</span>
 <span class="co">#&gt; cols(</span>
 <span class="co">#&gt;   x = col_double()</span>
@@ -194,6 +236,13 @@
 <span class="co">#&gt;   y = col_character()</span>
 <span class="co">#&gt; )</span>
 <span class="co">#&gt; $csv1</span>
+<span class="co">#&gt; Warning: `...` is not empty.</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; We detected these problematic arguments:</span>
+<span class="co">#&gt; * `needs_dots`</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; These dots only exist to allow future extensions and should be empty.</span>
+<span class="co">#&gt; Did you misspecify an argument?</span>
 <span class="co">#&gt; # A tibble: 2 x 1</span>
 <span class="co">#&gt;       x</span>
 <span class="co">#&gt;   &lt;dbl&gt;</span>
@@ -201,20 +250,36 @@
 <span class="co">#&gt; 2     2</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $csv2</span>
+<span class="co">#&gt; Warning: `...` is not empty.</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; We detected these problematic arguments:</span>
+<span class="co">#&gt; * `needs_dots`</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; These dots only exist to allow future extensions and should be empty.</span>
+<span class="co">#&gt; Did you misspecify an argument?</span>
 <span class="co">#&gt; # A tibble: 2 x 1</span>
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
-<span class="co">#&gt; 2 b</span></pre></body></html></div>
+<span class="co">#&gt; 2 b</span>
+</pre></div>
 <p>You may use anonymous functions using the formula syntax (powered by <a href="https://rlang.r-lib.org/"><strong>rlang</strong></a>).</p>
-<div class="sourceCode" id="cb6"><html><body><pre class="r">(<span class="no">path_rdata</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/tor_example.html">tor_example</a></span>(<span class="st">"rdata"</span>))
-<span class="co">#&gt; [1] "/Users/runner/runners/2.263.0/work/_temp/Library/tor/extdata/rdata"</span>
-<span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>(<span class="no">path_rdata</span>)
+<div class="sourceCode" id="cb6"><pre class="downlit">
+(<span class="kw">path_rdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/tor_example.html">tor_example</a></span>(<span class="st">"rdata"</span>))
+<span class="co">#&gt; [1] "/Users/runner/work/_temp/Library/tor/extdata/rdata"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>(<span class="kw">path_rdata</span>)
 <span class="co">#&gt; [1] "rdata1.rdata" "rdata2.rdata"</span>
 
-<span class="no">path_rdata</span> <span class="kw">%&gt;%</span>
-  <span class="fu"><a href="../reference/list_any.html">list_any</a></span>(<span class="kw">function</span>(<span class="no">x</span>) <span class="fu"><a href="https://rdrr.io/r/base/get.html">get</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span>(<span class="no">x</span>)))
+<span class="kw">path_rdata</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="../reference/list_any.html">list_any</a></span>(<span class="fu">function</span>(<span class="kw">x</span>) <span class="fu"><a href="https://rdrr.io/r/base/get.html">get</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span>(<span class="kw">x</span>)))
 <span class="co">#&gt; $rdata1</span>
+<span class="co">#&gt; Warning: `...` is not empty.</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; We detected these problematic arguments:</span>
+<span class="co">#&gt; * `needs_dots`</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; These dots only exist to allow future extensions and should be empty.</span>
+<span class="co">#&gt; Did you misspecify an argument?</span>
 <span class="co">#&gt; # A tibble: 2 x 1</span>
 <span class="co">#&gt;       x</span>
 <span class="co">#&gt;   &lt;dbl&gt;</span>
@@ -222,6 +287,13 @@
 <span class="co">#&gt; 2     2</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $rdata2</span>
+<span class="co">#&gt; Warning: `...` is not empty.</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; We detected these problematic arguments:</span>
+<span class="co">#&gt; * `needs_dots`</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; These dots only exist to allow future extensions and should be empty.</span>
+<span class="co">#&gt; Did you misspecify an argument?</span>
 <span class="co">#&gt; # A tibble: 2 x 1</span>
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
@@ -229,9 +301,16 @@
 <span class="co">#&gt; 2 b</span>
 
 <span class="co"># Same</span>
-<span class="no">path_rdata</span> <span class="kw">%&gt;%</span>
-  <span class="fu"><a href="../reference/list_any.html">list_any</a></span>(~<span class="fu"><a href="https://rdrr.io/r/base/get.html">get</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span>(<span class="no">.x</span>)))
+<span class="kw">path_rdata</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="../reference/list_any.html">list_any</a></span>(<span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/get.html">get</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span>(<span class="kw">.x</span>)))
 <span class="co">#&gt; $rdata1</span>
+<span class="co">#&gt; Warning: `...` is not empty.</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; We detected these problematic arguments:</span>
+<span class="co">#&gt; * `needs_dots`</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; These dots only exist to allow future extensions and should be empty.</span>
+<span class="co">#&gt; Did you misspecify an argument?</span>
 <span class="co">#&gt; # A tibble: 2 x 1</span>
 <span class="co">#&gt;       x</span>
 <span class="co">#&gt;   &lt;dbl&gt;</span>
@@ -239,11 +318,19 @@
 <span class="co">#&gt; 2     2</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $rdata2</span>
+<span class="co">#&gt; Warning: `...` is not empty.</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; We detected these problematic arguments:</span>
+<span class="co">#&gt; * `needs_dots`</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; These dots only exist to allow future extensions and should be empty.</span>
+<span class="co">#&gt; Did you misspecify an argument?</span>
 <span class="co">#&gt; # A tibble: 2 x 1</span>
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
-<span class="co">#&gt; 2 b</span></pre></body></html></div>
+<span class="co">#&gt; 2 b</span>
+</pre></div>
 </div>
   </div>
 

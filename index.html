@@ -94,20 +94,27 @@
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>Install <strong>tor</strong> from CRAN with:</p>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"tor"</span>)</pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"tor"</span>)
+</pre></div>
 <p>Or install the development version from GitHub with:</p>
-<div class="sourceCode" id="cb2"><pre class="r"><span class="co"># install.packages("devtools")</span>
-<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu">install_github</span>(<span class="st">"maurolepore/tor"</span>)</pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="co"># install.packages("devtools")</span>
+<span class="kw">devtools</span>::<span class="fu">install_github</span>(<span class="st">"maurolepore/tor"</span>)
+</pre></div>
 </div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">tor</span>)</pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/maurolepore/tor">tor</a></span>)
+</pre></div>
 <div id="list_-import-multiple-files-from-a-directory-into-a-list" class="section level3">
 <h3 class="hasAnchor">
 <a href="#list_-import-multiple-files-from-a-directory-into-a-list" class="anchor"></a><code>list_*()</code>: Import multiple files from a directory into a list</h3>
 <p>All functions default to importing files from the working directory.</p>
-<div class="sourceCode" id="cb4"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>()
+<div class="sourceCode" id="cb4"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>()
 <span class="co">#&gt;  [1] "_pkgdown.yml"     "codecov.yml"      "cran-comments.md" "csv1.csv"        </span>
 <span class="co">#&gt;  [5] "csv2.csv"         "DESCRIPTION"      "inst"             "LICENSE.md"      </span>
 <span class="co">#&gt;  [9] "man"              "NAMESPACE"        "NEWS.md"          "R"               </span>
@@ -135,18 +142,20 @@
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
-<span class="co">#&gt; 2 b</span></pre></div>
+<span class="co">#&gt; 2 b</span>
+</pre></div>
 <p>Often you will specify a <code>path</code> to read from.</p>
-<div class="sourceCode" id="cb5"><pre class="r"><span class="co"># Helpes create paths to examples</span>
+<div class="sourceCode" id="cb5"><pre class="downlit">
+<span class="co"># Helpes create paths to examples</span>
 <span class="fu"><a href="reference/tor_example.html">tor_example</a></span>()
 <span class="co">#&gt; [1] "csv"   "mixed" "rdata" "rds"   "tsv"</span>
 
-(<span class="no">path_rds</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/tor_example.html">tor_example</a></span>(<span class="st">"rds"</span>))
-<span class="co">#&gt; [1] "/home/mauro/R/x86_64-pc-linux-gnu-library/3.6/tor/extdata/rds"</span>
-<span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>(<span class="no">path_rds</span>)
+(<span class="kw">path_rds</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/tor_example.html">tor_example</a></span>(<span class="st">"rds"</span>))
+<span class="co">#&gt; [1] "/home/mauro/R/x86_64-pc-linux-gnu-library/4.0/tor/extdata/rds"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>(<span class="kw">path_rds</span>)
 <span class="co">#&gt; [1] "rds1.rds" "rds2.rds"</span>
 
-<span class="fu"><a href="reference/list_csv.html">list_rds</a></span>(<span class="no">path_rds</span>)
+<span class="fu"><a href="reference/list_csv.html">list_rds</a></span>(<span class="kw">path_rds</span>)
 <span class="co">#&gt; $rds1</span>
 <span class="co">#&gt; # A tibble: 2 x 1</span>
 <span class="co">#&gt;       x</span>
@@ -159,14 +168,16 @@
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
-<span class="co">#&gt; 2 b</span></pre></div>
+<span class="co">#&gt; 2 b</span>
+</pre></div>
 <p>You may read all files with a particular extension.</p>
-<div class="sourceCode" id="cb6"><pre class="r"><span class="no">path_mixed</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/tor_example.html">tor_example</a></span>(<span class="st">"mixed"</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>(<span class="no">path_mixed</span>)
+<div class="sourceCode" id="cb6"><pre class="downlit">
+<span class="kw">path_mixed</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/tor_example.html">tor_example</a></span>(<span class="st">"mixed"</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>(<span class="kw">path_mixed</span>)
 <span class="co">#&gt; [1] "csv.csv"           "lower_rdata.rdata" "rda.rda"          </span>
 <span class="co">#&gt; [4] "upper_rdata.RData"</span>
 
-<span class="fu"><a href="reference/list_csv.html">list_rdata</a></span>(<span class="no">path_mixed</span>)
+<span class="fu"><a href="reference/list_csv.html">list_rdata</a></span>(<span class="kw">path_mixed</span>)
 <span class="co">#&gt; $lower_rdata</span>
 <span class="co">#&gt; # A tibble: 2 x 1</span>
 <span class="co">#&gt;   y    </span>
@@ -186,22 +197,26 @@
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
-<span class="co">#&gt; 2 b</span></pre></div>
+<span class="co">#&gt; 2 b</span>
+</pre></div>
 <p>Or you may read specific files matching a pattern.</p>
-<div class="sourceCode" id="cb7"><pre class="r"><span class="fu"><a href="reference/list_csv.html">list_rdata</a></span>(<span class="no">path_mixed</span>, <span class="kw">regexp</span> <span class="kw">=</span> <span class="st">"[.]RData"</span>, <span class="kw">ignore.case</span> <span class="kw">=</span> <span class="fl">FALSE</span>)
+<div class="sourceCode" id="cb7"><pre class="downlit">
+<span class="fu"><a href="reference/list_csv.html">list_rdata</a></span>(<span class="kw">path_mixed</span>, regexp = <span class="st">"[.]RData"</span>, ignore.case = <span class="fl">FALSE</span>)
 <span class="co">#&gt; $upper_rdata</span>
 <span class="co">#&gt; # A tibble: 2 x 1</span>
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
-<span class="co">#&gt; 2 b</span></pre></div>
+<span class="co">#&gt; 2 b</span>
+</pre></div>
 <p><code><a href="reference/list_any.html">list_any()</a></code> is the most flexible function. You supply the function to read with.</p>
-<div class="sourceCode" id="cb8"><pre class="r">(<span class="no">path_csv</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/tor_example.html">tor_example</a></span>(<span class="st">"csv"</span>))
-<span class="co">#&gt; [1] "/home/mauro/R/x86_64-pc-linux-gnu-library/3.6/tor/extdata/csv"</span>
-<span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>(<span class="no">path_csv</span>)
+<div class="sourceCode" id="cb8"><pre class="downlit">
+(<span class="kw">path_csv</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/tor_example.html">tor_example</a></span>(<span class="st">"csv"</span>))
+<span class="co">#&gt; [1] "/home/mauro/R/x86_64-pc-linux-gnu-library/4.0/tor/extdata/csv"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>(<span class="kw">path_csv</span>)
 <span class="co">#&gt; [1] "csv1.csv" "csv2.csv"</span>
 
-<span class="fu"><a href="reference/list_any.html">list_any</a></span>(<span class="no">path_csv</span>, <span class="no">read.csv</span>)
+<span class="fu"><a href="reference/list_any.html">list_any</a></span>(<span class="kw">path_csv</span>, <span class="kw">read.csv</span>)
 <span class="co">#&gt; $csv1</span>
 <span class="co">#&gt; # A tibble: 2 x 1</span>
 <span class="co">#&gt;       x</span>
@@ -212,20 +227,22 @@
 <span class="co">#&gt; $csv2</span>
 <span class="co">#&gt; # A tibble: 2 x 1</span>
 <span class="co">#&gt;   y    </span>
-<span class="co">#&gt;   &lt;fct&gt;</span>
+<span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
-<span class="co">#&gt; 2 b</span></pre></div>
+<span class="co">#&gt; 2 b</span>
+</pre></div>
 <p>It understands lambda functions and formulas (powered by <a href="https://rlang.r-lib.org/"><strong>rlang</strong></a>).</p>
-<div class="sourceCode" id="cb9"><pre class="r"><span class="co"># Use the pipe (%&gt;%)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">magrittr</span>)
+<div class="sourceCode" id="cb9"><pre class="downlit">
+<span class="co"># Use the pipe (%&gt;%)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw">magrittr</span>)
 
-(<span class="no">path_rdata</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/tor_example.html">tor_example</a></span>(<span class="st">"rdata"</span>))
-<span class="co">#&gt; [1] "/home/mauro/R/x86_64-pc-linux-gnu-library/3.6/tor/extdata/rdata"</span>
-<span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>(<span class="no">path_rdata</span>)
+(<span class="kw">path_rdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/tor_example.html">tor_example</a></span>(<span class="st">"rdata"</span>))
+<span class="co">#&gt; [1] "/home/mauro/R/x86_64-pc-linux-gnu-library/4.0/tor/extdata/rdata"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>(<span class="kw">path_rdata</span>)
 <span class="co">#&gt; [1] "rdata1.rdata" "rdata2.rdata"</span>
 
-<span class="no">path_rdata</span> <span class="kw">%&gt;%</span>
-  <span class="fu"><a href="reference/list_any.html">list_any</a></span>(<span class="kw">function</span>(<span class="no">x</span>) <span class="fu"><a href="https://rdrr.io/r/base/get.html">get</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span>(<span class="no">x</span>)))
+<span class="kw">path_rdata</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="reference/list_any.html">list_any</a></span>(<span class="fu">function</span>(<span class="kw">x</span>) <span class="fu"><a href="https://rdrr.io/r/base/get.html">get</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span>(<span class="kw">x</span>)))
 <span class="co">#&gt; $rdata1</span>
 <span class="co">#&gt; # A tibble: 2 x 1</span>
 <span class="co">#&gt;       x</span>
@@ -241,8 +258,8 @@
 <span class="co">#&gt; 2 b</span>
 
 <span class="co"># Same</span>
-<span class="no">path_rdata</span> <span class="kw">%&gt;%</span>
-  <span class="fu"><a href="reference/list_any.html">list_any</a></span>(~<span class="fu"><a href="https://rdrr.io/r/base/get.html">get</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span>(<span class="no">.x</span>)))
+<span class="kw">path_rdata</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="reference/list_any.html">list_any</a></span>(<span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/get.html">get</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span>(<span class="kw">.x</span>)))
 <span class="co">#&gt; $rdata1</span>
 <span class="co">#&gt; # A tibble: 2 x 1</span>
 <span class="co">#&gt;       x</span>
@@ -255,10 +272,12 @@
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
-<span class="co">#&gt; 2 b</span></pre></div>
+<span class="co">#&gt; 2 b</span>
+</pre></div>
 <p>Pass additional arguments via <code>...</code> or inside the lambda function.</p>
-<div class="sourceCode" id="cb10"><pre class="r"><span class="no">path_csv</span> <span class="kw">%&gt;%</span>
-  <span class="fu"><a href="reference/list_any.html">list_any</a></span>(<span class="kw pkg">readr</span><span class="kw ns">::</span><span class="no"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span>, <span class="kw">skip</span> <span class="kw">=</span> <span class="fl">1</span>)
+<div class="sourceCode" id="cb10"><pre class="downlit">
+<span class="kw">path_csv</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="reference/list_any.html">list_any</a></span>(<span class="kw">readr</span>::<span class="kw"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span>, skip = <span class="fl">1</span>)
 <span class="co">#&gt; Parsed with column specification:</span>
 <span class="co">#&gt; cols(</span>
 <span class="co">#&gt;   `1` = col_double()</span>
@@ -279,8 +298,8 @@
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 b</span>
 
-<span class="no">path_csv</span> <span class="kw">%&gt;%</span>
-  <span class="fu"><a href="reference/list_any.html">list_any</a></span>(~<span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span>(<span class="no">.</span>, <span class="kw">stringsAsFactors</span> <span class="kw">=</span> <span class="fl">FALSE</span>))
+<span class="kw">path_csv</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="reference/list_any.html">list_any</a></span>(<span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span>(<span class="kw">.</span>, stringsAsFactors = <span class="fl">FALSE</span>))
 <span class="co">#&gt; $csv1</span>
 <span class="co">#&gt; # A tibble: 2 x 1</span>
 <span class="co">#&gt;       x</span>
@@ -293,15 +312,17 @@
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
-<span class="co">#&gt; 2 b</span></pre></div>
+<span class="co">#&gt; 2 b</span>
+</pre></div>
 <p>It also provides the arguments <code>regexp</code>, <code>ignore.case</code>, and <code>invert</code> to pick specific files in a directory (powered by <a href="https://fs.r-lib.org/"><strong>fs</strong></a>).</p>
-<div class="sourceCode" id="cb11"><pre class="r"><span class="no">path_mixed</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/tor_example.html">tor_example</a></span>(<span class="st">"mixed"</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>(<span class="no">path_mixed</span>)
+<div class="sourceCode" id="cb11"><pre class="downlit">
+<span class="kw">path_mixed</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/tor_example.html">tor_example</a></span>(<span class="st">"mixed"</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>(<span class="kw">path_mixed</span>)
 <span class="co">#&gt; [1] "csv.csv"           "lower_rdata.rdata" "rda.rda"          </span>
 <span class="co">#&gt; [4] "upper_rdata.RData"</span>
 
-<span class="no">path_mixed</span> <span class="kw">%&gt;%</span>
-  <span class="fu"><a href="reference/list_any.html">list_any</a></span>(~<span class="fu"><a href="https://rdrr.io/r/base/get.html">get</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span>(<span class="no">.</span>)), <span class="st">"[.]Rdata$"</span>, <span class="kw">ignore.case</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
+<span class="kw">path_mixed</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="reference/list_any.html">list_any</a></span>(<span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/get.html">get</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span>(<span class="kw">.</span>)), <span class="st">"[.]Rdata$"</span>, ignore.case = <span class="fl">TRUE</span>)
 <span class="co">#&gt; $lower_rdata</span>
 <span class="co">#&gt; # A tibble: 2 x 1</span>
 <span class="co">#&gt;   y    </span>
@@ -316,8 +337,8 @@
 <span class="co">#&gt; 1 a    </span>
 <span class="co">#&gt; 2 b</span>
 
-<span class="no">path_mixed</span> <span class="kw">%&gt;%</span>
-  <span class="fu"><a href="reference/list_any.html">list_any</a></span>(~<span class="fu"><a href="https://rdrr.io/r/base/get.html">get</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span>(<span class="no">.</span>)), <span class="kw">regexp</span> <span class="kw">=</span> <span class="st">"[.]csv$"</span>, <span class="kw">invert</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
+<span class="kw">path_mixed</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="reference/list_any.html">list_any</a></span>(<span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/get.html">get</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span>(<span class="kw">.</span>)), regexp = <span class="st">"[.]csv$"</span>, invert = <span class="fl">TRUE</span>)
 <span class="co">#&gt; $lower_rdata</span>
 <span class="co">#&gt; # A tibble: 2 x 1</span>
 <span class="co">#&gt;   y    </span>
@@ -337,13 +358,15 @@
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
-<span class="co">#&gt; 2 b</span></pre></div>
+<span class="co">#&gt; 2 b</span>
+</pre></div>
 </div>
 <div id="load_-load-multiple-files-from-a-directory-into-an-environment" class="section level3">
 <h3 class="hasAnchor">
 <a href="#load_-load-multiple-files-from-a-directory-into-an-environment" class="anchor"></a><code>load_*()</code>: Load multiple files from a directory into an environment</h3>
 <p>All functions default to importing files from the working directory and into the global environment.</p>
-<div class="sourceCode" id="cb12"><pre class="r"><span class="co"># The working directory contains .csv files</span>
+<div class="sourceCode" id="cb12"><pre class="downlit">
+<span class="co"># The working directory contains .csv files</span>
 <span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>()
 <span class="co">#&gt;  [1] "_pkgdown.yml"     "codecov.yml"      "cran-comments.md" "csv1.csv"        </span>
 <span class="co">#&gt;  [5] "csv2.csv"         "DESCRIPTION"      "inst"             "LICENSE.md"      </span>
@@ -362,55 +385,61 @@
 <span class="co">#&gt; )</span>
 
 <span class="co"># Each file is now available as a dataframe in the global environment</span>
-<span class="no">csv1</span>
+<span class="kw">csv1</span>
 <span class="co">#&gt; # A tibble: 2 x 1</span>
 <span class="co">#&gt;       x</span>
 <span class="co">#&gt;   &lt;dbl&gt;</span>
 <span class="co">#&gt; 1     1</span>
 <span class="co">#&gt; 2     2</span>
-<span class="no">csv2</span>
+<span class="kw">csv2</span>
 <span class="co">#&gt; # A tibble: 2 x 1</span>
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
 <span class="co">#&gt; 2 b</span>
 
-<span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span>(<span class="kw">list</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ls.html">ls</a></span>())</pre></div>
+<span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span>(list = <span class="fu"><a href="https://rdrr.io/r/base/ls.html">ls</a></span>())
+</pre></div>
 <p>You may import files from a specific <code>path</code>.</p>
-<div class="sourceCode" id="cb13"><pre class="r">(<span class="no">path_mixed</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/tor_example.html">tor_example</a></span>(<span class="st">"mixed"</span>))
-<span class="co">#&gt; [1] "/home/mauro/R/x86_64-pc-linux-gnu-library/3.6/tor/extdata/mixed"</span>
-<span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>(<span class="no">path_mixed</span>)
+<div class="sourceCode" id="cb13"><pre class="downlit">
+(<span class="kw">path_mixed</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/tor_example.html">tor_example</a></span>(<span class="st">"mixed"</span>))
+<span class="co">#&gt; [1] "/home/mauro/R/x86_64-pc-linux-gnu-library/4.0/tor/extdata/mixed"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>(<span class="kw">path_mixed</span>)
 <span class="co">#&gt; [1] "csv.csv"           "lower_rdata.rdata" "rda.rda"          </span>
 <span class="co">#&gt; [4] "upper_rdata.RData"</span>
 
-<span class="fu"><a href="reference/load_csv.html">load_rdata</a></span>(<span class="no">path_mixed</span>)
+<span class="fu"><a href="reference/load_csv.html">load_rdata</a></span>(<span class="kw">path_mixed</span>)
 
 <span class="fu"><a href="https://rdrr.io/r/base/ls.html">ls</a></span>()
 <span class="co">#&gt; [1] "lower_rdata" "path_mixed"  "rda"         "upper_rdata"</span>
-<span class="no">rda</span>
+<span class="kw">rda</span>
 <span class="co">#&gt; # A tibble: 2 x 1</span>
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
-<span class="co">#&gt; 2 b</span></pre></div>
+<span class="co">#&gt; 2 b</span>
+</pre></div>
 <p>You may import files into a specific <code>envir</code>onment.</p>
-<div class="sourceCode" id="cb14"><pre class="r"><span class="no">e</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/environment.html">new.env</a></span>()
-<span class="fu"><a href="https://rdrr.io/r/base/ls.html">ls</a></span>(<span class="no">e</span>)
+<div class="sourceCode" id="cb14"><pre class="downlit">
+<span class="kw">e</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/environment.html">new.env</a></span>()
+<span class="fu"><a href="https://rdrr.io/r/base/ls.html">ls</a></span>(<span class="kw">e</span>)
 <span class="co">#&gt; character(0)</span>
 
-<span class="fu"><a href="reference/load_csv.html">load_rdata</a></span>(<span class="no">path_mixed</span>, <span class="kw">envir</span> <span class="kw">=</span> <span class="no">e</span>)
+<span class="fu"><a href="reference/load_csv.html">load_rdata</a></span>(<span class="kw">path_mixed</span>, envir = <span class="kw">e</span>)
 
-<span class="fu"><a href="https://rdrr.io/r/base/ls.html">ls</a></span>(<span class="no">e</span>)
-<span class="co">#&gt; [1] "lower_rdata" "rda"         "upper_rdata"</span></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/base/ls.html">ls</a></span>(<span class="kw">e</span>)
+<span class="co">#&gt; [1] "lower_rdata" "rda"         "upper_rdata"</span>
+</pre></div>
 <p>For more flexibility use <code><a href="reference/load_any.html">load_any()</a></code> with a function able to read one file of the format you want to import.</p>
-<div class="sourceCode" id="cb15"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>()
+<div class="sourceCode" id="cb15"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span>()
 <span class="co">#&gt;  [1] "_pkgdown.yml"     "codecov.yml"      "cran-comments.md" "csv1.csv"        </span>
 <span class="co">#&gt;  [5] "csv2.csv"         "DESCRIPTION"      "inst"             "LICENSE.md"      </span>
 <span class="co">#&gt;  [9] "man"              "NAMESPACE"        "NEWS.md"          "R"               </span>
 <span class="co">#&gt; [13] "README.md"        "README.Rmd"       "tests"            "tor.Rproj"       </span>
 <span class="co">#&gt; [17] "vignettes"</span>
 
-<span class="fu"><a href="reference/load_any.html">load_any</a></span>(<span class="st">"."</span>, <span class="kw">.f</span> <span class="kw">=</span> <span class="kw pkg">readr</span><span class="kw ns">::</span><span class="no"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span>, <span class="kw">regexp</span> <span class="kw">=</span> <span class="st">"[.]csv$"</span>)
+<span class="fu"><a href="reference/load_any.html">load_any</a></span>(<span class="st">"."</span>, .f = <span class="kw">readr</span>::<span class="kw"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span>, regexp = <span class="st">"[.]csv$"</span>)
 <span class="co">#&gt; Parsed with column specification:</span>
 <span class="co">#&gt; cols(</span>
 <span class="co">#&gt;   x = col_double()</span>
@@ -421,18 +450,19 @@
 <span class="co">#&gt; )</span>
 
 <span class="co"># The data is now available in the global environment</span>
-<span class="no">csv1</span>
+<span class="kw">csv1</span>
 <span class="co">#&gt; # A tibble: 2 x 1</span>
 <span class="co">#&gt;       x</span>
 <span class="co">#&gt;   &lt;dbl&gt;</span>
 <span class="co">#&gt; 1     1</span>
 <span class="co">#&gt; 2     2</span>
-<span class="no">csv2</span>
+<span class="kw">csv2</span>
 <span class="co">#&gt; # A tibble: 2 x 1</span>
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
-<span class="co">#&gt; 2 b</span></pre></div>
+<span class="co">#&gt; 2 b</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -498,6 +528,7 @@
 <li><a href="https://codecov.io/gh/maurolepore/tor?branch=master"><img src="https://codecov.io/gh/maurolepore/tor/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
 <li><a href="https://coveralls.io/r/maurolepore/tor?branch=master"><img src="https://coveralls.io/repos/github/maurolepore/tor/badge.svg" alt="Coverage status"></a></li>
 <li><a href="https://cran.r-project.org/package=tor"><img src="https://www.r-pkg.org/badges/version/tor" alt="CRAN status"></a></li>
+<li><a href="https://www.codefactor.io/repository/github/maurolepore/tor"><img src="https://www.codefactor.io/repository/github/maurolepore/tor/badge" alt="CodeFactor"></a></li>
 </ul>
 </div>
 </div>
