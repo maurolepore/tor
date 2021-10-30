@@ -6,14 +6,13 @@
 \alias{tor-package}
 \title{tor: Import Multiple Files From a Single Directory at Once}
 \description{
-The goal of tor (to-R) is to help you to import
-    multiple files from a single directory at once, and to do so as
-    quickly, flexibly, and simply as possible.
+The goal of tor (to-R) is to help you to import multiple files from a single directory at once, and to do so as quickly, flexibly, and simply as possible.
 }
 \seealso{
 Useful links:
 \itemize{
   \item \url{https://github.com/maurolepore/tor}
+  \item \url{https://maurolepore.github.io/tor}
   \item Report bugs at \url{https://github.com/maurolepore/tor/issues}
 }
 
