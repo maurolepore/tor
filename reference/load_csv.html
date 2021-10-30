@@ -125,42 +125,42 @@
     </div>
 
     <div class="ref-description">
-    <p>These functions wrap common use-cases of <code><a href='https://rdrr.io/pkg/tor/man/load_any.html'>load_any()</a></code>.</p>
+    <p>These functions wrap common use-cases of <code><a href='load_any.html'>load_any()</a></code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/tor/man/load_csv.html'>load_csv</a></span>(
-  path = <span class='st'>"."</span>,
-  regexp = <span class='st'>"[.]csv$"</span>,
-  ignore.case = <span class='fl'>TRUE</span>,
-  invert = <span class='fl'>FALSE</span>,
-  envir = <span class='kw'>.GlobalEnv</span>,
-  <span class='kw'>...</span>
-)
+    <pre class="usage"><span class='fu'>load_csv</span><span class='op'>(</span>
+  path <span class='op'>=</span> <span class='st'>"."</span>,
+  regexp <span class='op'>=</span> <span class='st'>"[.]csv$"</span>,
+  ignore.case <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  invert <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  envir <span class='op'>=</span> <span class='va'>.GlobalEnv</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
-<span class='fu'><a href='https://rdrr.io/pkg/tor/man/load_csv.html'>load_tsv</a></span>(
-  path = <span class='st'>"."</span>,
-  regexp = <span class='st'>"[.]tsv$"</span>,
-  ignore.case = <span class='fl'>TRUE</span>,
-  invert = <span class='fl'>FALSE</span>,
-  envir = <span class='kw'>.GlobalEnv</span>,
-  <span class='kw'>...</span>
-)
+<span class='fu'>load_tsv</span><span class='op'>(</span>
+  path <span class='op'>=</span> <span class='st'>"."</span>,
+  regexp <span class='op'>=</span> <span class='st'>"[.]tsv$"</span>,
+  ignore.case <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  invert <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  envir <span class='op'>=</span> <span class='va'>.GlobalEnv</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
-<span class='fu'><a href='https://rdrr.io/pkg/tor/man/load_csv.html'>load_rds</a></span>(
-  path = <span class='st'>"."</span>,
-  regexp = <span class='st'>"[.]rds$"</span>,
-  ignore.case = <span class='fl'>TRUE</span>,
-  invert = <span class='fl'>FALSE</span>,
-  envir = <span class='kw'>.GlobalEnv</span>
-)
+<span class='fu'>load_rds</span><span class='op'>(</span>
+  path <span class='op'>=</span> <span class='st'>"."</span>,
+  regexp <span class='op'>=</span> <span class='st'>"[.]rds$"</span>,
+  ignore.case <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  invert <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  envir <span class='op'>=</span> <span class='va'>.GlobalEnv</span>
+<span class='op'>)</span>
 
-<span class='fu'><a href='https://rdrr.io/pkg/tor/man/load_csv.html'>load_rdata</a></span>(
-  path = <span class='st'>"."</span>,
-  regexp = <span class='st'>"[.]rdata$|[.]rda$"</span>,
-  ignore.case = <span class='fl'>TRUE</span>,
-  invert = <span class='fl'>FALSE</span>,
-  envir = <span class='kw'>.GlobalEnv</span>
-)</pre>
+<span class='fu'>load_rdata</span><span class='op'>(</span>
+  path <span class='op'>=</span> <span class='st'>"."</span>,
+  regexp <span class='op'>=</span> <span class='st'>"[.]rdata$|[.]rda$"</span>,
+  ignore.case <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  invert <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  envir <span class='op'>=</span> <span class='va'>.GlobalEnv</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -199,67 +199,54 @@ directory.</p></td>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other functions to import files into an environment: 
-<code><a href='https://rdrr.io/pkg/tor/man/load_any.html'>load_any</a>()</code></p>
+<code><a href='load_any.html'>load_any</a>()</code></p>
 <p>Other functions to import files of common formats: 
-<code><a href='https://rdrr.io/pkg/tor/man/list_csv.html'>list_csv</a>()</code></p></div>
+<code><a href='list_csv.html'>list_csv</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>(<span class='kw'>path_csv</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/tor/man/tor_example.html'>tor_example</a></span>(<span class='st'>"csv"</span>))</div><div class='output co'>#&gt; [1] "/Users/runner/work/_temp/Library/tor/extdata/csv"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/list.files.html'>dir</a></span>(<span class='kw'>path_csv</span>)</div><div class='output co'>#&gt; [1] "csv1.csv" "csv2.csv"</div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/pkg/tor/man/load_csv.html'>load_csv</a></span>(<span class='kw'>path_csv</span>)</div><div class='output co'>#&gt; <span class='message'>Parsed with column specification:</span>
-#&gt; <span class='message'>cols(</span>
-#&gt; <span class='message'>  x = <span style='color: #00BB00;'>col_double()</span><span></span>
-#&gt; <span class='message'>)</span></div><div class='output co'>#&gt; <span class='message'>Parsed with column specification:</span>
-#&gt; <span class='message'>cols(</span>
-#&gt; <span class='message'>  y = </span><span style='color: #BB0000;'>col_character()</span><span></span>
-#&gt; <span class='message'>)</span></div><div class='input'><span class='co'># Each file is now available in the global environment</span>
-<span class='kw'>csv1</span></div><div class='output co'>#&gt; <span class='warning'>Warning: `...` is not empty.</span>
-#&gt; <span class='warning'></span>
-#&gt; <span class='warning'>We detected these problematic arguments:</span>
-#&gt; <span class='warning'>* `needs_dots`</span>
-#&gt; <span class='warning'></span>
-#&gt; <span class='warning'>These dots only exist to allow future extensions and should be empty.</span>
-#&gt; <span class='warning'>Did you misspecify an argument?</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 2 x 1</span><span>
+    <pre class="examples"><div class='input'><span class='op'>(</span><span class='va'>path_csv</span> <span class='op'>&lt;-</span> <span class='fu'><a href='tor_example.html'>tor_example</a></span><span class='op'>(</span><span class='st'>"csv"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "/home/runner/work/_temp/Library/tor/extdata/csv"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/list.files.html'>dir</a></span><span class='op'>(</span><span class='va'>path_csv</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "csv1.csv" "csv2.csv"</div><div class='input'>
+<span class='fu'>load_csv</span><span class='op'>(</span><span class='va'>path_csv</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'><span style='font-weight: bold;'>Rows: </span><span style='color: #0000BB;'>2</span> <span style='font-weight: bold;'>Columns: </span><span style='color: #0000BB;'>1</span></span></div><div class='output co'>#&gt; <span class='message'><span style='color: #00BBBB;'>──</span> <span style='font-weight: bold;'>Column specification</span> <span style='color: #00BBBB;'>────────────────────────────────────────────────────────</span></span>
+#&gt; <span class='message'><span style='font-weight: bold;'>Delimiter:</span> ","</span>
+#&gt; <span class='message'><span style='color: #00BB00;'>dbl</span> (1): x</span></div><div class='output co'>#&gt; <span class='message'></span>
+#&gt; <span class='message'><span style='color: #00BBBB;'>ℹ</span> Use <span style='color: #262626; background-color: #DADADA;'>`spec()`</span> to retrieve the full column specification for this data.</span>
+#&gt; <span class='message'><span style='color: #00BBBB;'>ℹ</span> Specify the column types or set <span style='color: #262626; background-color: #DADADA;'>`show_col_types = FALSE`</span> to quiet this message.</span></div><div class='output co'>#&gt; <span class='message'><span style='font-weight: bold;'>Rows: </span><span style='color: #0000BB;'>2</span> <span style='font-weight: bold;'>Columns: </span><span style='color: #0000BB;'>1</span></span></div><div class='output co'>#&gt; <span class='message'><span style='color: #00BBBB;'>──</span> <span style='font-weight: bold;'>Column specification</span> <span style='color: #00BBBB;'>────────────────────────────────────────────────────────</span></span>
+#&gt; <span class='message'><span style='font-weight: bold;'>Delimiter:</span> ","</span>
+#&gt; <span class='message'><span style='color: #BB0000;'>chr</span> (1): y</span></div><div class='output co'>#&gt; <span class='message'></span>
+#&gt; <span class='message'><span style='color: #00BBBB;'>ℹ</span> Use <span style='color: #262626; background-color: #DADADA;'>`spec()`</span> to retrieve the full column specification for this data.</span>
+#&gt; <span class='message'><span style='color: #00BBBB;'>ℹ</span> Specify the column types or set <span style='color: #262626; background-color: #DADADA;'>`show_col_types = FALSE`</span> to quiet this message.</span></div><div class='input'><span class='co'># Each file is now available in the global environment</span>
+<span class='va'>csv1</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 2 × 1</span>
 #&gt;       x
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span>     1
-#&gt; </span><span style='color: #555555;'>2</span><span>     2</div><div class='input'><span class='kw'>csv2</span></div><div class='output co'>#&gt; <span class='warning'>Warning: `...` is not empty.</span>
-#&gt; <span class='warning'></span>
-#&gt; <span class='warning'>We detected these problematic arguments:</span>
-#&gt; <span class='warning'>* `needs_dots`</span>
-#&gt; <span class='warning'></span>
-#&gt; <span class='warning'>These dots only exist to allow future extensions and should be empty.</span>
-#&gt; <span class='warning'>Did you misspecify an argument?</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 2 x 1</span><span>
+#&gt;   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>1</span>     1
+#&gt; <span style='color: #BCBCBC;'>2</span>     2</div><div class='input'><span class='va'>csv2</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 2 × 1</span>
 #&gt;   y    
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> a    
-#&gt; </span><span style='color: #555555;'>2</span><span> b    </div><div class='input'>
-(<span class='kw'>path_mixed</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/tor/man/tor_example.html'>tor_example</a></span>(<span class='st'>"mixed"</span>))</div><div class='output co'>#&gt; [1] "/Users/runner/work/_temp/Library/tor/extdata/mixed"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/list.files.html'>dir</a></span>(<span class='kw'>path_mixed</span>)</div><div class='output co'>#&gt; [1] "csv.csv"           "lower_rdata.rdata" "rda.rda"          
+#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>1</span> a    
+#&gt; <span style='color: #BCBCBC;'>2</span> b    </div><div class='input'>
+<span class='op'>(</span><span class='va'>path_mixed</span> <span class='op'>&lt;-</span> <span class='fu'><a href='tor_example.html'>tor_example</a></span><span class='op'>(</span><span class='st'>"mixed"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "/home/runner/work/_temp/Library/tor/extdata/mixed"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/list.files.html'>dir</a></span><span class='op'>(</span><span class='va'>path_mixed</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "csv.csv"           "lower_rdata.rdata" "rda.rda"          
 #&gt; [4] "upper_rdata.RData"</div><div class='input'>
 <span class='co'># Loading the data in an environment other than the global environment</span>
-<span class='kw'>e</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/environment.html'>new.env</a></span>()
-<span class='fu'><a href='https://rdrr.io/pkg/tor/man/load_csv.html'>load_rdata</a></span>(<span class='kw'>path_mixed</span>, envir = <span class='kw'>e</span>)
+<span class='va'>e</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/environment.html'>new.env</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'>load_rdata</span><span class='op'>(</span><span class='va'>path_mixed</span>, envir <span class='op'>=</span> <span class='va'>e</span><span class='op'>)</span>
 <span class='co'># Each dataframe is now available in the environment `e`</span>
-<span class='kw'>e</span><span class='op'>$</span><span class='kw'>lower_rdata</span></div><div class='output co'>#&gt; <span class='warning'>Warning: `...` is not empty.</span>
-#&gt; <span class='warning'></span>
-#&gt; <span class='warning'>We detected these problematic arguments:</span>
-#&gt; <span class='warning'>* `needs_dots`</span>
-#&gt; <span class='warning'></span>
-#&gt; <span class='warning'>These dots only exist to allow future extensions and should be empty.</span>
-#&gt; <span class='warning'>Did you misspecify an argument?</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 2 x 1</span><span>
+<span class='va'>e</span><span class='op'>$</span><span class='va'>lower_rdata</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 2 × 1</span>
 #&gt;   y    
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> a    
-#&gt; </span><span style='color: #555555;'>2</span><span> b    </div><div class='input'><span class='kw'>e</span><span class='op'>$</span><span class='kw'>upper_rdata</span></div><div class='output co'>#&gt; <span class='warning'>Warning: `...` is not empty.</span>
-#&gt; <span class='warning'></span>
-#&gt; <span class='warning'>We detected these problematic arguments:</span>
-#&gt; <span class='warning'>* `needs_dots`</span>
-#&gt; <span class='warning'></span>
-#&gt; <span class='warning'>These dots only exist to allow future extensions and should be empty.</span>
-#&gt; <span class='warning'>Did you misspecify an argument?</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 2 x 1</span><span>
+#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>1</span> a    
+#&gt; <span style='color: #BCBCBC;'>2</span> b    </div><div class='input'><span class='va'>e</span><span class='op'>$</span><span class='va'>upper_rdata</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 2 × 1</span>
 #&gt;   y    
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> a    
-#&gt; </span><span style='color: #555555;'>2</span><span> b    </div></span></pre>
+#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>1</span> a    
+#&gt; <span style='color: #BCBCBC;'>2</span> b    </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -275,7 +262,7 @@ directory.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
