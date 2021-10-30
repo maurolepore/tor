@@ -11,12 +11,8 @@ editor_options:
 # tor
 
 <!-- badges: start -->
-[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
-[![Travis build status](https://travis-ci.org/maurolepore/tor.svg?branch=main)](https://travis-ci.org/maurolepore/tor)
+[![CRAN status](https://www.r-pkg.org/badges/version/tor)](https://CRAN.R-project.org/package=tor)
 [![Codecov test coverage](https://codecov.io/gh/maurolepore/tor/branch/main/graph/badge.svg)](https://app.codecov.io/gh/maurolepore/tor?branch=main)
-[![Coverage status](https://coveralls.io/repos/github/maurolepore/tor/badge.svg)](https://coveralls.io/github/maurolepore/tor)
-[![CRAN status](https://www.r-pkg.org/badges/version/tor)](https://cran.r-project.org/package=tor)
-[![CodeFactor](https://www.codefactor.io/repository/github/maurolepore/tor/badge)](https://www.codefactor.io/repository/github/maurolepore/tor)
 <!-- badges: end -->
 
 __tor__ (_to-R_) helps you to import multiple files at once. For example:
@@ -61,14 +57,14 @@ dir()
 
 list_csv()
 #> Rows: 2 Columns: 1
-#> ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────
+#> ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 #> Delimiter: ","
 #> dbl (1): x
 #> 
 #> ℹ Use `spec()` to retrieve the full column specification for this data.
 #> ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 #> Rows: 2 Columns: 1
-#> ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────
+#> ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 #> Delimiter: ","
 #> chr (1): y
 #> 
@@ -241,14 +237,14 @@ Pass additional arguments via `...` or inside the lambda function.
 path_csv %>% 
   list_any(readr::read_csv, skip = 1)
 #> Rows: 1 Columns: 1
-#> ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────
+#> ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 #> Delimiter: ","
 #> dbl (1): 1
 #> 
 #> ℹ Use `spec()` to retrieve the full column specification for this data.
 #> ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 #> Rows: 1 Columns: 1
-#> ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────
+#> ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 #> Delimiter: ","
 #> chr (1): a
 #> 
@@ -348,14 +344,14 @@ dir()
 
 load_csv()
 #> Rows: 2 Columns: 1
-#> ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────
+#> ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 #> Delimiter: ","
 #> dbl (1): x
 #> 
 #> ℹ Use `spec()` to retrieve the full column specification for this data.
 #> ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 #> Rows: 2 Columns: 1
-#> ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────
+#> ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 #> Delimiter: ","
 #> chr (1): y
 #> 
@@ -428,14 +424,14 @@ dir()
 
 load_any(".", .f = readr::read_csv, regexp = "[.]csv$")
 #> Rows: 2 Columns: 1
-#> ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────
+#> ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 #> Delimiter: ","
 #> dbl (1): x
 #> 
 #> ℹ Use `spec()` to retrieve the full column specification for this data.
 #> ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 #> Rows: 2 Columns: 1
-#> ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────
+#> ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 #> Delimiter: ","
 #> chr (1): y
 #> 
