@@ -3,7 +3,7 @@ pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   tor-1-1-1: tor-1-1-1.html
-last_built: 2021-10-30T01:06Z
+last_built: 2021-10-30T01:08Z
 urls:
   reference: https://maurolepore.github.io/tor//reference
   article: https://maurolepore.github.io/tor//articles

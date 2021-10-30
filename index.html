@@ -80,11 +80,14 @@
       </header><div class="row">
   <div class="contents col-md-9">
 
+<hr>
+<p>output: github_document editor_options: chunk_output_type: console —</p>
+<!-- README.md is generated from README.Rmd. Please edit that file -->
 <div id="tor" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#tor" class="anchor"></a>tor</h1></div>
 <!-- badges: start -->
-
+<p><a href="https://CRAN.R-project.org/package=tor"><img src="https://www.r-pkg.org/badges/version/tor" alt="CRAN status"></a> <a href="https://app.codecov.io/gh/maurolepore/tor?branch=main"><img src="https://codecov.io/gh/maurolepore/tor/branch/main/graph/badge.svg" alt="Codecov test coverage"></a> <a href="https://github.com/maurolepore/tor/actions"><img src="https://github.com/maurolepore/tor/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a> <!-- badges: end --></p>
 <p><strong>tor</strong> (<em>to-R</em>) helps you to import multiple files at once. For example:</p>
 <ul>
 <li>Run <code><a href="reference/list_csv.html">list_rds()</a></code> to import all .csv files from your working directory into a list.</li>
@@ -119,23 +122,29 @@
 <span class="co">#&gt; [17] "vignettes"</span>
 
 <span class="fu"><a href="reference/list_csv.html">list_csv</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; Parsed with column specification:</span>
-<span class="co">#&gt; cols(</span>
-<span class="co">#&gt;   x = col_double()</span>
-<span class="co">#&gt; )</span>
-<span class="co">#&gt; Parsed with column specification:</span>
-<span class="co">#&gt; cols(</span>
-<span class="co">#&gt;   y = col_character()</span>
-<span class="co">#&gt; )</span>
+<span class="co">#&gt; Rows: 2 Columns: 1</span>
+<span class="co">#&gt; ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span>
+<span class="co">#&gt; Delimiter: ","</span>
+<span class="co">#&gt; dbl (1): x</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span>
+<span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span>
+<span class="co">#&gt; Rows: 2 Columns: 1</span>
+<span class="co">#&gt; ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span>
+<span class="co">#&gt; Delimiter: ","</span>
+<span class="co">#&gt; chr (1): y</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span>
+<span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span>
 <span class="co">#&gt; $csv1</span>
-<span class="co">#&gt; # A tibble: 2 x 1</span>
+<span class="co">#&gt; # A tibble: 2 × 1</span>
 <span class="co">#&gt;       x</span>
 <span class="co">#&gt;   &lt;dbl&gt;</span>
 <span class="co">#&gt; 1     1</span>
 <span class="co">#&gt; 2     2</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $csv2</span>
-<span class="co">#&gt; # A tibble: 2 x 1</span>
+<span class="co">#&gt; # A tibble: 2 × 1</span>
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
@@ -147,20 +156,20 @@
 <span class="co">#&gt; [1] "csv"   "mixed" "rdata" "rds"   "tsv"</span>
 
 <span class="op">(</span><span class="va">path_rds</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/tor_example.html">tor_example</a></span><span class="op">(</span><span class="st">"rds"</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; [1] "/home/mauro/R/x86_64-pc-linux-gnu-library/4.0/tor/extdata/rds"</span>
+<span class="co">#&gt; [1] "/home/mauro/R/x86_64-pc-linux-gnu-library/4.1/tor/extdata/rds"</span>
 <span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span><span class="op">(</span><span class="va">path_rds</span><span class="op">)</span>
 <span class="co">#&gt; [1] "rds1.rds" "rds2.rds"</span>
 
 <span class="fu"><a href="reference/list_csv.html">list_rds</a></span><span class="op">(</span><span class="va">path_rds</span><span class="op">)</span>
 <span class="co">#&gt; $rds1</span>
-<span class="co">#&gt; # A tibble: 2 x 1</span>
+<span class="co">#&gt; # A tibble: 2 × 1</span>
 <span class="co">#&gt;       x</span>
 <span class="co">#&gt;   &lt;dbl&gt;</span>
 <span class="co">#&gt; 1     1</span>
 <span class="co">#&gt; 2     2</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $rds2</span>
-<span class="co">#&gt; # A tibble: 2 x 1</span>
+<span class="co">#&gt; # A tibble: 2 × 1</span>
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
@@ -174,21 +183,21 @@
 
 <span class="fu"><a href="reference/list_csv.html">list_rdata</a></span><span class="op">(</span><span class="va">path_mixed</span><span class="op">)</span>
 <span class="co">#&gt; $lower_rdata</span>
-<span class="co">#&gt; # A tibble: 2 x 1</span>
+<span class="co">#&gt; # A tibble: 2 × 1</span>
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
 <span class="co">#&gt; 2 b    </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $rda</span>
-<span class="co">#&gt; # A tibble: 2 x 1</span>
+<span class="co">#&gt; # A tibble: 2 × 1</span>
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
 <span class="co">#&gt; 2 b    </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $upper_rdata</span>
-<span class="co">#&gt; # A tibble: 2 x 1</span>
+<span class="co">#&gt; # A tibble: 2 × 1</span>
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
@@ -197,7 +206,7 @@
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/list_csv.html">list_rdata</a></span><span class="op">(</span><span class="va">path_mixed</span>, regexp <span class="op">=</span> <span class="st">"[.]RData"</span>, ignore.case <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="co">#&gt; $upper_rdata</span>
-<span class="co">#&gt; # A tibble: 2 x 1</span>
+<span class="co">#&gt; # A tibble: 2 × 1</span>
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
@@ -205,20 +214,20 @@
 <p><code><a href="reference/list_any.html">list_any()</a></code> is the most flexible function. You supply the function to read with.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="op">(</span><span class="va">path_csv</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/tor_example.html">tor_example</a></span><span class="op">(</span><span class="st">"csv"</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; [1] "/home/mauro/R/x86_64-pc-linux-gnu-library/4.0/tor/extdata/csv"</span>
+<span class="co">#&gt; [1] "/home/mauro/R/x86_64-pc-linux-gnu-library/4.1/tor/extdata/csv"</span>
 <span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span><span class="op">(</span><span class="va">path_csv</span><span class="op">)</span>
 <span class="co">#&gt; [1] "csv1.csv" "csv2.csv"</span>
 
 <span class="fu"><a href="reference/list_any.html">list_any</a></span><span class="op">(</span><span class="va">path_csv</span>, <span class="va">read.csv</span><span class="op">)</span>
 <span class="co">#&gt; $csv1</span>
-<span class="co">#&gt; # A tibble: 2 x 1</span>
+<span class="co">#&gt; # A tibble: 2 × 1</span>
 <span class="co">#&gt;       x</span>
 <span class="co">#&gt;   &lt;int&gt;</span>
 <span class="co">#&gt; 1     1</span>
 <span class="co">#&gt; 2     2</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $csv2</span>
-<span class="co">#&gt; # A tibble: 2 x 1</span>
+<span class="co">#&gt; # A tibble: 2 × 1</span>
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
@@ -229,21 +238,21 @@
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org">magrittr</a></span><span class="op">)</span>
 
 <span class="op">(</span><span class="va">path_rdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/tor_example.html">tor_example</a></span><span class="op">(</span><span class="st">"rdata"</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; [1] "/home/mauro/R/x86_64-pc-linux-gnu-library/4.0/tor/extdata/rdata"</span>
+<span class="co">#&gt; [1] "/home/mauro/R/x86_64-pc-linux-gnu-library/4.1/tor/extdata/rdata"</span>
 <span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span><span class="op">(</span><span class="va">path_rdata</span><span class="op">)</span>
 <span class="co">#&gt; [1] "rdata1.rdata" "rdata2.rdata"</span>
 
 <span class="va">path_rdata</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="reference/list_any.html">list_any</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/get.html">get</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; $rdata1</span>
-<span class="co">#&gt; # A tibble: 2 x 1</span>
+<span class="co">#&gt; # A tibble: 2 × 1</span>
 <span class="co">#&gt;       x</span>
 <span class="co">#&gt;   &lt;dbl&gt;</span>
 <span class="co">#&gt; 1     1</span>
 <span class="co">#&gt; 2     2</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $rdata2</span>
-<span class="co">#&gt; # A tibble: 2 x 1</span>
+<span class="co">#&gt; # A tibble: 2 × 1</span>
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
@@ -253,14 +262,14 @@
 <span class="va">path_rdata</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="reference/list_any.html">list_any</a></span><span class="op">(</span><span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/get.html">get</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="va">.x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; $rdata1</span>
-<span class="co">#&gt; # A tibble: 2 x 1</span>
+<span class="co">#&gt; # A tibble: 2 × 1</span>
 <span class="co">#&gt;       x</span>
 <span class="co">#&gt;   &lt;dbl&gt;</span>
 <span class="co">#&gt; 1     1</span>
 <span class="co">#&gt; 2     2</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $rdata2</span>
-<span class="co">#&gt; # A tibble: 2 x 1</span>
+<span class="co">#&gt; # A tibble: 2 × 1</span>
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
@@ -269,22 +278,28 @@
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">path_csv</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="reference/list_any.html">list_any</a></span><span class="op">(</span><span class="fu">readr</span><span class="fu">::</span><span class="va"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span>, skip <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
-<span class="co">#&gt; Parsed with column specification:</span>
-<span class="co">#&gt; cols(</span>
-<span class="co">#&gt;   `1` = col_double()</span>
-<span class="co">#&gt; )</span>
-<span class="co">#&gt; Parsed with column specification:</span>
-<span class="co">#&gt; cols(</span>
-<span class="co">#&gt;   a = col_character()</span>
-<span class="co">#&gt; )</span>
+<span class="co">#&gt; Rows: 1 Columns: 1</span>
+<span class="co">#&gt; ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span>
+<span class="co">#&gt; Delimiter: ","</span>
+<span class="co">#&gt; dbl (1): 1</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span>
+<span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span>
+<span class="co">#&gt; Rows: 1 Columns: 1</span>
+<span class="co">#&gt; ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span>
+<span class="co">#&gt; Delimiter: ","</span>
+<span class="co">#&gt; chr (1): a</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span>
+<span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span>
 <span class="co">#&gt; $csv1</span>
-<span class="co">#&gt; # A tibble: 1 x 1</span>
+<span class="co">#&gt; # A tibble: 1 × 1</span>
 <span class="co">#&gt;     `1`</span>
 <span class="co">#&gt;   &lt;dbl&gt;</span>
 <span class="co">#&gt; 1     2</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $csv2</span>
-<span class="co">#&gt; # A tibble: 1 x 1</span>
+<span class="co">#&gt; # A tibble: 1 × 1</span>
 <span class="co">#&gt;   a    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 b</span>
@@ -292,14 +307,14 @@
 <span class="va">path_csv</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="reference/list_any.html">list_any</a></span><span class="op">(</span><span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="va">.</span>, stringsAsFactors <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; $csv1</span>
-<span class="co">#&gt; # A tibble: 2 x 1</span>
+<span class="co">#&gt; # A tibble: 2 × 1</span>
 <span class="co">#&gt;       x</span>
 <span class="co">#&gt;   &lt;int&gt;</span>
 <span class="co">#&gt; 1     1</span>
 <span class="co">#&gt; 2     2</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $csv2</span>
-<span class="co">#&gt; # A tibble: 2 x 1</span>
+<span class="co">#&gt; # A tibble: 2 × 1</span>
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
@@ -314,14 +329,14 @@
 <span class="va">path_mixed</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="reference/list_any.html">list_any</a></span><span class="op">(</span><span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/get.html">get</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">)</span>, <span class="st">"[.]Rdata$"</span>, ignore.case <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co">#&gt; $lower_rdata</span>
-<span class="co">#&gt; # A tibble: 2 x 1</span>
+<span class="co">#&gt; # A tibble: 2 × 1</span>
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
 <span class="co">#&gt; 2 b    </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $upper_rdata</span>
-<span class="co">#&gt; # A tibble: 2 x 1</span>
+<span class="co">#&gt; # A tibble: 2 × 1</span>
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
@@ -330,21 +345,21 @@
 <span class="va">path_mixed</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="reference/list_any.html">list_any</a></span><span class="op">(</span><span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/get.html">get</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">)</span>, regexp <span class="op">=</span> <span class="st">"[.]csv$"</span>, invert <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co">#&gt; $lower_rdata</span>
-<span class="co">#&gt; # A tibble: 2 x 1</span>
+<span class="co">#&gt; # A tibble: 2 × 1</span>
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
 <span class="co">#&gt; 2 b    </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $rda</span>
-<span class="co">#&gt; # A tibble: 2 x 1</span>
+<span class="co">#&gt; # A tibble: 2 × 1</span>
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
 <span class="co">#&gt; 2 b    </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $upper_rdata</span>
-<span class="co">#&gt; # A tibble: 2 x 1</span>
+<span class="co">#&gt; # A tibble: 2 × 1</span>
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
@@ -364,24 +379,30 @@
 <span class="co">#&gt; [17] "vignettes"</span>
 
 <span class="fu"><a href="reference/load_csv.html">load_csv</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; Parsed with column specification:</span>
-<span class="co">#&gt; cols(</span>
-<span class="co">#&gt;   x = col_double()</span>
-<span class="co">#&gt; )</span>
-<span class="co">#&gt; Parsed with column specification:</span>
-<span class="co">#&gt; cols(</span>
-<span class="co">#&gt;   y = col_character()</span>
-<span class="co">#&gt; )</span>
+<span class="co">#&gt; Rows: 2 Columns: 1</span>
+<span class="co">#&gt; ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span>
+<span class="co">#&gt; Delimiter: ","</span>
+<span class="co">#&gt; dbl (1): x</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span>
+<span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span>
+<span class="co">#&gt; Rows: 2 Columns: 1</span>
+<span class="co">#&gt; ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span>
+<span class="co">#&gt; Delimiter: ","</span>
+<span class="co">#&gt; chr (1): y</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span>
+<span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span>
 
 <span class="co"># Each file is now available as a dataframe in the global environment</span>
 <span class="va">csv1</span>
-<span class="co">#&gt; # A tibble: 2 x 1</span>
+<span class="co">#&gt; # A tibble: 2 × 1</span>
 <span class="co">#&gt;       x</span>
 <span class="co">#&gt;   &lt;dbl&gt;</span>
 <span class="co">#&gt; 1     1</span>
 <span class="co">#&gt; 2     2</span>
 <span class="va">csv2</span>
-<span class="co">#&gt; # A tibble: 2 x 1</span>
+<span class="co">#&gt; # A tibble: 2 × 1</span>
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
@@ -391,7 +412,7 @@
 <p>You may import files from a specific <code>path</code>.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="op">(</span><span class="va">path_mixed</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/tor_example.html">tor_example</a></span><span class="op">(</span><span class="st">"mixed"</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; [1] "/home/mauro/R/x86_64-pc-linux-gnu-library/4.0/tor/extdata/mixed"</span>
+<span class="co">#&gt; [1] "/home/mauro/R/x86_64-pc-linux-gnu-library/4.1/tor/extdata/mixed"</span>
 <span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span><span class="op">(</span><span class="va">path_mixed</span><span class="op">)</span>
 <span class="co">#&gt; [1] "csv.csv"           "lower_rdata.rdata" "rda.rda"          </span>
 <span class="co">#&gt; [4] "upper_rdata.RData"</span>
@@ -401,7 +422,7 @@
 <span class="fu"><a href="https://rdrr.io/r/base/ls.html">ls</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; [1] "lower_rdata" "path_mixed"  "rda"         "upper_rdata"</span>
 <span class="va">rda</span>
-<span class="co">#&gt; # A tibble: 2 x 1</span>
+<span class="co">#&gt; # A tibble: 2 × 1</span>
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
@@ -426,24 +447,30 @@
 <span class="co">#&gt; [17] "vignettes"</span>
 
 <span class="fu"><a href="reference/load_any.html">load_any</a></span><span class="op">(</span><span class="st">"."</span>, .f <span class="op">=</span> <span class="fu">readr</span><span class="fu">::</span><span class="va"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span>, regexp <span class="op">=</span> <span class="st">"[.]csv$"</span><span class="op">)</span>
-<span class="co">#&gt; Parsed with column specification:</span>
-<span class="co">#&gt; cols(</span>
-<span class="co">#&gt;   x = col_double()</span>
-<span class="co">#&gt; )</span>
-<span class="co">#&gt; Parsed with column specification:</span>
-<span class="co">#&gt; cols(</span>
-<span class="co">#&gt;   y = col_character()</span>
-<span class="co">#&gt; )</span>
+<span class="co">#&gt; Rows: 2 Columns: 1</span>
+<span class="co">#&gt; ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span>
+<span class="co">#&gt; Delimiter: ","</span>
+<span class="co">#&gt; dbl (1): x</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span>
+<span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span>
+<span class="co">#&gt; Rows: 2 Columns: 1</span>
+<span class="co">#&gt; ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span>
+<span class="co">#&gt; Delimiter: ","</span>
+<span class="co">#&gt; chr (1): y</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span>
+<span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span>
 
 <span class="co"># The data is now available in the global environment</span>
 <span class="va">csv1</span>
-<span class="co">#&gt; # A tibble: 2 x 1</span>
+<span class="co">#&gt; # A tibble: 2 × 1</span>
 <span class="co">#&gt;       x</span>
 <span class="co">#&gt;   &lt;dbl&gt;</span>
 <span class="co">#&gt; 1     1</span>
 <span class="co">#&gt; 2     2</span>
 <span class="va">csv2</span>
-<span class="co">#&gt; # A tibble: 2 x 1</span>
+<span class="co">#&gt; # A tibble: 2 × 1</span>
 <span class="co">#&gt;   y    </span>
 <span class="co">#&gt;   &lt;chr&gt;</span>
 <span class="co">#&gt; 1 a    </span>
@@ -505,18 +532,7 @@
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
-<ul class="list-unstyled">
-<li><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="lifecycle"></a></li>
-<li><a href="https://travis-ci.org/maurolepore/tor"><img src="https://travis-ci.org/maurolepore/tor.svg?branch=master" alt="Travis build status"></a></li>
-<li><a href="https://codecov.io/gh/maurolepore/tor?branch=master"><img src="https://codecov.io/gh/maurolepore/tor/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
-<li><a href="https://coveralls.io/r/maurolepore/tor?branch=master"><img src="https://coveralls.io/repos/github/maurolepore/tor/badge.svg" alt="Coverage status"></a></li>
-<li><a href="https://cran.r-project.org/package=tor"><img src="https://www.r-pkg.org/badges/version/tor" alt="CRAN status"></a></li>
-<li><a href="https://www.codefactor.io/repository/github/maurolepore/tor"><img src="https://www.codefactor.io/repository/github/maurolepore/tor/badge" alt="CodeFactor"></a></li>
-</ul>
-</div>
-</div>
+  </div>
 </div>
 
 
