@@ -13,6 +13,7 @@ editor_options:
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/tor)](https://CRAN.R-project.org/package=tor)
 [![Codecov test coverage](https://codecov.io/gh/maurolepore/tor/branch/main/graph/badge.svg)](https://app.codecov.io/gh/maurolepore/tor?branch=main)
+[![R-CMD-check](https://github.com/maurolepore/tor/workflows/R-CMD-check/badge.svg)](https://github.com/maurolepore/tor/actions)
 <!-- badges: end -->
 
 __tor__ (_to-R_) helps you to import multiple files at once. For example:
