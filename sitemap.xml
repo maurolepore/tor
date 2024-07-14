@@ -1,27 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://maurolepore.github.io/tor//index.html</loc>
-  </url>
-  <url>
-    <loc>https://maurolepore.github.io/tor//reference/list_any.html</loc>
-  </url>
-  <url>
-    <loc>https://maurolepore.github.io/tor//reference/list_csv.html</loc>
-  </url>
-  <url>
-    <loc>https://maurolepore.github.io/tor//reference/load_any.html</loc>
-  </url>
-  <url>
-    <loc>https://maurolepore.github.io/tor//reference/load_csv.html</loc>
-  </url>
-  <url>
-    <loc>https://maurolepore.github.io/tor//reference/tor-package.html</loc>
-  </url>
-  <url>
-    <loc>https://maurolepore.github.io/tor//reference/tor_example.html</loc>
-  </url>
-  <url>
-    <loc>https://maurolepore.github.io/tor//articles/tor-1-1-1.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://maurolepore.github.io/tor/404.html</loc></url>
+<url><loc>https://maurolepore.github.io/tor/CODE_OF_CONDUCT.html</loc></url>
+<url><loc>https://maurolepore.github.io/tor/CONTRIBUTING.html</loc></url>
+<url><loc>https://maurolepore.github.io/tor/ISSUE_TEMPLATE.html</loc></url>
+<url><loc>https://maurolepore.github.io/tor/LICENSE.html</loc></url>
+<url><loc>https://maurolepore.github.io/tor/SUPPORT.html</loc></url>
+<url><loc>https://maurolepore.github.io/tor/articles/index.html</loc></url>
+<url><loc>https://maurolepore.github.io/tor/articles/tor-1-1-1.html</loc></url>
+<url><loc>https://maurolepore.github.io/tor/authors.html</loc></url>
+<url><loc>https://maurolepore.github.io/tor/index.html</loc></url>
+<url><loc>https://maurolepore.github.io/tor/news/index.html</loc></url>
+<url><loc>https://maurolepore.github.io/tor/reference/index.html</loc></url>
+<url><loc>https://maurolepore.github.io/tor/reference/list_any.html</loc></url>
+<url><loc>https://maurolepore.github.io/tor/reference/list_csv.html</loc></url>
+<url><loc>https://maurolepore.github.io/tor/reference/load_any.html</loc></url>
+<url><loc>https://maurolepore.github.io/tor/reference/load_csv.html</loc></url>
+<url><loc>https://maurolepore.github.io/tor/reference/tor-package.html</loc></url>
+<url><loc>https://maurolepore.github.io/tor/reference/tor_example.html</loc></url>
 </urlset>
+
