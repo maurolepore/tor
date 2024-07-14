@@ -1,5 +1,3 @@
-context("tor_example")
-
 test_that("with no argument returns directories at inst/extdata (not a path)", {
   expect_false(
     any(grepl("tor", tor_example()))

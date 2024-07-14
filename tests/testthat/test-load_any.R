@@ -1,5 +1,3 @@
-context("load_any")
-
 test_that("load_any with a formula-function loads data into an environment", {
   e <- new.env()
   load_any(tor_example("rdata"), .f = ~ get(load(.x)), envir = e)

@@ -1,5 +1,3 @@
-context("list_any")
-
 test_that("list_any with read.csv lists (file)named dataframes", {
   res <- list_any(
     tor_example("csv"),
