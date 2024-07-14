@@ -1,4 +1,6 @@
 url: https://maurolepore.github.io/tor/
+template:
+  bootstrap: 5
 
 authors:
   Mauro Lepore:
