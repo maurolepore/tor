@@ -1,8 +1,8 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
-# tor 1.1.2.9001
+# tor 1.1.2.9002
 
-* Avoid CRAN NOTE (#46).
+* Modernize: Upkeep for tor (2024) (#47).
 
 # tor 1.1.2
 

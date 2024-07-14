@@ -1,6 +1,6 @@
 Package: tor
 Title: Import Multiple Files From a Single Directory at Once
-Version: 1.1.2.9001
+Version: 1.1.2.9002
 Authors@R: 
     person("Mauro", "Lepore", , "maurolepore@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-1986-7988"))
