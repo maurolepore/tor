@@ -125,7 +125,7 @@
 <span><span class="co">#&gt; [1] "csv"   "mixed" "rdata" "rds"   "tsv"</span></span>
 <span></span>
 <span><span class="op">(</span><span class="va">path_rds</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/tor_example.html">tor_example</a></span><span class="op">(</span><span class="st">"rds"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "/usr/local/lib/R/site-library/tor/extdata/rds"</span></span>
+<span><span class="co">#&gt; [1] "/tmp/RtmpYaA5se/temp_libpath3ffe324f0098/tor/extdata/rds"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">dir</a></span><span class="op">(</span><span class="va">path_rds</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "rds1.rds" "rds2.rds"</span></span>
 <span></span>
@@ -183,7 +183,7 @@
 <p><code><a href="reference/list_any.html">list_any()</a></code> is the most flexible function. You supply the function to read with.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">path_csv</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/tor_example.html">tor_example</a></span><span class="op">(</span><span class="st">"csv"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "/usr/local/lib/R/site-library/tor/extdata/csv"</span></span>
+<span><span class="co">#&gt; [1] "/tmp/RtmpYaA5se/temp_libpath3ffe324f0098/tor/extdata/csv"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">dir</a></span><span class="op">(</span><span class="va">path_csv</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "csv1.csv" "csv2.csv"</span></span>
 <span></span>
@@ -207,7 +207,7 @@
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org" class="external-link">magrittr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="op">(</span><span class="va">path_rdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/tor_example.html">tor_example</a></span><span class="op">(</span><span class="st">"rdata"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "/usr/local/lib/R/site-library/tor/extdata/rdata"</span></span>
+<span><span class="co">#&gt; [1] "/tmp/RtmpYaA5se/temp_libpath3ffe324f0098/tor/extdata/rdata"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">dir</a></span><span class="op">(</span><span class="va">path_rdata</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "rdata1.rdata" "rdata2.rdata"</span></span>
 <span></span>
@@ -382,7 +382,7 @@
 <p>You may import files from a specific <code>path</code>.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">path_mixed</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/tor_example.html">tor_example</a></span><span class="op">(</span><span class="st">"mixed"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "/usr/local/lib/R/site-library/tor/extdata/mixed"</span></span>
+<span><span class="co">#&gt; [1] "/tmp/RtmpYaA5se/temp_libpath3ffe324f0098/tor/extdata/mixed"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">dir</a></span><span class="op">(</span><span class="va">path_mixed</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "csv.csv"           "lower_rdata.rdata" "rda.rda"          </span></span>
 <span><span class="co">#&gt; [4] "upper_rdata.RData"</span></span>
@@ -390,7 +390,7 @@
 <span><span class="fu"><a href="reference/load_csv.html">load_rdata</a></span><span class="op">(</span><span class="va">path_mixed</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/ls.html" class="external-link">ls</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "lower_rdata" "path_mixed"  "rda"         "upper_rdata"</span></span>
+<span><span class="co">#&gt; [1] "path_mixed"</span></span>
 <span><span class="va">rda</span></span>
 <span><span class="co">#&gt; # A tibble: 2 × 1</span></span>
 <span><span class="co">#&gt;   y    </span></span>
