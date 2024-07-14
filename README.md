@@ -92,7 +92,7 @@ tor_example()
 #> [1] "csv"   "mixed" "rdata" "rds"   "tsv"
 
 (path_rds <- tor_example("rds"))
-#> [1] "/usr/local/lib/R/site-library/tor/extdata/rds"
+#> [1] "/tmp/RtmpYaA5se/temp_libpath3ffe324f0098/tor/extdata/rds"
 dir(path_rds)
 #> [1] "rds1.rds" "rds2.rds"
 
@@ -160,7 +160,7 @@ read with.
 
 ``` r
 (path_csv <- tor_example("csv"))
-#> [1] "/usr/local/lib/R/site-library/tor/extdata/csv"
+#> [1] "/tmp/RtmpYaA5se/temp_libpath3ffe324f0098/tor/extdata/csv"
 dir(path_csv)
 #> [1] "csv1.csv" "csv2.csv"
 
@@ -188,7 +188,7 @@ It understands lambda functions and formulas (powered by
 library(magrittr)
 
 (path_rdata <- tor_example("rdata"))
-#> [1] "/usr/local/lib/R/site-library/tor/extdata/rdata"
+#> [1] "/tmp/RtmpYaA5se/temp_libpath3ffe324f0098/tor/extdata/rdata"
 dir(path_rdata)
 #> [1] "rdata1.rdata" "rdata2.rdata"
 
@@ -375,7 +375,7 @@ You may import files from a specific `path`.
 
 ``` r
 (path_mixed <- tor_example("mixed"))
-#> [1] "/usr/local/lib/R/site-library/tor/extdata/mixed"
+#> [1] "/tmp/RtmpYaA5se/temp_libpath3ffe324f0098/tor/extdata/mixed"
 dir(path_mixed)
 #> [1] "csv.csv"           "lower_rdata.rdata" "rda.rda"          
 #> [4] "upper_rdata.RData"
@@ -383,7 +383,7 @@ dir(path_mixed)
 load_rdata(path_mixed)
 
 ls()
-#> [1] "lower_rdata" "path_mixed"  "rda"         "upper_rdata"
+#> [1] "path_mixed"
 rda
 #> # A tibble: 2 × 1
 #>   y    
