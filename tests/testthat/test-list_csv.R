@@ -1,7 +1,5 @@
-context("list_rds")
-
 test_that("list_rds outputs tibbles", {
-  expect_is(list_rds(tor_example("rds"))[[1]], "tbl")
+  expect_s3_class(list_rds(tor_example("rds"))[[1]], "tbl")
 })
 
 test_that("list_rds lists .rds files", {
@@ -29,10 +27,9 @@ test_that("list_rds allows inverting a `regexp` pattern", {
   )
 })
 
-context("list_rdata")
 
 test_that("list_rdata outputs tibbles", {
-  expect_is(list_rdata(tor_example("rdata"))[[1]], "tbl")
+  expect_s3_class(list_rdata(tor_example("rdata"))[[1]], "tbl")
 })
 
 test_that("list_rdata lists .rdata, .Rdata, and .rda", {
@@ -64,10 +61,9 @@ test_that("list_rdata defaults to read from working directory", {
   expect_named(list_rdata(), "rdata")
 })
 
-context("list_csv")
 
 test_that("list_csv outputs tibbles", {
-  expect_is(list_csv(tor_example("csv"))[[1]], "tbl")
+  expect_s3_class(list_csv(tor_example("csv"))[[1]], "tbl")
 })
 
 test_that("list_csv can read .csv specifically in a mixed directory", {
@@ -78,7 +74,7 @@ test_that("list_csv can read .csv specifically in a mixed directory", {
 })
 
 test_that("list_csv defaults to `stringsAsFactors = FALSE`", {
-  expect_is(list_csv(tor_example("mixed"))[[1]]$y, "character")
+  expect_type(list_csv(tor_example("mixed"))[[1]]$y, "character")
 })
 
 test_that("list_csv defaults to read from working directory", {
@@ -115,10 +111,9 @@ test_that("list_csv is sensitive to `regexp`, `invert, and `ignore.case`", {
   )
 })
 
-context("list_tsv")
 
 test_that("list_tsv outputs tibbles", {
-  expect_is(list_tsv(tor_example("tsv"))[[1]], "tbl")
+  expect_s3_class(list_tsv(tor_example("tsv"))[[1]], "tbl")
 })
 
 test_that("list_tsv defaults to read from working directory", {

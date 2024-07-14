@@ -1,5 +1,3 @@
-context("load_any")
-
 test_that("load_any with a formula-function loads data into an environment", {
   e <- new.env()
   load_any(tor_example("rdata"), .f = ~ get(load(.x)), envir = e)
@@ -40,7 +38,7 @@ test_that("load_any passes arguments to .f via ...", {
     stringsAsFactors = FALSE
   )
   expect_false(inherits(e$csv2$y, "factor"))
-  expect_is(e$csv2$y, "character")
+  expect_type(e$csv2$y, "character")
 })
 
 test_that("load_any passes arguments to .f inside lambda", {
@@ -49,5 +47,5 @@ test_that("load_any passes arguments to .f inside lambda", {
     .f = ~ read.csv(.x, stringsAsFactors = FALSE), regexp = "[.]csv$", envir = e,
   )
   expect_false(inherits(e$csv2$y, "factor"))
-  expect_is(e$csv2$y, "character")
+  expect_type(e$csv2$y, "character")
 })

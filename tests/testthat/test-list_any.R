@@ -1,5 +1,3 @@
-context("list_any")
-
 test_that("list_any with read.csv lists (file)named dataframes", {
   res <- list_any(
     tor_example("csv"),
@@ -7,10 +5,10 @@ test_that("list_any with read.csv lists (file)named dataframes", {
     regexp = "[.]csv$"
   )
 
-  expect_is(res, "list")
+  expect_type(res, "list")
   expect_named(res, c("csv1", "csv2"))
-  expect_is(res[[1]], "data.frame")
-  expect_is(res[[1]], "tbl")
+  expect_s3_class(res[[1]], "data.frame")
+  expect_s3_class(res[[1]], "tbl")
 })
 
 test_that("list_any accepts lambda functions and formulas", {
@@ -19,9 +17,9 @@ test_that("list_any accepts lambda functions and formulas", {
     ~ get(load(.x))
   )
 
-  expect_is(res, "list")
+  expect_type(res, "list")
   expect_named(res, c("rdata1", "rdata2"))
-  expect_is(res[[1]], "data.frame")
+  expect_s3_class(res[[1]], "data.frame")
   expect_identical(
     list_any(
       tor_example("rdata"),
@@ -32,7 +30,7 @@ test_that("list_any accepts lambda functions and formulas", {
 })
 
 test_that("list_any reads specific files extention in a mixed directory", {
-  expect_is(
+  expect_type(
     list_any(
       tor_example("mixed"),
       utils::read.csv,
@@ -54,14 +52,14 @@ test_that("list_any errs with informative message if `regexp` matches no file", 
 })
 
 test_that("list_any passes arguments to the reader function via `...`", {
-  expect_is(
+  expect_s3_class(
     list_any(
       tor_example("csv"),
       ~ read.csv(., stringsAsFactors = TRUE)
     )[[2]]$y,
     "factor"
   )
-  expect_is(
+  expect_type(
     list_any(
       tor_example("csv"),
       ~ read.csv(., stringsAsFactors = FALSE)
@@ -71,7 +69,7 @@ test_that("list_any passes arguments to the reader function via `...`", {
 })
 
 test_that("list_any with emtpy path reads from working directory", {
-  expect_is(
+  expect_s3_class(
     list_any(, read.csv, "[.]csv")[[1]],
     "data.frame"
   )

@@ -1,5 +1,3 @@
-context("load_rds")
-
 test_that("load_rds loads multiple .rds files in a new environment", {
   e <- new.env()
   load_rds(tor_example("rds"), envir = e)
@@ -10,8 +8,6 @@ test_that("load_rds loads multiple .rds files in a new environment", {
   )
   rm(list = ls())
 })
-
-context("load_rdata")
 
 test_that("load_rdata loads multiple .rdata files in a new environment", {
   e <- new.env()
@@ -24,8 +20,6 @@ test_that("load_rdata loads multiple .rdata files in a new environment", {
   rm(list = ls())
 })
 
-context("load_csv")
-
 test_that("load_csv loads multiple .csv files in a new environment", {
   e <- new.env()
   load_csv(tor_example("csv"), envir = e)
@@ -36,8 +30,6 @@ test_that("load_csv loads multiple .csv files in a new environment", {
   )
   rm(list = ls())
 })
-
-context("load_tsv")
 
 test_that("load_tsv loads multiple .tsv files in a new environment", {
   e <- new.env()
