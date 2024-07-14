@@ -1,3 +1,5 @@
+# tor 1.1.3
+
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
 # tor 1.1.2.9002
