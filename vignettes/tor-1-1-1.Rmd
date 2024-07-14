@@ -39,9 +39,9 @@ You can specify a `path` to import from any directory. `regexp`, `ignore.case`, 
 dir(path_mixed)
 
 list_rdata(
-  path_mixed, 
-  regexp = "[.]RData", 
-  ignore.case = FALSE, 
+  path_mixed,
+  regexp = "[.]RData",
+  ignore.case = FALSE,
   invert = FALSE
 )
 ```
@@ -77,11 +77,11 @@ You may use anonymous functions using the formula syntax (powered by [__rlang__]
 (path_rdata <- tor_example("rdata"))
 dir(path_rdata)
 
-path_rdata %>% 
+path_rdata %>%
   list_any(function(x) get(load(x)))
 
 # Same
-path_rdata %>% 
-  list_any(~get(load(.x)))
+path_rdata %>%
+  list_any(~ get(load(.x)))
 ```
 

@@ -105,22 +105,22 @@ library(magrittr)
 (path_rdata <- tor_example("rdata"))
 dir(path_rdata)
 
-path_rdata %>% 
+path_rdata %>%
   list_any(function(x) get(load(x)))
 
 # Same
-path_rdata %>% 
-  list_any(~get(load(.x)))
+path_rdata %>%
+  list_any(~ get(load(.x)))
 ```
 
 Pass additional arguments via `...` or inside the lambda function.
 
 ```{r}
-path_csv %>% 
+path_csv %>%
   list_any(readr::read_csv, skip = 1)
 
-path_csv %>% 
-  list_any(~read.csv(., stringsAsFactors = FALSE))
+path_csv %>%
+  list_any(~ read.csv(., stringsAsFactors = FALSE))
 ```
 
 It also provides the arguments `regexp`, `ignore.case`, and `invert` to pick specific files in a directory (powered by [__fs__](https://fs.r-lib.org/)).
@@ -129,11 +129,11 @@ It also provides the arguments `regexp`, `ignore.case`, and `invert` to pick spe
 path_mixed <- tor_example("mixed")
 dir(path_mixed)
 
-path_mixed %>% 
-  list_any(~get(load(.)), "[.]Rdata$", ignore.case = TRUE)
+path_mixed %>%
+  list_any(~ get(load(.)), "[.]Rdata$", ignore.case = TRUE)
 
-path_mixed %>% 
-  list_any(~get(load(.)), regexp = "[.]csv$", invert = TRUE)
+path_mixed %>%
+  list_any(~ get(load(.)), regexp = "[.]csv$", invert = TRUE)
 ```
 
 ### `load_*()`: Load multiple files from a directory into an environment
