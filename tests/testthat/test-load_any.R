@@ -46,7 +46,7 @@ test_that("load_any passes arguments to .f via ...", {
 test_that("load_any passes arguments to .f inside lambda", {
   e <- new.env()
   load_any(
-    .f = ~read.csv(.x, stringsAsFactors = FALSE), regexp = "[.]csv$", envir = e,
+    .f = ~ read.csv(.x, stringsAsFactors = FALSE), regexp = "[.]csv$", envir = e,
   )
   expect_false(inherits(e$csv2$y, "factor"))
   expect_is(e$csv2$y, "character")
