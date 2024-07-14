@@ -106,4 +106,3 @@ load_rdata <- function(path = ".",
   list2env(lst, envir = envir)
   invisible(path)
 }
-

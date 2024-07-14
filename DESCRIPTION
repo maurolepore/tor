@@ -2,14 +2,11 @@ Package: tor
 Title: Import Multiple Files From a Single Directory at Once
 Version: 1.1.2.9000
 Authors@R: 
-    person(given = "Mauro",
-           family = "Lepore",
-           role = c("aut", "cre"),
-           email = "maurolepore@gmail.com",
+    person("Mauro", "Lepore", , "maurolepore@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-1986-7988"))
-Description: The goal of tor (to-R) is to help you to import
-    multiple files from a single directory at once, and to do so as
-    quickly, flexibly, and simply as possible.
+Description: The goal of tor (to-R) is to help you to import multiple
+    files from a single directory at once, and to do so as quickly,
+    flexibly, and simply as possible.
 License: GPL-3
 URL: https://github.com/maurolepore/tor,
     https://maurolepore.github.io/tor/
@@ -31,4 +28,4 @@ Encoding: UTF-8
 Language: en-US
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.3.2

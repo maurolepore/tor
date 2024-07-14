@@ -12,7 +12,7 @@ The goal of tor (to-R) is to help you to import multiple files from a single dir
 Useful links:
 \itemize{
   \item \url{https://github.com/maurolepore/tor}
-  \item \url{https://maurolepore.github.io/tor}
+  \item \url{https://maurolepore.github.io/tor/}
   \item Report bugs at \url{https://github.com/maurolepore/tor/issues}
 }
 
