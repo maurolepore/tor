@@ -1,4 +1,3 @@
-
 test_that("list_rds outputs tibbles", {
   expect_is(list_rds(tor_example("rds"))[[1]], "tbl")
 })
