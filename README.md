@@ -40,6 +40,8 @@ devtools::install_github("maurolepore/tor")
 
 ``` r
 library(tor)
+
+withr::local_options(readr.show_col_types = FALSE)
 ```
 
 ### `list_*()`: Import multiple files from a directory into a list
@@ -55,20 +57,6 @@ dir()
 #> [17] "vignettes"
 
 list_csv()
-#> Rows: 2 Columns: 1
-#> ── Column specification ────────────────────────────────────────────────────────
-#> Delimiter: ","
-#> dbl (1): x
-#> 
-#> ℹ Use `spec()` to retrieve the full column specification for this data.
-#> ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-#> Rows: 2 Columns: 1
-#> ── Column specification ────────────────────────────────────────────────────────
-#> Delimiter: ","
-#> chr (1): y
-#> 
-#> ℹ Use `spec()` to retrieve the full column specification for this data.
-#> ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 #> $csv1
 #> # A tibble: 2 × 1
 #>       x
@@ -92,7 +80,7 @@ tor_example()
 #> [1] "csv"   "mixed" "rdata" "rds"   "tsv"
 
 (path_rds <- tor_example("rds"))
-#> [1] "/tmp/RtmpYaA5se/temp_libpath3ffe324f0098/tor/extdata/rds"
+#> [1] "/usr/local/lib/R/site-library/tor/extdata/rds"
 dir(path_rds)
 #> [1] "rds1.rds" "rds2.rds"
 
@@ -160,7 +148,7 @@ read with.
 
 ``` r
 (path_csv <- tor_example("csv"))
-#> [1] "/tmp/RtmpYaA5se/temp_libpath3ffe324f0098/tor/extdata/csv"
+#> [1] "/usr/local/lib/R/site-library/tor/extdata/csv"
 dir(path_csv)
 #> [1] "csv1.csv" "csv2.csv"
 
@@ -188,7 +176,7 @@ It understands lambda functions and formulas (powered by
 library(magrittr)
 
 (path_rdata <- tor_example("rdata"))
-#> [1] "/tmp/RtmpYaA5se/temp_libpath3ffe324f0098/tor/extdata/rdata"
+#> [1] "/usr/local/lib/R/site-library/tor/extdata/rdata"
 dir(path_rdata)
 #> [1] "rdata1.rdata" "rdata2.rdata"
 
@@ -231,20 +219,6 @@ Pass additional arguments via `...` or inside the lambda function.
 ``` r
 path_csv %>%
   list_any(readr::read_csv, skip = 1)
-#> Rows: 1 Columns: 1
-#> ── Column specification ────────────────────────────────────────────────────────
-#> Delimiter: ","
-#> dbl (1): 1
-#> 
-#> ℹ Use `spec()` to retrieve the full column specification for this data.
-#> ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-#> Rows: 1 Columns: 1
-#> ── Column specification ────────────────────────────────────────────────────────
-#> Delimiter: ","
-#> chr (1): a
-#> 
-#> ℹ Use `spec()` to retrieve the full column specification for this data.
-#> ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 #> $csv1
 #> # A tibble: 1 × 1
 #>     `1`
@@ -339,20 +313,6 @@ dir()
 #> [17] "vignettes"
 
 load_csv()
-#> Rows: 2 Columns: 1
-#> ── Column specification ────────────────────────────────────────────────────────
-#> Delimiter: ","
-#> dbl (1): x
-#> 
-#> ℹ Use `spec()` to retrieve the full column specification for this data.
-#> ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-#> Rows: 2 Columns: 1
-#> ── Column specification ────────────────────────────────────────────────────────
-#> Delimiter: ","
-#> chr (1): y
-#> 
-#> ℹ Use `spec()` to retrieve the full column specification for this data.
-#> ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
 # Each file is now available as a dataframe in the global environment
 csv1
@@ -375,7 +335,7 @@ You may import files from a specific `path`.
 
 ``` r
 (path_mixed <- tor_example("mixed"))
-#> [1] "/tmp/RtmpYaA5se/temp_libpath3ffe324f0098/tor/extdata/mixed"
+#> [1] "/usr/local/lib/R/site-library/tor/extdata/mixed"
 dir(path_mixed)
 #> [1] "csv.csv"           "lower_rdata.rdata" "rda.rda"          
 #> [4] "upper_rdata.RData"
@@ -383,7 +343,7 @@ dir(path_mixed)
 load_rdata(path_mixed)
 
 ls()
-#> [1] "path_mixed"
+#> [1] "lower_rdata" "path_mixed"  "rda"         "upper_rdata"
 rda
 #> # A tibble: 2 × 1
 #>   y    
@@ -417,20 +377,6 @@ dir()
 #> [17] "vignettes"
 
 load_any(".", .f = readr::read_csv, regexp = "[.]csv$")
-#> Rows: 2 Columns: 1
-#> ── Column specification ────────────────────────────────────────────────────────
-#> Delimiter: ","
-#> dbl (1): x
-#> 
-#> ℹ Use `spec()` to retrieve the full column specification for this data.
-#> ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-#> Rows: 2 Columns: 1
-#> ── Column specification ────────────────────────────────────────────────────────
-#> Delimiter: ","
-#> chr (1): y
-#> 
-#> ℹ Use `spec()` to retrieve the full column specification for this data.
-#> ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
 # The data is now available in the global environment
 csv1

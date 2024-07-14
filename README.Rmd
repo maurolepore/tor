@@ -48,6 +48,8 @@ devtools::install_github("maurolepore/tor")
 
 ```{r}
 library(tor)
+
+withr::local_options(readr.show_col_types = FALSE)
 ```
 
 ### `list_*()`: Import multiple files from a directory into a list
