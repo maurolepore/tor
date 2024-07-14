@@ -1,10 +1,6 @@
-# tor (development version)
-
-# tor 1.1.3
-
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
-# tor 1.1.2.9002
+# tor 1.1.3
 
 * Modernize: Upkeep for tor (2024) (#47).
 

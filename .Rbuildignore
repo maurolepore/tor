@@ -16,3 +16,4 @@
 ^CRAN-RELEASE$
 ^docs$
 ^pkgdown$
+^CRAN-SUBMISSION$
