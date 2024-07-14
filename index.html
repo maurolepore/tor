@@ -76,7 +76,9 @@
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/maurolepore/tor" class="external-link">tor</a></span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/maurolepore/tor" class="external-link">tor</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">withr</span><span class="fu">::</span><span class="fu"><a href="https://withr.r-lib.org/reference/with_options.html" class="external-link">local_options</a></span><span class="op">(</span>readr.show_col_types <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="list_-import-multiple-files-from-a-directory-into-a-list">
 <code>list_*()</code>: Import multiple files from a directory into a list<a class="anchor" aria-label="anchor" href="#list_-import-multiple-files-from-a-directory-into-a-list"></a>
@@ -91,20 +93,6 @@
 <span><span class="co">#&gt; [17] "vignettes"</span></span>
 <span></span>
 <span><span class="fu"><a href="reference/list_csv.html">list_csv</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Rows: 2 Columns: 1</span></span>
-<span><span class="co">#&gt; ── Column specification ────────────────────────────────────────────────────────</span></span>
-<span><span class="co">#&gt; Delimiter: ","</span></span>
-<span><span class="co">#&gt; dbl (1): x</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span></span>
-<span><span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
-<span><span class="co">#&gt; Rows: 2 Columns: 1</span></span>
-<span><span class="co">#&gt; ── Column specification ────────────────────────────────────────────────────────</span></span>
-<span><span class="co">#&gt; Delimiter: ","</span></span>
-<span><span class="co">#&gt; chr (1): y</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span></span>
-<span><span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
 <span><span class="co">#&gt; $csv1</span></span>
 <span><span class="co">#&gt; # A tibble: 2 × 1</span></span>
 <span><span class="co">#&gt;       x</span></span>
@@ -125,7 +113,7 @@
 <span><span class="co">#&gt; [1] "csv"   "mixed" "rdata" "rds"   "tsv"</span></span>
 <span></span>
 <span><span class="op">(</span><span class="va">path_rds</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/tor_example.html">tor_example</a></span><span class="op">(</span><span class="st">"rds"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "/tmp/RtmpYaA5se/temp_libpath3ffe324f0098/tor/extdata/rds"</span></span>
+<span><span class="co">#&gt; [1] "/usr/local/lib/R/site-library/tor/extdata/rds"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">dir</a></span><span class="op">(</span><span class="va">path_rds</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "rds1.rds" "rds2.rds"</span></span>
 <span></span>
@@ -183,7 +171,7 @@
 <p><code><a href="reference/list_any.html">list_any()</a></code> is the most flexible function. You supply the function to read with.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">path_csv</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/tor_example.html">tor_example</a></span><span class="op">(</span><span class="st">"csv"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "/tmp/RtmpYaA5se/temp_libpath3ffe324f0098/tor/extdata/csv"</span></span>
+<span><span class="co">#&gt; [1] "/usr/local/lib/R/site-library/tor/extdata/csv"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">dir</a></span><span class="op">(</span><span class="va">path_csv</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "csv1.csv" "csv2.csv"</span></span>
 <span></span>
@@ -207,7 +195,7 @@
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org" class="external-link">magrittr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="op">(</span><span class="va">path_rdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/tor_example.html">tor_example</a></span><span class="op">(</span><span class="st">"rdata"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "/tmp/RtmpYaA5se/temp_libpath3ffe324f0098/tor/extdata/rdata"</span></span>
+<span><span class="co">#&gt; [1] "/usr/local/lib/R/site-library/tor/extdata/rdata"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">dir</a></span><span class="op">(</span><span class="va">path_rdata</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "rdata1.rdata" "rdata2.rdata"</span></span>
 <span></span>
@@ -247,20 +235,6 @@
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">path_csv</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="reference/list_any.html">list_any</a></span><span class="op">(</span><span class="fu">readr</span><span class="fu">::</span><span class="va"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_csv</a></span>, skip <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Rows: 1 Columns: 1</span></span>
-<span><span class="co">#&gt; ── Column specification ────────────────────────────────────────────────────────</span></span>
-<span><span class="co">#&gt; Delimiter: ","</span></span>
-<span><span class="co">#&gt; dbl (1): 1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span></span>
-<span><span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
-<span><span class="co">#&gt; Rows: 1 Columns: 1</span></span>
-<span><span class="co">#&gt; ── Column specification ────────────────────────────────────────────────────────</span></span>
-<span><span class="co">#&gt; Delimiter: ","</span></span>
-<span><span class="co">#&gt; chr (1): a</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span></span>
-<span><span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
 <span><span class="co">#&gt; $csv1</span></span>
 <span><span class="co">#&gt; # A tibble: 1 × 1</span></span>
 <span><span class="co">#&gt;     `1`</span></span>
@@ -349,20 +323,6 @@
 <span><span class="co">#&gt; [17] "vignettes"</span></span>
 <span></span>
 <span><span class="fu"><a href="reference/load_csv.html">load_csv</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Rows: 2 Columns: 1</span></span>
-<span><span class="co">#&gt; ── Column specification ────────────────────────────────────────────────────────</span></span>
-<span><span class="co">#&gt; Delimiter: ","</span></span>
-<span><span class="co">#&gt; dbl (1): x</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span></span>
-<span><span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
-<span><span class="co">#&gt; Rows: 2 Columns: 1</span></span>
-<span><span class="co">#&gt; ── Column specification ────────────────────────────────────────────────────────</span></span>
-<span><span class="co">#&gt; Delimiter: ","</span></span>
-<span><span class="co">#&gt; chr (1): y</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span></span>
-<span><span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
 <span></span>
 <span><span class="co"># Each file is now available as a dataframe in the global environment</span></span>
 <span><span class="va">csv1</span></span>
@@ -382,7 +342,7 @@
 <p>You may import files from a specific <code>path</code>.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">path_mixed</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/tor_example.html">tor_example</a></span><span class="op">(</span><span class="st">"mixed"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "/tmp/RtmpYaA5se/temp_libpath3ffe324f0098/tor/extdata/mixed"</span></span>
+<span><span class="co">#&gt; [1] "/usr/local/lib/R/site-library/tor/extdata/mixed"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">dir</a></span><span class="op">(</span><span class="va">path_mixed</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "csv.csv"           "lower_rdata.rdata" "rda.rda"          </span></span>
 <span><span class="co">#&gt; [4] "upper_rdata.RData"</span></span>
@@ -390,7 +350,7 @@
 <span><span class="fu"><a href="reference/load_csv.html">load_rdata</a></span><span class="op">(</span><span class="va">path_mixed</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/ls.html" class="external-link">ls</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "path_mixed"</span></span>
+<span><span class="co">#&gt; [1] "lower_rdata" "path_mixed"  "rda"         "upper_rdata"</span></span>
 <span><span class="va">rda</span></span>
 <span><span class="co">#&gt; # A tibble: 2 × 1</span></span>
 <span><span class="co">#&gt;   y    </span></span>
@@ -417,20 +377,6 @@
 <span><span class="co">#&gt; [17] "vignettes"</span></span>
 <span></span>
 <span><span class="fu"><a href="reference/load_any.html">load_any</a></span><span class="op">(</span><span class="st">"."</span>, .f <span class="op">=</span> <span class="fu">readr</span><span class="fu">::</span><span class="va"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_csv</a></span>, regexp <span class="op">=</span> <span class="st">"[.]csv$"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Rows: 2 Columns: 1</span></span>
-<span><span class="co">#&gt; ── Column specification ────────────────────────────────────────────────────────</span></span>
-<span><span class="co">#&gt; Delimiter: ","</span></span>
-<span><span class="co">#&gt; dbl (1): x</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span></span>
-<span><span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
-<span><span class="co">#&gt; Rows: 2 Columns: 1</span></span>
-<span><span class="co">#&gt; ── Column specification ────────────────────────────────────────────────────────</span></span>
-<span><span class="co">#&gt; Delimiter: ","</span></span>
-<span><span class="co">#&gt; chr (1): y</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span></span>
-<span><span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
 <span></span>
 <span><span class="co"># The data is now available in the global environment</span></span>
 <span><span class="va">csv1</span></span>
