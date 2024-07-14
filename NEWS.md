@@ -1,4 +1,8 @@
-# tor (development version)
+<!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
+
+# tor 1.1.2.9001
+
+* Avoid CRAN NOTE (#46).
 
 # tor 1.1.2
 
