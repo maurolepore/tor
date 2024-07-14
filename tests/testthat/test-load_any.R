@@ -38,7 +38,7 @@ test_that("load_any passes arguments to .f via ...", {
     stringsAsFactors = FALSE
   )
   expect_false(inherits(e$csv2$y, "factor"))
-  expect_is(e$csv2$y, "character")
+  expect_type(e$csv2$y, "character")
 })
 
 test_that("load_any passes arguments to .f inside lambda", {
@@ -47,5 +47,5 @@ test_that("load_any passes arguments to .f inside lambda", {
     .f = ~ read.csv(.x, stringsAsFactors = FALSE), regexp = "[.]csv$", envir = e,
   )
   expect_false(inherits(e$csv2$y, "factor"))
-  expect_is(e$csv2$y, "character")
+  expect_type(e$csv2$y, "character")
 })
